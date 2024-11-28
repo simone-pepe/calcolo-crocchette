@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcolatore Crocchette per Cani</title>
     <style>
-        /* Modalità scura (dark mode) attivata di default */
         body {
             background-color: #121212;
             color: #ffffff;
@@ -16,6 +15,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
             transition: background-color 0.3s, color 0.3s;
         }
 
@@ -26,21 +26,24 @@
             width: 90%;
             max-width: 500px;
             padding: 30px;
-            overflow: hidden;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            overflow-y: auto;
+            max-height: 80vh;
+            box-sizing: border-box;
         }
 
         h1 {
-            font-size: 28px;
+            font-size: 24px;
             text-align: center;
             margin-bottom: 20px;
+            color: #b57fdb; /* Colore viola/lilla per il titolo */
         }
 
         label {
             font-size: 16px;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: block;
+            color: #ffffff;
         }
 
         input, select, button {
@@ -51,30 +54,32 @@
             border-radius: 8px;
             font-size: 16px;
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         input:focus, select:focus {
-            border-color: #5e8bf8;
+            border-color: #b57fdb; /* Bordo viola/lilla */
             outline: none;
         }
 
         button {
-            background-color: #5e8bf8;
+            background-color: #b57fdb; /* Viola/lilla per il bottone */
             color: white;
             font-weight: bold;
             cursor: pointer;
             border: none;
             transition: background-color 0.3s ease;
+            padding: 15px;
         }
 
         button:hover {
-            background-color: #3b8bd3;
+            background-color: #9a67d9; /* Colore viola più scuro all'hover */
         }
 
         .result {
             background-color: #444444;
-            border: 2px solid #5e8bf8;
-            color: #5e8bf8;
+            border: 2px solid #b57fdb; /* Bordo viola/lilla per il risultato */
+            color: #b57fdb; /* Testo viola/lilla per il risultato */
             font-size: 18px;
             font-weight: bold;
             text-align: center;
@@ -91,35 +96,58 @@
             display: none;
         }
 
-        /* Popover per info razze inclini */
-        .popover {
-            display: none;
-            position: absolute;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            max-width: 200px;
-            z-index: 100;
+        .sources a {
+            color: #b57fdb; /* Link viola/lilla per le fonti */
+            text-decoration: none;
         }
 
-        .popover ul {
+        .sources a:hover {
+            text-decoration: underline;
+        }
+
+        .info-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #3c3c3c;
+            border-radius: 8px;
+            color: #b57fdb;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .info-section ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        .popover ul li {
+        .info-section ul li {
             padding: 5px 0;
         }
 
-        .info-btn {
-            cursor: pointer;
-            font-size: 16px;
-            color: #5e8bf8;
-            border: none;
-            background: none;
-            text-decoration: underline;
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            input, select, button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .result {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .sources {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -128,30 +156,42 @@
         <h1>Calcolatore Crocchette per Cani</h1>
         <form id="foodCalculatorForm">
             <label for="pesoIdeale">Peso ideale del cane (kg):</label>
-            <input type="text" id="pesoIdeale" placeholder="Es. 30" required>
-            
+            <input type="number" id="pesoIdeale" placeholder="Es. 30" required>
+
             <label for="pesoAttuale">Peso attuale del cane (kg):</label>
-            <input type="text" id="pesoAttuale" placeholder="Es. 34,8 o 34.8" required>
-            
+            <input type="number" id="pesoAttuale" placeholder="Es. 34,8" required>
+
             <label for="calorieCrocchette">Calorie per kg di crocchette (kcal):</label>
-            <input type="text" id="calorieCrocchette" placeholder="Es. 3609" required>
-            
+            <input type="number" id="calorieCrocchette" placeholder="Es. 3609" required>
+
             <label for="attività">Fattore di attività:</label>
             <select id="attività" required>
                 <option value="1.2">Sedentario (1.2)</option>
                 <option value="1.3" selected>Moderato (1.3)</option>
                 <option value="1.4">Attivo (1.4)</option>
             </select>
-            
+
             <label for="temperatura">Temperatura media ambientale (°C):</label>
-            <input type="text" id="temperatura" placeholder="Es. 20" required>
-            
+            <input type="number" id="temperatura" placeholder="Es. 20" required>
+
             <label for="razzaIncline">Razza incline all'ingrassamento:</label>
             <select id="razzaIncline">
                 <option value="false" selected>No</option>
                 <option value="true">Sì</option>
             </select>
-            <button type="button" class="info-btn" onclick="showPopover()">Info</button>
+            <button type="button" class="info-btn" onclick="toggleInfoSection()">Info</button>
+			  <!-- Sezione con informazioni razze inclini -->
+        <div id="infoSection" class="info-section">
+            <p><strong>Razze più inclini ad ingrassare:</strong></p>
+            <ul>
+                <li>Beagle</li>
+                <li>Bulldog</li>
+                <li>Cocker Spaniel</li>
+                <li>Dobermann</li>
+                <li>Golden Retriever</li>
+                <li>Lab Retriever</li>
+            </ul>
+        </div>
 
             <label for="condizioneFisica">Condizione fisica:</label>
             <select id="condizioneFisica">
@@ -160,13 +200,12 @@
                 <option value="sovrappeso">Sovrappeso</option>
             </select>
 
-            <!-- Aggiunti nuovi campi -->
             <label for="sterilizzato">Sterilizzato/Spayed:</label>
             <select id="sterilizzato">
                 <option value="false">No</option>
                 <option value="true">Sì</option>
             </select>
-            
+
             <label for="condizioniMediche">Condizioni mediche (Obesità, Diabete, ecc.):</label>
             <select id="condizioniMediche">
                 <option value="none">Nessuna</option>
@@ -174,17 +213,17 @@
                 <option value="diabete">Diabete</option>
                 <option value="altro">Altro</option>
             </select>
-            
+
             <label for="faseVita">Fase di vita:</label>
             <select id="faseVita">
                 <option value="normale">Normale</option>
-                <option value="recupero">Recupero da intervento</option>
-                <option value="gravidanza">Gravidanza</option>
+                <option value="cucciolo">Cucciolo</option>
+                <option value="anziano">Anziano</option>
             </select>
-            
+
             <label for="età">Età del cane:</label>
             <select id="età">
-                <option value="adulto">Adulta</option>
+                <option value="adulta">Adulta</option>
                 <option value="cucciolo">Cucciolo</option>
                 <option value="anziano">Anziano</option>
             </select>
@@ -192,44 +231,25 @@
             <button type="submit">Calcola</button>
         </form>
 
-        <div id="result" class="result"></div>
-        <div id="sources" class="sources">
-            <h3>Fonti:</h3>
+        <div class="result" id="result"></div>
+        <div class="sources" id="sources">
+            <p><strong>Fonti per il calcolo:</strong></p>
             <ul>
-                <li><a href="https://www.merckvetmanual.com/" target="_blank">Merck Veterinary Manual</a></li>
-                <li><a href="https://www.wsava.org/" target="_blank">WSAVA Nutritional Guidelines</a></li>
-                <li><a href="https://www.petmd.com/dog/nutrition/evr_dg_calorie_needs" target="_blank">PetMD - Calorie Requirements for Dogs</a></li>
-                <li><a href="https://www.akc.org/expert-advice/nutrition/" target="_blank">American Kennel Club - Nutrizione Canina</a></li>
-                <li><a href="https://www.nap.edu/catalog/10668/nutrient-requirements-of-dogs-and-cats" target="_blank">Nutritional Requirements of Dogs - NRC</a></li>
+                <li><a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club: Calorie Needs for Dogs</a></li>
+                <li><a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD: Calcolando le Calorie per i Cani</a></li>
+                <li><a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina: Calcolatore dell'Alimentazione per Cani</a></li>
             </ul>
         </div>
 
-        <!-- Popover per razze inclini -->
-        <div id="popover" class="popover">
-            <ul>
-                <li>Beagle</li>
-                <li>Labrador Retriever</li>
-                <li>Cocker Spaniel</li>
-                <li>Basset Hound</li>
-                <li>Cavalier King Charles Spaniel</li>
-                <li>Bulldog Inglese</li>
-                <li>Boxer</li>
-                <li>Shih Tzu</li>
-                <li>Dachshund</li>
-                <li>Pomeranian</li>
-                <li>Chihuahua</li>
-            </ul>
-        </div>
+      
     </div>
 
     <script>
-        // Funzione per mostrare il popover con la lista delle razze inclini
-        function showPopover() {
-            const popover = document.getElementById('popover');
-            popover.style.display = popover.style.display === 'block' ? 'none' : 'block';
+        function toggleInfoSection() {
+            const infoSection = document.getElementById('infoSection');
+            infoSection.style.display = infoSection.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Funzione per calcolare la dose di crocchette
         document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -245,23 +265,19 @@
             const condizioniMediche = document.getElementById('condizioniMediche').value;
             const faseVita = document.getElementById('faseVita').value;
 
-            // Calcolo del fabbisogno calorico basato sul peso ideale
             const rer = 70 * Math.pow(pesoIdeale, 0.75);
             let fabbisognoCalorico = rer * attività;
 
-            // Aggiustamenti per temperatura
             if (temperatura < 10) {
-                fabbisognoCalorico *= 1.1; // Aumento per temperature basse
+                fabbisognoCalorico *= 1.1;
             } else if (temperatura > 30) {
-                fabbisognoCalorico *= 0.9; // Diminuzione per temperature alte
+                fabbisognoCalorico *= 0.9;
             }
 
-            // Aggiustamenti per razza incline
             if (razzaIncline) {
                 fabbisognoCalorico *= 1.05;
             }
 
-            // Modifica del fabbisogno per età e condizione fisica
             if (età === 'cucciolo') {
                 fabbisognoCalorico *= 1.5;
             } else if (età === 'anziano') {
@@ -274,15 +290,12 @@
                 fabbisognoCalorico *= 0.9;
             }
 
-            // Aggiustamento per sterilizzazione
             if (sterilizzato) {
                 fabbisognoCalorico *= 0.9;
             }
 
-            // Calcolo della quantità di crocchette
-            const crocchettePerGiorno = fabbisognoCalorico / calorieCrocchette;
+            const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
 
-            // Mostra il risultato
             document.getElementById('result').textContent = `Quantità di crocchette per il tuo cane: ${crocchettePerGiorno.toFixed(2)} g al giorno.`;
             document.getElementById('result').style.display = 'block';
             document.getElementById('sources').style.display = 'block';
