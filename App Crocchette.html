@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Crocchette per Cani</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f5e9;
+            color: #388e3c;
+            font-weight: bold;
+            text-align: center;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calcolatore Crocchette per Cani</h1>
+        <form id="foodCalculatorForm">
+            <label for="pesoIdeale">Peso ideale del cane (kg):</label>
+            <input type="text" id="pesoIdeale" placeholder="Es. 30" required>
+            
+            <label for="pesoAttuale">Peso attuale del cane (kg):</label>
+            <input type="text" id="pesoAttuale" placeholder="Es. 34,8 o 34.8" required>
+            
+            <label for="calorieCrocchette">Calorie per kg di crocchette (kcal):</label>
+            <input type="text" id="calorieCrocchette" placeholder="Es. 3609" required>
+            
+            <label for="attività">Fattore di attività:</label>
+            <select id="attività" required>
+                <option value="1.2">Sedentario (1.2)</option>
+                <option value="1.3" selected>Moderato (1.3)</option>
+                <option value="1.4">Attivo (1.4)</option>
+            </select>
+            
+            <label for="temperatura">Temperatura media ambientale (°C):</label>
+            <input type="text" id="temperatura" placeholder="Es. 20" required>
+            
+            <label for="razzaIncline">Razza incline all'ingrassamento:</label>
+            <select id="razzaIncline">
+                <option value="false" selected>No</option>
+                <option value="true">Sì</option>
+            </select>
+            
+            <label for="età">Età del cane:</label>
+            <select id="età" required>
+                <option value="cucciolo">Cucciolo</option>
+                <option value="adulto" selected>Adulto</option>
+                <option value="anziano">Anziano</option>
+            </select>
+            
+            <label for="condizioneFisica">Condizione fisica:</label>
+            <select id="condizioneFisica" required>
+                <option value="sottopeso">Sottopeso</option>
+                <option value="normopeso" selected>Normopeso</option>
+                <option value="sovrappeso">Sovrappeso</option>
+            </select>
+            
+            <button type="submit">Calcola</button>
+        </form>
+        <div id="result" class="result" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Funzione per normalizzare i numeri (es. "34,8" -> "34.8")
+            function normalizeInput(input) {
+                return parseFloat(input.replace(",", "."));
+            }
+
+            // Raccogli i valori degli input
+            const pesoIdeale = normalizeInput(document.getElementById('pesoIdeale').value);
+            const pesoAttuale = normalizeInput(document.getElementById('pesoAttuale').value);
+            const calorieCrocchette = normalizeInput(document.getElementById('calorieCrocchette').value);
+            const attività = parseFloat(document.getElementById('attività').value);
+            const temperatura = normalizeInput(document.getElementById('temperatura').value);
+            const razzaIncline = document.getElementById('razzaIncline').value === "true";
+            const età = document.getElementById('età').value;
+            const condizioneFisica = document.getElementById('condizioneFisica').value;
+
+            // Calcola il fabbisogno calorico giornaliero
+            function calculateDailyFood({
+                pesoIdeale, calorieCrocchette, attività, temperatura, razzaIncline, età, condizioneFisica
+            }) {
+                const RER = 70 * Math.pow(pesoIdeale, 0.75);
+                let fattoreTemperatura = (temperatura < 10) ? 1.2 : (temperatura > 30) ? 0.9 : 1;
+                let fattoreRazza = razzaIncline ? 0.9 : 1;
+                let fattoreEtà = (età === 'cucciolo') ? 2 : (età === 'anziano') ? 0.8 : 1;
+                let fattoreCondizione = (condizioneFisica === 'sottopeso') ? 1.1 : (condizioneFisica === 'sovrappeso') ? 0.9 : 1;
+                const MER = RER * attività * fattoreTemperatura * fattoreRazza * fattoreEtà * fattoreCondizione;
+                return Math.round(MER / (calorieCrocchette / 1000));
+            }
+
+            const risultato = calculateDailyFood({
+                pesoIdeale, calorieCrocchette, attività, temperatura, razzaIncline, età, condizioneFisica
+            });
+
+            // Mostra il risultato
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.innerText = `Il tuo cane dovrebbe ricevere circa ${risultato} grammi di crocchette al giorno.`;
+        });
+    </script>
+</body>
+</html>
