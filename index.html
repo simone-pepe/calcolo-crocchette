@@ -5,54 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcolatore Crocchette per Cani</title>
     <style>
+        /* Stile generale */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
+
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            overflow: hidden;
         }
+
         h1 {
+            font-size: 28px;
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
+
         label {
+            font-size: 16px;
+            color: #555;
             font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
         }
+
         input, select, button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            box-sizing: border-box;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
+
+        input:focus, select:focus {
+            border-color: #4e9ef1;
+            outline: none;
+        }
+
         button {
-            background-color: #007bff;
+            background-color: #4e9ef1;
             color: white;
             font-weight: bold;
             cursor: pointer;
             border: none;
+            transition: background-color 0.3s ease;
         }
+
         button:hover {
-            background-color: #0056b3;
+            background-color: #3b8bd3;
         }
+
         .result {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #e8f5e9;
-            color: #388e3c;
+            background-color: #e9f7ef;
+            border: 2px solid #4e9ef1;
+            color: #4e9ef1;
+            font-size: 18px;
             font-weight: bold;
             text-align: center;
-            border-radius: 5px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            margin-top: 20px;
         }
+
+        /* Animazione del bottone */
+        button {
+            transform: scale(1);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Hover effetto su inputs */
+        input:hover, select:hover {
+            border-color: #4e9ef1;
+        }
+
     </style>
 </head>
 <body>
@@ -100,7 +144,7 @@
             
             <button type="submit">Calcola</button>
         </form>
-        <div id="result" class="result" style="display: none;"></div>
+        <div id="result" class="result"></div>
     </div>
 
     <script>
