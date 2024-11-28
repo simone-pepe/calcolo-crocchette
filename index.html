@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calcolatore Crocchette per Cani</title>
     <style>
-        /* Stile generale */
+        /* Stile base */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f0f2f5;
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .container {
@@ -25,18 +25,17 @@
             max-width: 500px;
             padding: 30px;
             overflow: hidden;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         h1 {
             font-size: 28px;
             text-align: center;
-            color: #333;
             margin-bottom: 20px;
         }
 
         label {
             font-size: 16px;
-            color: #555;
             font-weight: bold;
             margin-bottom: 8px;
             display: block;
@@ -83,23 +82,66 @@
             margin-top: 20px;
         }
 
-        /* Animazione del bottone */
-        button {
-            transform: scale(1);
+        .sources {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+            display: none;
         }
 
-        button:active {
-            transform: scale(0.98);
+        /* Modalità scura (dark mode) */
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
         }
 
-        /* Hover effetto su inputs */
-        input:hover, select:hover {
-            border-color: #4e9ef1;
+        .container.dark-mode {
+            background-color: #2e2e2e;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
+        button.dark-mode {
+            background-color: #5e8bf8;
+        }
+
+        .result.dark-mode {
+            background-color: #444444;
+            border: 2px solid #5e8bf8;
+            color: #5e8bf8;
+        }
+
+        input.dark-mode, select.dark-mode {
+            background-color: #333333;
+            color: #ffffff;
+            border-color: #555;
+        }
+
+        input.dark-mode:focus, select.dark-mode:focus {
+            border-color: #5e8bf8;
+        }
+
+        /* Stile per il toggle della modalità scura */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #4e9ef1;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #3b8bd3;
+        }
     </style>
 </head>
 <body>
+    <button class="dark-mode-toggle" id="darkModeToggle">🌙</button>
     <div class="container">
         <h1>Calcolatore Crocchette per Cani</h1>
         <form id="foodCalculatorForm">
@@ -145,48 +187,80 @@
             <button type="submit">Calcola</button>
         </form>
         <div id="result" class="result"></div>
+        <div id="sources" class="sources">
+            <h3>Fonti:</h3>
+            <ul>
+                <li><a href="https://www.merckvetmanual.com/" target="_blank">Merck Veterinary Manual</a></li>
+                <li><a href="https://www.wsava.org/" target="_blank">WSAVA Nutritional Guidelines</a></li>
+                <li><a href="https://www.petmd.com/dog/nutrition/evr_dg_calorie_needs" target="_blank">PetMD - Calorie Requirements for Dogs</a></li>
+                <li><a href="https://www.akc.org/expert-advice/nutrition/" target="_blank">American Kennel Club - Nutrizione Canina</a></li>
+                <li><a href="https://www.nap.edu/catalog/10668/nutrient-requirements-of-dogs-and-cats" target="_blank">Nutritional Requirements of Dogs - NRC</a></li>
+            </ul>
+        </div>
     </div>
 
     <script>
+        // Modalità scura toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            document.querySelector('.container').classList.toggle('dark-mode');
+            document.querySelectorAll('input, select').forEach(element => element.classList.toggle('dark-mode'));
+            document.querySelector('button').classList.toggle('dark-mode');
+            document.querySelector('.result').classList.toggle('dark-mode');
+            const darkModeText = document.body.classList.contains('dark-mode') ? "🌞" : "🌙";
+            darkModeToggle.textContent = darkModeText;
+        });
+
+        // Funzione per calcolare la dose di crocchette
         document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Funzione per normalizzare i numeri (es. "34,8" -> "34.8")
-            function normalizeInput(input) {
-                return parseFloat(input.replace(",", "."));
-            }
-
-            // Raccogli i valori degli input
-            const pesoIdeale = normalizeInput(document.getElementById('pesoIdeale').value);
-            const pesoAttuale = normalizeInput(document.getElementById('pesoAttuale').value);
-            const calorieCrocchette = normalizeInput(document.getElementById('calorieCrocchette').value);
+            const pesoIdeale = parseFloat(document.getElementById('pesoIdeale').value);
+            const pesoAttuale = parseFloat(document.getElementById('pesoAttuale').value);
+            const calorieCrocchette = parseFloat(document.getElementById('calorieCrocchette').value);
             const attività = parseFloat(document.getElementById('attività').value);
-            const temperatura = normalizeInput(document.getElementById('temperatura').value);
-            const razzaIncline = document.getElementById('razzaIncline').value === "true";
+            const temperatura = parseFloat(document.getElementById('temperatura').value);
+            const razzaIncline = document.getElementById('razzaIncline').value === 'true';
             const età = document.getElementById('età').value;
             const condizioneFisica = document.getElementById('condizioneFisica').value;
 
-            // Calcola il fabbisogno calorico giornaliero
-            function calculateDailyFood({
-                pesoIdeale, calorieCrocchette, attività, temperatura, razzaIncline, età, condizioneFisica
-            }) {
-                const RER = 70 * Math.pow(pesoIdeale, 0.75);
-                let fattoreTemperatura = (temperatura < 10) ? 1.2 : (temperatura > 30) ? 0.9 : 1;
-                let fattoreRazza = razzaIncline ? 0.9 : 1;
-                let fattoreEtà = (età === 'cucciolo') ? 2 : (età === 'anziano') ? 0.8 : 1;
-                let fattoreCondizione = (condizioneFisica === 'sottopeso') ? 1.1 : (condizioneFisica === 'sovrappeso') ? 0.9 : 1;
-                const MER = RER * attività * fattoreTemperatura * fattoreRazza * fattoreEtà * fattoreCondizione;
-                return Math.round(MER / (calorieCrocchette / 1000));
+            // Calcolo del fabbisogno calorico basato sul peso ideale
+            const rer = 70 * Math.pow(pesoIdeale, 0.75);
+            let fabbisognoCalorico = rer * attività;
+
+            // Aggiustamenti per temperatura
+            if (temperatura < 10) {
+                fabbisognoCalorico *= 1.1; // Aumento per temperature basse
+            } else if (temperatura > 30) {
+                fabbisognoCalorico *= 0.9; // Diminuzione per temperature alte
             }
 
-            const risultato = calculateDailyFood({
-                pesoIdeale, calorieCrocchette, attività, temperatura, razzaIncline, età, condizioneFisica
-            });
+            // Aggiustamenti per razza incline
+            if (razzaIncline) {
+                fabbisognoCalorico *= 1.05;
+            }
+
+            // Modifica del fabbisogno per età e condizione fisica
+            if (età === 'cucciolo') {
+                fabbisognoCalorico *= 1.5;
+            } else if (età === 'anziano') {
+                fabbisognoCalorico *= 0.8;
+            }
+
+            if (condizioneFisica === 'sottopeso') {
+                fabbisognoCalorico *= 1.2;
+            } else if (condizioneFisica === 'sovrappeso') {
+                fabbisognoCalorico *= 0.9;
+            }
+
+            // Calcolo della quantità di crocchette
+            const crocchettePerGiorno = fabbisognoCalorico / calorieCrocchette;
 
             // Mostra il risultato
-            const resultDiv = document.getElementById('result');
-            resultDiv.style.display = 'block';
-            resultDiv.innerText = `Il tuo cane dovrebbe ricevere circa ${risultato} grammi di crocchette al giorno.`;
+            document.getElementById('result').textContent = `Quantità di crocchette per il tuo cane: ${crocchettePerGiorno.toFixed(2)} g al giorno.`;
+            document.getElementById('result').style.display = 'block';
+            document.getElementById('sources').style.display = 'block';
         });
     </script>
 </body>
