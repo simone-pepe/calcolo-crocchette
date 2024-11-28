@@ -105,25 +105,29 @@
             text-decoration: underline;
         }
 
-        .info-section {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #3c3c3c;
-            border-radius: 8px;
-            color: #b57fdb;
-            display: none;
-            transition: all 0.3s ease;
-        }
+       .info-section {
+			margin-top: 20px;
+			padding: 15px;
+			background-color: #3c3c3c;
+			border-radius: 8px;
+			color: #b57fdb; /* Colore di default */
+			display: none;
+			transition: all 0.3s ease;
+		}
 
-        .info-section ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
+		.info-section ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
 
-        .info-section ul li {
-            padding: 5px 0;
-        }
+		.info-section ul li {
+			padding: 5px 0;
+		}
+
+		.info-section ul li br + * {
+			color: white; /* Colore bianco per il testo che segue direttamente un <br> */
+		}
 
         @media (max-width: 600px) {
             .container {
@@ -178,7 +182,7 @@
             <label for="grassi">Grassi (% nelle crocchette):</label>
             <input type="number" id="grassi" placeholder="Es. 15" disabled>
 
-            <label for="carboidrati">Carboidrati (% nelle crocchette):</label>
+            <label for="carboidrati">Carboidrati (% nelle crocchette, se non disponibile calcola: 100 - % Proteine - % Grassi - % Fibre - % Ceneri):</label>
             <input type="number" id="carboidrati" placeholder="Es. 40" disabled>
 
             <label for="attività">Fattore di attività:</label>
@@ -197,6 +201,21 @@
                 <option value="true">Sì</option>
             </select>
             <button type="button" class="info-btn" onclick="toggleInfoSection()">Info</button>
+			 <div class="info-section" id="infoSection">
+			<h3>Razze più inclini all'ingrassamento:</h3>
+			<ul>
+				<li><strong>Bulldog Inglese</strong><br>Questa razza tende ad ingrassare facilmente, anche per via della sua bassa energia e della conformazione corporea che non favorisce il movimento.</li>
+				<li><strong>Cocker Spaniel</strong><br>Questi cani sono noti per la loro golosità e la tendenza a ingrassare, soprattutto se non fanno abbastanza esercizio fisico.</li>
+				<li><strong>Beagle</strong><br>Amanti del cibo, i Beagle possono facilmente ingrassare se non vengono monitorati, nonostante siano attivi.</li>
+				<li><strong>Golden Retriever</strong><br>Sebbene siano attivi e socievoli, i Golden Retriever possono ingrassare facilmente se non ricevono il giusto esercizio o se mangiano troppo.</li>
+				<li><strong>Lab Retriever</strong><br>I Labrador sono famosi per il loro amore per il cibo, e se non sono esercitati adeguatamente, tendono a guadagnare peso facilmente.</li>
+				<li><strong>Dachshund (Bassotto)</strong><br>La loro conformazione fisica non favorisce un’attività intensa, quindi sono facilmente soggetti a ingrassare.</li>
+				<li><strong>Basset Hound</strong><br>Metabolismo lento e natura tranquilla li rendono inclini all’obesità se non monitorati nella dieta e nell’esercizio.</li>
+				<li><strong>Shih Tzu</strong><br>Anche se attivi, i Shih Tzu tendono ad ingrassare facilmente se non vengono stimolati fisicamente.</li>
+				<li><strong>Pug (Carlino)</strong><br>Golosi e con un metabolismo lento, i carlini possono facilmente diventare obesi se non esercitati regolarmente.</li>
+				<li><strong>Cavalier King Charles Spaniel</strong><br>Sebbene siano attivi, la loro natura golosa può farli ingrassare se non gestiti bene nella dieta.</li>
+			</ul>
+		</div>
 
             <label for="condizioneFisica">Condizione fisica:</label>
             <select id="condizioneFisica">
@@ -226,34 +245,20 @@
                 <option value="anziano">Anziano</option>
             </select>
 
-            <label for="età">Età del cane:</label>
-            <select id="età">
-                <option value="adulta">Adulta</option>
-                <option value="cucciolo">Cucciolo</option>
-                <option value="anziano">Anziano</option>
-            </select>
-
             <button type="submit">Calcola</button>
         </form>
 
         <div class="result" id="result"></div>
         <div class="sources" id="sources">
             <p>Fonti:
-                <a href="https://www.petmd.com/dog/nutrition/evr_dg_calculating_calories_dog_food" target="_blank">PetMD</a>,
-                <a href="https://www.vetstreet.com/">VetStreet</a>
-            </p>
+                    <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD</a>,
+                    <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club</a>,
+                    <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina</a>
+                </p>
         </div>
 
-        <div class="info-section" id="infoSection">
-            <h3>Razze più inclini all'ingrassamento:</h3>
-            <ul>
-                <li>Bulldog</li>
-                <li>Cocker Spaniel</li>
-                <li>Dobermann</li>
-                <li>Golden Retriever</li>
-                <li>Lab Retriever</li>
-            </ul>
-        </div>
+      
+
     </div>
 
     <script>
@@ -282,33 +287,77 @@
             infoSection.style.display = infoSection.style.display === 'block' ? 'none' : 'block';
         }
 
-        document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
-            event.preventDefault();
+     document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-            const pesoIdeale = parseFloat(document.getElementById('pesoIdeale').value);
-            const pesoAttuale = parseFloat(document.getElementById('pesoAttuale').value);
-            const metodoInput = document.getElementById('metodoInput').value;
-            let calorieCrocchette;
+    const pesoIdeale = parseFloat(document.getElementById('pesoIdeale').value);
+    const pesoAttuale = parseFloat(document.getElementById('pesoAttuale').value);
+    const metodoInput = document.getElementById('metodoInput').value;
+    let calorieCrocchette;
 
-            if (metodoInput === 'kcal') {
-                calorieCrocchette = parseFloat(document.getElementById('kcalPerKg').value);
-            } else {
-                const proteine = parseFloat(document.getElementById('proteine').value);
-                const grassi = parseFloat(document.getElementById('grassi').value);
-                const carboidrati = parseFloat(document.getElementById('carboidrati').value);
-                calorieCrocchette = (proteine * 4) + (grassi * 9) + (carboidrati * 4);
-            }
+    if (metodoInput === 'kcal') {
+        calorieCrocchette = parseFloat(document.getElementById('kcalPerKg').value);
+    } else {
+        const proteine = parseFloat(document.getElementById('proteine').value);
+        const grassi = parseFloat(document.getElementById('grassi').value);
+        const carboidrati = parseFloat(document.getElementById('carboidrati').value);
+        calorieCrocchette = (proteine * 4) + (grassi * 9) + (carboidrati * 4);
+    }
 
-            // Calcolo delle calorie giornaliere
-            const rer = 70 * Math.pow(pesoIdeale, 0.75);
-            let fabbisognoCalorico = rer * 1.3;
+    // Calcolo delle calorie giornaliere basato sul peso ideale
+    const rer = 70 * Math.pow(pesoIdeale, 0.75);
+    let fabbisognoCalorico = rer * 1.3; // Fattore di attività medio (1.3)
 
-            const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
+    // Considerare il fattore di attività
+    const attivita = parseFloat(document.getElementById('attività').value);
+    fabbisognoCalorico *= attivita;
 
-            document.getElementById('result').textContent = `Quantità di crocchette per il tuo cane: ${crocchettePerGiorno.toFixed(2)} g al giorno.`;
-            document.getElementById('result').style.display = 'block';
-            document.getElementById('sources').style.display = 'block';
-        });
+    // Considerare la sterilizzazione (ridurre le calorie del 10% se sterilizzato)
+    const sterilizzato = document.getElementById('sterilizzato').value === 'true';
+    if (sterilizzato) {
+        fabbisognoCalorico *= 0.9; // Ridurre del 10% se sterilizzato
+    }
+
+    // Considerare la condizione fisica
+    const condizioneFisica = document.getElementById('condizioneFisica').value;
+    if (condizioneFisica === 'sottopeso') {
+        fabbisognoCalorico *= 1.1; // Aumentare il fabbisogno calorico del 10% se sottopeso
+    } else if (condizioneFisica === 'sovrappeso') {
+        fabbisognoCalorico *= 0.9; // Ridurre del 10% se sovrappeso
+    }
+
+    // Considerare le condizioni mediche (esempio: obesità riduce le calorie)
+    const condizioniMediche = document.getElementById('condizioniMediche').value;
+    if (condizioniMediche === 'obesità') {
+        fabbisognoCalorico *= 0.8; // Ridurre del 20% in caso di obesità
+    } else if (condizioniMediche === 'diabete') {
+        fabbisognoCalorico *= 0.9; // Ridurre del 10% in caso di diabete
+    }
+
+    // Considerare la fase di vita
+    const faseVita = document.getElementById('faseVita').value;
+    if (faseVita === 'cucciolo') {
+        fabbisognoCalorico *= 1.5; // Aumentare del 50% se cucciolo
+    } else if (faseVita === 'anziano') {
+        fabbisognoCalorico *= 0.8; // Ridurre del 20% se anziano
+    }
+
+    // Considerare la temperatura ambientale
+    const temperatura = parseFloat(document.getElementById('temperatura').value);
+    if (temperatura < 10) {
+        fabbisognoCalorico *= 1.15; // Aumentare del 15% se la temperatura è inferiore a 10°C
+    } else if (temperatura > 30) {
+        fabbisognoCalorico *= 0.9; // Ridurre del 10% se la temperatura è superiore a 30°C
+    }
+
+    // Calcolare la quantità di crocchette per giorno
+    const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
+
+    // Mostrare il risultato
+    document.getElementById('result').textContent = `Quantità di crocchette per il tuo cane: ${crocchettePerGiorno.toFixed(2)} g al giorno.`;
+    document.getElementById('result').style.display = 'block';
+    document.getElementById('sources').style.display = 'block';
+});
 
         // Inizializzazione della scelta del metodo
         toggleInputMethod();
