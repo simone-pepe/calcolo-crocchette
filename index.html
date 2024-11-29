@@ -63,11 +63,11 @@
 
         .input{
             background: none;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.211) ;
             outline: none;
             font-size: 16px;
             border-radius: 9999px;
-            box-shadow: inset 2px 5px 10px rgb(78, 0, 127);
+            box-shadow: inset 2px 5px 10px rgba(78, 0, 127, 0.181);
             color: #fff;
         }
 
@@ -514,20 +514,28 @@
                 <option value="composizione">Calcola con la composizione delle crocchette (Proteine, Grassi, Carboidrati)</option>
             </select>
             
-           
-
             <!-- Campo Kcal per kg (sempre visibile) -->
-            <label for="kcalPerKg">Kcal per kg di crocchette:</label>
-            <input type="number" id="kcalPerKg" placeholder="Es. 3600"  class="input" required>
+            <div id="containerCampi">
+                <label for="kcalPerKg">Kcal per kg di crocchette:</label>
+                <input type="number" id="kcalPerKg" placeholder="Es. 3600"  class="input" required>
+            </div>
 
             <!-- Campi composizione (disabilitati di default) -->
-            <label for="proteine">Proteine (% nelle crocchette):</label>
-            <input type="number" id="proteine" placeholder="Es. 25"  class="input" disabled>
 
-            <label for="grassi">Grassi (% nelle crocchette):</label>
-            <input type="number" id="grassi" placeholder="Es. 15"  class="input" disabled>
+             <!-- Proteine -->
+             <div id="containerCampi">
+                <label for="proteine">Proteine (%):</label>
+                <input type="number" id="proteine" placeholder="Es. 25"  class="input" disabled>
+            </div>
 
-            <label for="carboidrati">Carboidrati (% nelle crocchette)</label>
+             <!-- Grassi -->
+             <div id="containerCampi">
+                <label for="grassi">Grassi (%):</label>
+                <input type="number" id="grassi" placeholder="Es. 15"  class="input" disabled>
+            </div>
+
+
+            <label for="carboidrati">Carboidrati (%)</label>
             <label for="carboidrati" class="myText">Se l'informazione non è disponibile sulla busta, sottrai dal 100% ogni percentuale riportata nella composizione.</label>
             <label for="carboidrati" class="myText" style="align-content: center; justify-content: center; justify-items: center; justify-self: center;">Esempio:</label>
             <label for="carboidrati" class="myText">Composizione:<br> Proteina grezza
