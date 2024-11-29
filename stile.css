@@ -1,0 +1,349 @@
+body {
+    background-color: #121212;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+a{
+    color: #8d50b8;
+}
+.container {
+    background-color: #121212;
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    overflow-y: auto;
+    max-height: 95dvh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+span{
+    display: inline-block;
+}
+h1 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #b57fdb;
+}
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    color: #ffffff;
+}
+.myText {
+    font-size: 14px;
+    font-weight: normal;
+    display: block;
+    color: #ffffff;
+}
+input, label {
+    width: 50%;
+}
+.input {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.211);
+    outline: none;
+    font-size: 16px;
+    border-radius: 9999px;
+    box-shadow: inset 2px 5px 10px rgba(78, 0, 127, 0.181);
+    color: #ffffff;
+   /* Colore del testo */
+    appearance: none;
+   /* Rimuove lo stile predefinito del browser */
+    -webkit-appearance: none;
+   /* Per Safari */
+    padding: 10px 20px;
+   /* Spaziatura interna */
+}
+.input option {
+    background-color: #0c0c0c;
+   /* Sfondo delle opzioni */
+    color: #ffffff;
+   /* Colore del testo delle opzioni */
+    padding: 5px;
+   /* Spaziatura interna delle opzioni */
+}
+.input:hover {
+    border-color: #b57fdb;
+   /* Cambia colore del bordo al passaggio del mouse */
+}
+.input:focus {
+    border-color: #b57fdb;
+   /* Cambia colore del bordo quando selezionato */
+    box-shadow: 0 0 5px rgba(181, 127, 219, 0.5);
+   /* Effetto luce attorno */
+}
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #555;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+input:focus, select:focus {
+    border-color: #b57fdb;
+   /* Bordo viola/lilla */
+    outline: none;
+}
+button {
+    background-color: #b57fdb;
+   /* Viola/lilla per il bottone */
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease;
+    padding: 15px;
+}
+button:hover {
+    background-color: #9a67d9;
+   /* Colore viola più scuro all'hover */
+}
+.sources {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #888;
+    display: none;
+}
+.sources a {
+    color: #b57fdb;
+   /* Link viola/lilla per le fonti */
+    text-decoration: none;
+}
+.sources a:hover {
+    text-decoration: underline;
+}
+.info-section {
+    margin-bottom: 50px;
+    padding: 15px;
+    background-color: #1d1d1d;
+    border: 1px solid violet;
+    border-radius: 8px;
+    color: #ffffff;
+   /* Colore di default */
+    display: none;
+    transition: all 0.3s ease;
+}
+.info-section ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.info-section ul li {
+    padding: 0;
+    margin: 0;
+}
+.result {
+    background-color: #1d1d1d;
+    border: 1px solid violet;
+   /* Bordo viola/lilla per il risultato */
+    color: #ffffff;
+   /* Testo viola/lilla per il risultato */
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+    margin-top: 20px;
+}
+.pasti {
+    background-color: #1d1d1d;
+    border: 1px solid violet;
+   /* Bordo viola/lilla per il risultato */
+    color: #ffffff;
+   /* Testo viola/lilla per il risultato */
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+    margin-top: 20px;
+}
+.additionalInfo {
+    background-color: #1d1d1d;
+    border: 1px solid violet;
+   /* Bordo viola/lilla per il risultato */
+    color: #ffffff;
+   /* Testo viola/lilla per il risultato */
+    font-size: 18px;
+    font-weight: normal;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    display: none;
+    margin-top: 20px;
+}
+.info-btn{
+    width: 100%;
+}
+#container2 {
+    display: flex;
+    gap: 10px;
+   /* Spaziatura tra gli elementi */
+    align-items: center;
+}
+#containerCampi {
+    display: flex;
+    align-items: center;
+   /* Allinea verticalmente gli elementi */
+    justify-content: start;
+   /* Posiziona gli elementi all'inizio del contenitore */
+}
+#containerCampi label {
+    font-size: 16px;
+   /* Puoi regolare la dimensione del testo della label se necessario */
+    color: #ffffff;
+   /* Colore del testo della label */
+}
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        max-width: 100%;
+   }
+    h1 {
+        font-size: 22px;
+   }
+    input, select, button {
+        font-size: 14px;
+        padding: 10px;
+   }
+    .result {
+        font-size: 16px;
+        padding: 12px;
+   }
+    .pasti {
+        font-size: 16px;
+        padding: 12px;
+   }
+    .additionalInfo {
+        font-size: 16px;
+        padding: 12px;
+   }
+    .sources {
+        font-size: 12px;
+   }
+}
+.cssbuttons-io-button {
+    background: #a370f0;
+    color: white;
+    font-family: inherit;
+    padding: 0.35em;
+    padding-left: 1.2em;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 0.9em;
+    border: none;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    box-shadow: inset 0 0 1.6em -0.6em #714da6;
+    overflow: hidden;
+    position: relative;
+    height: 2.8em;
+    padding-right: 3.3em;
+    cursor: pointer;
+}
+.cssbuttons-io-button .icon {
+    background: white;
+    margin-left: 1em;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.2em;
+    width: 2.2em;
+    border-radius: 0.7em;
+    box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
+    right: 0.3em;
+    transition: all 0.3s;
+}
+.cssbuttons-io-button:hover .icon {
+    width: calc(100% - 0.6em);
+}
+.cssbuttons-io-button .icon svg {
+    width: 1.1em;
+    transition: transform 0.3s;
+    color: #7b52b9;
+}
+.cssbuttons-io-button:hover .icon svg {
+    transform: translateX(0.1em);
+}
+.cssbuttons-io-button:active .icon {
+    transform: scale(0.95);
+}
+.button {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #7d2ae8;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+.button:active {
+    transform: scale(0.96);
+}
+.button:before, .button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+}
+.button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+}
+@keyframes greentopBubbles {
+    0% {
+        background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+   }
+    50% {
+        background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+   }
+    100% {
+        background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+}
+.button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%), radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+}
+@keyframes greenbottomBubbles {
+    0% {
+        background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+   }
+    50% {
+        background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+   }
+    100% {
+        background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+        background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+   }
+}
