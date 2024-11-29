@@ -91,19 +91,6 @@
             background-color: #9a67d9; /* Colore viola più scuro all'hover */
         }
 
-        .result {
-            background-color: #444444;
-            border: 2px solid #b57fdb; /* Bordo viola/lilla per il risultato */
-            color: #b57fdb; /* Testo viola/lilla per il risultato */
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            margin-top: 20px;
-        }
-
         .sources {
             margin-top: 20px;
             font-size: 14px;
@@ -125,7 +112,7 @@
 			padding: 15px;
 			background-color: #3c3c3c;
 			border-radius: 8px;
-			color: #b57fdb; /* Colore di default */
+			color: #ffffff; /* Colore di default */
 			display: none;
 			transition: all 0.3s ease;
 		}
@@ -137,12 +124,59 @@
 		}
 
 		.info-section ul li {
-			padding: 5px 0;
+			padding: 0;
+            margin: 0;
 		}
 
-		.info-section ul li br + * {
-			color: white; /* Colore bianco per il testo che segue direttamente un <br> */
-		}
+
+        .result {
+            background-color: #444444;
+            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
+            color: #ffffff; /* Testo viola/lilla per il risultato */
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .pasti {
+            background-color: #444444;
+            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
+            color: #ffffff; /* Testo viola/lilla per il risultato */
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .additionalInfo {
+            background-color: #444444;
+            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
+            color: #ffffff; /* Testo viola/lilla per il risultato */
+            font-size: 18px;
+            font-weight: normal;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .info-btn{
+            width: 100%;
+        }
+
+        #container2 {
+            display: flex;
+            gap: 10px; /* Spaziatura tra gli elementi */
+            align-items: center;
+            }
 
         @media (max-width: 600px) {
             .container {
@@ -163,6 +197,14 @@
                 font-size: 16px;
                 padding: 12px;
             }
+            .pasti {
+                font-size: 16px;
+                padding: 12px;
+            }
+            .additionalInfo {
+                font-size: 16px;
+                padding: 12px;
+            }
 
             .sources {
                 font-size: 12px;
@@ -174,8 +216,80 @@
     <div class="container">
         <h1>Calcolatore Crocchette per Cani</h1>
         <form id="foodCalculatorForm">
-            <label for="pesoIdeale">Peso ideale del cane (kg):</label>
+             <!-- Informazioni sul cane -->
+
+             <label for="faseVita">Fase di vita:</label>
+             <select id="faseVita">
+                 <option value="normale">Adulto (1-8 anni)</option>
+                 <option value="cucciolo">Cucciolo (<1 anno)</option>
+                 <option value="anziano">Anziano (>8 anni)</option>
+             </select>
+
+            <label for="pesoIdeale">Peso ideale del cane (kg) e stato:</label>
             <input type="number" id="pesoIdeale" placeholder="Es. 30" required>
+            <select id="sterilizzato" placeholder="Il cane è sterilizzato?">
+                <option value="false">Intero</option>
+                <option value="true">Sterilizzato</option>
+            </select>
+
+            <label for="condizioneFisica">Condizione fisica:</label>
+            <select id="condizioneFisica">
+                <option value="normale">Normale</option>
+                <option value="sottopeso">Sottopeso</option>
+                <option value="sovrappeso">Sovrappeso</option>
+            </select>
+
+
+            <label for="condizioniMediche">Condizioni mediche (Obesità, Diabete, ecc.):</label>
+            <select id="condizioniMediche">
+                <option value="none">Nessuna</option>
+                <option value="obesità">Obesità</option>
+                <option value="diabete">Diabete</option>
+                <option value="altro">Altro</option>
+            </select>
+
+            <label for="attività">Attività fisica del cane:</label>
+            <select id="attività" required>
+                <option value="1.2">Sedentario (poco attivo, calmo, con normali uscite fisiologiche)</option>
+                <option value="1.5" selected>Normale (normale vita urbana, attività fisica nei week-end)</option>
+                <option value="2">Attivo (attività all'aperto tutti i giorni)</option>
+                <option value="2.5">Sportivo (attività all'aperto tutti i giorni)</option>
+            </select>
+
+            <label for="temperatura">Temperatura media ambientale di detenzione (°C):</label>
+            <input type="number" id="temperatura" placeholder="Es. 20" required >
+
+            <div id="container2">
+                <div> <label for="razzaIncline">Razza incline all'obesità:</label></div>
+                <div><button type="button" class="info-btn" onclick="toggleInfoSection()">Info</button></div>
+              </div>
+
+            
+            <select id="razzaIncline">
+                <option value="false" selected>No</option>
+                <option value="true">Sì</option>
+            </select>
+            
+			 <div class="info-section" id="infoSection">
+			<h3>Razze più inclini</h3>
+			<ul style="color: #b57fdb!important;">
+				<li><strong>Bulldog Inglese</p></strong></li>
+				<li><strong>Cocker Spaniel</p></strong></li>
+				<li><strong>Beagle</p></strong></li>
+				<li><strong>Golden Retriever</p></strong></li>
+				<li><strong>Lab Retriever</p></strong></li>
+				<li><strong>Dachshund (Bassotto)</p></strong></li>
+				<li><strong>Basset Hound</p></strong></li>
+				<li><strong>Shih Tzu</p></strong></li>
+				<li><strong>Pug (Carlino)</p></strong></li>
+				<li><strong>Cavalier King Charles Spaniel</p></strong></li>
+			</ul>
+		</div>
+
+           
+
+           
+
 
             <label for="metodoInput">Metodo di calcolo:</label>
              <!-- Descrizione per chiarire il metodo -->
@@ -225,72 +339,16 @@
 
             <input type="number" id="carboidrati" placeholder="Es. 40" disabled>
 
-            <label for="attività">Fattore di attività:</label>
-            <select id="attività" required>
-                <option value="1.2">Sedentario (passeggiate fisiologiche)</option>
-                <option value="1.5" selected>Moderato (attività fisica occasionale)</option>
-                <option value="1.8">Molto Attivo (da lavoro/sport)</option>
-            </select>
-
-            <label for="temperatura">Temperatura media ambientale (°C):</label>
-            <input type="number" id="temperatura" placeholder="Es. 20" required>
-
-            <label for="razzaIncline">Razza incline all'ingrassamento:</label>
-            <select id="razzaIncline">
-                <option value="false" selected>No</option>
-                <option value="true">Sì</option>
-            </select>
-            <button type="button" class="info-btn" onclick="toggleInfoSection()">Info</button>
-			 <div class="info-section" id="infoSection">
-			<h3>Razze più inclini all'ingrassamento:</h3>
-			<ul>
-				<li><strong>Bulldog Inglese</strong><br>Questa razza tende ad ingrassare facilmente, anche per via della sua bassa energia e della conformazione corporea che non favorisce il movimento.</li>
-				<li><strong>Cocker Spaniel</strong><br>Questi cani sono noti per la loro golosità e la tendenza a ingrassare, soprattutto se non fanno abbastanza esercizio fisico.</li>
-				<li><strong>Beagle</strong><br>Amanti del cibo, i Beagle possono facilmente ingrassare se non vengono monitorati, nonostante siano attivi.</li>
-				<li><strong>Golden Retriever</strong><br>Sebbene siano attivi e socievoli, i Golden Retriever possono ingrassare facilmente se non ricevono il giusto esercizio o se mangiano troppo.</li>
-				<li><strong>Lab Retriever</strong><br>I Labrador sono famosi per il loro amore per il cibo, e se non sono esercitati adeguatamente, tendono a guadagnare peso facilmente.</li>
-				<li><strong>Dachshund (Bassotto)</strong><br>La loro conformazione fisica non favorisce un’attività intensa, quindi sono facilmente soggetti a ingrassare.</li>
-				<li><strong>Basset Hound</strong><br>Metabolismo lento e natura tranquilla li rendono inclini all’obesità se non monitorati nella dieta e nell’esercizio.</li>
-				<li><strong>Shih Tzu</strong><br>Anche se attivi, i Shih Tzu tendono ad ingrassare facilmente se non vengono stimolati fisicamente.</li>
-				<li><strong>Pug (Carlino)</strong><br>Golosi e con un metabolismo lento, i carlini possono facilmente diventare obesi se non esercitati regolarmente.</li>
-				<li><strong>Cavalier King Charles Spaniel</strong><br>Sebbene siano attivi, la loro natura golosa può farli ingrassare se non gestiti bene nella dieta.</li>
-			</ul>
-		</div>
-
-            <label for="condizioneFisica">Condizione fisica:</label>
-            <select id="condizioneFisica">
-                <option value="normale">Normale</option>
-                <option value="sottopeso">Sottopeso</option>
-                <option value="sovrappeso">Sovrappeso</option>
-            </select>
-
-            <label for="sterilizzato">Sterilizzato/Spayed:</label>
-            <select id="sterilizzato">
-                <option value="false">No</option>
-                <option value="true">Sì</option>
-            </select>
-
-            <label for="condizioniMediche">Condizioni mediche (Obesità, Diabete, ecc.):</label>
-            <select id="condizioniMediche">
-                <option value="none">Nessuna</option>
-                <option value="obesità">Obesità</option>
-                <option value="diabete">Diabete</option>
-                <option value="altro">Altro</option>
-            </select>
-
-            <label for="faseVita">Fase di vita:</label>
-            <select id="faseVita">
-                <option value="normale">Adulto</option>
-                <option value="cucciolo">Cucciolo</option>
-                <option value="anziano">Anziano</option>
-            </select>
+           
 
             <button type="submit">Calcola</button>
         </form>
 
         <div class="result" id="result"></div>
+        <div class="result" id="pasti"></div>
+        <div class="result" id="additionalInfo"></div>
         <div class="sources" id="sources">
-            <p>Fonti:
+            <p>Fonti:<br>
                     <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD - How Many Calories Does a Dog Need?</a><br>
                     <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club - How Much Should I Feed My Dog?</a><br>
                     <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina - Dog & Cat Food Feeding Guide Calculator</a>
@@ -427,10 +485,20 @@
 
     // Calcolare la quantità di crocchette per giorno
     const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
+    const duePastiAlGiorno = crocchettePerGiorno / 2;
+    const trePastiAlGiorno = crocchettePerGiorno / 3;
 
     // Mostrare il risultato
-    document.getElementById('result').textContent = `Il tuo cane dovrebbe mangiare circa ${crocchettePerGiorno.toFixed(0)} g di crocchette al giorno.`;
+    document.getElementById('result').innerHTML  = `Il tuo cane dovrebbe mangiare circa <p style="font-size: 23px!important; color: #b57fdb!important;">${crocchettePerGiorno.toFixed(0)}g </p> di crocchette al giorno.`;
     document.getElementById('result').style.display = 'block';
+
+    document.getElementById('pasti').innerHTML  = `2 pasti da <p style="color: #b57fdb!important;">${duePastiAlGiorno.toFixed(0)}g</p><br>
+                                                   3 pasti da <p style="color: #b57fdb!important;">${trePastiAlGiorno.toFixed(0)}g</p>`;
+    document.getElementById('pasti').style.display = 'block';
+
+    document.getElementById('additionalInfo').innerHTML = `Fabbisogno Energetico kcal/giorno <br> <p style="font-size: 23px!important; color: #b57fdb!important;">${fabbisognoCalorico.toFixed(0)}</p>`;
+    document.getElementById('additionalInfo').style.display = 'block';
+    
     document.getElementById('sources').style.display = 'block';
 });
 
