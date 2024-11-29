@@ -260,42 +260,50 @@
             <input type="number" id="temperatura" placeholder="Es. 20" required >
 
             <div id="container2">
-                <div> <label for="razzaIncline">Razza incline all'obesità:</label></div>
+                <div> <label for="razzaIncline">Predisposizione:</label></div>
                 <div><button type="button" class="info-btn" onclick="toggleInfoSection()">Info</button></div>
               </div>
-
-            
-            <select id="razzaIncline">
-                <option value="false" selected>No</option>
-                <option value="true">Sì</option>
+ 
+            <select id="razzaIncline" required>
+                <option value="0.9" selected>Razze predisposte al sovrappeso</option>
+                <option value="1.1">Razze predisposte al dimagrimento</option>
+                <option value="0.8">Razze nordiche</option>
+                <option value="1">Altre razze / Non so</option>
             </select>
             
-			 <div class="info-section" id="infoSection">
-			<h3>Razze più inclini</h3>
-			<ul style="color: #b57fdb!important;">
-				<li><strong>Bulldog Inglese</p></strong></li>
-				<li><strong>Cocker Spaniel</p></strong></li>
-				<li><strong>Beagle</p></strong></li>
-				<li><strong>Golden Retriever</p></strong></li>
-				<li><strong>Lab Retriever</p></strong></li>
-				<li><strong>Dachshund (Bassotto)</p></strong></li>
-				<li><strong>Basset Hound</p></strong></li>
-				<li><strong>Shih Tzu</p></strong></li>
-				<li><strong>Pug (Carlino)</p></strong></li>
-				<li><strong>Cavalier King Charles Spaniel</p></strong></li>
-			</ul>
-		</div>
-
-           
-
-           
+			<div class="info-section" id="infoSection" style="display: none;">
+                <!-- Sovrappeso -->
+                <h3>Razze predisposte al sovrappeso</h3>
+                <p style="color: #b57fdb!important;">
+                  Bulldog Inglese, Cocker Spaniel, Beagle, Golden Retriever, Labrador Retriever, 
+                  Dachshund (Bassotto), Basset Hound, Shih Tzu, Pug (Carlino), Cavalier King Charles Spaniel.
+                </p>
+              
+                <!-- Dimagrimento -->
+                <h3>Razze predisposte al dimagrimento</h3>
+                <p style="color: #b57fdb!important;">
+                  Levriero, Greyhound, Whippet, Setter Irlandese, Bracco Ungherese.
+                </p>
+              
+                <!-- Razze Nordiche -->
+                <h3>Razze nordiche</h3>
+                <p style="color: #b57fdb!important;">
+                  Husky Siberiano, Alaskan Malamute, Samoiedo, Spitz Finnico, Akita Inu.
+                </p>
+              
+                <!-- Altre razze -->
+                <h3>Altre razze</h3>
+                <p style="color: #b57fdb!important;">
+                  Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer.
+                </p>
+              </div>
 
 
             <label for="metodoInput">Metodo di calcolo:</label>
              <!-- Descrizione per chiarire il metodo -->
              <p id="metodoDescrizione" class="myText">
                 Scegli il metodo che preferisci per calcolare la quantità di crocchette per il tuo cane. 
-                <strong>"Kcal per kg"</strong> si basa sul contenuto calorico, mentre <strong>"Composizione"</strong> usa la percentuale di proteine, grassi e carboidrati.
+                <strong>"Kcal per kg"</strong> si basa sul contenuto calorico delle crocchette, mentre <strong>"Composizione"</strong> usa la percentuale di proteine, grassi e carboidrati riportate sulla busta.
             </p>
             <select id="metodoInput" onchange="toggleInputMethod()">
                 <option value="kcal" selected>Calcola con le Kcal per kg di crocchette</option>
@@ -316,7 +324,7 @@
             <input type="number" id="grassi" placeholder="Es. 15" disabled>
 
             <label for="carboidrati">Carboidrati (% nelle crocchette)</label>
-            <label for="carboidrati" class="myText">Se non disponibile, sottrai da 100 ogni percentuale riportata nella composizione</label>
+            <label for="carboidrati" class="myText">Se l'informazione non è disponibile sulla busta, sottrai scala dal 100% ogni percentuale riportata nella composizione.</label>
             <label for="carboidrati" class="myText" style="align-content: center; justify-content: center; justify-items: center; justify-self: center;">Esempio:</label>
             <label for="carboidrati" class="myText">Composizione:<br> Proteina grezza
                 <span style="font-weight: bold; color: #b57fdb;">24</span>%, 
@@ -349,9 +357,10 @@
         <div class="result" id="additionalInfo"></div>
         <div class="sources" id="sources">
             <p>Fonti:<br>
-                    <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD - How Many Calories Does a Dog Need?</a><br>
-                    <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club - How Much Should I Feed My Dog?</a><br>
-                    <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina - Dog & Cat Food Feeding Guide Calculator</a>
+                    - <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD - How Many Calories Does a Dog Need?</a><br>
+                    - <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club - How Much Should I Feed My Dog?</a><br>
+                    - <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina - Dog & Cat Food Feeding Guide Calculator</a><br>
+                    - <a href="https://pepitia.com/fabbisogno-calorico-cane/" target="_blank">Pepitia - Fabbisogno Calorico Del Cane</a>
                 </p>
         </div>
 
@@ -444,6 +453,11 @@
     // Considerare il fattore di attività
     const attivita = parseFloat(document.getElementById('attività').value);
     fabbisognoCalorico *= attivita;
+
+    // Considerare il fattore di razza
+    const razzaIncline = parseFloat(document.getElementById('razzaIncline').value);
+    fabbisognoCalorico *= razzaIncline;
+
 
     // Considerare la sterilizzazione (ridurre le calorie del 10% se sterilizzato)
     const sterilizzato = document.getElementById('sterilizzato').value === 'true';
