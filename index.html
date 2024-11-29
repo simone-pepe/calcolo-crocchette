@@ -61,14 +61,32 @@
          width: 50%;  
         }
 
-        .input{
+        .input {
             background: none;
-            border: 1px solid rgba(255, 255, 255, 0.211) ;
+            border: 1px solid rgba(255, 255, 255, 0.211);
             outline: none;
             font-size: 16px;
             border-radius: 9999px;
             box-shadow: inset 2px 5px 10px rgba(78, 0, 127, 0.181);
-            color: #fff;
+            color: #ffffff; /* Colore del testo */
+            appearance: none; /* Rimuove lo stile predefinito del browser */
+            -webkit-appearance: none; /* Per Safari */
+            padding: 10px 20px; /* Spaziatura interna */
+        }
+
+        .input option {
+            background-color: #0c0c0c; /* Sfondo delle opzioni */
+            color: #ffffff; /* Colore del testo delle opzioni */
+            padding: 5px; /* Spaziatura interna delle opzioni */
+        }
+
+        .input:hover {
+            border-color: #b57fdb; /* Cambia colore del bordo al passaggio del mouse */
+        }
+
+        .input:focus {
+            border-color: #b57fdb; /* Cambia colore del bordo quando selezionato */
+            box-shadow: 0 0 5px rgba(181, 127, 219, 0.5); /* Effetto luce attorno */
         }
 
         input, select, button {
@@ -293,6 +311,7 @@
                 cursor: pointer;
                 background-color: #7d2ae8;
                 transition: all 0.2s ease;
+                width: 100%;
                 }
 
                 .button:active {
@@ -473,7 +492,10 @@
                 </select>
               </div>
                 
-            <button type="button" class="button" onclick="toggleInfoSection()" style="margin-bottom: 50px; margin-top: 15px;">Info razze</button>
+            
+            <div style="justify-self: center;align-items: center;align-content: center;">
+                <button type="button" class="button" onclick="toggleInfoSection()" style="margin-bottom: 50px; margin-top: 15px;">Info razze</button>
+            </div>
               
 			<div class="info-section" id="infoSection" style="display: none;">
                 <!-- Sovrappeso -->
@@ -560,9 +582,8 @@
 
            
 
-            <!-- <button type="submit">Calcola</button> -->
-
-            <button type="submit" class="button">Calcola</button>
+            <div style="justify-self: center;align-items: center;align-content: center;"><button type="submit" class="button">Calcola</button></div>
+            
 
         </form>
 
@@ -583,6 +604,13 @@
     </div>
 
     <script>
+        function scrollToResult() {
+            const resultDiv = document.getElementById('result');
+            if (resultDiv) {
+                resultDiv.scrollIntoView({ behavior: 'smooth' }); // Scorrimento fluido verso il div
+            }
+        }
+
        function toggleInputMethod() {
             const metodoInput = document.getElementById('metodoInput').value;
             const kcalInput = document.getElementById('kcalPerKg');
@@ -729,10 +757,12 @@
     document.getElementById('additionalInfo').style.display = 'block';
     
     document.getElementById('sources').style.display = 'block';
+    scrollToResult();
 });
 
         // Inizializzazione della scelta del metodo
         toggleInputMethod();
+        scrollToResult();
     </script>
 </body>
 </html>
