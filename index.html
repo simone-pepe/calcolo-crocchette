@@ -20,7 +20,7 @@
 					<!-- Informazioni sul cane -->
 					<!-- NOME -->
 					<div id="containerCampi">
-						<label for="nomeDoggo">Nome cane</label>
+						<label for="nomeDoggo">🐕 Nome cane</label>
 						<input
 							type="text"
 							id="nomeDoggo"
@@ -31,16 +31,16 @@
 					</div>
 					<!-- FASE VITA -->
 					<div id="containerCampi">
-						<label for="faseVita">Età</label>
+						<label for="faseVita">⏳ Età</label>
 						<select id="faseVita" class="input">
-							<option value="normale">Adulto (1-8 anni)</option>
-							<option value="cucciolo">Cucciolo (< 1 anno)</option>
-							<option value="anziano">Anziano (> 8 anni)</option>
+							<option value="cucciolo">🌱 Cucciolo (< 1 anno)</option>
+							<option value="normale" selected>🪴 Adulto (1-8 anni)</option>
+							<option value="anziano">🌳 Anziano (> 8 anni)</option>
 						</select>
 					</div>
 					<!-- PESO -->
 					<div id="containerCampi">
-						<label for="pesoIdeale">Peso ideale</label>
+						<label for="pesoIdeale">⚖️ Peso ideale</label>
 						<input
 							type="number"
 							id="pesoIdeale"
@@ -51,11 +51,10 @@
 					</div>
 					<!-- STATO -->
 					<div id="containerCampi">
-						<label for="sterilizzato">Stato</label>
+						<label for="sterilizzato">❤️ Condizione riproduttiva</label>
 						<select
 							id="sterilizzato"
 							class="input"
-							placeholder="Il cane è sterilizzato?"
 							>
 							<option value="false">Intero</option>
 							<option value="true">Sterilizzato</option>
@@ -63,16 +62,16 @@
 					</div>
 					<!-- CONDIZIONE FISICA -->
 					<div id="containerCampi">
-						<label for="condizioneFisica">Condizione fisica</label>
+						<label for="condizioneFisica">🏀 Condizione fisica</label>
 						<select id="condizioneFisica" class="input">
 							<option value="normale">Normale</option>
-							<option value="sottopeso">Sottopeso</option>
-							<option value="sovrappeso">Sovrappeso</option>
+							<option value="sottopeso">🦴 Sottopeso</option>
+							<option value="sovrappeso">🐽 Sovrappeso</option>
 						</select>
 					</div>
 					<!-- CONDIZIONI MEDICHE -->
 					<div id="containerCampi">
-						<label for="condizioniMediche">Condizioni mediche</label>
+						<label for="condizioniMediche">⚕️ Condizioni mediche</label>
 						<select id="condizioniMediche" class="input">
 							<option value="none">Nessuna</option>
 							<option value="obesità">Obesità</option>
@@ -82,25 +81,25 @@
 					</div>
 					<!-- ATTIVITà -->
 					<div id="containerCampi">
-						<label for="attività">Attività</label>
+						<label for="attività">🐕‍🦺 Attività</label>
 						<select id="attività" class="input" required>
 							<option value="1.2">
-								Sedentario (poco attivo, calmo, con normali uscite fisiologiche)
+								💤 Sedentario (poco attivo, calmo, con normali uscite fisiologiche)
 							</option>
 							<option value="1.5" selected>
-								Normale (normale vita urbana, attività fisica nei week-end)
+								🐶 Normale (normale vita urbana, attività fisica nei week-end)
 							</option>
 							<option value="2">
-								Attivo (attività all'aperto tutti i giorni)
+								🎾 Attivo (attività all'aperto tutti i giorni)
 							</option>
 							<option value="2.5">
-								Sportivo (attività all'aperto tutti i giorni)
+								🏁 Sportivo (attività all'aperto tutti i giorni)
 							</option>
 						</select>
 					</div>
 					<!-- TEMPERATURA -->
 					<div id="containerCampi">
-						<label for="attività">Temperatura abituale</label>
+						<label for="attività">🌡️ Temperatura ambiente abituale</label>
 						<input
 							type="number"
 							id="temperatura"
@@ -111,14 +110,12 @@
 					</div>
 					<!-- PREDISPOSIZIONE -->
 					<div id="containerCampi">
-						<label for="razzaIncline">Tipo Razza</label>
+						<label for="razzaIncline">Condizione Razza</label>
 						<select id="razzaIncline" class="input" required>
-							<option value="0.9" selected>
-								Razza predisposta al sovrappeso
-							</option>
-							<option value="1.1">Razza predisposta al dimagrimento</option>
-							<option value="0.8">Razza nordica</option>
-							<option value="1">Altra razza / Non so</option>
+							<option value="0.9" selected>⬆️ Razza predisposta al sovrappeso</option>
+							<option value="1.1">⬇️ Razza predisposta al dimagrimento</option>
+							<option value="0.8">❄️ Razza nordica</option>
+							<option value="1">Altra razza / Non so / Nessuna predisposizione</option>
 						</select>
 					</div>
 					<div
@@ -130,12 +127,10 @@
 						>
 						<button
 							type="button"
-							class="button"
+							class="bn30"
 							onclick="toggleInfoSection()"
 							style="margin-bottom: 50px; margin-top: 15px"
-							>
-						Info razze
-						</button>
+							>🐾 Info razze 🐾</button>
 					</div>
 					<div class="info-section" id="infoSection" style="display: none">
 						<!-- Sovrappeso -->
@@ -163,7 +158,7 @@
 							Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer [...]
 						</p>
 					</div>
-					<label for="metodoInput">Proprietà Crocchette</label>
+					<label>Proprietà Crocchette 🫘</label>
 					<!-- Descrizione per chiarire il metodo -->
 					<p id="metodoDescrizione" class="myText">
 						Scegli il metodo che preferisci per calcolare la quantità di
@@ -184,7 +179,7 @@
 							onchange="toggleInputMethod()"
 							class="input"
 							>
-							<option value="kcal" selected>Usa Kcal</option>
+							<option value="kcal" selected>Usa Kcal per Kg</option>
 							<option value="composizione">Usa composizione</option>
 						</select>
 					</div>
@@ -281,7 +276,7 @@
 						align-content: center;
 						"
 						>
-						<button type="submit" class="button">Calcola</button>
+						<button type="submit" class="bn30">🐾 Calcola 🐾</button>
 					</div>
 				</form>
 				<div class="result" id="result"></div>
