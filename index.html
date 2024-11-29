@@ -1,385 +1,379 @@
 <!DOCTYPE html>
 <html lang="it">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Calcolatore Crocchette per Cani" />
-    <meta name="author" content="Simone Pepe" />
-    <title>Calcolatore Crocchette per Cani</title>
-    <link rel="stylesheet" href="stile.css" />
-  </head>
-  <body>
-    <main>
-      <div class="container">
-        <h1>Calcolo Fabbisogno Crocchette per Cani 🩷🐶</h1>
-        <p style="text-align: center">
-          Per calcolare la dose iniziale da somministrare in base al peso e al
-          mangime.
-        </p>
-        <form id="foodCalculatorForm">
-          <!-- Informazioni sul cane -->
-          <!-- NOME -->
-          <div id="containerCampi">
-            <label for="nomeDoggo">Nome cane</label>
-            <input
-              type="text"
-              id="nomeDoggo"
-              placeholder="Es. Whisky"
-              class="input"
-              required
-            />
-          </div>
-          <!-- FASE VITA -->
-          <div id="containerCampi">
-            <label for="faseVita">Età</label>
-            <select id="faseVita" class="input">
-              <option value="normale">Adulto (1-8 anni)</option>
-              <option value="cucciolo">Cucciolo (< 1 anno)</option>
-              <option value="anziano">Anziano (> 8 anni)</option>
-            </select>
-          </div>
-          <!-- PESO -->
-          <div id="containerCampi">
-            <label for="pesoIdeale">Peso ideale</label>
-            <input
-              type="number"
-              id="pesoIdeale"
-              placeholder="Es. 30"
-              class="input"
-              required
-            />
-          </div>
-          <!-- STATO -->
-          <div id="containerCampi">
-            <label for="sterilizzato">Stato</label>
-            <select
-              id="sterilizzato"
-              class="input"
-              placeholder="Il cane è sterilizzato?"
-            >
-              <option value="false">Intero</option>
-              <option value="true">Sterilizzato</option>
-            </select>
-          </div>
-          <!-- CONDIZIONE FISICA -->
-          <div id="containerCampi">
-            <label for="condizioneFisica">Condizione fisica</label>
-            <select id="condizioneFisica" class="input">
-              <option value="normale">Normale</option>
-              <option value="sottopeso">Sottopeso</option>
-              <option value="sovrappeso">Sovrappeso</option>
-            </select>
-          </div>
-          <!-- CONDIZIONI MEDICHE -->
-          <div id="containerCampi">
-            <label for="condizioniMediche">Condizioni mediche</label>
-            <select id="condizioniMediche" class="input">
-              <option value="none">Nessuna</option>
-              <option value="obesità">Obesità</option>
-              <option value="diabete">Diabete</option>
-              <option value="altro">Altro</option>
-            </select>
-          </div>
-          <!-- ATTIVITà -->
-          <div id="containerCampi">
-            <label for="attività">Attività</label>
-            <select id="attività" class="input" required>
-              <option value="1.2">
-                Sedentario (poco attivo, calmo, con normali uscite fisiologiche)
-              </option>
-              <option value="1.5" selected>
-                Normale (normale vita urbana, attività fisica nei week-end)
-              </option>
-              <option value="2">
-                Attivo (attività all'aperto tutti i giorni)
-              </option>
-              <option value="2.5">
-                Sportivo (attività all'aperto tutti i giorni)
-              </option>
-            </select>
-          </div>
-          <!-- TEMPERATURA -->
-          <div id="containerCampi">
-            <label for="attività">Temperatura abituale</label>
-            <input
-              type="number"
-              id="temperatura"
-              placeholder="Es. 20"
-              class="input"
-              required
-            />
-          </div>
-          <!-- PREDISPOSIZIONE -->
-          <div id="containerCampi">
-            <label for="razzaIncline">Tipo Razza</label>
-            <select id="razzaIncline" class="input" required>
-              <option value="0.9" selected>
-                Razza predisposta al sovrappeso
-              </option>
-              <option value="1.1">Razza predisposta al dimagrimento</option>
-              <option value="0.8">Razza nordica</option>
-              <option value="1">Altra razza / Non so</option>
-            </select>
-          </div>
-          <div
-            style="
-              justify-self: center;
-              align-items: center;
-              align-content: center;
-            "
-          >
-            <button
-              type="button"
-              class="button"
-              onclick="toggleInfoSection()"
-              style="margin-bottom: 50px; margin-top: 15px"
-            >
-              Info razze
-            </button>
-          </div>
-          <div class="info-section" id="infoSection" style="display: none">
-            <!-- Sovrappeso -->
-            <h4>Razze predisposte al sovrappeso</h4>
-            <p style="color: #b57fdb !important">
-              Bulldog Inglese, Cocker Spaniel, Beagle, Golden Retriever,
-              Labrador Retriever, Dachshund (Bassotto), Basset Hound, Shih Tzu,
-              Pug (Carlino), Cavalier King Charles Spaniel [...]
-            </p>
-            <!-- Dimagrimento -->
-            <h4>Razze predisposte al dimagrimento</h4>
-            <p style="color: #b57fdb !important">
-              Levriero, Greyhound, Whippet, Setter Irlandese, Bracco Ungherese
-              [...]
-            </p>
-            <!-- Razze Nordiche -->
-            <h4>Razze nordiche</h4>
-            <p style="color: #b57fdb !important">
-              Husky Siberiano, Alaskan Malamute, Samoiedo, Spitz Finnico, Akita
-              Inu [...]
-            </p>
-            <!-- Altre razze -->
-            <h4>Altre razze</h4>
-            <p style="color: #b57fdb !important">
-              Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer [...]
-            </p>
-          </div>
-          <label for="metodoInput">Proprietà Crocchette</label>
-          <!-- Descrizione per chiarire il metodo -->
-          <p id="metodoDescrizione" class="myText">
-            Scegli il metodo che preferisci per calcolare la quantità di
-            crocchette per il tuo cane.
-            <br />
-            <br />
-            <strong>"Kcal per kg"</strong> si basa sul contenuto calorico delle
-            crocchette.
-            <br />
-            <strong>"Composizione"</strong> usa la percentuale di proteine,
-            grassi e carboidrati riportate sulla busta.
-          </p>
-          <!-- METODO -->
-          <div id="containerCampi">
-            <label for="metodoInput">Metodo</label>
-            <select
-              id="metodoInput"
-              onchange="toggleInputMethod()"
-              class="input"
-            >
-              <option value="kcal" selected>Usa Kcal</option>
-              <option value="composizione">Usa composizione</option>
-            </select>
-          </div>
-          <!-- Campo Kcal per kg (sempre visibile) -->
-          <div id="containerCampi">
-            <label for="kcalPerKg">Kcal per kg di crocchette:</label>
-            <input
-              type="number"
-              id="kcalPerKg"
-              placeholder="Es. 3600"
-              class="input"
-              required
-            />
-          </div>
-          <!-- Campi composizione (disabilitati di default) -->
-          <!-- Proteine -->
-          <div id="containerCampi">
-            <label for="proteine">Proteine (%):</label>
-            <input
-              type="number"
-              id="proteine"
-              placeholder="Es. 25"
-              class="input"
-              disabled
-            />
-          </div>
-          <!-- Grassi -->
-          <div id="containerCampi">
-            <label for="grassi">Grassi (%):</label>
-            <input
-              type="number"
-              id="grassi"
-              placeholder="Es. 15"
-              class="input"
-              disabled
-            />
-          </div>
-          <label for="carboidrati">Carboidrati (%)</label>
-          <label for="carboidrati" class="myText" style="width: 100% !important"
-            >Se l'informazione non è disponibile sulla busta, sottrai dal 100%
-            ogni percentuale riportata nella composizione.</label
-          >
-          <br />
-          <label
-            for="carboidrati"
-            class="myText"
-            style="width: 100% !important"
-          >
-            <b>Composizione</b>: <br />
-            Proteina grezza
-
-            <span style="font-weight: bold; color: #b57fdb">24</span>%, umidità
-            <span style="font-weight: bold; color: #b57fdb">10</span>%, ceneri
-            <span style="font-weight: bold; color: #b57fdb">6</span>%, oli e
-            grassi <span style="font-weight: bold; color: #b57fdb">12</span>%,
-            fibra grezza
-            <span style="font-weight: bold; color: #b57fdb">3</span>%, calcio
-            <span style="font-weight: bold; color: #b57fdb">1,1</span>%, fosforo
-            <span style="font-weight: bold; color: #b57fdb">0,8</span>%.
-          </label>
-          <br />
-          <label
-            for="carboidrati"
-            class="myText"
-            style="width: 100% !important"
-          >
-            <b>Calcolo</b>: <br />
-            100 - ( <span style="font-weight: bold; color: #b57fdb">24</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">10</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">6</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">12</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">3</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">1,1</span> +
-
-            <span style="font-weight: bold; color: #b57fdb">0,8</span>) =
-
-            <span
-              style="
-                font-weight: bold;
-                color: #b57fdb;
-                text-decoration: underline;
-              "
-              >43,1</span
-            >% carboidrati.
-          </label>
-          <input
-            type="number"
-            id="carboidrati"
-            placeholder="Es. 40"
-            class="input"
-            disabled
-          />
-          <div
-            style="
-              justify-self: center;
-              align-items: center;
-              align-content: center;
-            "
-          >
-            <button type="submit" class="button">Calcola</button>
-          </div>
-        </form>
-        <div class="result" id="result"></div>
-        <div class="result" id="pasti"></div>
-        <div class="result" id="additionalInfo"></div>
-        <div class="sources" id="sources">
-          <p>
-            Fonti:
-            <br />
-            -
-            <a
-              href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need"
-              target="_blank"
-              >PetMD - How Many Calories Does a Dog Need?</a
-            >
-            <br />
-            -
-            <a
-              href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/"
-              target="_blank"
-              >American Kennel Club - How Much Should I Feed My Dog?</a
-            >
-            <br />
-            -
-            <a
-              href="https://www.purina.com/pet-food-feeding-guide-calculator"
-              target="_blank"
-              >Purina - Dog & Cat Food Feeding Guide Calculator</a
-            >
-            <br />
-            -
-            <a
-              href="https://pepitia.com/fabbisogno-calorico-cane/"
-              target="_blank"
-              >Pepitia - Fabbisogno Calorico Del Cane</a
-            >
-          </p>
-        </div>
-      </div>
-    </main>
-    <footer>
-      <div
-        style="
-          justify-content: center;
-          align-items: center;
-          width: 100%;
-          background-color: black;
-        "
-      >
-        <p
-          style="
-            justify-content: center;
-            justify-items: center;
-            align-items: center;
-            font-size: 12px;
-            text-align: center;
-            padding-top: 50px;
-          "
-        >
-          Questo strumento fornisce una stima iniziale della quantità di cibo da
-          somministrare al cane. Successivamente, sarà necessario monitorare
-          attentamente le sue condizioni, preferibilmente pesandolo
-          regolarmente, per osservare eventuali variazioni di peso.
-          <br />In base a queste osservazioni, si potrà regolare la quantità di
-          cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
-          pesato con precisione), fino a individuare il quantitativo ideale che
-          consenta di mantenere il cane al suo peso forma.
-          <br />
-          <br />
-          <br />
-
-          I contenuti e gli strumenti su questo sito sono forniti esclusivamente
-          a scopo informativo e divulgativo, e riflettono unicamente le opinioni
-          degli autori. Gli strumenti qui presenti non sono in alcun modo
-          riferiti a specifici casi clinici. Si raccomanda ai lettori di
-          consultare sempre il proprio veterinario di fiducia per qualsiasi
-          necessità o chiarimento.
-          <br />
-          <br />
-          È severamente vietata qualsiasi forma di copia, modifica, condivisione
-          o utilizzo non autorizzato delle informazioni, dei testi e delle
-          immagini pubblicati su questo sito.
-          <br />
-          <br />
-          Per segnalare eventuali errori o per comunicazioni:
-          <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a
-          >.
-        </p>
-      </div>
-    </footer>
-    <script src="core.js" defer></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Calcolatore Crocchette per Cani" />
+		<meta name="author" content="Simone Pepe" />
+		<title>Calcolatore Crocchette per Cani</title>
+		<link rel="stylesheet" href="stile.css" />
+	</head>
+	<body>
+		<div class="container">
+			<main>
+				<h1>Calcolo Fabbisogno Crocchette per Cani 🩷🐶</h1>
+				<p style="text-align: center">
+					Per calcolare la dose iniziale da somministrare in base al peso e al
+					mangime.
+				</p>
+				<form id="foodCalculatorForm">
+					<!-- Informazioni sul cane -->
+					<!-- NOME -->
+					<div id="containerCampi">
+						<label for="nomeDoggo">Nome cane</label>
+						<input
+							type="text"
+							id="nomeDoggo"
+							placeholder="Es. Whisky"
+							class="input"
+							required
+							/>
+					</div>
+					<!-- FASE VITA -->
+					<div id="containerCampi">
+						<label for="faseVita">Età</label>
+						<select id="faseVita" class="input">
+							<option value="normale">Adulto (1-8 anni)</option>
+							<option value="cucciolo">Cucciolo (< 1 anno)</option>
+							<option value="anziano">Anziano (> 8 anni)</option>
+						</select>
+					</div>
+					<!-- PESO -->
+					<div id="containerCampi">
+						<label for="pesoIdeale">Peso ideale</label>
+						<input
+							type="number"
+							id="pesoIdeale"
+							placeholder="Es. 30"
+							class="input"
+							required
+							/>
+					</div>
+					<!-- STATO -->
+					<div id="containerCampi">
+						<label for="sterilizzato">Stato</label>
+						<select
+							id="sterilizzato"
+							class="input"
+							placeholder="Il cane è sterilizzato?"
+							>
+							<option value="false">Intero</option>
+							<option value="true">Sterilizzato</option>
+						</select>
+					</div>
+					<!-- CONDIZIONE FISICA -->
+					<div id="containerCampi">
+						<label for="condizioneFisica">Condizione fisica</label>
+						<select id="condizioneFisica" class="input">
+							<option value="normale">Normale</option>
+							<option value="sottopeso">Sottopeso</option>
+							<option value="sovrappeso">Sovrappeso</option>
+						</select>
+					</div>
+					<!-- CONDIZIONI MEDICHE -->
+					<div id="containerCampi">
+						<label for="condizioniMediche">Condizioni mediche</label>
+						<select id="condizioniMediche" class="input">
+							<option value="none">Nessuna</option>
+							<option value="obesità">Obesità</option>
+							<option value="diabete">Diabete</option>
+							<option value="altro">Altro</option>
+						</select>
+					</div>
+					<!-- ATTIVITà -->
+					<div id="containerCampi">
+						<label for="attività">Attività</label>
+						<select id="attività" class="input" required>
+							<option value="1.2">
+								Sedentario (poco attivo, calmo, con normali uscite fisiologiche)
+							</option>
+							<option value="1.5" selected>
+								Normale (normale vita urbana, attività fisica nei week-end)
+							</option>
+							<option value="2">
+								Attivo (attività all'aperto tutti i giorni)
+							</option>
+							<option value="2.5">
+								Sportivo (attività all'aperto tutti i giorni)
+							</option>
+						</select>
+					</div>
+					<!-- TEMPERATURA -->
+					<div id="containerCampi">
+						<label for="attività">Temperatura abituale</label>
+						<input
+							type="number"
+							id="temperatura"
+							placeholder="Es. 20"
+							class="input"
+							required
+							/>
+					</div>
+					<!-- PREDISPOSIZIONE -->
+					<div id="containerCampi">
+						<label for="razzaIncline">Tipo Razza</label>
+						<select id="razzaIncline" class="input" required>
+							<option value="0.9" selected>
+								Razza predisposta al sovrappeso
+							</option>
+							<option value="1.1">Razza predisposta al dimagrimento</option>
+							<option value="0.8">Razza nordica</option>
+							<option value="1">Altra razza / Non so</option>
+						</select>
+					</div>
+					<div
+						style="
+						justify-self: center;
+						align-items: center;
+						align-content: center;
+						"
+						>
+						<button
+							type="button"
+							class="button"
+							onclick="toggleInfoSection()"
+							style="margin-bottom: 50px; margin-top: 15px"
+							>
+						Info razze
+						</button>
+					</div>
+					<div class="info-section" id="infoSection" style="display: none">
+						<!-- Sovrappeso -->
+						<h4>Razze predisposte al sovrappeso</h4>
+						<p style="color: #b57fdb !important">
+							Bulldog Inglese, Cocker Spaniel, Beagle, Golden Retriever,
+							Labrador Retriever, Dachshund (Bassotto), Basset Hound, Shih Tzu,
+							Pug (Carlino), Cavalier King Charles Spaniel [...]
+						</p>
+						<!-- Dimagrimento -->
+						<h4>Razze predisposte al dimagrimento</h4>
+						<p style="color: #b57fdb !important">
+							Levriero, Greyhound, Whippet, Setter Irlandese, Bracco Ungherese
+							[...]
+						</p>
+						<!-- Razze Nordiche -->
+						<h4>Razze nordiche</h4>
+						<p style="color: #b57fdb !important">
+							Husky Siberiano, Alaskan Malamute, Samoiedo, Spitz Finnico, Akita
+							Inu [...]
+						</p>
+						<!-- Altre razze -->
+						<h4>Altre razze</h4>
+						<p style="color: #b57fdb !important">
+							Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer [...]
+						</p>
+					</div>
+					<label for="metodoInput">Proprietà Crocchette</label>
+					<!-- Descrizione per chiarire il metodo -->
+					<p id="metodoDescrizione" class="myText">
+						Scegli il metodo che preferisci per calcolare la quantità di
+						crocchette per il tuo cane.
+						<br />
+						<br />
+						<strong>"Kcal per kg"</strong> si basa sul contenuto calorico delle
+						crocchette.
+						<br />
+						<strong>"Composizione"</strong> usa la percentuale di proteine,
+						grassi e carboidrati riportate sulla busta.
+					</p>
+					<!-- METODO -->
+					<div id="containerCampi">
+						<label for="metodoInput">Metodo</label>
+						<select
+							id="metodoInput"
+							onchange="toggleInputMethod()"
+							class="input"
+							>
+							<option value="kcal" selected>Usa Kcal</option>
+							<option value="composizione">Usa composizione</option>
+						</select>
+					</div>
+					<!-- Campo Kcal per kg (sempre visibile) -->
+					<div id="containerCampi">
+						<label for="kcalPerKg">Kcal per kg di crocchette:</label>
+						<input
+							type="number"
+							id="kcalPerKg"
+							placeholder="Es. 3600"
+							class="input"
+							required
+							/>
+					</div>
+					<!-- Campi composizione (disabilitati di default) -->
+					<!-- Proteine -->
+					<div id="containerCampi">
+						<label for="proteine">Proteine (%):</label>
+						<input
+							type="number"
+							id="proteine"
+							placeholder="Es. 25"
+							class="input"
+							disabled
+							/>
+					</div>
+					<!-- Grassi -->
+					<div id="containerCampi">
+						<label for="grassi">Grassi (%):</label>
+						<input
+							type="number"
+							id="grassi"
+							placeholder="Es. 15"
+							class="input"
+							disabled
+							/>
+					</div>
+					<label for="carboidrati">Carboidrati (%)</label>
+					<label for="carboidrati" class="myText" style="width: 100% !important"
+						>Se l'informazione non è disponibile sulla busta, sottrai dal 100%
+					ogni percentuale riportata nella composizione.</label
+						>
+					<br />
+					<label
+						for="carboidrati"
+						class="myText"
+						style="width: 100% !important"
+						>
+					<b>Composizione</b>: <br />
+					Proteina grezza
+					<span style="font-weight: bold; color: #b57fdb">24</span>%, umidità
+					<span style="font-weight: bold; color: #b57fdb">10</span>%, ceneri
+					<span style="font-weight: bold; color: #b57fdb">6</span>%, oli e
+					grassi <span style="font-weight: bold; color: #b57fdb">12</span>%,
+					fibra grezza
+					<span style="font-weight: bold; color: #b57fdb">3</span>%, calcio
+					<span style="font-weight: bold; color: #b57fdb">1,1</span>%, fosforo
+					<span style="font-weight: bold; color: #b57fdb">0,8</span>%.
+					</label>
+					<br />
+					<label
+						for="carboidrati"
+						class="myText"
+						style="width: 100% !important"
+						>
+					<b>Calcolo</b>: <br />
+					100 - ( <span style="font-weight: bold; color: #b57fdb">24</span> +
+					<span style="font-weight: bold; color: #b57fdb">10</span> +
+					<span style="font-weight: bold; color: #b57fdb">6</span> +
+					<span style="font-weight: bold; color: #b57fdb">12</span> +
+					<span style="font-weight: bold; color: #b57fdb">3</span> +
+					<span style="font-weight: bold; color: #b57fdb">1,1</span> +
+					<span style="font-weight: bold; color: #b57fdb">0,8</span>) =
+					<span
+						style="
+						font-weight: bold;
+						color: #b57fdb;
+						text-decoration: underline;
+						"
+						>43,1</span
+						>% carboidrati.
+					</label>
+					<input
+						type="number"
+						id="carboidrati"
+						placeholder="Es. 40"
+						class="input"
+						disabled
+						/>
+					<div
+						style="
+						justify-self: center;
+						align-items: center;
+						align-content: center;
+						"
+						>
+						<button type="submit" class="button">Calcola</button>
+					</div>
+				</form>
+				<div class="result" id="result"></div>
+				<div class="result" id="pasti"></div>
+				<div class="result" id="additionalInfo"></div>
+				<div class="sources" id="sources">
+					<p>
+						Fonti:
+						<br />
+						-
+						<a
+							href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need"
+							target="_blank"
+							>PetMD - How Many Calories Does a Dog Need?</a
+							>
+						<br />
+						-
+						<a
+							href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/"
+							target="_blank"
+							>American Kennel Club - How Much Should I Feed My Dog?</a
+							>
+						<br />
+						-
+						<a
+							href="https://www.purina.com/pet-food-feeding-guide-calculator"
+							target="_blank"
+							>Purina - Dog & Cat Food Feeding Guide Calculator</a
+							>
+						<br />
+						-
+						<a
+							href="https://pepitia.com/fabbisogno-calorico-cane/"
+							target="_blank"
+							>Pepitia - Fabbisogno Calorico Del Cane</a
+							>
+					</p>
+				</div>
+			</main>
+			<footer>
+				<div
+					style="
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+					background-color: black;
+					"
+					>
+					<p
+						style="
+						justify-content: center;
+						justify-items: center;
+						align-items: center;
+						font-size: 12px;
+						text-align: center;
+						padding-top: 50px;
+                        padding-left: 20px;
+                        padding-right: 20px;
+                        padding-bottom: 50px;
+						"
+						>
+						Questo strumento fornisce una stima iniziale della quantità di cibo da
+						somministrare al cane. Successivamente, sarà necessario monitorare
+						attentamente le sue condizioni, preferibilmente pesandolo
+						regolarmente, per osservare eventuali variazioni di peso.
+						<br />In base a queste osservazioni, si potrà regolare la quantità di
+						cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
+						pesato con precisione), fino a individuare il quantitativo ideale che
+						consenta di mantenere il cane al suo peso forma.
+						<br />
+						<br />
+						<br />
+						I contenuti e gli strumenti su questo sito sono forniti esclusivamente
+						a scopo informativo e divulgativo, e riflettono unicamente le opinioni
+						degli autori. Gli strumenti qui presenti non sono in alcun modo
+						riferiti a specifici casi clinici. Si raccomanda ai lettori di
+						consultare sempre il proprio veterinario di fiducia per qualsiasi
+						necessità o chiarimento.
+						<br />
+						<br />
+						È severamente vietata qualsiasi forma di copia, modifica, condivisione
+						o utilizzo non autorizzato delle informazioni, dei testi e delle
+						immagini pubblicati su questo sito.
+						<br />
+						<br />
+						Per segnalare eventuali errori o per comunicazioni:
+						<a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a
+							>.
+					</p>
+				</div>
+			</footer>
+		</div>
+		<script src="core.js" defer></script>
+	</body>
 </html>
