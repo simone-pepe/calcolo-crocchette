@@ -201,7 +201,7 @@
             <input type="number" id="grassi" placeholder="Es. 15" disabled>
 
             <label for="carboidrati">Carboidrati (% nelle crocchette)</label>
-            <!-- <label for="carboidrati" class="myText">Se non disponibile, sottrai da 100 ogni percentuale riportata nella composizione</label>
+            <label for="carboidrati" class="myText">Se non disponibile, sottrai da 100 ogni percentuale riportata nella composizione</label>
             <label for="carboidrati" class="myText" style="align-content: center; justify-content: center; justify-items: center; justify-self: center;">Esempio:</label>
             <label for="carboidrati" class="myText">Composizione:<br> Proteina grezza
                 <span style="font-weight: bold; color: #b57fdb;">24</span>%, 
@@ -220,8 +220,7 @@
             <span style="font-weight: bold; color: #b57fdb;">3</span> +
             <span style="font-weight: bold; color: #b57fdb;">1,1</span> +
             <span style="font-weight: bold; color: #b57fdb;">0,8</span>) =
-            <span style="font-weight: bold; color: #b57fdb; text-decoration: underline;">43,1</span>% carboidrati.</label> -->
-
+            <span style="font-weight: bold; color: #b57fdb; text-decoration: underline;">43,1</span>% carboidrati.</label>
 
             <input type="number" id="carboidrati" placeholder="Es. 40" disabled>
 
@@ -302,54 +301,54 @@
     </div>
 
     <script>
-       function toggleInputMethod() {
-    const metodoInput = document.getElementById('metodoInput').value;
-    const kcalInput = document.getElementById('kcalPerKg');
-    const proteineInput = document.getElementById('proteine');
-    const grassiInput = document.getElementById('grassi');
-    const carboidratiInput = document.getElementById('carboidrati');
+//        function toggleInputMethod() {
+//     const metodoInput = document.getElementById('metodoInput').value;
+//     const kcalInput = document.getElementById('kcalPerKg');
+//     const proteineInput = document.getElementById('proteine');
+//     const grassiInput = document.getElementById('grassi');
+//     const carboidratiInput = document.getElementById('carboidrati');
 
-    // Seleziona tutte le etichette per carboidrati
-    const carboidratiLabels = document.querySelectorAll('label[for="carboidrati"]');
-    const proteineLabel = document.querySelector('label[for="proteine"]');
-    const grassiLabel = document.querySelector('label[for="grassi"]');
-    const kcalLabel = document.querySelector('label[for="kcalPerKg"]');
+//     // Seleziona tutte le etichette per carboidrati
+//     const carboidratiLabels = document.querySelectorAll('label[for="carboidrati"]');
+//     const proteineLabel = document.querySelector('label[for="proteine"]');
+//     const grassiLabel = document.querySelector('label[for="grassi"]');
+//     const kcalLabel = document.querySelector('label[for="kcalPerKg"]');
 
-    if (metodoInput === 'kcal') {
-        kcalInput.disabled = false;
-        proteineInput.disabled = true;
-        grassiInput.disabled = true;
-        carboidratiInput.disabled = true;
+//     if (metodoInput === 'kcal') {
+//         kcalInput.disabled = false;
+//         proteineInput.disabled = true;
+//         grassiInput.disabled = true;
+//         carboidratiInput.disabled = true;
 
-        // Mostra solo il campo per le kcal e nasconde gli altri
-        kcalInput.style.display = '';
-        proteineInput.style.display = 'none';
-        grassiInput.style.display = 'none';
-        carboidratiInput.style.display = 'none';
+//         // Mostra solo il campo per le kcal e nasconde gli altri
+//         kcalInput.style.display = '';
+//         proteineInput.style.display = 'none';
+//         grassiInput.style.display = 'none';
+//         carboidratiInput.style.display = 'none';
         
-        proteineLabel.style.display = 'none';
-        grassiLabel.style.display = 'none';
-        // Nascondi tutte le etichette di carboidrati
-        carboidratiLabels.forEach(label => label.style.display = 'none');
-        kcalLabel.style.display = ''; // Assicurati che la label per kcal sia visibile
-    } else {
-        // Mostra i campi per proteine, grassi e carboidrati e nasconde le kcal
-        kcalInput.disabled = true;
-        proteineInput.disabled = false;
-        grassiInput.disabled = false;
-        carboidratiInput.disabled = false;
-        kcalInput.style.display = 'none';
-        proteineInput.style.display = '';
-        grassiInput.style.display = '';
-        carboidratiInput.style.display = '';
+//         proteineLabel.style.display = 'none';
+//         grassiLabel.style.display = 'none';
+//         // Nascondi tutte le etichette di carboidrati
+//         carboidratiLabels.forEach(label => label.style.display = 'none');
+//         kcalLabel.style.display = ''; // Assicurati che la label per kcal sia visibile
+//     } else {
+//         // Mostra i campi per proteine, grassi e carboidrati e nasconde le kcal
+//         kcalInput.disabled = true;
+//         proteineInput.disabled = false;
+//         grassiInput.disabled = false;
+//         carboidratiInput.disabled = false;
+//         kcalInput.style.display = 'none';
+//         proteineInput.style.display = '';
+//         grassiInput.style.display = '';
+//         carboidratiInput.style.display = '';
         
-        proteineLabel.style.display = '';
-        grassiLabel.style.display = '';
-        // Mostra tutte le etichette di carboidrati
-        carboidratiLabels.forEach(label => label.style.display = '');
-        kcalLabel.style.display = 'none'; // Nascondi la label per kcal
-    }
-}
+//         proteineLabel.style.display = '';
+//         grassiLabel.style.display = '';
+//         // Mostra tutte le etichette di carboidrati
+//         carboidratiLabels.forEach(label => label.style.display = '');
+//         kcalLabel.style.display = 'none'; // Nascondi la label per kcal
+//     }
+// }
 
 
         function toggleInfoSection() {
