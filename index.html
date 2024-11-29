@@ -41,7 +41,14 @@
         label {
             font-size: 16px;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-top: 15px;
+            display: block;
+            color: #ffffff;
+        }
+
+        .myText {
+            font-size: 14px;
+            font-weight: normal;
             display: block;
             color: #ffffff;
         }
@@ -162,14 +169,18 @@
             <label for="pesoIdeale">Peso ideale del cane (kg):</label>
             <input type="number" id="pesoIdeale" placeholder="Es. 30" required>
 
-            <label for="pesoAttuale">Peso attuale del cane (kg):</label>
-            <input type="number" id="pesoAttuale" placeholder="Es. 34,8" required>
-
-            <label for="metodoInput">Metodo di inserimento:</label>
+            <label for="metodoInput">Metodo di calcolo:</label>
+             <!-- Descrizione per chiarire il metodo -->
+             <p id="metodoDescrizione" class="myText">
+                Scegli il metodo che preferisci per calcolare la quantità di crocchette per il tuo cane. 
+                <strong>"Kcal per kg"</strong> si basa sul contenuto calorico, mentre <strong>"Composizione"</strong> usa la percentuale di proteine, grassi e carboidrati.
+            </p>
             <select id="metodoInput" onchange="toggleInputMethod()">
-                <option value="kcal" selected>Kcal per kg</option>
-                <option value="composizione">Composizione (proteine, grassi, carboidrati)</option>
+                <option value="kcal" selected>Calcola con le Kcal per kg di crocchette</option>
+                <option value="composizione">Calcola con la composizione delle crocchette (Proteine, Grassi, Carboidrati)</option>
             </select>
+            
+           
 
             <!-- Campo Kcal per kg (sempre visibile) -->
             <label for="kcalPerKg">Kcal per kg di crocchette:</label>
@@ -182,14 +193,36 @@
             <label for="grassi">Grassi (% nelle crocchette):</label>
             <input type="number" id="grassi" placeholder="Es. 15" disabled>
 
-            <label for="carboidrati">Carboidrati (% nelle crocchette, se non disponibile calcola: 100 - % Proteine - % Grassi - % Fibre - % Ceneri):</label>
+            <label for="carboidrati">Carboidrati (% nelle crocchette)</label>
+            <label for="carboidrati" class="myText">Se non disponibile, sottrai da 100 ogni percentuale riportata nella composizione</label>
+            <label for="carboidrati" class="myText" style="align-content: center; justify-content: center; justify-items: center; justify-self: center;">Esempio:</label>
+            <label for="carboidrati" class="myText">Composizione:<br> Proteina grezza
+                <span style="font-weight: bold; color: #b57fdb;">24</span>%, 
+                umidità <span style="font-weight: bold; color: #b57fdb;">10</span>%, 
+                ceneri <span style="font-weight: bold; color: #b57fdb;">6</span>%, 
+                oli e grassi <span style="font-weight: bold; color: #b57fdb;">12</span>%, 
+                fibra grezza <span style="font-weight: bold; color: #b57fdb;">3</span>%, 
+                calcio <span style="font-weight: bold; color: #b57fdb;">1,1</span>%, 
+                fosforo <span style="font-weight: bold; color: #b57fdb;">0,8</span>%.</label>
+
+            <label for="carboidrati" class="myText">Calcolo:<br> 100 -
+            (<span style="font-weight: bold; color: #b57fdb;">24</span> +
+            <span style="font-weight: bold; color: #b57fdb;">10</span> +
+            <span style="font-weight: bold; color: #b57fdb;">6</span> +
+            <span style="font-weight: bold; color: #b57fdb;">12</span> +
+            <span style="font-weight: bold; color: #b57fdb;">3</span> +
+            <span style="font-weight: bold; color: #b57fdb;">1,1</span> +
+            <span style="font-weight: bold; color: #b57fdb;">0,8</span>) =
+            <span style="font-weight: bold; color: #b57fdb; text-decoration: underline;">43,1</span>% carboidrati.</label>
+
+
             <input type="number" id="carboidrati" placeholder="Es. 40" disabled>
 
             <label for="attività">Fattore di attività:</label>
             <select id="attività" required>
-                <option value="1.2">Sedentario (1.2)</option>
-                <option value="1.3" selected>Moderato (1.3)</option>
-                <option value="1.4">Attivo (1.4)</option>
+                <option value="1.2">Sedentario (passeggiate fisiologiche)</option>
+                <option value="1.5" selected>Moderato (attività fisica occasionale)</option>
+                <option value="1.8">Molto Attivo (da lavoro/sport)</option>
             </select>
 
             <label for="temperatura">Temperatura media ambientale (°C):</label>
@@ -240,7 +273,7 @@
 
             <label for="faseVita">Fase di vita:</label>
             <select id="faseVita">
-                <option value="normale">Normale</option>
+                <option value="normale">Adulto</option>
                 <option value="cucciolo">Cucciolo</option>
                 <option value="anziano">Anziano</option>
             </select>
@@ -251,9 +284,9 @@
         <div class="result" id="result"></div>
         <div class="sources" id="sources">
             <p>Fonti:
-                    <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD</a>,
-                    <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club</a>,
-                    <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina</a>
+                    <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD - How Many Calories Does a Dog Need?</a><br>
+                    <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club - How Much Should I Feed My Dog?</a><br>
+                    <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina - Dog & Cat Food Feeding Guide Calculator</a>
                 </p>
         </div>
 
@@ -262,25 +295,55 @@
     </div>
 
     <script>
-        function toggleInputMethod() {
-            const metodoInput = document.getElementById('metodoInput').value;
-            const kcalInput = document.getElementById('kcalPerKg');
-            const proteineInput = document.getElementById('proteine');
-            const grassiInput = document.getElementById('grassi');
-            const carboidratiInput = document.getElementById('carboidrati');
+       function toggleInputMethod() {
+    const metodoInput = document.getElementById('metodoInput').value;
+    const kcalInput = document.getElementById('kcalPerKg');
+    const proteineInput = document.getElementById('proteine');
+    const grassiInput = document.getElementById('grassi');
+    const carboidratiInput = document.getElementById('carboidrati');
 
-            if (metodoInput === 'kcal') {
-                kcalInput.disabled = false;
-                proteineInput.disabled = true;
-                grassiInput.disabled = true;
-                carboidratiInput.disabled = true;
-            } else {
-                kcalInput.disabled = true;
-                proteineInput.disabled = false;
-                grassiInput.disabled = false;
-                carboidratiInput.disabled = false;
-            }
-        }
+    // Seleziona tutte le etichette per carboidrati
+    const carboidratiLabels = document.querySelectorAll('label[for="carboidrati"]');
+    const proteineLabel = document.querySelector('label[for="proteine"]');
+    const grassiLabel = document.querySelector('label[for="grassi"]');
+    const kcalLabel = document.querySelector('label[for="kcalPerKg"]');
+
+    if (metodoInput === 'kcal') {
+        kcalInput.disabled = false;
+        proteineInput.disabled = true;
+        grassiInput.disabled = true;
+        carboidratiInput.disabled = true;
+
+        // Mostra solo il campo per le kcal e nasconde gli altri
+        kcalInput.style.display = '';
+        proteineInput.style.display = 'none';
+        grassiInput.style.display = 'none';
+        carboidratiInput.style.display = 'none';
+        
+        proteineLabel.style.display = 'none';
+        grassiLabel.style.display = 'none';
+        // Nascondi tutte le etichette di carboidrati
+        carboidratiLabels.forEach(label => label.style.display = 'none');
+        kcalLabel.style.display = ''; // Assicurati che la label per kcal sia visibile
+    } else {
+        // Mostra i campi per proteine, grassi e carboidrati e nasconde le kcal
+        kcalInput.disabled = true;
+        proteineInput.disabled = false;
+        grassiInput.disabled = false;
+        carboidratiInput.disabled = false;
+        kcalInput.style.display = 'none';
+        proteineInput.style.display = '';
+        grassiInput.style.display = '';
+        carboidratiInput.style.display = '';
+        
+        proteineLabel.style.display = '';
+        grassiLabel.style.display = '';
+        // Mostra tutte le etichette di carboidrati
+        carboidratiLabels.forEach(label => label.style.display = '');
+        kcalLabel.style.display = 'none'; // Nascondi la label per kcal
+    }
+}
+
 
         function toggleInfoSection() {
             const infoSection = document.getElementById('infoSection');
@@ -291,18 +354,20 @@
     event.preventDefault();
 
     const pesoIdeale = parseFloat(document.getElementById('pesoIdeale').value);
-    const pesoAttuale = parseFloat(document.getElementById('pesoAttuale').value);
     const metodoInput = document.getElementById('metodoInput').value;
     let calorieCrocchette;
 
     if (metodoInput === 'kcal') {
-        calorieCrocchette = parseFloat(document.getElementById('kcalPerKg').value);
+    calorieCrocchette = parseFloat(document.getElementById('kcalPerKg').value);
     } else {
         const proteine = parseFloat(document.getElementById('proteine').value);
         const grassi = parseFloat(document.getElementById('grassi').value);
         const carboidrati = parseFloat(document.getElementById('carboidrati').value);
-        calorieCrocchette = (proteine * 4) + (grassi * 9) + (carboidrati * 4);
+        // Calcolo corretto delle kcal per kg
+        const kcalPer100g = (proteine * 4) + (grassi * 9) + (carboidrati * 4);
+        calorieCrocchette = kcalPer100g * 10;
     }
+
 
     // Calcolo delle calorie giornaliere basato sul peso ideale
     const rer = 70 * Math.pow(pesoIdeale, 0.75);
@@ -354,7 +419,7 @@
     const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
 
     // Mostrare il risultato
-    document.getElementById('result').textContent = `Quantità di crocchette per il tuo cane: ${crocchettePerGiorno.toFixed(2)} g al giorno.`;
+    document.getElementById('result').textContent = `Il tuo cane dovrebbe mangiare circa ${crocchettePerGiorno.toFixed(0)} g di crocchette al giorno.`;
     document.getElementById('result').style.display = 'block';
     document.getElementById('sources').style.display = 'block';
 });
