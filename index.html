@@ -1,781 +1,385 @@
 <!DOCTYPE html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Calcolatore Crocchette per Cani" />
+    <meta name="author" content="Simone Pepe" />
     <title>Calcolatore Crocchette per Cani</title>
-    <style>
-        body {
-            background-color: #121212;
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        a{
-            color: #8d50b8;
-        }
-
-        .container {
-            background-color: #121212;
-            /* border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
-            width: 100%;
-            max-width: 900px;
-            padding: 30px;
-            overflow-y: auto;
-            max-height: 95dvh;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        span{
-            display: inline-block;
-        }
-
-        h1 {
-            font-size: 24px;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #b57fdb; /* Colore viola/lilla per il titolo */
-        }
-
-        label {
-            font-size: 16px;
-            font-weight: bold;
-            /* margin-top: 15px; */
-            display: block;
-            color: #ffffff;
-        }
-
-        .myText {
-            font-size: 14px;
-            font-weight: normal;
-            display: block;
-            color: #ffffff;
-        }
-
-        input, label {
-         width: 50%;  
-        }
-
-        .input {
-            background: none;
-            border: 1px solid rgba(255, 255, 255, 0.211);
-            outline: none;
-            font-size: 16px;
-            border-radius: 9999px;
-            box-shadow: inset 2px 5px 10px rgba(78, 0, 127, 0.181);
-            color: #ffffff; /* Colore del testo */
-            appearance: none; /* Rimuove lo stile predefinito del browser */
-            -webkit-appearance: none; /* Per Safari */
-            padding: 10px 20px; /* Spaziatura interna */
-        }
-
-        .input option {
-            background-color: #0c0c0c; /* Sfondo delle opzioni */
-            color: #ffffff; /* Colore del testo delle opzioni */
-            padding: 5px; /* Spaziatura interna delle opzioni */
-        }
-
-        .input:hover {
-            border-color: #b57fdb; /* Cambia colore del bordo al passaggio del mouse */
-        }
-
-        .input:focus {
-            border-color: #b57fdb; /* Cambia colore del bordo quando selezionato */
-            box-shadow: 0 0 5px rgba(181, 127, 219, 0.5); /* Effetto luce attorno */
-        }
-
-        input, select, button {
-            width: 100%;
-            padding: 12px;
-            margin: 10px 0;
-            border: 2px solid #555;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        input:focus, select:focus {
-            border-color: #b57fdb; /* Bordo viola/lilla */
-            outline: none;
-        }
-
-        button {
-            background-color: #b57fdb; /* Viola/lilla per il bottone */
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: background-color 0.3s ease;
-            padding: 15px;
-        }
-
-        button:hover {
-            background-color: #9a67d9; /* Colore viola più scuro all'hover */
-        }
-
-        .sources {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #888;
-            display: none;
-        }
-
-        .sources a {
-            color: #b57fdb; /* Link viola/lilla per le fonti */
-            text-decoration: none;
-        }
-
-        .sources a:hover {
-            text-decoration: underline;
-        }
-
-       .info-section {
-			
-            margin-bottom: 50px;
-			padding: 15px;
-			background-color: #1d1d1d;
-            border: 1px solid violet;
-			border-radius: 8px;
-			color: #ffffff; /* Colore di default */
-			display: none;
-			transition: all 0.3s ease;
-		}
-
-		.info-section ul {
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-		}
-
-		.info-section ul li {
-			padding: 0;
-            margin: 0;
-		}
-
-
-        .result {
-            background-color: #444444;
-            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
-            color: #ffffff; /* Testo viola/lilla per il risultato */
-            font-size: 18px;
-            font-weight: normal;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            margin-top: 20px;
-        }
-
-        .pasti {
-            background-color: #444444;
-            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
-            color: #ffffff; /* Testo viola/lilla per il risultato */
-            font-size: 18px;
-            font-weight: normal;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            margin-top: 20px;
-        }
-
-        .additionalInfo {
-            background-color: #444444;
-            border: 1px solid #b57fdb; /* Bordo viola/lilla per il risultato */
-            color: #ffffff; /* Testo viola/lilla per il risultato */
-            font-size: 18px;
-            font-weight: normal;
-            text-align: center;
-            padding: 15px;
-            border-radius: 8px;
-            display: none;
-            margin-top: 20px;
-        }
-
-        .info-btn{
-            width: 100%;
-        }
-
-        #container2 {
-            display: flex;
-            gap: 10px; /* Spaziatura tra gli elementi */
-            align-items: center;
-            }
-
-        #containerCampi{
-        display: flex;
-        gap: 10px; /* Spaziatura tra gli elementi */
-        align-items: center;
-        justify-content: start;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-                max-width: 100%;
-            }
-
-            h1 {
-                font-size: 22px;
-            }
-
-            input, select, button {
-                font-size: 14px;
-                padding: 10px;
-            }
-
-            .result {
-                font-size: 16px;
-                padding: 12px;
-            }
-            .pasti {
-                font-size: 16px;
-                padding: 12px;
-            }
-            .additionalInfo {
-                font-size: 16px;
-                padding: 12px;
-            }
-
-            .sources {
-                font-size: 12px;
-            }
-        }
-
-        .cssbuttons-io-button {
-            background: #a370f0;
-            color: white;
-            font-family: inherit;
-            padding: 0.35em;
-            padding-left: 1.2em;
-            font-size: 17px;
-            font-weight: 500;
-            border-radius: 0.9em;
-            border: none;
-            letter-spacing: 0.05em;
-            display: flex;
-            align-items: center;
-            box-shadow: inset 0 0 1.6em -0.6em #714da6;
-            overflow: hidden;
-            position: relative;
-            height: 2.8em;
-            padding-right: 3.3em;
-            cursor: pointer;
-            }
-
-            .cssbuttons-io-button .icon {
-            background: white;
-            margin-left: 1em;
-            position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 2.2em;
-            width: 2.2em;
-            border-radius: 0.7em;
-            box-shadow: 0.1em 0.1em 0.6em 0.2em #7b52b9;
-            right: 0.3em;
-            transition: all 0.3s;
-            }
-
-            .cssbuttons-io-button:hover .icon {
-            width: calc(100% - 0.6em);
-            }
-
-            .cssbuttons-io-button .icon svg {
-            width: 1.1em;
-            transition: transform 0.3s;
-            color: #7b52b9;
-            }
-
-            .cssbuttons-io-button:hover .icon svg {
-            transform: translateX(0.1em);
-            }
-
-            .cssbuttons-io-button:active .icon {
-            transform: scale(0.95);
-            }
-
-
-            .button {
-                position: relative;
-                padding: 10px 22px;
-                border-radius: 6px;
-                border: none;
-                color: #fff;
-                cursor: pointer;
-                background-color: #7d2ae8;
-                transition: all 0.2s ease;
-                width: 100%;
-                }
-
-                .button:active {
-                transform: scale(0.96);
-                }
-
-                .button:before,
-                .button:after {
-                position: absolute;
-                content: "";
-                width: 150%;
-                left: 50%;
-                height: 100%;
-                transform: translateX(-50%);
-                z-index: -1000;
-                background-repeat: no-repeat;
-                }
-
-                .button:hover:before {
-                top: -70%;
-                background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-                background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-                    10% 10%, 18% 18%;
-                background-position: 50% 120%;
-                animation: greentopBubbles 0.6s ease;
-                }
-
-                @keyframes greentopBubbles {
-                0% {
-                    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-                    40% 90%, 55% 90%, 70% 90%;
-                }
-
-                50% {
-                    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-                    50% 50%, 65% 20%, 90% 30%;
-                }
-
-                100% {
-                    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-                    50% 40%, 65% 10%, 90% 20%;
-                    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-                }
-                }
-
-                .button:hover::after {
-                bottom: -70%;
-                background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-                    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-                background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
-                background-position: 50% 0%;
-                animation: greenbottomBubbles 0.6s ease;
-                }
-
-                @keyframes greenbottomBubbles {
-                0% {
-                    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-                    70% -10%, 70% 0%;
-                }
-
-                50% {
-                    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-                    105% 0%;
-                }
-
-                100% {
-                    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-                    110% 10%;
-                    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-                }
-                }
-    </style>
-</head>
-<body>
-    <div class="container">
+    <link rel="stylesheet" href="stile.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
         <h1>Calcolo Fabbisogno Crocchette per Cani 🩷🐶</h1>
-        <p style="text-align: center;">Per calcolare la dose iniziale da somministrare in base al peso e al mangime.</p>
+        <p style="text-align: center">
+          Per calcolare la dose iniziale da somministrare in base al peso e al
+          mangime.
+        </p>
         <form id="foodCalculatorForm">
-             <!-- Informazioni sul cane -->
-            <!-- NOME -->
-             <div id="containerCampi">
-                <label for="nomeDoggo">Nome cane</label>
-                <input type="text" id="nomeDoggo" placeholder="Es. Whisky" class="input" required>
-              </div>
-
-              <!-- FASE VITA -->
-              <div id="containerCampi">
-                <label for="faseVita">Età</label>
-                <select id="faseVita" class="input">
-                    <option value="normale">Adulto (1-8 anni)</option>
-                    <option value="cucciolo">Cucciolo (< 1 anno)</option>
-                    <option value="anziano">Anziano (> 8 anni)</option>
-                </select>
-              </div>
-             
-              <!-- PESO -->
-              <div id="containerCampi">
-                <label for="pesoIdeale">Peso ideale</label>
-                <input type="number" id="pesoIdeale" placeholder="Es. 30"  class="input" required>
-              </div>
-
-               <!-- STATO -->
-               <div id="containerCampi">
-                <label for="sterilizzato">Stato</label>
-                <select id="sterilizzato" class="input" placeholder="Il cane è sterilizzato?">
-                    <option value="false">Intero</option>
-                    <option value="true">Sterilizzato</option>
-                </select>
-              </div>
-
-               <!-- CONDIZIONE FISICA -->
-               <div id="containerCampi">
-                <label for="condizioneFisica">Condizione fisica</label>
-                <select id="condizioneFisica"  class="input">
-                    <option value="normale">Normale</option>
-                    <option value="sottopeso">Sottopeso</option>
-                    <option value="sovrappeso">Sovrappeso</option>
-                </select>
-              </div>
-
-              <!-- CONDIZIONI MEDICHE -->
-              <div id="containerCampi">
-                <label for="condizioniMediche">Condizioni mediche</label>
-                <select id="condizioniMediche"  class="input">
-                    <option value="none">Nessuna</option>
-                    <option value="obesità">Obesità</option>
-                    <option value="diabete">Diabete</option>
-                    <option value="altro">Altro</option>
-                </select>
-              </div>
-
-               <!-- ATTIVITà -->
-               <div id="containerCampi">
-                <label for="attività">Attività</label>
-                <select id="attività"  class="input" required>
-                    <option value="1.2">Sedentario (poco attivo, calmo, con normali uscite fisiologiche)</option>
-                    <option value="1.5" selected>Normale (normale vita urbana, attività fisica nei week-end)</option>
-                    <option value="2">Attivo (attività all'aperto tutti i giorni)</option>
-                    <option value="2.5">Sportivo (attività all'aperto tutti i giorni)</option>
-                </select>
-              </div>
-            
-               <!-- TEMPERATURA -->
-               <div id="containerCampi">
-                <label for="attività">Temperatura abituale</label>
-                <input type="number" id="temperatura" placeholder="Es. 20"  class="input" required >
-              </div>
-
-               <!-- PREDISPOSIZIONE -->
-               <div id="containerCampi">
-                <label for="razzaIncline">Tipo Razza</label>
-                <select id="razzaIncline"  class="input" required>
-                    <option value="0.9" selected>Razza predisposta al sovrappeso</option>
-                    <option value="1.1">Razza predisposta al dimagrimento</option>
-                    <option value="0.8">Razza nordica</option>
-                    <option value="1">Altra razza / Non so</option>
-                </select>
-              </div>
-                
-            
-            <div style="justify-self: center;align-items: center;align-content: center;">
-                <button type="button" class="button" onclick="toggleInfoSection()" style="margin-bottom: 50px; margin-top: 15px;">Info razze</button>
-            </div>
-              
-			<div class="info-section" id="infoSection" style="display: none;">
-                <!-- Sovrappeso -->
-                <h4>Razze predisposte al sovrappeso</h4>
-                <p style="color: #b57fdb!important;">
-                  Bulldog Inglese, Cocker Spaniel, Beagle, Golden Retriever, Labrador Retriever, 
-                  Dachshund (Bassotto), Basset Hound, Shih Tzu, Pug (Carlino), Cavalier King Charles Spaniel [...]
-                </p>
-              
-                <!-- Dimagrimento -->
-                <h4>Razze predisposte al dimagrimento</h4>
-                <p style="color: #b57fdb!important;">
-                  Levriero, Greyhound, Whippet, Setter Irlandese, Bracco Ungherese [...]
-                </p>
-              
-                <!-- Razze Nordiche -->
-                <h4>Razze nordiche</h4>
-                <p style="color: #b57fdb!important;">
-                  Husky Siberiano, Alaskan Malamute, Samoiedo, Spitz Finnico, Akita Inu [...]
-                </p>
-              
-                <!-- Altre razze -->
-                <h4>Altre razze</h4>
-                <p style="color: #b57fdb!important;">
-                  Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer [...]
-                </p>
-              </div>
-
-
-            <label for="metodoInput">Proprietà Crocchette</label>
-             <!-- Descrizione per chiarire il metodo -->
-             <p id="metodoDescrizione" class="myText">
-                Scegli il metodo che preferisci per calcolare la quantità di crocchette per il tuo cane. <br> <br>
-                <strong>"Kcal per kg"</strong> si basa sul contenuto calorico delle crocchette.<br><strong>"Composizione"</strong> usa la percentuale di proteine, grassi e carboidrati riportate sulla busta.
+          <!-- Informazioni sul cane -->
+          <!-- NOME -->
+          <div id="containerCampi">
+            <label for="nomeDoggo">Nome cane</label>
+            <input
+              type="text"
+              id="nomeDoggo"
+              placeholder="Es. Whisky"
+              class="input"
+              required
+            />
+          </div>
+          <!-- FASE VITA -->
+          <div id="containerCampi">
+            <label for="faseVita">Età</label>
+            <select id="faseVita" class="input">
+              <option value="normale">Adulto (1-8 anni)</option>
+              <option value="cucciolo">Cucciolo (< 1 anno)</option>
+              <option value="anziano">Anziano (> 8 anni)</option>
+            </select>
+          </div>
+          <!-- PESO -->
+          <div id="containerCampi">
+            <label for="pesoIdeale">Peso ideale</label>
+            <input
+              type="number"
+              id="pesoIdeale"
+              placeholder="Es. 30"
+              class="input"
+              required
+            />
+          </div>
+          <!-- STATO -->
+          <div id="containerCampi">
+            <label for="sterilizzato">Stato</label>
+            <select
+              id="sterilizzato"
+              class="input"
+              placeholder="Il cane è sterilizzato?"
+            >
+              <option value="false">Intero</option>
+              <option value="true">Sterilizzato</option>
+            </select>
+          </div>
+          <!-- CONDIZIONE FISICA -->
+          <div id="containerCampi">
+            <label for="condizioneFisica">Condizione fisica</label>
+            <select id="condizioneFisica" class="input">
+              <option value="normale">Normale</option>
+              <option value="sottopeso">Sottopeso</option>
+              <option value="sovrappeso">Sovrappeso</option>
+            </select>
+          </div>
+          <!-- CONDIZIONI MEDICHE -->
+          <div id="containerCampi">
+            <label for="condizioniMediche">Condizioni mediche</label>
+            <select id="condizioniMediche" class="input">
+              <option value="none">Nessuna</option>
+              <option value="obesità">Obesità</option>
+              <option value="diabete">Diabete</option>
+              <option value="altro">Altro</option>
+            </select>
+          </div>
+          <!-- ATTIVITà -->
+          <div id="containerCampi">
+            <label for="attività">Attività</label>
+            <select id="attività" class="input" required>
+              <option value="1.2">
+                Sedentario (poco attivo, calmo, con normali uscite fisiologiche)
+              </option>
+              <option value="1.5" selected>
+                Normale (normale vita urbana, attività fisica nei week-end)
+              </option>
+              <option value="2">
+                Attivo (attività all'aperto tutti i giorni)
+              </option>
+              <option value="2.5">
+                Sportivo (attività all'aperto tutti i giorni)
+              </option>
+            </select>
+          </div>
+          <!-- TEMPERATURA -->
+          <div id="containerCampi">
+            <label for="attività">Temperatura abituale</label>
+            <input
+              type="number"
+              id="temperatura"
+              placeholder="Es. 20"
+              class="input"
+              required
+            />
+          </div>
+          <!-- PREDISPOSIZIONE -->
+          <div id="containerCampi">
+            <label for="razzaIncline">Tipo Razza</label>
+            <select id="razzaIncline" class="input" required>
+              <option value="0.9" selected>
+                Razza predisposta al sovrappeso
+              </option>
+              <option value="1.1">Razza predisposta al dimagrimento</option>
+              <option value="0.8">Razza nordica</option>
+              <option value="1">Altra razza / Non so</option>
+            </select>
+          </div>
+          <div
+            style="
+              justify-self: center;
+              align-items: center;
+              align-content: center;
+            "
+          >
+            <button
+              type="button"
+              class="button"
+              onclick="toggleInfoSection()"
+              style="margin-bottom: 50px; margin-top: 15px"
+            >
+              Info razze
+            </button>
+          </div>
+          <div class="info-section" id="infoSection" style="display: none">
+            <!-- Sovrappeso -->
+            <h4>Razze predisposte al sovrappeso</h4>
+            <p style="color: #b57fdb !important">
+              Bulldog Inglese, Cocker Spaniel, Beagle, Golden Retriever,
+              Labrador Retriever, Dachshund (Bassotto), Basset Hound, Shih Tzu,
+              Pug (Carlino), Cavalier King Charles Spaniel [...]
             </p>
+            <!-- Dimagrimento -->
+            <h4>Razze predisposte al dimagrimento</h4>
+            <p style="color: #b57fdb !important">
+              Levriero, Greyhound, Whippet, Setter Irlandese, Bracco Ungherese
+              [...]
+            </p>
+            <!-- Razze Nordiche -->
+            <h4>Razze nordiche</h4>
+            <p style="color: #b57fdb !important">
+              Husky Siberiano, Alaskan Malamute, Samoiedo, Spitz Finnico, Akita
+              Inu [...]
+            </p>
+            <!-- Altre razze -->
+            <h4>Altre razze</h4>
+            <p style="color: #b57fdb !important">
+              Border Collie, Pastore Tedesco, Barboncino, Dalmata, Boxer [...]
+            </p>
+          </div>
+          <label for="metodoInput">Proprietà Crocchette</label>
+          <!-- Descrizione per chiarire il metodo -->
+          <p id="metodoDescrizione" class="myText">
+            Scegli il metodo che preferisci per calcolare la quantità di
+            crocchette per il tuo cane.
+            <br />
+            <br />
+            <strong>"Kcal per kg"</strong> si basa sul contenuto calorico delle
+            crocchette.
+            <br />
+            <strong>"Composizione"</strong> usa la percentuale di proteine,
+            grassi e carboidrati riportate sulla busta.
+          </p>
+          <!-- METODO -->
+          <div id="containerCampi">
+            <label for="metodoInput">Metodo</label>
+            <select
+              id="metodoInput"
+              onchange="toggleInputMethod()"
+              class="input"
+            >
+              <option value="kcal" selected>Usa Kcal</option>
+              <option value="composizione">Usa composizione</option>
+            </select>
+          </div>
+          <!-- Campo Kcal per kg (sempre visibile) -->
+          <div id="containerCampi">
+            <label for="kcalPerKg">Kcal per kg di crocchette:</label>
+            <input
+              type="number"
+              id="kcalPerKg"
+              placeholder="Es. 3600"
+              class="input"
+              required
+            />
+          </div>
+          <!-- Campi composizione (disabilitati di default) -->
+          <!-- Proteine -->
+          <div id="containerCampi">
+            <label for="proteine">Proteine (%):</label>
+            <input
+              type="number"
+              id="proteine"
+              placeholder="Es. 25"
+              class="input"
+              disabled
+            />
+          </div>
+          <!-- Grassi -->
+          <div id="containerCampi">
+            <label for="grassi">Grassi (%):</label>
+            <input
+              type="number"
+              id="grassi"
+              placeholder="Es. 15"
+              class="input"
+              disabled
+            />
+          </div>
+          <label for="carboidrati">Carboidrati (%)</label>
+          <label for="carboidrati" class="myText" style="width: 100% !important"
+            >Se l'informazione non è disponibile sulla busta, sottrai dal 100%
+            ogni percentuale riportata nella composizione.</label
+          >
+          <br />
+          <label
+            for="carboidrati"
+            class="myText"
+            style="width: 100% !important"
+          >
+            <b>Composizione</b>: <br />
+            Proteina grezza
 
-            <!-- METODO -->
-            <div id="containerCampi">
-                <label for="metodoInput">Metodo</label>
-                <select id="metodoInput" onchange="toggleInputMethod()"  class="input">
-                    <option value="kcal" selected>Usa Kcal</option>
-                    <option value="composizione">Usa composizione</option>
-                </select>
-              </div>
-            
-            <!-- Campo Kcal per kg (sempre visibile) -->
-            <div id="containerCampi">
-                <label for="kcalPerKg">Kcal per kg di crocchette:</label>
-                <input type="number" id="kcalPerKg" placeholder="Es. 3600"  class="input" required>
-            </div>
+            <span style="font-weight: bold; color: #b57fdb">24</span>%, umidità
+            <span style="font-weight: bold; color: #b57fdb">10</span>%, ceneri
+            <span style="font-weight: bold; color: #b57fdb">6</span>%, oli e
+            grassi <span style="font-weight: bold; color: #b57fdb">12</span>%,
+            fibra grezza
+            <span style="font-weight: bold; color: #b57fdb">3</span>%, calcio
+            <span style="font-weight: bold; color: #b57fdb">1,1</span>%, fosforo
+            <span style="font-weight: bold; color: #b57fdb">0,8</span>%.
+          </label>
+          <br />
+          <label
+            for="carboidrati"
+            class="myText"
+            style="width: 100% !important"
+          >
+            <b>Calcolo</b>: <br />
+            100 - ( <span style="font-weight: bold; color: #b57fdb">24</span> +
 
-            <!-- Campi composizione (disabilitati di default) -->
+            <span style="font-weight: bold; color: #b57fdb">10</span> +
 
-             <!-- Proteine -->
-             <div id="containerCampi">
-                <label for="proteine">Proteine (%):</label>
-                <input type="number" id="proteine" placeholder="Es. 25"  class="input" disabled>
-            </div>
+            <span style="font-weight: bold; color: #b57fdb">6</span> +
 
-             <!-- Grassi -->
-             <div id="containerCampi">
-                <label for="grassi">Grassi (%):</label>
-                <input type="number" id="grassi" placeholder="Es. 15"  class="input" disabled>
-            </div>
+            <span style="font-weight: bold; color: #b57fdb">12</span> +
 
+            <span style="font-weight: bold; color: #b57fdb">3</span> +
 
-            <label for="carboidrati">Carboidrati (%)</label>
-            <label for="carboidrati" class="myText" style="width: 100%!important;">Se l'informazione non è disponibile sulla busta, sottrai dal 100% ogni percentuale riportata nella composizione.</label><br>
-            <label for="carboidrati" class="myText" style="width: 100%!important;"><b>Composizione</b>:<br> Proteina grezza
-                <span style="font-weight: bold; color: #b57fdb;">24</span>%, 
-                umidità <span style="font-weight: bold; color: #b57fdb;">10</span>%, 
-                ceneri <span style="font-weight: bold; color: #b57fdb;">6</span>%, 
-                oli e grassi <span style="font-weight: bold; color: #b57fdb;">12</span>%, 
-                fibra grezza <span style="font-weight: bold; color: #b57fdb;">3</span>%, 
-                calcio <span style="font-weight: bold; color: #b57fdb;">1,1</span>%, 
-                fosforo <span style="font-weight: bold; color: #b57fdb;">0,8</span>%.</label><br>
+            <span style="font-weight: bold; color: #b57fdb">1,1</span> +
 
-            <label for="carboidrati" class="myText" style="width: 100%!important;"><b>Calcolo</b>:<br> 100 -
-            (<span style="font-weight: bold; color: #b57fdb;">24</span> +
-            <span style="font-weight: bold; color: #b57fdb;">10</span> +
-            <span style="font-weight: bold; color: #b57fdb;">6</span> +
-            <span style="font-weight: bold; color: #b57fdb;">12</span> +
-            <span style="font-weight: bold; color: #b57fdb;">3</span> +
-            <span style="font-weight: bold; color: #b57fdb;">1,1</span> +
-            <span style="font-weight: bold; color: #b57fdb;">0,8</span>) =
-            <span style="font-weight: bold; color: #b57fdb; text-decoration: underline;">43,1</span>% carboidrati.</label>
+            <span style="font-weight: bold; color: #b57fdb">0,8</span>) =
 
-            <input type="number" id="carboidrati" placeholder="Es. 40"  class="input" disabled>
-
-           
-
-            <div style="justify-self: center;align-items: center;align-content: center;"><button type="submit" class="button">Calcola</button></div>
-            
-
+            <span
+              style="
+                font-weight: bold;
+                color: #b57fdb;
+                text-decoration: underline;
+              "
+              >43,1</span
+            >% carboidrati.
+          </label>
+          <input
+            type="number"
+            id="carboidrati"
+            placeholder="Es. 40"
+            class="input"
+            disabled
+          />
+          <div
+            style="
+              justify-self: center;
+              align-items: center;
+              align-content: center;
+            "
+          >
+            <button type="submit" class="button">Calcola</button>
+          </div>
         </form>
-
         <div class="result" id="result"></div>
         <div class="result" id="pasti"></div>
         <div class="result" id="additionalInfo"></div>
         <div class="sources" id="sources">
-            <p>Fonti:<br>
-                    - <a href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need" target="_blank">PetMD - How Many Calories Does a Dog Need?</a><br>
-                    - <a href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/" target="_blank">American Kennel Club - How Much Should I Feed My Dog?</a><br>
-                    - <a href="https://www.purina.com/pet-food-feeding-guide-calculator" target="_blank">Purina - Dog & Cat Food Feeding Guide Calculator</a><br>
-                    - <a href="https://pepitia.com/fabbisogno-calorico-cane/" target="_blank">Pepitia - Fabbisogno Calorico Del Cane</a>
-                </p>
+          <p>
+            Fonti:
+            <br />
+            -
+            <a
+              href="https://www.petmd.com/dog/nutrition/how-many-calories-does-a-dog-need"
+              target="_blank"
+              >PetMD - How Many Calories Does a Dog Need?</a
+            >
+            <br />
+            -
+            <a
+              href="https://www.akc.org/expert-advice/nutrition/how-much-should-i-feed-my-dog/"
+              target="_blank"
+              >American Kennel Club - How Much Should I Feed My Dog?</a
+            >
+            <br />
+            -
+            <a
+              href="https://www.purina.com/pet-food-feeding-guide-calculator"
+              target="_blank"
+              >Purina - Dog & Cat Food Feeding Guide Calculator</a
+            >
+            <br />
+            -
+            <a
+              href="https://pepitia.com/fabbisogno-calorico-cane/"
+              target="_blank"
+              >Pepitia - Fabbisogno Calorico Del Cane</a
+            >
+          </p>
         </div>
+      </div>
+    </main>
+    <footer>
+      <div
+        style="
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          background-color: black;
+        "
+      >
+        <p
+          style="
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+            padding-top: 50px;
+          "
+        >
+          Questo strumento fornisce una stima iniziale della quantità di cibo da
+          somministrare al cane. Successivamente, sarà necessario monitorare
+          attentamente le sue condizioni, preferibilmente pesandolo
+          regolarmente, per osservare eventuali variazioni di peso.
+          <br />In base a queste osservazioni, si potrà regolare la quantità di
+          cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
+          pesato con precisione), fino a individuare il quantitativo ideale che
+          consenta di mantenere il cane al suo peso forma.
+          <br />
+          <br />
+          <br />
 
-      
-        <div style="justify-content: center; align-items: center;">
-            <p style="justify-content: center;justify-items: center;align-items: center;font-size: 12px;text-align: center;padding-top: 50px;">
-                Questo strumento fornisce una stima iniziale della quantità di cibo da somministrare al cane. Successivamente, sarà necessario monitorare attentamente le sue condizioni,
-                preferibilmente pesandolo regolarmente, per osservare eventuali variazioni di peso. In base a queste osservazioni, si potrà regolare la quantità di cibo,
-                aumentando o diminuendo il dosaggio (che deve SEMPRE essere pesato con precisione), fino a individuare il quantitativo ideale che consenta di mantenere il cane al suo peso forma.<br><br><br>
-
-                I contenuti e gli strumenti su questo sito sono forniti esclusivamente a scopo informativo e divulgativo, e riflettono unicamente le opinioni degli autori.
-                Gli strumenti qui presenti non sono in alcun modo riferiti a specifici casi clinici. Si raccomanda ai lettori di consultare sempre il proprio veterinario di fiducia per qualsiasi necessità o chiarimento.
-                È severamente vietata qualsiasi forma di copia, modifica, condivisione o utilizzo non autorizzato delle informazioni, dei testi e delle immagini pubblicati su questo sito.
-                Per segnalare eventuali errori o per comunicazioni: <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a>.
-            </p>
-        </div>
-    </div>
-
-    <script>
-        function scrollToResult() {
-            const resultDiv = document.getElementById('result');
-            if (resultDiv) {
-                resultDiv.scrollIntoView({ behavior: 'smooth' }); // Scorrimento fluido verso il div
-            }
-        }
-
-       function toggleInputMethod() {
-            const metodoInput = document.getElementById('metodoInput').value;
-            const kcalInput = document.getElementById('kcalPerKg');
-            const proteineInput = document.getElementById('proteine');
-            const grassiInput = document.getElementById('grassi');
-            const carboidratiInput = document.getElementById('carboidrati');
-
-            // Seleziona tutte le etichette per carboidrati
-            const carboidratiLabels = document.querySelectorAll('label[for="carboidrati"]');
-            const proteineLabel = document.querySelector('label[for="proteine"]');
-            const grassiLabel = document.querySelector('label[for="grassi"]');
-            const kcalLabel = document.querySelector('label[for="kcalPerKg"]');
-
-            if (metodoInput === 'kcal') {
-                kcalInput.disabled = false;
-                proteineInput.disabled = true;
-                grassiInput.disabled = true;
-                carboidratiInput.disabled = true;
-
-                // Mostra solo il campo per le kcal e nasconde gli altri
-                kcalInput.style.display = 'block';  // Assicurati che il campo kcal sia visibile
-                proteineInput.style.display = 'none';  // Nasconde il campo proteine
-                grassiInput.style.display = 'none';   // Nasconde il campo grassi
-                carboidratiInput.style.display = 'none';  // Nasconde il campo carboidrati
-                
-                proteineLabel.style.display = 'none';   // Nasconde l'etichetta proteine
-                grassiLabel.style.display = 'none';     // Nasconde l'etichetta grassi
-                // Nascondi tutte le etichette di carboidrati
-                carboidratiLabels.forEach(label => label.style.display = 'none');
-                kcalLabel.style.display = 'block';     // Mostra l'etichetta per kcal
-            } else {
-                // Mostra i campi per proteine, grassi e carboidrati e nasconde le kcal
-                kcalInput.disabled = true;
-                proteineInput.disabled = false;
-                grassiInput.disabled = false;
-                carboidratiInput.disabled = false;
-
-                kcalInput.style.display = 'none';    // Nasconde il campo kcal
-                proteineInput.style.display = 'block';  // Mostra il campo proteine
-                grassiInput.style.display = 'block';   // Mostra il campo grassi
-                carboidratiInput.style.display = 'block';  // Mostra il campo carboidrati
-                
-                proteineLabel.style.display = 'block';   // Mostra l'etichetta proteine
-                grassiLabel.style.display = 'block';     // Mostra l'etichetta grassi
-                // Mostra tutte le etichette di carboidrati
-                carboidratiLabels.forEach(label => label.style.display = 'block');
-                kcalLabel.style.display = 'none';    // Nasconde l'etichetta per kcal
-            }
-
-
-        }
-
-
-        function toggleInfoSection() {
-            const infoSection = document.getElementById('infoSection');
-            infoSection.style.display = infoSection.style.display === 'block' ? 'none' : 'block';
-        }
-
-         document.getElementById('foodCalculatorForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const pesoIdeale = parseFloat(document.getElementById('pesoIdeale').value);
-        const nomeDoggo = document.getElementById('nomeDoggo').value;
-        const metodoInput = document.getElementById('metodoInput').value;
-        let calorieCrocchette;
-
-        if (metodoInput === 'kcal') {
-        calorieCrocchette = parseFloat(document.getElementById('kcalPerKg').value);
-        } else {
-            const proteine = parseFloat(document.getElementById('proteine').value);
-            const grassi = parseFloat(document.getElementById('grassi').value);
-            const carboidrati = parseFloat(document.getElementById('carboidrati').value);
-            // Calcolo corretto delle kcal per kg
-            const kcalPer100g = (proteine * 4) + (grassi * 9) + (carboidrati * 4);
-            calorieCrocchette = kcalPer100g * 10;
-        }
-
-
-    // Calcolo delle calorie giornaliere basato sul peso ideale
-    const rer = 70 * Math.pow(pesoIdeale, 0.75);
-    let fabbisognoCalorico = rer * 1.3; // Fattore di attività medio (1.3)
-
-    // Considerare il fattore di attività
-    const attivita = parseFloat(document.getElementById('attività').value);
-    fabbisognoCalorico *= attivita;
-
-    // Considerare il fattore di razza
-    const razzaIncline = parseFloat(document.getElementById('razzaIncline').value);
-    fabbisognoCalorico *= razzaIncline;
-
-
-    // Considerare la sterilizzazione (ridurre le calorie del 10% se sterilizzato)
-    const sterilizzato = document.getElementById('sterilizzato').value === 'true';
-    if (sterilizzato) {
-        fabbisognoCalorico *= 0.9; // Ridurre del 10% se sterilizzato
-    }
-
-    // Considerare la condizione fisica
-    const condizioneFisica = document.getElementById('condizioneFisica').value;
-    if (condizioneFisica === 'sottopeso') {
-        fabbisognoCalorico *= 1.1; // Aumentare il fabbisogno calorico del 10% se sottopeso
-    } else if (condizioneFisica === 'sovrappeso') {
-        fabbisognoCalorico *= 0.9; // Ridurre del 10% se sovrappeso
-    }
-
-    // Considerare le condizioni mediche (esempio: obesità riduce le calorie)
-    const condizioniMediche = document.getElementById('condizioniMediche').value;
-    if (condizioniMediche === 'obesità') {
-        fabbisognoCalorico *= 0.8; // Ridurre del 20% in caso di obesità
-    } else if (condizioniMediche === 'diabete') {
-        fabbisognoCalorico *= 0.9; // Ridurre del 10% in caso di diabete
-    }
-
-    // Considerare la fase di vita
-    const faseVita = document.getElementById('faseVita').value;
-    if (faseVita === 'cucciolo') {
-        fabbisognoCalorico *= 1.5; // Aumentare del 50% se cucciolo
-    } else if (faseVita === 'anziano') {
-        fabbisognoCalorico *= 0.8; // Ridurre del 20% se anziano
-    }
-
-    // Considerare la temperatura ambientale
-    const temperatura = parseFloat(document.getElementById('temperatura').value);
-    if (temperatura < 10) {
-        fabbisognoCalorico *= 1.15; // Aumentare del 15% se la temperatura è inferiore a 10°C
-    } else if (temperatura > 30) {
-        fabbisognoCalorico *= 0.9; // Ridurre del 10% se la temperatura è superiore a 30°C
-    }
-
-    // Calcolare la quantità di crocchette per giorno
-    const crocchettePerGiorno = (fabbisognoCalorico / calorieCrocchette) * 1000;
-    const duePastiAlGiorno = crocchettePerGiorno / 2;
-    const trePastiAlGiorno = crocchettePerGiorno / 3;
-
-    // Mostrare il risultato
-    document.getElementById('result').innerHTML  = `${nomeDoggo} dovrebbe mangiare circa <p style="font-size: 23px!important; color: #b57fdb!important;">${crocchettePerGiorno.toFixed(0)}g </p> di crocchette al giorno.`;
-    document.getElementById('result').style.display = 'block';
-
-    document.getElementById('pasti').innerHTML  = `2 pasti da <p style="font-size: 23px!important; color: #b57fdb!important;">${duePastiAlGiorno.toFixed(0)}g</p><br>
-                                                   3 pasti da <p style="font-size: 20px!important; color: #b57fdb!important;">${trePastiAlGiorno.toFixed(0)}g</p>`;
-    document.getElementById('pasti').style.display = 'block';
-
-    document.getElementById('additionalInfo').innerHTML = `il Fabbisogno Energetico di ${nomeDoggo} è <br> <p style="font-size: 23px!important; color: #b57fdb!important;">${fabbisognoCalorico.toFixed(0)} kcal / giorno</p>`;
-    document.getElementById('additionalInfo').style.display = 'block';
-    
-    document.getElementById('sources').style.display = 'block';
-    scrollToResult();
-});
-
-        // Inizializzazione della scelta del metodo
-        toggleInputMethod();
-        scrollToResult();
-    </script>
-</body>
+          I contenuti e gli strumenti su questo sito sono forniti esclusivamente
+          a scopo informativo e divulgativo, e riflettono unicamente le opinioni
+          degli autori. Gli strumenti qui presenti non sono in alcun modo
+          riferiti a specifici casi clinici. Si raccomanda ai lettori di
+          consultare sempre il proprio veterinario di fiducia per qualsiasi
+          necessità o chiarimento.
+          <br />
+          <br />
+          È severamente vietata qualsiasi forma di copia, modifica, condivisione
+          o utilizzo non autorizzato delle informazioni, dei testi e delle
+          immagini pubblicati su questo sito.
+          <br />
+          <br />
+          Per segnalare eventuali errori o per comunicazioni:
+          <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a
+          >.
+        </p>
+      </div>
+    </footer>
+    <script src="core.js" defer></script>
+  </body>
 </html>
