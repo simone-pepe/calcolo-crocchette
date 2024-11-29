@@ -19,6 +19,10 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
+        a{
+            color: #8d50b8;
+        }
+
         .container {
             background-color: #121212;
             /* border-radius: 12px;
@@ -401,7 +405,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Calcolatore Crocchette per Cani</h1>
+        <h1>Calcolo Fabbisogno Crocchette per Cani 🩷🐶</h1>
+        <p style="text-align: center;">Per calcolare la dose iniziale da somministrare in base al peso e al mangime.</p>
         <form id="foodCalculatorForm">
              <!-- Informazioni sul cane -->
             <!-- NOME -->
@@ -597,7 +602,18 @@
         </div>
 
       
+        <div style="justify-content: center; align-items: center;">
+            <p style="justify-content: center;justify-items: center;align-items: center;font-size: 12px;text-align: center;padding-top: 50px;">
+                Questo strumento fornisce una stima iniziale della quantità di cibo da somministrare al cane. Successivamente, sarà necessario monitorare attentamente le sue condizioni,
+                preferibilmente pesandolo regolarmente, per osservare eventuali variazioni di peso. In base a queste osservazioni, si potrà regolare la quantità di cibo,
+                aumentando o diminuendo il dosaggio (che deve SEMPRE essere pesato con precisione), fino a individuare il quantitativo ideale che consenta di mantenere il cane al suo peso forma.<br><br><br>
 
+                I contenuti e gli strumenti su questo sito sono forniti esclusivamente a scopo informativo e divulgativo, e riflettono unicamente le opinioni degli autori.
+                Gli strumenti qui presenti non sono in alcun modo riferiti a specifici casi clinici. Si raccomanda ai lettori di consultare sempre il proprio veterinario di fiducia per qualsiasi necessità o chiarimento.
+                È severamente vietata qualsiasi forma di copia, modifica, condivisione o utilizzo non autorizzato delle informazioni, dei testi e delle immagini pubblicati su questo sito.
+                Per segnalare eventuali errori o per comunicazioni: <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a>.
+            </p>
+        </div>
     </div>
 
     <script>
@@ -750,7 +766,7 @@
                                                    3 pasti da <p style="font-size: 20px!important; color: #b57fdb!important;">${trePastiAlGiorno.toFixed(0)}g</p>`;
     document.getElementById('pasti').style.display = 'block';
 
-    document.getElementById('additionalInfo').innerHTML = `il Fabbisogno Energetico kcal/giorno di ${nomeDoggo} è <br> <p style="font-size: 23px!important; color: #b57fdb!important;">${fabbisognoCalorico.toFixed(0)}</p>`;
+    document.getElementById('additionalInfo').innerHTML = `il Fabbisogno Energetico di ${nomeDoggo} è <br> <p style="font-size: 23px!important; color: #b57fdb!important;">${fabbisognoCalorico.toFixed(0)} kcal / giorno</p>`;
     document.getElementById('additionalInfo').style.display = 'block';
     
     document.getElementById('sources').style.display = 'block';
