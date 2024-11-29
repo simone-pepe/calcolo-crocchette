@@ -280,15 +280,30 @@ button:hover {
     /* Allinea verticalmente gli elementi */
     justify-content: start;
     /* Posiziona gli elementi all'inizio del contenitore */
+    gap: 10px;
 }
 
 #containerCampi label {
-    font-size: 16px;
+    font-size: 14px;
     /* Puoi regolare la dimensione del testo della label se necessario */
     color: #ffffff;
     /* Colore del testo della label */
+    width: 50%;
 }
-
+#containerCampi input {
+    font-size: 14px;
+    /* Puoi regolare la dimensione del testo della label se necessario */
+    color: #ffffff;
+    /* Colore del testo della label */
+    width: 45%;
+}
+#containerCampi select {
+    font-size: 14px;
+    /* Puoi regolare la dimensione del testo della label se necessario */
+    color: #ffffff;
+    /* Colore del testo della label */
+    width: 45%;
+}
 .bn30 {
     border: 5px;
     cursor: pointer;
