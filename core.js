@@ -7,6 +7,25 @@ function scrollToResult() {
   }
 }
 
+function scrollToContacts() {
+  const resultDiv = document.getElementById("footer");
+  if (resultDiv) {
+    resultDiv.scrollIntoView({
+      behavior: "smooth",
+    }); // Scorrimento fluido verso il div
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+  });
+});
+
 function toggleInputMethod() {
   const metodoInput = document.getElementById("metodoInput").value;
   const kcalInput = document.getElementById("kcalPerKg");
