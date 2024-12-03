@@ -5,25 +5,29 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    /* align-items: center; */
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.3s, color 0.3s;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
-  }
+}
 
 
-  header {
-    background-color: #1f1f1f; /* Un giallo caldo per catturare l'attenzione */
+header {
+    background-color: #1f1f1f;
+    /* Un giallo caldo per catturare l'attenzione */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
-    top: 0; /* Fissa l'header nella parte superiore */
-    z-index: 1000; /* Assicura che l'header rimanga sopra agli altri elementi */
+    top: 0;
+    /* Fissa l'header nella parte superiore */
+    z-index: 1000;
+    /* Assicura che l'header rimanga sopra agli altri elementi */
 }
 
 .navbar {
@@ -63,7 +67,8 @@ html, body {
 }
 
 .nav-links a:hover {
-    color: #833d91; /* Colore più chiaro per l'hover */
+    color: #833d91;
+    /* Colore più chiaro per l'hover */
 }
 
 /* Stile Hamburger */
@@ -123,9 +128,9 @@ html, body {
     }
 }
 
-main{
-    padding-left:10vw;
-    padding-right:10vw;
+main {
+    padding-left: 10vw;
+    padding-right: 10vw;
 }
 
 a {
@@ -145,10 +150,12 @@ a {
 @media (max-width: 600px) {
     .container {
         max-width: 100%;
+        max-height: 100dvh;
+        height: 100dvh;
     }
 
-    main{
-        padding:20px;
+    main {
+        padding: 20px;
     }
 
     h1 {
@@ -396,6 +403,7 @@ button:hover {
     /* Colore del testo della label */
     width: 50%;
 }
+
 #containerCampi input {
     font-size: 14px;
     /* Puoi regolare la dimensione del testo della label se necessario */
@@ -403,6 +411,7 @@ button:hover {
     /* Colore del testo della label */
     width: 45%;
 }
+
 #containerCampi select {
     font-size: 14px;
     /* Puoi regolare la dimensione del testo della label se necessario */
@@ -410,6 +419,7 @@ button:hover {
     /* Colore del testo della label */
     width: 45%;
 }
+
 .bn30 {
     border: 5px;
     cursor: pointer;
@@ -424,16 +434,16 @@ button:hover {
     -webkit-transition: box-shadow 0.25s;
     transition: box-shadow 0.25s;
     color: white;
-  }
-  
-  .bn30 .text {
+}
+
+.bn30 .text {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-image: linear-gradient(45deg, #4568dc, #b06ab3);
-  }
-  
-  .bn30:after {
+}
+
+.bn30:after {
     content: "";
     border-radius: 18px;
     position: absolute;
@@ -444,16 +454,16 @@ button:hover {
     right: 0;
     z-index: -1;
     background: #0e0e10;
-  }
-  
-  .bn30:hover {
+}
+
+.bn30:hover {
     background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
     box-shadow: 0 12px 24px rgba(128, 128, 128, 0.1);
-  }
-  
-  .bn30:hover .text {
+}
+
+.bn30:hover .text {
     background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
-  }
+}
 
 @keyframes greentopBubbles {
     0% {

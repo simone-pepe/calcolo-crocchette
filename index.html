@@ -1,119 +1,161 @@
 <!DOCTYPE html>
 <html lang="it">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Calcolatore Crocchette per Cani" />
-		<meta name="author" content="Simone Pepe" />
-		<title>Calcolatore Crocchette per Cani</title>
-		<link rel="stylesheet" href="stile.css" />
-	</head>
-	<body>
-		
-		<div class="container">
-			<header>
-				<nav class="navbar">
-					<div class="logo">
-						<a href="index.html">🐾 </a>
-					</div>
-					<ul class="nav-links">
-						<li><a href="index.html">Home</a></li>
-						<li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
-						<li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
-						<li><a href="#footer">Contatti</a></li>
-					</ul>
-					<div class="hamburger">
-						<span></span>
-						<span></span>
-						<span></span>
-					</div>
-				</nav>
-			</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Calcolatore Crocchette per Cani" />
+    <meta name="author" content="Simone Pepe" />
+    <title>Calcolatore Crocchette per Cani</title>
+    <link rel="stylesheet" href="stile.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <nav class="navbar">
+          <div class="logo">
+            <a href="index.html">🐾 </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
+            <li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
+            <li><a href="#footer">Contatti</a></li>
+          </ul>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </header>
 
-			<main>
+      <main>
+        <script
+          src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+          type="module"
+        ></script>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -40px;
+            width: 100%;
+            z-index: 1 !important;
+          "
+        >
+          <dotlottie-player
+            src="https://lottie.host/292d2abb-d61b-4958-977d-5d36ddd495a3/q9UGh7tebB.lottie"
+            background="transparent"
+            speed="1"
+            style="width: 150px; height: 150px"
+            loop
+            autoplay
+          ></dotlottie-player>
+        </div>
 
-                <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-                <div style="display: flex; justify-content: center; align-items: center; margin-bottom: -40px; width: 100%;z-index: 1!important;">
-                    <dotlottie-player src="https://lottie.host/292d2abb-d61b-4958-977d-5d36ddd495a3/q9UGh7tebB.lottie" background="transparent" speed="1" style="width: 150px; height: 150px;" loop autoplay></dotlottie-player>
-                </div>
-                
-				<h1>Benvenuto!<br>🩷🐶</h1>
-					<p style="text-align: center">
-						In questo piccolo progetto, voglio aiutarti a scegliere il miglior mangime per il tuo cane, basato su parametri nutrizionali importanti.
-					</p>
-					<p style="text-align: center">
-						Oltre a una guida dettagliata sulla qualità delle crocchette, puoi anche utilizzare il calcolatore per determinare le calorie e i grammi giusti di croccantini necessari per il tuo amico a quattro zampe.
-					</p>
-					<p style="text-align: center">
-						La salute del tuo cane è importante, e con i nostri strumenti, sarai in grado di fare scelte più consapevoli per il suo benessere!
-					</p>
-			</main>
-			<footer id="footer">
-				<div
-					style="
-					justify-content: center;
-					align-items: center;
-					width: 100%;
-					background-color: black;
-					"
-					>
-                    <div style="display: flex; justify-content: center; align-items: center; margin-bottom: -40px; width: 100%;">
-                        <dotlottie-player src="https://lottie.host/e8a40186-e5d9-4b4a-9095-ea67e58b0a9a/qMZJfjn5aH.lottie" background="transparent" speed="1" style="width: 150px; height: 150px; justify-self: center; padding-top: 50px;" loop autoplay > </dotlottie-player>
-                    </div>
-                    
-					<p
-						style="
-						justify-content: center;
-						justify-items: center;
-						align-items: center;
-						font-size: 12px;
-						text-align: center;
-						padding-top: 50px;
-                        padding-left: 20px;
-                        padding-right: 20px;
-                        padding-bottom: 50px;
-						"
-						>
-						Questo strumento fornisce una stima iniziale della quantità di cibo da
-						somministrare al cane. Successivamente, sarà necessario monitorare
-						attentamente le sue condizioni, preferibilmente pesandolo
-						regolarmente, per osservare eventuali variazioni di peso.
-						<br />In base a queste osservazioni, si potrà regolare la quantità di
-						cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
-						pesato con precisione), fino a individuare il quantitativo ideale che
-						consenta di mantenere il cane al suo peso forma.
-						<br />
-						<br />
-						<br />
-						I contenuti e gli strumenti su questo sito sono forniti esclusivamente
-						a scopo informativo e divulgativo, e riflettono unicamente le opinioni
-						degli autori. Gli strumenti qui presenti non sono in alcun modo
-						riferiti a specifici casi clinici. Si raccomanda di
-						consultare sempre il proprio veterinario di fiducia per qualsiasi
-						necessità o chiarimento ;)
-						<br />
-						<br />
-						È severamente vietata qualsiasi forma di copia, modifica, condivisione
-						o utilizzo non autorizzato delle informazioni, dei testi e delle
-						immagini pubblicati su questo sito.
-						<br />
-						<br />
-						Per segnalare eventuali errori o per comunicazioni:
-						<a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a>.<br><br><br>
+        <h1>Benvenuto!<br />🩷🐶</h1>
+        <p style="text-align: center">
+          In questo piccolo progetto, voglio aiutarti a scegliere il miglior
+          mangime per il tuo cane, basato su parametri nutrizionali importanti.
+        </p>
+        <p style="text-align: center">
+          Oltre a una guida dettagliata sulla qualità delle crocchette, puoi
+          anche utilizzare il calcolatore per determinare le calorie e i grammi
+          giusti di croccantini necessari per il tuo amico a quattro zampe.
+        </p>
+        <p style="text-align: center">
+          La salute del tuo cane è importante, e con i nostri strumenti, sarai
+          in grado di fare scelte più consapevoli per il suo benessere!
+        </p>
+      </main>
+      <footer id="footer">
+        <div
+          style="
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: black;
+          "
+        >
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin-bottom: -40px;
+              width: 100%;
+            "
+          >
+            <dotlottie-player
+              src="https://lottie.host/e8a40186-e5d9-4b4a-9095-ea67e58b0a9a/qMZJfjn5aH.lottie"
+              background="transparent"
+              speed="1"
+              style="
+                width: 150px;
+                height: 150px;
+                justify-self: center;
+                padding-top: 50px;
+              "
+              loop
+              autoplay
+            >
+            </dotlottie-player>
+          </div>
 
-                        Developed with 💜 by Simone Pepe<br><br><br>
-					</p>
-                    <div>
+          <p
+            style="
+              justify-content: center;
+              justify-items: center;
+              align-items: center;
+              font-size: 12px;
+              text-align: center;
+              padding-top: 50px;
+              padding-left: 20px;
+              padding-right: 20px;
+              padding-bottom: 50px;
+            "
+          >
+            Questo strumento fornisce una stima iniziale della quantità di cibo
+            da somministrare al cane. Successivamente, sarà necessario
+            monitorare attentamente le sue condizioni, preferibilmente pesandolo
+            regolarmente, per osservare eventuali variazioni di peso.
+            <br />In base a queste osservazioni, si potrà regolare la quantità
+            di cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
+            pesato con precisione), fino a individuare il quantitativo ideale
+            che consenta di mantenere il cane al suo peso forma.
+            <br />
+            <br />
+            <br />
+            I contenuti e gli strumenti su questo sito sono forniti
+            esclusivamente a scopo informativo e divulgativo, e riflettono
+            unicamente le opinioni degli autori. Gli strumenti qui presenti non
+            sono in alcun modo riferiti a specifici casi clinici. Si raccomanda
+            di consultare sempre il proprio veterinario di fiducia per qualsiasi
+            necessità o chiarimento ;)
+            <br />
+            <br />
+            È severamente vietata qualsiasi forma di copia, modifica,
+            condivisione o utilizzo non autorizzato delle informazioni, dei
+            testi e delle immagini pubblicati su questo sito.
+            <br />
+            <br />
+            Per segnalare eventuali errori o per comunicazioni:
+            <a href="mailto:simonepepemail@gmail.com"
+              >simonepepemail@gmail.com</a
+            >.<br /><br /><br />
 
-                        <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
-                        
-
-                    </div>
-                    
-				</div>
-               
-			</footer>
-		</div>
-		<script src="core.js" defer></script>
-	</body>
+            Developed with 💜 by Simone Pepe<br /><br /><br />
+          </p>
+          <div>
+            <script
+              src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+              type="module"
+            ></script>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="core.js" defer></script>
+  </body>
 </html>

@@ -26,7 +26,7 @@
         }
 
 
-        table th,
+         table th,
         table td {
             border: 1px solid #474747;
             padding: 8px;
@@ -149,6 +149,11 @@
                 rotate: 0;
             }
         }
+        .enfasi{
+            color: white;
+            text-decoration: underline;
+            text-decoration-color:DARKRED ;
+        }
     </style>
 </head>
 
@@ -226,8 +231,10 @@
                         </tr>
 
                         <tr>
-                            <td valign="top"> <b style="color: DARKRED;">M01</b>
+                            <td>
+                                <b style="color: DARKRED;">M01</b>
                                 <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m01'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -250,15 +257,18 @@
                                     pomodoro o pastazzo di agrumi. Sebbene a volte possiedano un valore nutritivo (come
                                     la polpa di barbabietola), quando non viene specificato il tipo di sottoprodotto,
                                     solitamente si tratta di scarti di bassa qualità e con valore nutrizionale
-                                    sconosciuto. Pertanto, questi ingredienti sono generalmente considerati non
-                                    desiderabili e di bassa qualità.</p>
+                                    sconosciuto.<br><b class="enfasi">Pertanto, questi ingredienti sono generalmente considerati non
+                                        desiderabili e di bassa qualità.</b></p>
                                 
                             </td>
                         </tr>
 
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m02</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M02</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m02'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -266,9 +276,40 @@
                             <td width="20" valign="top">-15</td>
                             <td valign="top">Contiene "derivati" o "sottoprodotti di origine animale" (by-product).</td>
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m02" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <strong>Approfondimento parametro malus "M02":</strong>
+                                <p>Il Regolamento (CE) n. 1069/2009 definisce i sottoprodotti di origine animale come "corpi interi o parti di
+                                    animali, prodotti di origine animale o altri prodotti ottenuti da animali, non destinati al consumo umano",
+                                    inclusi ovociti, embrioni e sperma. I derivati sono i prodotti ottenuti tramite trattamenti o trasformazioni
+                                    di tali sottoprodotti.
+                                </p>
+                                Nel settore del Pet Food, i "sottoprodotti di origine animale" comprendono:<br>
+                                <ul>
+                                    <li>Parti di animali idonee al consumo umano ma non destinate per motivi commerciali.</li><br>
+                                    <li>Parti di animali dichiarate non idonee al consumo umano (senza malattie trasmissibili).</li><br>
+                                    <li>Pelli, zoccoli, corna, setole di suini, piume, sangue da animali macellati.</li><br>
+                                    <li>Sottoprodotti ottenuti da alimenti destinati al consumo umano (es. ciccioli, ossa sgrassate).</li><br>
+                                    <li>Prodotti alimentari animali non più destinati al consumo umano per difetti commerciali.</li><br>
+                                    <li>Latte crudo da animali sani e pesci freschi da impianti di lavorazione per consumo umano.</li><br>
+                                    <li>La dicitura "Carni e derivati" si riferisce alle parti carnose di animali macellati, fresche o
+                                        conservate, incluse le interiora, zampe, teste, polmoni, fegato, stomaco, tendini, becchi, unghie,
+                                        piume. </li><br>
+                                </ul>
+                                <p> <b class="enfasi">Pertanto,
+                                        "sottoprodotti di origine animale" e "derivati della carne" indicano scarti di animali non specificati,
+                                        con valore nutritivo sconosciuto, risultando in prodotti di bassa qualità e indesiderabili per il
+                                        consumo.</b>
+                                </p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m03</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M03</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m03'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -277,9 +318,49 @@
                             <td valign="top">Contiene fonti proteiche di origine animale non meglio specificate.<br>
                                 Oppure contiene la voce "Pollame" (da non confondersi con "Pollo").</td>
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m03" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <strong>Approfondimento parametro malus "M03":</strong>
+                                <p>
+                                    Sotto le voci <b class="enfasi">"farina di carne"</b> o <b class="enfasi">"carne fresca"</b> possono
+                                    rientrare carni di qualsiasi specie animale, senza specificare la provenienza, rendendo difficile conoscere
+                                    esattamente cosa contenga il mangime. È fondamentale che la <b class="enfasi">specie di origine</b> sia
+                                    sempre indicata, sia per la carne fresca che per le farine di carne o la carne disidratata.
+                                </p>
+                        
+                                <p>
+                                    Attenzione anche a voci generiche come <b class="enfasi">"Pollame"</b> o <b class="enfasi">"Pesce"</b>, che
+                                    non indicano precisamente la specie: <b class="enfasi">"Pollame"</b> include vari volatili, mentre <b
+                                        class="enfasi">"Pesce"</b> può comprendere qualsiasi tipo di pesce e i suoi sottoprodotti. È meglio
+                                    cercare diciture più precise, come:
+                                </p>
+                        
+                                <ul>
+                                    <li><b class="enfasi">Farina di pollo</b></li>
+                                    <li><b class="enfasi">Carne disidratata di salmone</b></li>
+                                    <li><b class="enfasi">Farina di aringa</b></li>
+                                </ul>
+                        
+                                <p>
+                                    Inoltre, etichette come <b class="enfasi">"Carne (di cui pollo min. 25%)"</b> sono fuorvianti, poiché non
+                                    indicano la percentuale di pollo nel mangime, ma solo la percentuale di pollo all'interno della carne
+                                    totale, lasciando sconosciuto il restante <b class="enfasi">75%</b>.
+                                </p>
+                        
+                                <p>
+                                    <b class="enfasi">Se non si specifica il 100% delle carni, queste etichette sono da considerarsi imprecise e
+                                        poco trasparenti.</b>
+                                </p>
+                        
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m04</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M04</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m04'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -290,15 +371,107 @@
                                 La carne fresca, non disidratata, contiene dal 60 all'80% di acqua. Una volta
                                 disidratata il quantitativo di "carne" si riduce a 1/3 - 1/5 di quello di partenza.</td>
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m04" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <strong>Approfondimento parametro malus "M04":</strong>
+                                <p>
+                                    La <b class="enfasi">differenza
+                                        principale</b> tra "<b class="enfasi">carne fresca</b>" e
+                                    "<b class="enfasi">farina di carne</b>" è
+                                    la <b class="enfasi">disidratazione</b>:
+                                    la carne fresca contiene più <b class="enfasi">umidità</b>, mentre la
+                                    farina di carne è carne essiccata e macinata. Sebbene entrambe derivino dalla stessa carne, la
+                                    disidratazione riduce notevolmente il <b class="enfasi">peso</b> della carne
+                                    nel prodotto finale.
+                                </p>
+                        
+                                <p>
+                                    Ad esempio, se un prodotto contiene il <b class="enfasi">40% di carne
+                                        fresca</b> all'origine, dopo la disidratazione, la percentuale effettiva di carne nel prodotto finale
+                                    potrebbe scendere al <b class="enfasi">16,6%</b>, a causa
+                                    della perdita di peso (ad esempio, il <b class="enfasi">70%</b> del peso della
+                                    carne fresca viene perso durante il processo).
+                                </p>
+                        
+                                <p>
+                                    In etichette come "<b class="enfasi">privo di farine di
+                                        carne</b>" o "<b class="enfasi">prodotto solo con
+                                        carne fresca</b>", si fa riferimento alla carne fresca anziché alla carne disidratata, ma la <b
+                                        class="enfasi">differenza
+                                        effettiva</b> è solo nella percentuale di <b class="enfasi">umidità</b>, non nella
+                                    <b class="enfasi">qualità</b> della
+                                    carne.
+                                </p>
+                        
+                                <p>
+                                    I mangimi di <b class="enfasi">alta
+                                        qualità</b> tendono a elencare diversi tipi di carne fresca nei primi posti della lista degli
+                                    ingredienti, o indicano una <b class="enfasi">combinazione</b> di
+                                    carni fresche e disidratate, dando un'indicazione più chiara sulla <b class="enfasi">quantità</b> e <b
+                                        class="enfasi">qualità</b> della
+                                    carne nel prodotto.
+                                </p>
+                        
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m05</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M05</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m05'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
                             <td width="20" valign="top">-5</td>
                             <td valign="top">Contiene grassi o oli non meglio specificati.</td>
+                        </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m05" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <strong>Approfondimento parametro malus "M05":</strong>
+                                <p>
+                                    Così come per gli <b class="enfasi">altri ingredienti</b>, anche per i <b class="enfasi">grassi di origine animale</b> o gli <b class="enfasi">oli vegetali</b> occorre sempre assicurarsi che venga specificato il tipo. 
+                                    Nella dicitura "<b class="enfasi">grassi animali</b>" o "<b class="enfasi">oli vegetali</b>" può entrare di tutto: dagli <b class="enfasi">oli riciclati</b> provenienti dalla ristorazione, residui di friggitoria, grassi ottenuti dalla bollitura di carcasse animali, fino agli oli troppo <b class="enfasi">rancidi</b> classificati come inadatti per gli umani. 
+                                    </p>
+                                    
+                                    <p>
+                                    In sostanza si tratta di ingredienti di <b class="enfasi">bassa</b> quando non <b class="enfasi">bassissima qualità</b>. 
+                                    Occorre sempre cercare la denominazione che riporti il <b class="enfasi">tipo di olio</b> o di grasso utilizzato, come voci del tipo: 
+                                    </p>
+                                    
+                                    <ul>
+                                      <li><b class="enfasi">Olio di semi di girasole</b></li>
+                                      <li><b class="enfasi">Olio di pesce</b></li>
+                                      <li><b class="enfasi">Olio di semi di lino</b></li>
+                                      <li><b class="enfasi">Grasso di pollo</b></li>
+                                    </ul>
+                                    
+                                    <p>
+                                    I grassi animali più indicati sono l’<b class="enfasi">olio di pesce</b> e il <b class="enfasi">grasso di pollo</b>, mentre è preferibile evitare quelli troppo ricchi di <b class="enfasi">acidi grassi saturi</b>, come il <b class="enfasi">sego bovino</b>.
+                                    </p>
+                                    
+                                    <p>
+                                    Le fonti di grassi vegetali migliori sono:
+                                    </p>
+                                    
+                                    <ul>
+                                      <li><b class="enfasi">Olio di semi di lino</b></li>
+                                      <li><b class="enfasi">Olio di borragine</b></li>
+                                      <li><b class="enfasi">Olio di canapa</b></li>
+                                      <li><b class="enfasi">Olio di enotera</b></li>
+                                      <li><b class="enfasi">Olio di mais</b></li>
+                                      <li><b class="enfasi">Olio di girasole</b></li>
+                                      <li><b class="enfasi">Olio di cartamo</b></li>
+                                    </ul>
+                                    
+                                    <p>
+                                    I più scadenti, invece, sono quelli troppo ricchi di <b class="enfasi">grassi saturi a corta catena</b>, come ad esempio l’<b class="enfasi">olio di palma</b> o l’<b class="enfasi">olio di cocco</b>.
+                                    </p>
+                                    
+                            </td>
                         </tr>
 
                         <tr>
@@ -1457,7 +1630,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <div id="containerCampi" style="align-items: center; justify-content: center;"">
+                <div id="containerCampi" style="align-items: center; justify-content: center;">
                     <button id="calcolaBtn" class="bn30" style="width: 150px;">Calcola 💭</button>
                     <button id="azzeraBtn" style="display: none;width: 150px;" class="bn30">Azzera 🔄️</button>
                 </div>
@@ -1531,7 +1704,7 @@
                     dieta del tuo cane.
                 </p>
             </section>
-        </main>
+        </main><br>
 
         <!-- Footer -->
         <footer id="footer">
@@ -1560,7 +1733,7 @@
                     padding-right: 20px;
                     padding-bottom: 50px;
                     ">
-                    Questo strumento fornisce una stima iniziale della quantità di cibo da
+                    <!-- Questo strumento fornisce una stima iniziale della quantità di cibo da
                     somministrare al cane. Successivamente, sarà necessario monitorare
                     attentamente le sue condizioni, preferibilmente pesandolo
                     regolarmente, per osservare eventuali variazioni di peso.
@@ -1570,7 +1743,7 @@
                     consenta di mantenere il cane al suo peso forma.
                     <br />
                     <br />
-                    <br />
+                    <br /> -->
                     I contenuti e gli strumenti su questo sito sono forniti esclusivamente
                     a scopo informativo e divulgativo, e riflettono unicamente le opinioni
                     degli autori. Gli strumenti qui presenti non sono in alcun modo
