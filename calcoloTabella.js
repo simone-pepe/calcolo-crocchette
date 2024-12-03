@@ -90,3 +90,142 @@ function updateEvaluation() {
 // Aggiungi gli event listener ai pulsanti
 document.getElementById("calcolaBtn").addEventListener("click", updateTotalScore);
 document.getElementById("azzeraBtn").addEventListener("click", resetTotalScore);
+
+// Seleziona tutte le checkbox con il nome 'proteine'
+const checkboxesProteine = document.querySelectorAll('input[name="proteine"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'proteine'
+checkboxesProteine.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesProteine.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'grassi'
+const checkboxesGrassi = document.querySelectorAll('input[name="grassi"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'grassi'
+checkboxesGrassi.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesGrassi.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'ceneri'
+const checkboxesCeneri = document.querySelectorAll('input[name="ceneri"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'ceneri'
+checkboxesCeneri.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesCeneri.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'fibre'
+const checkboxesFibre = document.querySelectorAll('input[name="fibre"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'fibre'
+checkboxesFibre.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesFibre.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'calciofosforo'
+const checkboxesCalciofosforo = document.querySelectorAll('input[name="calciofosforo"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'calciofosforo'
+checkboxesCalciofosforo.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesCalciofosforo.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'omega'
+const checkboxesOmega = document.querySelectorAll('input[name="omega"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'omega'
+checkboxesOmega.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesOmega.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'minerali'
+const checkboxesMinerali = document.querySelectorAll('input[name="minerali"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'minerali'
+checkboxesMinerali.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesMinerali.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+// Seleziona tutte le checkbox con il nome 'vitamine'
+const checkboxesVitamine = document.querySelectorAll('input[name="vitamine"]');
+
+// Aggiungi l'evento di selezione/deselezione per 'vitamine'
+checkboxesVitamine.forEach(checkbox => {
+    checkbox.addEventListener('change', function() {
+        if (this.checked) {
+            checkboxesVitamine.forEach(otherCheckbox => {
+                if (otherCheckbox !== this) {
+                    otherCheckbox.checked = false;
+                }
+            });
+        }
+    });
+});
+
+
+
+function toggleInfo(id) {
+    var info = document.getElementById(id);
+    if (info.style.display === "none" || info.style.display === "") {
+        info.style.display = "table-row";  // Mostra il contenuto
+    } else {
+        info.style.display = "none";  // Nasconde il contenuto
+    }
+}
