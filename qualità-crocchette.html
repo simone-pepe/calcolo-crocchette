@@ -26,7 +26,7 @@
         }
 
 
-         table th,
+        table th,
         table td {
             border: 1px solid #474747;
             padding: 8px;
@@ -149,10 +149,23 @@
                 rotate: 0;
             }
         }
-        .enfasi{
+
+        .enfasibad {
             color: white;
             text-decoration: underline;
-            text-decoration-color:DARKRED ;
+            text-decoration-color: DARKRED;
+        }
+
+        .enfasigood {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: lightgreen;
+        }
+
+        .enfasi {
+            color: white;
+            text-decoration: underline;
+            text-decoration-color: #b57fdb;
         }
     </style>
 </head>
@@ -181,7 +194,7 @@
 
         <!-- Main Content -->
         <main>
-            <h1>Parametri di Valutazione delle Crocchette</h1>
+            <h1>Valutazione Qualità Crocchette 🫘</h1>
             <p>
                 Con la busta delle crocchette alla mano, puoi spuntare le checkbox per calcolare il punteggio e ottenere
                 una valutazione del mangime in base alle caselle selezionate.
@@ -193,9 +206,9 @@
 
             <p>
                 Si basa su una serie i parametri di valutazione qualitativa e quantitativa, che assegnano un punteggio
-                positivo 'bonus' o negativo 'malus',
+                positivo <b class="enfasigood">CI PIACE!</b> o negativo <b class="enfasibad">NON CI PIACE!</b>,
                 e che sono l'espressione dell'opinione degli autori.<br><br>
-                Si parte con un punteggio iniziale pari a <b>100</b>.
+                Si parte con un punteggio iniziale pari a <b>100</b> punti.
             </p>
 
 
@@ -204,17 +217,11 @@
                 <table border="0" cellpadding="0" cellspacing="0" id="scoreTable" width="100%" class="testo">
                     <tbody>
                         <!-- INTESTAZIONE -->
-                        <tr>
-                            <td colspan="4">
-                                <p align="center">
-                                    <font size="4"><b>Scheda parametri di valutazione<br></b></font>
-                                </p>
-                            </td>
-                        </tr>
+
                         <tr>
                             <td colspan="4">
                                 <p align="center"><b>
-                                        <font size="3" color="darkred">MALUS</font>
+                                        <font size="5" class="enfasibad">NON CI PIACE 👎🏻</font>
                                     </b></p>
                             </td>
                         </tr>
@@ -233,7 +240,8 @@
                         <tr>
                             <td>
                                 <b style="color: DARKRED;">M01</b>
-                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m01'); toggleIcon(this); return false;">❓</a>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m01'); toggleIcon(this); return false;">❓</a>
                             </td>
                             <td width="0" valign="top">
                                 <label class="forcheck">
@@ -247,19 +255,35 @@
                             </td>
                         </tr>
                         <!-- Approfondimento nascosto -->
-                        <tr id="info-m01" style="display: none;" >
+                        <tr id="info-m01" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
-                                <strong>Approfondimento parametro malus "M01":</strong>
-                                <p>I sottoprodotti di origine vegetale sono scarti o residui derivanti dalla lavorazione
+
+                                <p>
+                                    I <b class="enfasibad">sottoprodotti di origine vegetale</b> sono scarti o residui
+                                    derivanti dalla lavorazione
                                     di vegetali, come paglie, foglie, bucce di frutta, e altri materiali simili.
-                                    Nel settore del pet food, questi vengono utilizzati soprattutto come residui di
+                                </p>
+
+                                <p>
+                                    Nel settore del <b class="enfasibad">pet food</b>, questi vengono utilizzati
+                                    soprattutto come residui di
                                     spremitura o scarti di alimenti destinati al consumo umano, come buccette di
-                                    pomodoro o pastazzo di agrumi. Sebbene a volte possiedano un valore nutritivo (come
-                                    la polpa di barbabietola), quando non viene specificato il tipo di sottoprodotto,
-                                    solitamente si tratta di scarti di bassa qualità e con valore nutrizionale
-                                    sconosciuto.<br><b class="enfasi">Pertanto, questi ingredienti sono generalmente considerati non
-                                        desiderabili e di bassa qualità.</b></p>
-                                
+                                    pomodoro o pastazzo di agrumi.
+                                    Sebbene a volte possiedano un valore nutritivo (come la polpa di barbabietola),
+                                    quando non viene specificato
+                                    il tipo di sottoprodotto, solitamente si tratta di scarti di <b
+                                        class="enfasibad">bassa
+                                        qualità</b> e con
+                                    valore nutrizionale sconosciuto.
+                                </p>
+
+                                <p>
+                                    <b class="enfasibad">Pertanto, questi ingredienti sono generalmente considerati non
+                                        desiderabili e di bassa
+                                        qualità.</b>
+                                </p>
+
+
                             </td>
                         </tr>
 
@@ -267,7 +291,8 @@
                         <tr>
                             <td>
                                 <b style="color: DARKRED;">M02</b>
-                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m02'); toggleIcon(this); return false;">❓</a>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m02'); toggleIcon(this); return false;">❓</a>
                             </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -279,28 +304,49 @@
                         <!-- Approfondimento nascosto -->
                         <tr id="info-m02" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
-                                <strong>Approfondimento parametro malus "M02":</strong>
-                                <p>Il Regolamento (CE) n. 1069/2009 definisce i sottoprodotti di origine animale come "corpi interi o parti di
-                                    animali, prodotti di origine animale o altri prodotti ottenuti da animali, non destinati al consumo umano",
-                                    inclusi ovociti, embrioni e sperma. I derivati sono i prodotti ottenuti tramite trattamenti o trasformazioni
-                                    di tali sottoprodotti.
+
+                                <p>
+                                    Il <b class="enfasibad">Regolamento (CE) n. 1069/2009</b> definisce i sottoprodotti
+                                    di
+                                    origine animale come
+                                    "corpi interi o parti di animali, prodotti di origine animale o altri prodotti
+                                    ottenuti da animali, non
+                                    destinati al consumo umano", inclusi ovociti, embrioni e sperma. I <b
+                                        class="enfasibad">derivati</b> sono i
+                                    prodotti ottenuti tramite trattamenti o trasformazioni di tali sottoprodotti.
                                 </p>
-                                Nel settore del Pet Food, i "sottoprodotti di origine animale" comprendono:<br>
+
+                                <p>
+                                    Nel settore del <b class="enfasibad">Pet Food</b>, i "sottoprodotti di origine
+                                    animale"
+                                    comprendono:
+                                </p>
+
                                 <ul>
-                                    <li>Parti di animali idonee al consumo umano ma non destinate per motivi commerciali.</li><br>
-                                    <li>Parti di animali dichiarate non idonee al consumo umano (senza malattie trasmissibili).</li><br>
-                                    <li>Pelli, zoccoli, corna, setole di suini, piume, sangue da animali macellati.</li><br>
-                                    <li>Sottoprodotti ottenuti da alimenti destinati al consumo umano (es. ciccioli, ossa sgrassate).</li><br>
-                                    <li>Prodotti alimentari animali non più destinati al consumo umano per difetti commerciali.</li><br>
-                                    <li>Latte crudo da animali sani e pesci freschi da impianti di lavorazione per consumo umano.</li><br>
-                                    <li>La dicitura "Carni e derivati" si riferisce alle parti carnose di animali macellati, fresche o
-                                        conservate, incluse le interiora, zampe, teste, polmoni, fegato, stomaco, tendini, becchi, unghie,
-                                        piume. </li><br>
+                                    <li>Parti di animali idonee al consumo umano ma non destinate per motivi
+                                        commerciali.</li>
+                                    <li>Parti di animali dichiarate non idonee al consumo umano (senza malattie
+                                        trasmissibili).</li>
+                                    <li>Pelli, zoccoli, corna, setole di suini, piume, sangue da animali macellati.</li>
+                                    <li>Sottoprodotti ottenuti da alimenti destinati al consumo umano (es. ciccioli,
+                                        ossa sgrassate).</li>
+                                    <li>Prodotti alimentari animali non più destinati al consumo umano per difetti
+                                        commerciali.</li>
+                                    <li>Latte crudo da animali sani e pesci freschi da impianti di lavorazione per
+                                        consumo umano.</li>
+                                    <li>La dicitura <b class="enfasibad">"Carni e derivati"</b> si riferisce alle parti
+                                        carnose di animali
+                                        macellati, fresche o conservate, incluse le interiora, zampe, teste, polmoni,
+                                        fegato, stomaco, tendini,
+                                        becchi, unghie, piume.</li>
                                 </ul>
-                                <p> <b class="enfasi">Pertanto,
-                                        "sottoprodotti di origine animale" e "derivati della carne" indicano scarti di animali non specificati,
-                                        con valore nutritivo sconosciuto, risultando in prodotti di bassa qualità e indesiderabili per il
-                                        consumo.</b>
+
+                                <p>
+                                    <b class="enfasibad">Pertanto, "sottoprodotti di origine animale" e "derivati della
+                                        carne" indicano scarti di
+                                        animali non specificati, con valore nutritivo sconosciuto, risultando in
+                                        prodotti di bassa qualità e
+                                        indesiderabili per il consumo.</b>
                                 </p>
                             </td>
                         </tr>
@@ -308,7 +354,8 @@
                         <tr>
                             <td>
                                 <b style="color: DARKRED;">M03</b>
-                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m03'); toggleIcon(this); return false;">❓</a>
+                                <a href="#" style="text-decoration: NONE;display: inline-block;"
+                                    onclick="toggleInfo('info-m03'); toggleIcon(this); return false;">❓</a>
                             </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -321,45 +368,59 @@
                         <!-- Approfondimento nascosto -->
                         <tr id="info-m03" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
-                                <strong>Approfondimento parametro malus "M03":</strong>
+
                                 <p>
-                                    Sotto le voci <b class="enfasi">"farina di carne"</b> o <b class="enfasi">"carne fresca"</b> possono
-                                    rientrare carni di qualsiasi specie animale, senza specificare la provenienza, rendendo difficile conoscere
-                                    esattamente cosa contenga il mangime. È fondamentale che la <b class="enfasi">specie di origine</b> sia
-                                    sempre indicata, sia per la carne fresca che per le farine di carne o la carne disidratata.
+                                    Sotto le voci <b class="enfasibad">"farina di carne"</b> o <b
+                                        class="enfasibad">"carne
+                                        fresca"</b> possono
+                                    rientrare carni di qualsiasi specie animale, senza specificare la provenienza,
+                                    rendendo difficile conoscere
+                                    esattamente cosa contenga il mangime. È fondamentale che la <b
+                                        class="enfasibad">specie
+                                        di origine</b> sia
+                                    sempre indicata, sia per la carne fresca che per le farine di carne o la carne
+                                    disidratata.
                                 </p>
-                        
+
                                 <p>
-                                    Attenzione anche a voci generiche come <b class="enfasi">"Pollame"</b> o <b class="enfasi">"Pesce"</b>, che
-                                    non indicano precisamente la specie: <b class="enfasi">"Pollame"</b> include vari volatili, mentre <b
-                                        class="enfasi">"Pesce"</b> può comprendere qualsiasi tipo di pesce e i suoi sottoprodotti. È meglio
+                                    Attenzione anche a voci generiche come <b class="enfasibad">"Pollame"</b> o <b
+                                        class="enfasibad">"Pesce"</b>, che
+                                    non indicano precisamente la specie: <b class="enfasibad">"Pollame"</b> include vari
+                                    volatili, mentre <b class="enfasibad">"Pesce"</b> può comprendere qualsiasi tipo di
+                                    pesce e i suoi sottoprodotti. È meglio
                                     cercare diciture più precise, come:
                                 </p>
-                        
+
                                 <ul>
-                                    <li><b class="enfasi">Farina di pollo</b></li>
-                                    <li><b class="enfasi">Carne disidratata di salmone</b></li>
-                                    <li><b class="enfasi">Farina di aringa</b></li>
+                                    <li><b class="enfasibad">Farina di pollo</b></li>
+                                    <li><b class="enfasibad">Carne disidratata di salmone</b></li>
+                                    <li><b class="enfasibad">Farina di aringa</b></li>
                                 </ul>
-                        
+
                                 <p>
-                                    Inoltre, etichette come <b class="enfasi">"Carne (di cui pollo min. 25%)"</b> sono fuorvianti, poiché non
-                                    indicano la percentuale di pollo nel mangime, ma solo la percentuale di pollo all'interno della carne
-                                    totale, lasciando sconosciuto il restante <b class="enfasi">75%</b>.
+                                    Inoltre, etichette come <b class="enfasibad">"Carne (di cui pollo min. 25%)"</b>
+                                    sono
+                                    fuorvianti, poiché non
+                                    indicano la percentuale di pollo nel mangime, ma solo la percentuale di pollo
+                                    all'interno della carne
+                                    totale, lasciando sconosciuto il restante <b class="enfasibad">75%</b>.
                                 </p>
-                        
+
                                 <p>
-                                    <b class="enfasi">Se non si specifica il 100% delle carni, queste etichette sono da considerarsi imprecise e
+                                    <b class="enfasibad">Se non si specifica il 100% delle carni, queste etichette sono
+                                        da
+                                        considerarsi imprecise e
                                         poco trasparenti.</b>
                                 </p>
-                        
+
                             </td>
                         </tr>
 
                         <tr>
                             <td>
                                 <b style="color: DARKRED;">M04</b>
-                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m04'); toggleIcon(this); return false;">❓</a>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m04'); toggleIcon(this); return false;">❓</a>
                             </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -374,52 +435,57 @@
                         <!-- Approfondimento nascosto -->
                         <tr id="info-m04" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
-                                <strong>Approfondimento parametro malus "M04":</strong>
+
                                 <p>
-                                    La <b class="enfasi">differenza
-                                        principale</b> tra "<b class="enfasi">carne fresca</b>" e
-                                    "<b class="enfasi">farina di carne</b>" è
-                                    la <b class="enfasi">disidratazione</b>:
-                                    la carne fresca contiene più <b class="enfasi">umidità</b>, mentre la
-                                    farina di carne è carne essiccata e macinata. Sebbene entrambe derivino dalla stessa carne, la
-                                    disidratazione riduce notevolmente il <b class="enfasi">peso</b> della carne
+                                    La <b class="enfasibad">differenza
+                                        principale</b> tra "<b class="enfasibad">carne fresca</b>" e
+                                    "<b class="enfasibad">farina di carne</b>" è
+                                    la <b class="enfasibad">disidratazione</b>:
+                                    la carne fresca contiene più <b class="enfasibad">umidità</b>, mentre la
+                                    farina di carne è carne essiccata e macinata. Sebbene entrambe derivino dalla stessa
+                                    carne, la
+                                    disidratazione riduce notevolmente il <b class="enfasibad">peso</b> della carne
                                     nel prodotto finale.
                                 </p>
-                        
+
                                 <p>
-                                    Ad esempio, se un prodotto contiene il <b class="enfasi">40% di carne
-                                        fresca</b> all'origine, dopo la disidratazione, la percentuale effettiva di carne nel prodotto finale
-                                    potrebbe scendere al <b class="enfasi">16,6%</b>, a causa
-                                    della perdita di peso (ad esempio, il <b class="enfasi">70%</b> del peso della
+                                    Ad esempio, se un prodotto contiene il <b class="enfasibad">40% di carne
+                                        fresca</b> all'origine, dopo la disidratazione, la percentuale effettiva di
+                                    carne nel prodotto finale
+                                    potrebbe scendere al <b class="enfasibad">16,6%</b>, a causa
+                                    della perdita di peso (ad esempio, il <b class="enfasibad">70%</b> del peso della
                                     carne fresca viene perso durante il processo).
                                 </p>
-                        
+
                                 <p>
-                                    In etichette come "<b class="enfasi">privo di farine di
-                                        carne</b>" o "<b class="enfasi">prodotto solo con
-                                        carne fresca</b>", si fa riferimento alla carne fresca anziché alla carne disidratata, ma la <b
-                                        class="enfasi">differenza
-                                        effettiva</b> è solo nella percentuale di <b class="enfasi">umidità</b>, non nella
-                                    <b class="enfasi">qualità</b> della
+                                    In etichette come "<b class="enfasibad">privo di farine di
+                                        carne</b>" o "<b class="enfasibad">prodotto solo con
+                                        carne fresca</b>", si fa riferimento alla carne fresca anziché alla carne
+                                    disidratata, ma la <b class="enfasibad">differenza
+                                        effettiva</b> è solo nella percentuale di <b class="enfasibad">umidità</b>, non
+                                    nella
+                                    <b class="enfasibad">qualità</b> della
                                     carne.
                                 </p>
-                        
+
                                 <p>
-                                    I mangimi di <b class="enfasi">alta
-                                        qualità</b> tendono a elencare diversi tipi di carne fresca nei primi posti della lista degli
-                                    ingredienti, o indicano una <b class="enfasi">combinazione</b> di
-                                    carni fresche e disidratate, dando un'indicazione più chiara sulla <b class="enfasi">quantità</b> e <b
-                                        class="enfasi">qualità</b> della
+                                    I mangimi di <b class="enfasibad">alta
+                                        qualità</b> tendono a elencare diversi tipi di carne fresca nei primi posti
+                                    della lista degli
+                                    ingredienti, o indicano una <b class="enfasibad">combinazione</b> di
+                                    carni fresche e disidratate, dando un'indicazione più chiara sulla <b
+                                        class="enfasibad">quantità</b> e <b class="enfasibad">qualità</b> della
                                     carne nel prodotto.
                                 </p>
-                        
+
                             </td>
                         </tr>
 
                         <tr>
                             <td>
                                 <b style="color: DARKRED;">M05</b>
-                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m05'); toggleIcon(this); return false;">❓</a>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m05'); toggleIcon(this); return false;">❓</a>
                             </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -431,51 +497,71 @@
                         <!-- Approfondimento nascosto -->
                         <tr id="info-m05" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
-                                <strong>Approfondimento parametro malus "M05":</strong>
+
                                 <p>
-                                    Così come per gli <b class="enfasi">altri ingredienti</b>, anche per i <b class="enfasi">grassi di origine animale</b> o gli <b class="enfasi">oli vegetali</b> occorre sempre assicurarsi che venga specificato il tipo. 
-                                    Nella dicitura "<b class="enfasi">grassi animali</b>" o "<b class="enfasi">oli vegetali</b>" può entrare di tutto: dagli <b class="enfasi">oli riciclati</b> provenienti dalla ristorazione, residui di friggitoria, grassi ottenuti dalla bollitura di carcasse animali, fino agli oli troppo <b class="enfasi">rancidi</b> classificati come inadatti per gli umani. 
-                                    </p>
-                                    
-                                    <p>
-                                    In sostanza si tratta di ingredienti di <b class="enfasi">bassa</b> quando non <b class="enfasi">bassissima qualità</b>. 
-                                    Occorre sempre cercare la denominazione che riporti il <b class="enfasi">tipo di olio</b> o di grasso utilizzato, come voci del tipo: 
-                                    </p>
-                                    
-                                    <ul>
-                                      <li><b class="enfasi">Olio di semi di girasole</b></li>
-                                      <li><b class="enfasi">Olio di pesce</b></li>
-                                      <li><b class="enfasi">Olio di semi di lino</b></li>
-                                      <li><b class="enfasi">Grasso di pollo</b></li>
-                                    </ul>
-                                    
-                                    <p>
-                                    I grassi animali più indicati sono l’<b class="enfasi">olio di pesce</b> e il <b class="enfasi">grasso di pollo</b>, mentre è preferibile evitare quelli troppo ricchi di <b class="enfasi">acidi grassi saturi</b>, come il <b class="enfasi">sego bovino</b>.
-                                    </p>
-                                    
-                                    <p>
+                                    Così come per gli <b class="enfasibad">altri ingredienti</b>, anche per i <b
+                                        class="enfasibad">grassi di origine animale</b> o gli <b class="enfasibad">oli
+                                        vegetali</b> occorre sempre assicurarsi che venga specificato il tipo.
+                                    Nella dicitura "<b class="enfasibad">grassi animali</b>" o "<b class="enfasibad">oli
+                                        vegetali</b>" può entrare di tutto: dagli <b class="enfasibad">oli riciclati</b>
+                                    provenienti dalla ristorazione, residui di friggitoria, grassi ottenuti dalla
+                                    bollitura di carcasse animali, fino agli oli troppo <b class="enfasibad">rancidi</b>
+                                    classificati come inadatti per gli umani.
+                                </p>
+
+                                <p>
+                                    In sostanza si tratta di ingredienti di <b class="enfasibad">bassa</b> quando non <b
+                                        class="enfasibad">bassissima qualità</b>.
+                                    Occorre sempre cercare la denominazione che riporti il <b class="enfasibad">tipo di
+                                        olio</b> o di grasso utilizzato, come voci del tipo:
+                                </p>
+
+                                <ul>
+                                    <li><b class="enfasibad">Olio di semi di girasole</b></li>
+                                    <li><b class="enfasibad">Olio di pesce</b></li>
+                                    <li><b class="enfasibad">Olio di semi di lino</b></li>
+                                    <li><b class="enfasibad">Grasso di pollo</b></li>
+                                </ul>
+
+                                <p>
+                                    I grassi animali più indicati sono l’<b class="enfasibad">olio di pesce</b> e il <b
+                                        class="enfasibad">grasso di pollo</b>, mentre è preferibile evitare quelli
+                                    troppo
+                                    ricchi di <b class="enfasibad">acidi grassi saturi</b>, come il <b
+                                        class="enfasibad">sego
+                                        bovino</b>.
+                                </p>
+
+                                <p>
                                     Le fonti di grassi vegetali migliori sono:
-                                    </p>
-                                    
-                                    <ul>
-                                      <li><b class="enfasi">Olio di semi di lino</b></li>
-                                      <li><b class="enfasi">Olio di borragine</b></li>
-                                      <li><b class="enfasi">Olio di canapa</b></li>
-                                      <li><b class="enfasi">Olio di enotera</b></li>
-                                      <li><b class="enfasi">Olio di mais</b></li>
-                                      <li><b class="enfasi">Olio di girasole</b></li>
-                                      <li><b class="enfasi">Olio di cartamo</b></li>
-                                    </ul>
-                                    
-                                    <p>
-                                    I più scadenti, invece, sono quelli troppo ricchi di <b class="enfasi">grassi saturi a corta catena</b>, come ad esempio l’<b class="enfasi">olio di palma</b> o l’<b class="enfasi">olio di cocco</b>.
-                                    </p>
-                                    
+                                </p>
+
+                                <ul>
+                                    <li><b class="enfasibad">Olio di semi di lino</b></li>
+                                    <li><b class="enfasibad">Olio di borragine</b></li>
+                                    <li><b class="enfasibad">Olio di canapa</b></li>
+                                    <li><b class="enfasibad">Olio di enotera</b></li>
+                                    <li><b class="enfasibad">Olio di mais</b></li>
+                                    <li><b class="enfasibad">Olio di girasole</b></li>
+                                    <li><b class="enfasibad">Olio di cartamo</b></li>
+                                </ul>
+
+                                <p>
+                                    I più scadenti, invece, sono quelli troppo ricchi di <b class="enfasibad">grassi
+                                        saturi
+                                        a corta catena</b>, come ad esempio l’<b class="enfasibad">olio di palma</b> o
+                                    l’<b class="enfasibad">olio di cocco</b>.
+                                </p>
+
                             </td>
                         </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m06</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M06</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m06'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -485,9 +571,79 @@
                                 viene specificato se è del tipo a "basso contenuto di acido erucico" (Canoil, "triplo 0
                                 pressato a freddo" o simili).</td>
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m06" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+
+                                <p>
+                                    L'olio di palma è uno dei pochi <b class="enfasibad">oli vegetali saturi</b>, ossia
+                                    che
+                                    a temperatura ambiente si trovano allo stato solido (insieme all'olio di cocco).
+                                    Questo gli conferisce il vantaggio di irrancidire meno rispetto agli oli vegetali
+                                    insaturi o polinsaturi, motivo per cui è frequentemente utilizzato nell'industria
+                                    alimentare, ad esempio per produrre margarine o creme spalmabili come la Nutella.
+                                    Tuttavia, <b class="enfasibad">l'olio di palma</b> sarebbe più adatto a usi non
+                                    alimentari, come combustibile.
+                                </p>
+
+                                <p>
+                                    L'olio di palma derivato dai frutti contiene più del <b class="enfasibad">50% di
+                                        grassi
+                                        saturi</b>, mentre l’olio di palmisto, estratto dai semi, supera l’80%. La sua
+                                    composizione chimica non è controbilanciata da una presenza adeguata di acidi grassi
+                                    polinsaturi benefici, che aiutano a regolare i livelli di colesterolo LDL. Per
+                                    questo motivo, l’olio di palma, il palmisto e l’olio di cocco, pur essendo di
+                                    origine vegetale, sono tra i grassi più aterogeni, cioè favoriscono l’accumulo di
+                                    grassi nei vasi sanguigni.
+                                </p>
+
+                                <p>
+                                    <b class="enfasibad">L'olio di colza</b>, invece, è noto per contenere <b
+                                        class="enfasibad">acido erucico</b> in concentrazioni che variano tra il 30% e
+                                    il
+                                    60%, in base a diversi fattori come la cultivar e la raccolta. Questo acido è
+                                    tossico per l'organismo umano e animale, e la legge ne regola la presenza, imponendo
+                                    un limite massimo di 50 g/kg (5%) negli oli, grassi e alimenti.
+                                </p>
+
+                                <p>
+                                    Per rendere l’olio di colza adatto a usi alimentari e industriali, sono state
+                                    sviluppate varietà mutanti della pianta originale, con basso contenuto di acido
+                                    erucico e ricche di acidi grassi polinsaturi, che sono considerati benefici per la
+                                    salute. La prima varietà a basso tenore di acido erucico è stata sviluppata in
+                                    Canada, e da questa è nato l’<b class="enfasibad">olio di canola</b>, caratterizzato
+                                    da
+                                    meno del 2% di acido erucico.
+                                </p>
+
+                                <p>
+                                    Il miglioramento genetico della colza è stato ottenuto attraverso tecniche agricole
+                                    tradizionali, come incroci e selezioni. Nel 1974, l'Università di Manitoba ha
+                                    sviluppato una varietà chiamata <b class="enfasibad">"00"</b>, caratterizzata da
+                                    bassi
+                                    livelli di acido erucico e glucosinolati. Questa varietà ha dato origine allo
+                                    standard <b class="enfasibad">CANOIL</b> (Canadian Oil), che definisce un olio con
+                                    meno
+                                    del 2% di acido erucico.
+                                </p>
+
+                                <p>
+                                    In Europa, l'olio di canola è conosciuto come <b class="enfasibad">"Olio di colza
+                                        000
+                                        Grade"</b> (Grado Triplo 0). Questo olio, ottenuto tramite spremitura a freddo,
+                                    deve contenere per legge meno del 2% di acido erucico, mantenendo un profilo
+                                    salutare per l’alimentazione.
+                                </p>
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m07</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M07</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m07'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"><label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -498,9 +654,49 @@
                                 come ad es. l'erba medica (Alfa alfa)</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m07" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+
+                                <p>
+                                    Le diciture generiche come <b class="enfasibad">"cereali"</b>, <b
+                                        class="enfasibad">"verdure"</b> o <b class="enfasibad">"amidi"</b>, se non
+                                    accompagnate dall'indicazione precisa della specie o del tipo, possono includere
+                                    qualsiasi varietà di cereali o vegetali, rendendo difficile sapere con esattezza
+                                    cosa contenga il mangime. È essenziale che la specie o il tipo di cereale, frutta,
+                                    verdura o vegetale sia sempre chiaramente indicato.
+                                </p>
+
+                                <p>
+                                    Particolare attenzione va posta anche a ingredienti come <b
+                                        class="enfasibad">"rottura di riso"</b> o <b class="enfasibad">"cereali da
+                                        trebbia"</b>, come l’orzo o altri derivati dei birrifici. Contrariamente a
+                                    quanto spesso affermano i produttori, la rottura di riso, nota anche come <b
+                                        class="enfasibad">"riso di birra"</b> (brewer's rice), è un sottoprodotto a
+                                    basso costo proveniente dalla produzione di birra. Questo ingrediente ha scarso
+                                    valore nutritivo, può causare problemi digestivi e persino contribuire allo sviluppo
+                                    del diabete. Solitamente, viene utilizzato come riempitivo o per la fermentazione
+                                    nella produzione di alcool.
+                                </p>
+
+                                <p>
+                                    Inoltre, alcune fonti vegetali vengono impiegate per aumentare il contenuto proteico
+                                    del mangime. Un esempio è l'<b class="enfasibad">erba medica</b> (alfa-alfa), che è
+                                    ricca di proteine. Sebbene la sua presenza sia tollerabile in piccole quantità per
+                                    il suo contenuto di minerali e oligoelementi, spesso viene aggiunta unicamente per
+                                    incrementare il tenore proteico complessivo del prodotto.
+                                </p>
+
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m08</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M08</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m08'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -508,11 +704,57 @@
                             <td width="20" valign="top">-5</td>
                             <td valign="top">La prima voce della lista non è una proteina animale (Ad. Es prima voce
                                 "cereali" o "riso" o "mais".</td>
+                        </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m08" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
 
+                                <p>
+                                    Il cane è un <b class="enfasibad">carnivoro non esclusivo</b>. Si può affermare che,
+                                    dopo essersi separato dal lupo e vivendo a stretto contatto con l'uomo, si sia
+                                    adattato ad essere <b class="enfasibad">quasi onnivoro</b>. Tuttavia, nonostante
+                                    questo adattamento, il suo apparato digerente rimane più simile a quello di un
+                                    carnivoro che a quello di un onnivoro. Questo significa che nella sua dieta <b
+                                        class="enfasibad">DEVE</b> essere presente carne.
+                                </p>
+
+                                <p>
+                                    In un mangime che possa essere considerato adeguato, il primo ingrediente in ordine
+                                    di quantità <b class="enfasibad">DEVE</b> essere una proteina animale,
+                                    preferibilmente sotto forma di <b class="enfasibad">carne disidratata</b> o <b
+                                        class="enfasibad">farina di carne</b>. La presenza di un ingrediente diverso
+                                    come principale, salvo casi estremamente particolari (che esistono solo in teoria),
+                                    indica probabilmente un mangime non adatto.
+                                </p>
+
+                                <p>
+                                    Per fare un esempio teorico, potrebbe esistere un mangime in cui il primo
+                                    ingrediente è <b class="enfasibad">riso (30%)</b>, seguito da una serie di
+                                    ingredienti a base di carne come <b class="enfasibad">carne di pollo disidratata
+                                        (25%)</b>, <b class="enfasibad">carne di tacchino disidratata (20%)</b>, grasso
+                                    di pollo, polpa di barbabietola, mela, carota, ecc. In un caso come questo, il
+                                    punteggio negativo <b class="enfasibad">non</b> sarebbe applicabile, poiché gli
+                                    ingredienti proteici sarebbero comunque abbondanti.
+                                </p>
+
+                                <p>
+                                    Tuttavia, è improbabile che un produttore metta sul mercato un mangime con
+                                    un'etichetta simile. Troverebbe sicuramente un modo per far risultare come primo
+                                    ingrediente una <b class="enfasibad">carne</b>, rispettando le aspettative del
+                                    consumatore.
+                                </p>
+
+
+                            </td>
                         </tr>
 
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m09</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M09</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m09'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -522,8 +764,49 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m09" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Il <b class="enfasibad">mais</b>, o granoturco, è uno dei cereali più utilizzati
+                                    nella produzione di crocchette per animali. Questo principalmente perché è <b
+                                        class="enfasibad">economico</b> a parità di valore energetico, apportato
+                                    soprattutto da carboidrati, ma anche da un discreto contenuto di proteine. Tuttavia,
+                                    le proteine del mais sono di <b class="enfasibad">difficile assimilazione</b> e
+                                    spesso tendono a causare <b class="enfasibad">allergie</b>. Inoltre, le partite di
+                                    mais di bassa qualità sono spesso contaminate da <b
+                                        class="enfasibad">micotossine</b>, sostanze accusate di avere effetti <b
+                                        class="enfasibad">cancerogeni</b>.
+                                </p>
+                                <p>
+                                    A livello mondiale, una gran parte del mais coltivato per uso zootecnico è <b
+                                        class="enfasibad">OGM</b> o comunque derivato da ibridazioni volte a
+                                    massimizzare la produttività, sacrificando la qualità del prodotto. Per questo
+                                    motivo, il mais è considerato un ingrediente <b class="enfasibad">poco adatto</b>
+                                    all'alimentazione del cane.
+                                </p>
+                                <p>
+                                    Altri cereali, come <b class="enfasibad">soia</b> e <b
+                                        class="enfasibad">frumento</b>, sono anch'essi poco indicati, mentre alternative
+                                    come <b class="enfasibad">riso</b>, <b class="enfasibad">avena</b>, <b
+                                        class="enfasibad">orzo</b> e altri cereali "minori" risultano più adatte.
+                                    Tuttavia, è fondamentale che questi siano di <b class="enfasibad">elevata
+                                        qualità</b>, con un costo generalmente superiore rispetto a quello del mais.
+                                </p>
+                                <p>
+                                    In definitiva, quanto maggiore è la percentuale di mais in un mangime, tanto più
+                                    dovrebbe essere <b class="enfasibad">penalizzato</b>. Idealmente, il mais dovrebbe
+                                    essere <b class="enfasibad">completamente evitato</b>.
+                                </p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m10</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M10</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m10'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -532,9 +815,49 @@
                             <td valign="top">Contiene mais (granoturco) (non nei primi 3 ingredienti).</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m10" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Il <b class="enfasibad">mais</b>, o granoturco, è uno dei cereali più utilizzati
+                                    nella produzione di crocchette per animali. Questo principalmente perché è <b
+                                        class="enfasibad">economico</b> a parità di valore energetico, apportato
+                                    soprattutto da carboidrati, ma anche da un discreto contenuto di proteine. Tuttavia,
+                                    le proteine del mais sono di <b class="enfasibad">difficile assimilazione</b> e
+                                    spesso tendono a causare <b class="enfasibad">allergie</b>. Inoltre, le partite di
+                                    mais di bassa qualità sono spesso contaminate da <b
+                                        class="enfasibad">micotossine</b>, sostanze accusate di avere effetti <b
+                                        class="enfasibad">cancerogeni</b>.
+                                </p>
+                                <p>
+                                    A livello mondiale, una gran parte del mais coltivato per uso zootecnico è <b
+                                        class="enfasibad">OGM</b> o comunque derivato da ibridazioni volte a
+                                    massimizzare la produttività, sacrificando la qualità del prodotto. Per questo
+                                    motivo, il mais è considerato un ingrediente <b class="enfasibad">poco adatto</b>
+                                    all'alimentazione del cane.
+                                </p>
+                                <p>
+                                    Altri cereali, come <b class="enfasibad">soia</b> e <b
+                                        class="enfasibad">frumento</b>, sono anch'essi poco indicati, mentre alternative
+                                    come <b class="enfasibad">riso</b>, <b class="enfasibad">avena</b>, <b
+                                        class="enfasibad">orzo</b> e altri cereali "minori" risultano più adatte.
+                                    Tuttavia, è fondamentale che questi siano di <b class="enfasibad">elevata
+                                        qualità</b>, con un costo generalmente superiore rispetto a quello del mais.
+                                </p>
+                                <p>
+                                    In definitiva, quanto maggiore è la percentuale di mais in un mangime, tanto più
+                                    dovrebbe essere <b class="enfasibad">penalizzato</b>. Idealmente, il mais dovrebbe
+                                    essere <b class="enfasibad">completamente evitato</b>.
+                                </p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m11</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M11</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m11'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -543,9 +866,40 @@
                             <td valign="top">Contiene soia o semi di soia.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m11" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    La <b class="enfasibad">soia</b> è meno utilizzata del mais nei mangimi per cani,
+                                    principalmente a causa dei numerosi <b class="enfasibad">problemi di allergie</b>
+                                    che ha provocato in passato, in alcuni casi persino più del mais. A ciò si aggiunge
+                                    il suo <b class="enfasibad">costo elevato</b>, che ne limita ulteriormente l'uso.
+                                </p>
+
+                                <p>
+                                    Le considerazioni relative alla soia sono analoghe a quelle già espresse per il
+                                    mais: è una fonte di <b class="enfasibad">problemi allergici</b>, è <b
+                                        class="enfasibad">difficilmente digeribile</b> e gran parte della soia coltivata
+                                    per uso zootecnico è <b class="enfasibad">OGM</b> o frutto di <b
+                                        class="enfasibad">ibridazioni</b> mirate ad aumentare la produttività, spesso a
+                                    scapito della qualità.
+                                </p>
+
+                                <p>
+                                    Come per il mais, i mangimi che contengono soia dovrebbero essere <b
+                                        class="enfasibad">penalizzati</b> e il suo utilizzo dovrebbe essere <b
+                                        class="enfasibad">completamente evitato</b> ove possibile.
+                                </p>
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m12</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M12</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m12'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -555,8 +909,47 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m12" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Il <b class="enfasibad">frumento</b> è meno utilizzato del mais nei mangimi per
+                                    cani, e il frumento di <b class="enfasibad">buona qualità</b> non è quasi mai
+                                    destinato alla filiera del Pet Food. Anche il cosiddetto "<b
+                                        class="enfasibad">frumento zootecnico</b>" viene impiegato di rado.
+                                </p>
+
+                                <p>
+                                    Più frequentemente si trovano <b class="enfasibad">sottoprodotti del frumento</b> e
+                                    scarti di lavorazioni a base di frumento, come pane vecchio, semole rimacinate,
+                                    scarti di pasta rimacinati o prodotti da forno scaduti e rimacinati. Questi
+                                    ingredienti vengono spesso indicati con nomi "curiosi", come "<b
+                                        class="enfasibad">prodotti del panificio</b>".
+                                </p>
+
+                                <p>
+                                    Anche in questo caso valgono le stesse considerazioni già espresse per il mais e la
+                                    soia: il frumento è una fonte di <b class="enfasibad">problemi allergici</b>, spesso
+                                    di <b class="enfasibad">dubbia provenienza</b> e <b class="enfasibad">difficilmente
+                                        digeribile</b>.
+                                </p>
+
+                                <p>
+                                    Come per il mais e la soia, i mangimi che contengono frumento o suoi sottoprodotti
+                                    dovrebbero essere <b class="enfasibad">penalizzati</b>, e il suo utilizzo dovrebbe
+                                    essere <b class="enfasibad">completamente evitato</b> ove possibile.
+                                </p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m13</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M13</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m13'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -566,8 +959,37 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m13" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Il <b class="enfasibad">glutine di mais</b> è un sottoprodotto della lavorazione del
+                                    mais, derivato dalla macinazione ad umido del mais per la produzione di amido,
+                                    glucosio e destrine.
+                                </p>
+                                <p>
+                                    È ricco di proteine e viene quindi inserito nei mangimi per aumentare il tenore
+                                    proteico, ma si tratta di proteine di <b class="enfasibad">basso costo</b> e non di
+                                    proteine nobili della carne.
+                                </p>
+                                <p>
+                                    La presenza di glutine di mais indica uno scarso contenuto di proteine animali e può
+                                    essere causa di <b class="enfasibad">allergie dermatologiche</b>, malassezia e <b
+                                        class="enfasibad">malassorbimento intestinale</b>.
+                                </p>
+                                <p>
+                                    Lo stesso vale per i glutini di altri cereali, anche se questi sono meno
+                                    frequentemente utilizzati nel Pet Food.
+                                </p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m14</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M14</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m14'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -579,9 +1001,99 @@
                                 principale.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m14" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Lo <b class="enfasibad">splitting</b> (divisione) è un tentativo di ingannare i
+                                    consumatori, un trucco comune utilizzato dalle aziende mangimistiche per far
+                                    apparire la lista degli ingredienti più attraente di quanto non sia in realtà.
+                                </p>
+
+                                <p>
+                                    Si tratta di una pratica ingannevole in cui l'ingrediente più abbondante, ma di
+                                    minore valore, viene suddiviso in singole unità più piccole. Solitamente, il fine è
+                                    far apparire l'ingrediente a base di carne come il primo della lista degli
+                                    ingredienti.
+                                </p>
+
+                                <p>
+                                    Come funziona? Ipotizziamo di avere un mangime in cui il mais è l'ingrediente
+                                    dominante. Poiché il mais è considerato un ingrediente di qualità inferiore, la sua
+                                    posizione nella lista è penalizzante.
+                                </p>
+
+                                <p>
+                                    I produttori di mangimi sono tenuti a elencare gli ingredienti in ordine di peso
+                                    precottura. Ecco un esempio prima e dopo l'applicazione dello splitting:
+                                </p>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><b class="enfasibad">Prima dello Splitting</b></th>
+                                            <th><b class="enfasibad">Dopo lo Splitting</b></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mais 30%</td>
+                                            <td>Carne di pollo disidratata 18%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Riso 20%</td>
+                                            <td>Farina di mais 16%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carne di pollo disidratata 18%</td>
+                                            <td>Glutine di mais 14%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ingrediente A</td>
+                                            <td>Riso 11%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ingrediente B</td>
+                                            <td>Crusca di riso 9%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ingrediente C</td>
+                                            <td>Ingrediente A</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ingrediente D</td>
+                                            <td>Ingrediente B</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <p>
+                                    Come si può notare, il mais, con il suo peso pre-cottura del 30%, avrebbe occupato
+                                    la prima posizione, seguito dal riso, lasciando la carne di pollo disidratata al
+                                    terzo posto nella lista degli ingredienti.
+                                </p>
+
+                                <p>
+                                    Con lo splitting, il mais e il riso vengono suddivisi in due o più ingredienti
+                                    distinti, riducendo la loro percentuale nella lista e dando così più spazio alla
+                                    carne di pollo disidratata, facendola apparire come primo ingrediente.
+                                </p>
+
+                                <p>
+                                    Non sopravvalutare mai il primo ingrediente, soprattutto in assenza di percentuali
+                                    che ne attestino l'effettiva quantità. La pratica dello splitting consente alle
+                                    aziende di far credere che ci sia più carne di quanto non ci sia in realtà.
+                                </p>
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m15a</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M15a</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m15a'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -590,9 +1102,64 @@
                             <td valign="top">Contiene "proteine animali trasformate" (PAT).</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m15a" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Le <b class="enfasibad">PAT</b> (Proteine Animali Trasformate) sono un prodotto
+                                    ottenuto attraverso il trattamento termico, l'essiccazione e la macinazione di
+                                    animali terrestri a sangue caldo o delle loro parti. In alcuni casi, il grasso può
+                                    essere parzialmente estratto o separato fisicamente, ma può anche essere estratto
+                                    chimicamente con solventi come l'esano, che può arrivare a una presenza dello 0,1%.
+                                </p>
+
+                                <p>
+                                    Le proteine animali trasformate (PAT) derivate da sottoprodotti di origine animale,
+                                    diversi dai materiali di categoria 3 di cui all'articolo 10 del regolamento (CE) n.
+                                    1069/2009, possono essere utilizzate nei mangimi per animali da compagnia, a
+                                    condizione che siano mescolate in proporzioni appropriate con altri alimenti
+                                    consumabili dalle specie destinate. Queste proteine possono essere dichiarate come
+                                    alimenti solo se rispettano le norme indicate.
+                                </p>
+
+                                <p>
+                                    Le PAT derivano da sottoprodotti di origine animale, tra cui pacchi intestinali
+                                    suini, grasso suino e bovino, e altri scarti non commestibili per l'alimentazione
+                                    umana, trattati industrialmente per estrarre proteine. Questo processo ha luogo
+                                    principalmente nell'industria del pet-food, poiché l'uso di tali proteine per
+                                    l'alimentazione umana è vietato, specialmente dopo i casi legati alla "mucca pazza".
+                                </p>
+
+                                <p>
+                                    Gli ingredienti che possono essere trasformati in proteine animali includono cuoio,
+                                    piume, ossa, zoccoli, corna, peli e materiali organici animali mal conservati,
+                                    diventati non commestibili "tal quali". In teoria, potrebbero essere utilizzati
+                                    anche fanghi di fognatura, liquami, letame e guano, ma tali prodotti sono vietati
+                                    dall'Unione Europea.
+                                </p>
+
+                                <p>
+                                    In pratica, le PAT rappresentano il modo più economico di estrarre proteine da
+                                    ingredienti che altrimenti sarebbero inutilizzabili per l'alimentazione, proprio
+                                    perché mal conservati o non commestibili.
+                                </p>
+
+                                <p>
+                                    Le <b class="enfasibad">PAT</b> sono il peggior tipo di proteina che si possa
+                                    trovare in un mangime, e la loro presenza deve essere fortemente penalizzata. È
+                                    fondamentale evitarle accuratamente nei mangimi per animali da compagnia.
+                                </p>
+
+                            </td>
+                        </tr>
+
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m15b</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M15b</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m15b'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -604,8 +1171,111 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m15b" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Le <b class="enfasibad">proteine idrolizzate</b> sono una miscela di amminoacidi e
+                                    peptidi ottenuta dall’idrolisi di una fonte proteica animale o vegetale. Questo
+                                    processo simula la digestione naturale, scindendo le proteine in amminoacidi liberi
+                                    per una maggiore digeribilità.
+                                </p>
+
+                                <p>
+                                    L'idrolisi può essere di tre tipi:
+                                <ul>
+                                    <li><b>Idrolisi chimica</b>, con un agente chimico ad alta temperatura e pH alcalino
+                                        o acido;</li>
+                                    <li><b>Idrolisi enzimatica</b>, che usa enzimi a bassa temperatura e pH neutro;</li>
+                                    <li><b>Idrolisi mista</b>, che unisce entrambe le tecniche in successione.</li>
+                                </ul>
+                                Le proteine vengono trattate in modo tale che la loro scissione non vada oltre la
+                                distruzione delle unità amminoacidiche.
+                                </p>
+
+                                <p>
+                                    In medicina umana, le proteine idrolizzate sono utilizzate per la preparazione di
+                                    medicinali e alimenti destinati a neonati, adulti e anziani con disturbi digestivi
+                                    acuti o cronici. Sono anche utilizzate nel mondo del Fitness per la preparazione di
+                                    integratori calorici.
+                                </p>
+
+                                <p>
+                                    Nel campo umano, gli idrolisati proteici sono più facilmente digeribili rispetto
+                                    alle proteine intere e sono meno inclini a causare reazioni allergiche. Le loro
+                                    piccole dimensioni consentono di attraversare la barriera intestinale senza
+                                    stimolare il sistema immunitario, facendo sì che l'origine della proteina non
+                                    influisca sulla sua digeribilità. In ambito umano, sono ingredienti ad alto
+                                    contenuto tecnologico e generalmente costosi.
+                                </p>
+
+                                <p>
+                                    Negli ultimi anni, il processo di idrolisi è stato adottato anche nell’industria del
+                                    Pet Food, per tre motivi principali:
+                                <ul>
+                                    <li>Sono teoricamente più facili da digerire rispetto alle proteine intere;</li>
+                                    <li>Sono teoricamente ipoallergeniche;</li>
+                                    <li>Facilitano la lavorazione e l'estrusione delle crocchette.</li>
+                                </ul>
+                                Tuttavia, gli studi sugli effetti a lungo termine sono ancora pochi e le case
+                                mangimistiche enfatizzano i benefici nutrizionali, come il miglioramento della
+                                biodisponibilità delle componenti attive. La forma finale delle proteine idrolizzate è
+                                una polvere che viene spruzzata sulle crocchette dopo l'estrusione, utilizzata anche
+                                come appetizzante.
+                                </p>
+
+                                <p>
+                                    Fino a questo punto, l'utilizzo delle proteine idrolizzate sembra positivo... ma ci
+                                    sono aspetti oscuri e problematici.
+                                </p>
+
+                                <p>
+                                    L'industria del Pet Food non può permettersi di utilizzare ingredienti costosi come
+                                    quelli impiegati in medicina umana, e quindi si ricorre all'uso di scarti di
+                                    lavorazione, sottoprodotti e derivati, esattamente come per le <b
+                                        class="enfasibad">PAT</b>.
+                                </p>
+
+                                <p>
+                                    Le aziende principali, come la Royal Canin, sono tra quelle che fanno largo uso di
+                                    proteine idrolizzate. Durante una conferenza, è stato rivelato che Royal Canin,
+                                    cercando una fonte proteica leggera e facilmente reperibile, ha scelto di utilizzare
+                                    <b class="enfasibad">le piume di pollo</b>.
+                                </p>
+
+                                <p>
+                                    Questo ha sollevato perplessità, poiché le piume di pollo potrebbero sembrare una
+                                    fonte proteica di qualità inferiore. Tuttavia, il CEO di Royal Canin, JC Flatin, ha
+                                    rassicurato affermando che "nello stomaco, ciò che importa sono gli aminoacidi che
+                                    vi giungono", indipendentemente dalla fonte di origine. Le piume di pollo non sono
+                                    considerate un prodotto di scarto, ma una fonte di aminoacidi essenziali, la cui
+                                    qualità è garantita dal loro utilizzo nell’industria farmaceutica e
+                                    nell'alimentazione infantile.
+                                </p>
+
+                                <p>
+                                    Così, quello che si presenta come un miracolo tecnologico è in realtà un metodo per
+                                    trasformare gli scarti a costo zero in proteine "nobili", vendute come ingredienti
+                                    di alta qualità a un prezzo elevato.
+                                </p>
+
+                                <p>
+                                    Per questi motivi, e per altri aspetti problematici, molti esperti, incluso noi,
+                                    riteniamo che l'uso di proteine idrolizzate nel Pet Food, tranne che nei casi di
+                                    mangimi "veterinari" per cani con patologie ben definite, debba essere <b
+                                        class="enfasibad">evitato accuratamente</b>.
+                                </p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m16a</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M16a</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m16a'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -617,8 +1287,21 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m16a" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Vedi approfondimento M15b (riga sopra).
+                                </p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m16b</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M16b</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m16b'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -631,8 +1314,21 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m16b" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Vedi approfondimento M15b (2 righe sopra).
+                                </p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m17</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M17</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m17'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -641,9 +1337,67 @@
                             <td valign="top">Contiene "Agnello" come unica fonte proteica di origine animale.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m17" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Molti mangimi pubblicizzano l'<b class="enfasibad">agnello</b> come fonte proteica,
+                                    spesso definendoli ideali per "cani sensibili" o per quelli con problemi di <b
+                                        class="enfasibad">allergie</b>. Tuttavia, è importante partire dal presupposto
+                                    che la maggior parte delle allergie nei cani è legata a proteine vegetali, e non
+                                    animali.
+                                </p>
+
+                                <p>
+                                    Il successo dei mangimi "all'agnello" è stato inizialmente dovuto alla combinazione
+                                    "agnello e riso", una formula priva di mais, che invece era molto presente in molti
+                                    mangimi tradizionali a base di pollo. Successivamente, sono stati introdotti mangimi
+                                    "pollo e riso", con il risultato che, nella maggior parte dei casi, i benefici non
+                                    erano tanto legati all'agnello, ma alla <b class="enfasibad">mancanza di cereali
+                                        allergizzanti</b> nelle formulazioni "all'agnello".
+                                </p>
+
+                                <p>
+                                    Un altro motivo per cui i mangimi "all'agnello" hanno avuto un buon successo è di
+                                    tipo psicologico. Il consumatore, pensando all'agnello, lo percepisce come un
+                                    alimento "puro" e tende a considerarlo una carne di alta qualità.
+                                </p>
+
+                                <p>
+                                    Purtroppo, la realtà è ben diversa. Non pensiate che nei mangimi "all'agnello" ci
+                                    sia davvero carne di <b class="enfasibad">agnelli</b>! In realtà, con la dicitura
+                                    "agnello" si intende una varietà di carni provenienti da <b
+                                        class="enfasibad">ovini</b> e <b class="enfasibad">caprini</b>. Nella
+                                    mangimistica, si utilizzano principalmente animali adulti a fine carriera
+                                    riproduttiva, come pecore e capre che non sono più produttive (non producono più
+                                    latte o lana). La carne di questi animali non può essere destinata al consumo umano
+                                    perché è troppo dura.
+                                </p>
+
+                                <p>
+                                    Questo implica che le carni utilizzate nei mangimi, pur essendo etichettate come
+                                    "agnello", abbiano un valore biologico inferiore rispetto a carni di altre specie,
+                                    come pollo, tacchini o altre parti di pollame non utilizzate nell'alimentazione
+                                    umana. Inoltre, la <b class="enfasibad">digeribilità</b> della carne "di agnello" è
+                                    decisamente inferiore a quella del pollo, con valori che vanno dal 92-96% per il
+                                    pollo al 78-85% per l'agnello.
+                                </p>
+
+                                <p>
+                                    Le carni di agnello contengono anche minori quantità di alcuni amminoacidi
+                                    essenziali. Se non adeguatamente integrate o combinate con altre proteine,
+                                    potrebbero risultare carenti di questi nutrienti cruciali per la salute del cane.
+                                </p>
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m18</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M18</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m18'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -652,9 +1406,63 @@
                             <td valign="top">Contiene carne di maiale.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m18" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    La carne di <b class="enfasibad">maiale</b> è generalmente "malvista" nei mangimi
+                                    per cani a causa della <b class="enfasibad">pseudorabbia suina</b>, una malattia che
+                                    può essere trasmessa anche al cane. Il maiale è l'ospite principale per questo
+                                    virus, ma esso può essere trasmesso anche a ruminanti come pecore, vacche, capre,
+                                    oltre che a cani, gatti e animali selvatici come procioni, opossum e roditori.
+                                    Colpisce anche alcuni primati, ma non lo scimpanzé, e non è mai stato isolato
+                                    nell'uomo.
+                                </p>
+
+                                <p>
+                                    Il maiale è il serbatoio naturale della malattia e può anche essere portatore
+                                    asintomatico, diffondendo il virus senza mostrare sintomi evidenti. La pseudorabbia
+                                    è solitamente benigna nei suini adulti, ma può causare aborti nelle scrofe e decessi
+                                    nei suinetti. Il Morbo di Aujeszky (nome ufficiale della pseudorabbia) è letale nei
+                                    cani, poiché colpisce il loro sistema nervoso centrale, con una prognosi infausta
+                                    per i soggetti infetti.
+                                </p>
+
+                                <p>
+                                    Per fortuna, il rischio di contrarre la pseudorabbia attraverso l'alimentazione a
+                                    base di croccantini è abbastanza basso, poiché il virus responsabile della malattia
+                                    è sensibile al calore. Ad esempio, la cottura della carne a 80°C per tre minuti
+                                    neutralizza il virus. Tuttavia, i cani più a rischio sono quelli utilizzati per la
+                                    caccia al cinghiale, come i segugi.
+                                </p>
+
+                                <p>
+                                    Non esiste un vaccino specifico per il cane contro la pseudorabbia, ma è possibile
+                                    proteggere i cani destinati alla caccia al cinghiale con vaccini utilizzati per i
+                                    suini. Il maiale è anche indagato come possibile fonte di contagio per la
+                                    trichinella, un parassita che può colpire l'uomo e il cane. L'infestazione da
+                                    trichinella avviene in seguito all'ingestione di carni e insaccati poco cotti, non
+                                    stagionati o non conservati adeguatamente.
+                                </p>
+
+                                <p>
+                                    In Italia, è obbligatorio per legge effettuare la ricerca di trichinella sulle
+                                    carcasse dei suini d'allevamento e degli equini. Tuttavia, i cinghiali selvatici
+                                    cacciati non sono soggetti a questa norma, il che rende rischioso somministrare
+                                    carne di cinghiale cruda o poco cotta ai cani.
+                                </p>
+
+
+                            </td>
+                        </tr>
+
 
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m19</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M19</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m19'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -665,8 +1473,79 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m19" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    <b class="enfasibad">BHA</b>, <b class="enfasibad">BHT</b>, <b
+                                        class="enfasibad">Ethoxiquina</b> sono
+                                    conservanti chimici liposolubili usati nell'industria di cibi per animali da
+                                    compagnia da un certo numero di anni. Si trovano anche nel cibo per altri
+                                    animali, nel cibo confezionato, nei cosmetici, nei prodotti in gomma e nei
+                                    prodotti derivati dal petrolio.
+                                </p>
+
+                                <p>
+                                    Il <b class="enfasibad">BHA</b> ed altri antiossidanti simili, come l'Etossichina,
+                                    se assunti regolarmente, inducono la citotossicità e l'iperplasia allo stomaco. La
+                                    metabolizzazione del <b class="enfasibad">BHA</b> produce metaboliti potenzialmente
+                                    carcinogeni.
+                                </p>
+
+                                <p>
+                                    Il <b class="enfasibad">Butilidrossianisolo (BHA)</b> o E320 è uno degli additivi
+                                    ritenuti nocivi. Infatti l'E320 e l'E321 (BHT, o butilidrossitoluolo) sono vietati
+                                    in molti paesi. Sono antiossidanti sintetici che vengono utilizzati in quanto
+                                    solubili in etanolo, propanolo, grassi e oli. Provocano un aumento dei lipidi e del
+                                    colesterolo nel sangue e possono indurre la formazione di enzimi metabolici nel
+                                    fegato capaci di distruggere la vitamina D.
+                                </p>
+
+                                <p>
+                                    Dal 1987 l’Agenzia Internazionale per la Ricerca sul Cancro ha incluso il <b
+                                        class="enfasibad">BHA</b> nell’elenco delle sostanze potenzialmente
+                                    carcinogeniche. Oltre al <b class="enfasibad">BHA</b> e al <b
+                                        class="enfasibad">BHT</b> esistono anche altri antiossidanti sintetici
+                                    pericolosi, come l'Etossichina (E324) o la Trimetilchinolina. Vengono utilizzati
+                                    principalmente come antiossidanti perché ritardano od inibiscono l'ossidazione dei
+                                    cibi, soprattutto dei grassi che hanno facilità ad irrancidire.
+                                </p>
+
+                                <p>
+                                    Il loro consumo, soprattutto a lungo termine, è da considerarsi <b
+                                        class="enfasibad">DANNOSO</b>, e i mangimi che li contengono sono, a nostro
+                                    avviso, da <b class="enfasibad">EVITARE ACCURATAMENTE</b>.
+                                </p>
+
+                                <p>
+                                    Questo punteggio viene applicato anche nel caso in cui vengano riportate voci
+                                    generiche, come "<b class="enfasibad">antiossidanti</b>" o "<b
+                                        class="enfasibad">conservanti</b>" senza ulteriori specificazioni. È infatti
+                                    opinione degli autori che sia cura del produttore informare al meglio il consumatore
+                                    sul contenuto del mangime, e che voci "<b class="enfasibad">generiche</b>" come
+                                    quelle sopra riportate non diano la certezza che non ci si riferisca a conservanti
+                                    di sintesi considerati "<b class="enfasibad">pericolosi</b>".
+                                </p>
+
+                                <p>
+                                    Al contrario, il "<b class="enfasigood">malus</b>" non viene applicato laddove,
+                                    anche in mancanza di ulteriori specifiche, vengano messe voci del tipo "<b
+                                        class="enfasigood">conservato esclusivamente con conservanti di origine
+                                        naturale</b>" oppure "<b class="enfasigood">non contiene BHA, BHT o altri
+                                        conservanti e/o antiossidanti di sintesi</b>" etc.
+                                </p>
+
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m20</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M20</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m20'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -679,8 +1558,60 @@
 
                         </tr>
 
+
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m20" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Il <b class="enfasibad">Propilgallato</b> (<b class="enfasibad">E310</b>) o "<b
+                                        class="enfasibad">gallato di propile</b>" è un altro conservante chimico,
+                                    sintetizzato a partire da propanolo ed acido gallico (molecole che si riformano
+                                    naturalmente nell'intestino durante il processo degradativo). Anch'esso è un
+                                    antiossidante, molto utilizzato nell'industria dei cosmetici, e viene utilizzato
+                                    anche in numerosi prodotti alimentari, anche per il consumo umano, a cui viene
+                                    aggiunto, per conservarli e per prevenirne la rancidità. Ad esempio, viene usato
+                                    come conservante nei prodotti che contengono grassi commestibili, come la salsiccia
+                                    e il lardo.
+                                </p>
+
+                                <p>
+                                    E' classificato come "<b class="enfasigood">GRAS</b>" (<b
+                                        class="enfasigood">Generalmente Riconosciuto Come Sicuro</b>) secondo la
+                                    classifica americana, anche se alcuni studi sollevano questioni importanti sul fatto
+                                    che questa sostanza chimica debba essere considerata sicura. Da quanto riporta
+                                    Wikipedia, "<b class="enfasibad">Il propil gallato è pericoloso in caso di
+                                        ingestione</b> e meno pericoloso in caso di contatto cutaneo: può causare
+                                    disturbi digestivi, infezioni, sterilità, insonnia, reazioni allergiche,
+                                    iperattività, orticaria e danni al fegato. È sconsigliato pertanto a donne incinte."
+                                </p>
+
+                                <p>
+                                    L'utilizzo come additivo alimentare è praticato dal 1948, ed è autorizzato in tutta
+                                    l'Unione europea con il numero <b class="enfasibad">E310</b>, tuttavia restano
+                                    ancora approssimative le valutazioni tossicologiche della molecola. La "<b
+                                        class="enfasibad">DOSE ADI</b>" non è molto chiara perché cambia a seconda dei
+                                    testi... Secondo l'OMS può essere 0,5 - 1,4 - 2,5mg /Kg di peso corporeo al giorno,
+                                    la UE lo ammette come antiossidante (sigla <b class="enfasibad">E310</b>), ed ha
+                                    fissato un limite di sicurezza di 200 mg/kg.
+                                </p>
+
+                                <p>
+                                    Normalmente nei mangimi viene utilizzato in dosi minori, alcuni produttori
+                                    dichiarano dosaggi inferiori a 35 ppm (o mg/kg). A questi dosaggi il prodotto è
+                                    generalmente riconosciuto come sicuro, anche se restano da valutare gli effetti a
+                                    lungo termine. In mancanza di studi, sarebbe bene privilegiare quei mangimi che
+                                    utilizzano esclusivamente <b class="enfasigood">antiossidanti naturali</b>.
+                                </p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m21</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M21</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m21'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -690,8 +1621,63 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m21" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    I <b class="enfasibad">coloranti alimentari</b> sono sostanze prive di valore
+                                    nutritivo, o impiegate a scopo non nutritivo, addizionate durante la lavorazione dei
+                                    prodotti alimentari per impartirgli particolari caratteristiche cromatiche o
+                                    esaltarne la colorazione originaria, conferendogli così un aspetto invitante e più
+                                    appetibile.
+                                </p>
+
+                                <p>
+                                    L'impiego dei coloranti alimentari, pertanto, mira essenzialmente ad incrementare
+                                    l'interesse ed il gradimento dei consumatori nei confronti dei prodotti a cui
+                                    vengono aggiunti. Il consumatore medio, tende ad associare la qualità di un alimento
+                                    al suo aspetto, così, l'aranciata deve essere <b class="enfasigood">arancione</b>,
+                                    il succo di menta <b class="enfasigood">verde</b>, il burro <b
+                                        class="enfasigood">giallino</b>, il tuorlo d'uovo <b
+                                        class="enfasigood">arancione</b> e via discorrendo.
+                                </p>
+
+                                <p>
+                                    Alcuni coloranti sono sostanze naturali, altri sono sostanze naturali concentrate o
+                                    modificate chimicamente, altri sono imitazioni di sintesi di sostanze naturali,
+                                    altri sono totalmente artificiali e sono generalmente indicati con la sigla <b
+                                        class="enfasibad">E100-E199</b>.
+                                </p>
+
+                                <p>
+                                    Alcuni di questi sono considerati innocui, altri sono accusati di essere tossici, a
+                                    volte molto tossici. Nel <b class="enfasibad">Pet Food</b>, i coloranti vengono
+                                    usati per rafforzare nel consumatore l'impressione che il prodotto sia realizzato
+                                    con ingredienti naturali, e quindi le crocchette vengono colorate di "color carne"
+                                    anche quando contengono "di tutto" tranne la carne. Mentre la normativa
+                                    dell'utilizzo dei coloranti ad uso alimentare, in umana è soggetta a diverse norme e
+                                    vincoli, nel pet food, ci sono molte meno limitazioni, e quindi i coloranti vengono
+                                    spesso usati ed abusati, sopratutto nei prodotti di bassa qualità e "da
+                                    supermercato".
+                                </p>
+
+                                <p>
+                                    Essendo il loro scopo rivolto esclusivamente ad appagare l'occhio del compratore, e
+                                    non avendo alcun motivo di esistere, dal punto di vista nutritivo, è preferibile <b
+                                        class="enfasibad">EVITARE</b> di acquistare mangimi che contengono coloranti
+                                    artificiali.
+                                </p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m22</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M22</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m22'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -702,8 +1688,69 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m22" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Si tratta di sostanze minerali usate per assorbire l’umidità in eccesso. La loro
+                                    presenza è abbastanza dibattuta. Sono considerate dai produttori degli additivi
+                                    tecnologici benefici, perché nell'organismo non disturberebbero le funzioni
+                                    dell'assorbimento intestinale, prevenendo anzi la diarrea, rendendo più compatte le
+                                    feci del cane; agevolerebbero poi l'assorbimento di alcuni minerali, formando nel
+                                    tubo digerente una pellicola protettiva sulla superficie della mucosa intestinale,
+                                    svolgendo quindi una funzione antibatterica e impedendo l’assorbimento di alcune
+                                    tossine.
+                                </p>
+
+                                <p>
+                                    In realtà sono semplicemente additivi minerali antiagglomeranti, utilizzati cioè
+                                    (come la cellulosa, o i fiocchi d’avena che hanno invece origine vegetale), per
+                                    migliorare la fluidità della massa alimentare durante la produzione e l’estrusione
+                                    delle crocchette, soprattutto se gli ingredienti sono fortemente igroscopici e
+                                    tendono ad ammassarsi.
+                                </p>
+
+                                <p>
+                                    <b class="enfasigood">Sepiolite</b>: è un silicato di magnesio chiamato anche
+                                    “schiuma di mare” e caratterizzato da una forte porosità ed elevate superfici di
+                                    scambio. Per questo trova impiego in vasti campi di applicazione: per esempio, in
+                                    edilizia, come materiale assorbente per tutti i tipi di liquidi, anche oleosi;
+                                    oppure nell’industria elettronica o farmaceutica, e anche alimentare. Viene anche
+                                    utilizzata nella produzione delle lettiere per gatti.
+                                </p>
+
+                                <p>
+                                    <b class="enfasigood">Zeolite</b>: è un silicato di alluminio utilizzato come
+                                    catalizzatore, per esempio nei detersivi in sostituzione dei polifosfati, in
+                                    agricoltura, in edilizia, nell'addolcimento delle acque e in medicina per indurre la
+                                    coagulazione del sangue. Il suo utilizzo alimentare sarebbe addirittura positivo,
+                                    perché nel processo digestivo assorbirebbe sostanze nocive come metalli pesanti,
+                                    sostanze chimiche provenienti dai cibi e dalle medicine, virus, batteri, funghi e
+                                    tossine. Un vero e proprio spazzino, che contemporaneamente rilascerebbe
+                                    oligoelementi e sostanze minerali utili. Viene usata come filtrante in enologia e
+                                    per purificare l'acqua degli acquari.
+                                </p>
+
+                                <p>
+                                    <b class="enfasigood">Farina fossile</b> (o sabbia di diatomee o terra diatomacea):
+                                    è una roccia sedimentaria organogena silicea, residuo fossile di microscopiche alghe
+                                    della famiglia delle diatomee. Si tratta di un prodotto naturale usato per diversi
+                                    scopi, dalla depurazione delle acque, alla formulazione di sbiancanti per dentifrici
+                                    e prodotti di bellezza, ma anche nella composizione della dinamite e per liberare
+                                    animali domestici e piante da alcuni parassiti. Per esempio, nel caso degli uccelli
+                                    in gabbia, la terra di diatomee previene e cura le infestazioni di parassiti che si
+                                    annidano tra le piume e consente una rapida ricrescita delle stesse.
+                                </p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m23</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M23</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m23'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -714,8 +1761,40 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m23" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    Si tratta di sostanze di origine vegetale che, come per quelle di origine minerale,
+                                    in mangimistica vengono utilizzate per aumentare la consistenza del prodotto,
+                                    aumentare le fibre e soprattutto rassodare le feci assorbendo l’umidità in eccesso.
+                                </p>
+
+                                <p>
+                                    <b class="enfasigood">Cellulosa</b>: è un polisaccaride molto diffuso in natura, é
+                                    la principale componente della trama di sostegno dei tessuti vegetali. Abbonda nei
+                                    cereali, nella frutta ed in modo particolare nella crusca ed in alcune verdure.
+                                    L'organismo umano, non riesce a digerirla, e tantomeno quello cani, in quanto privi
+                                    di enzimi capaci di scinderla in sostanze più semplici ed assimilabili. Di
+                                    conseguenza, la cellulosa è priva di calorie e viene espulsa con le feci, alle quali
+                                    conferisce volume e consistenza; per queste sue caratteristiche, è considerata una
+                                    fibra alimentare insolubile.
+                                </p>
+
+                                <p>
+                                    Sono riempitivi a costo molto basso, spesso utilizzati per "coprire" alcune
+                                    "magagne" del mangime...
+                                </p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m24</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M24</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m24'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -726,8 +1805,22 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m24" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>
+                                    <a href="./LISTAADDITIVI.pdf" target="_blank">Vedi Tabella Additivi Alimentari</a>
+                                </p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: DARKRED"><b>m25</b></a></td>
+                            <td>
+                                <b style="color: DARKRED;">M25</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-m25'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -736,6 +1829,60 @@
                             <td valign="top">Contiene più del 10% di umidità.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-m24" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Per la legge, i mangimi per cani possono essere classificati in:</p>
+                                <ul>
+                                    <li><b class="enfasibad">SECCHI</b>: prodotti aventi un tasso di umidità inferiore o
+                                        uguale al 14%.</li>
+                                    <li><b class="enfasibad">SEMIUMIDI</b>: prodotti aventi un tasso di umidità
+                                        superiore al 14% e inferiore o uguale al 34%.</li>
+                                    <li><b class="enfasibad">UMIDI</b>: prodotti aventi un tasso di umidità superiore al
+                                        34%.</li>
+                                </ul>
+                                <p>La distinzione tra alimenti <b class="enfasibad">umidi</b>, <b
+                                        class="enfasibad">semiumidi</b> e <b class="enfasibad">secchi</b> riguarda
+                                    essenzialmente la percentuale di umidità contenuta in essi.</p>
+                                <p>Per quel che riguarda gli alimenti <b class="enfasibad">umidi</b>, le scatolette,
+                                    esse sono caratterizzate da un'elevata percentuale di umidità: spesso superiore al
+                                    70-80%. Dopo la macinazione, gli ingredienti sono pesati e amalgamati e a questo
+                                    composto vengono aggiunti additivi per garantire la conservabilità fino a che non
+                                    sono aperti. Il composto così ottenuto viene sterilizzato e confezionato in
+                                    scatolette o vaschette di vario formato.</p>
+
+                                <p>I "<b class="enfasibad">semiumidi</b>" sono quegli alimenti che appaiono sotto forma
+                                    di crocchetta, di varie dimensioni e forme, ma non sono croccanti, in quanto
+                                    contengono una percentuale di umidità che va dal 14% al 34%. Per via dell'alto
+                                    contenuto di umidità, sono di difficile conservazione. Infatti, solitamente vengono
+                                    confezionati in monoporzioni o in confezioni molto piccole, spesso sottovuoto.
+                                    Generalmente hanno ingredienti di bassa qualità (vedi ad es. i <b
+                                        class="enfasibad">FROLIC</b>) e sono quasi sempre imbottiti di appetizzanti, il
+                                    che li rende molto graditi ai cani.</p>
+                                <p>Il loro utilizzo è soprattutto quello di "<b class="enfasibad">premietti</b>", sono
+                                    graditi ai cani e pratici da usare e somministrare. Infatti, sui campi di lavoro e
+                                    nelle expo canine si vedono spesso proprietari con in mano l'immancabile sacchetto
+                                    di <b class="enfasibad">"frolic"</b>.</p>
+                                <p>Per poterli conservare, vengono imbottiti di antiossidanti e conservanti che molto
+                                    spesso provocano allergie e dissesti intestinali.</p>
+
+                                <p>Gli alimenti <b class="enfasibad">secchi</b> (<b class="enfasibad">DRY</b>), le
+                                    cosiddette "<b class="enfasibad">crocchette</b>", hanno solitamente una percentuale
+                                    di umidità inferiore al 10%. Gli ingredienti vengono pesati, mischiati e sottoposti
+                                    a cottura ed estrusione, si prosegue con l'essicazione, il raffreddamento e il
+                                    rivestimento della superficie con grassi e vitamine. Vengono venduti in sacchi, di
+                                    carta o plastica, in vari formati anche di grandi dimensioni, in quanto possono
+                                    essere conservati per parecchi giorni anche dopo l'apertura del sacco.</p>
+
+                                <p>Negli alimenti <b class="enfasibad">secchi</b>, la ridotta umidità rende il prodotto
+                                    più facilmente conservabile, anche senza dover ricorrere a dosi massicce di
+                                    conservanti e antiossidanti. Ma perché questo avvenga, la percentuale di acqua deve
+                                    essere inferiore al 10%. Sono perciò da penalizzare tutti quei mangimi che hanno
+                                    percentuali di umidità superiori.</p>
+
+
+                            </td>
+                        </tr>
 
                         <tr>
                             <td colspan="4" height="20"></td>
@@ -743,7 +1890,7 @@
                         <tr>
                             <td colspan="4">
                                 <p align="center"><b>
-                                        <font size="3" color="lightgreen">BONUS</font>
+                                        <font size="5" class="enfasigood">CI PIACE ⭐</font>
                                     </b></p>
                             </td>
 
@@ -1045,7 +2192,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -1061,7 +2208,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -1077,7 +2224,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -1093,7 +2240,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -1132,7 +2279,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1149,7 +2296,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1166,7 +2313,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1183,7 +2330,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1221,7 +2368,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1236,7 +2383,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1251,7 +2398,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1266,7 +2413,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1299,7 +2446,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1311,7 +2458,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1323,7 +2470,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1335,7 +2482,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1365,7 +2512,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1377,7 +2524,7 @@
                         </tr>
 
                         <tr>
-                           
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1389,7 +2536,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1401,7 +2548,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1413,7 +2560,7 @@
                         </tr>
 
                         <tr>
-                            
+
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1442,7 +2589,7 @@
 
 
                         <tr>
-                           
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1453,7 +2600,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1464,7 +2611,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1475,7 +2622,7 @@
 
 
                         <tr>
-                          
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1486,7 +2633,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1497,7 +2644,7 @@
 
 
                         <tr>
-                           
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1523,7 +2670,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1534,7 +2681,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1545,7 +2692,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1556,7 +2703,7 @@
 
 
                         <tr>
-                           
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1582,7 +2729,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1593,7 +2740,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1604,7 +2751,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1615,7 +2762,7 @@
 
 
                         <tr>
-                            
+
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
