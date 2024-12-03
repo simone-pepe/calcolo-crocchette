@@ -196,10 +196,11 @@
         <main>
             <h1>Valutazione Qualità Crocchette 🫘</h1>
             <p>
-                Con la busta delle crocchette alla mano, puoi spuntare le checkbox per sommare il punteggio e ottenere a fine tabella
+                Con la busta delle crocchette alla mano, puoi spuntare le checkbox per sommare il punteggio e ottenere a
+                fine tabella
                 una valutazione del mangime in base alle caratteristiche selezionate.<br>
                 Clicca "❓" per approfndire ogni parametro!
-                
+
             </p>
 
             <p>
@@ -1893,10 +1894,14 @@
                             </td>
 
                         </tr>
-                        
+
 
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p01</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P01</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p01'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1907,8 +1912,65 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p01" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Il <b class="enfasigood">cane</b> è un <b class="enfasigood">carnivoro "non
+                                        esclusivo"</b>, il che significa che la <b class="enfasigood">carne</b> ha
+                                    grande importanza nella sua dieta. Un mangime per cani di <b
+                                        class="enfasigood">buona qualità</b> dovrebbe contenere un <b
+                                        class="enfasigood">adeguato quantitativo di carne</b>.</p>
+
+                                <p>La normativa sulle <b class="enfasigood">etichette</b> prevede che gli <b
+                                        class="enfasigood">ingredienti</b> siano elencati in ordine <b
+                                        class="enfasigood">decrescente</b> di peso. Questo significa che il <b
+                                        class="enfasigood">primo ingrediente</b> sarà quello più abbondante, seguito
+                                    dagli altri. Ne consegue che, in un mangime di <b class="enfasigood">buona</b> o <b
+                                        class="enfasigood">ottima qualità</b>, il primo ingrediente dovrebbe essere una
+                                    <b class="enfasigood">carne</b>, preferibilmente in forma di <b
+                                        class="enfasigood">farina di carne</b> o <b class="enfasigood">carne
+                                        disidratata</b>, pesata dopo aver tolto la componente acquosa.
+                                </p>
+
+                                <p>Nelle <b class="enfasigood">crocchette</b>, gli ingredienti devono essere <b
+                                        class="enfasigood">essiccati</b> e <b class="enfasigood">macinati</b> per
+                                    garantire una miscelazione omogenea. Se la carne è indicata come "<b
+                                        class="enfasigood">carne fresca</b>", apparirà come primo ingrediente, anche se
+                                    la <b class="enfasigood">percentuale reale</b> sarà molto inferiore rispetto a un
+                                    prodotto con la farina di carne in prima posizione.</p>
+
+                                <h3>Esempio pratico:</h3>
+                                <p>Un prodotto dichiara di contenere il <b class="enfasigood">40%</b> di <b
+                                        class="enfasigood">carne fresca</b> all’origine. Dopo il processo di <b
+                                        class="enfasigood">disidratazione</b>, il risultato è diverso:</p>
+                                <ul>
+                                    <li>Su 100 g di prodotto finale, si utilizzano 40 g di carne fresca.</li>
+                                    <li>La carne fresca, dopo la <b class="enfasigood">disidratazione</b> (ad esempio,
+                                        con una perdita del <b class="enfasigood">70%</b> del peso), pesa 12 g.</li>
+                                    <li>Gli altri ingredienti mantengono il loro peso, pari a 60 g.</li>
+                                </ul>
+                                <p>Il risultato finale sarà <b class="enfasigood">72 g</b> di prodotto netto (<b
+                                        class="enfasigood">60 g</b> di ingredienti + <b class="enfasigood">12 g</b> di
+                                    carne disidratata). La percentuale reale di carne sarà quindi del <b
+                                        class="enfasigood">16.6%</b> (rapporto di 12 g di carne su 72 g di prodotto).
+                                </p>
+
+                                <p>Una <b class="enfasigood">nota</b> va fatta per quei mangimi di <b
+                                        class="enfasigood">alta qualità</b> che utilizzano diversi tipi di <b
+                                        class="enfasigood">carne fresca</b> nei primi posti della lista degli
+                                    ingredienti o un <b class="enfasigood">mix</b> di carni fresche e disidratate. In
+                                    questi casi, è importante valutare se la <b class="enfasigood">carne</b> costituisca
+                                    la parte <b class="enfasigood">preponderante</b> del mangime.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p02</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P02</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p02'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1918,9 +1980,30 @@
                                 diverse tra loro).</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p02" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Maggiore è il <b class="enfasigood">numero</b> di <b class="enfasigood">fonti
+                                        proteiche</b> di origine animale, maggiore sarà la <b
+                                        class="enfasigood">probabilità</b> che il contenuto di <b
+                                        class="enfasigood">carne</b> nel mangime sia <b class="enfasigood">adeguato</b>.
+                                </p>
+
+                                <p>Un altro <b class="enfasigood">vantaggio</b> è che una maggiore varietà di <b
+                                        class="enfasigood">fonti proteiche</b> fornisce un apporto di <b
+                                        class="enfasigood">amminoacidi</b> più <b class="enfasigood">completo</b> ed <b
+                                        class="enfasigood">equilibrato</b>.</p>
+
+
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p03</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P03</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p03'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1930,9 +2013,32 @@
                                 tra loro).</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p03" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Maggiore è il <b class="enfasigood">numero</b> di <b class="enfasigood">fonti
+                                        proteiche</b> di origine animale, maggiore sarà la <b
+                                        class="enfasigood">probabilità</b> che il contenuto di <b
+                                        class="enfasigood">carne</b> nel mangime sia <b class="enfasigood">adeguato</b>.
+                                </p>
+
+                                <p>Un altro <b class="enfasigood">vantaggio</b> è che una maggiore varietà di <b
+                                        class="enfasigood">fonti proteiche</b> fornisce un apporto di <b
+                                        class="enfasigood">amminoacidi</b> più <b class="enfasigood">completo</b> ed <b
+                                        class="enfasigood">equilibrato</b>.</p>
+
+                                <p>Un <b class="enfasigood">mangime</b> che contiene <b class="enfasigood">5 o più fonti
+                                        proteiche</b> di origine animale è solitamente di <b class="enfasigood">ottima
+                                        qualità</b>.</p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p04</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P04</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p04'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1941,9 +2047,33 @@
                             <td valign="top">Contiene uova, anche in polvere o disidratate.</td>
 
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p04" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Le <b class="enfasigood">uova</b> sono un <b class="enfasigood">alimento nobile</b>.
+                                    Le loro <b class="enfasigood">proteine</b> hanno uno dei migliori <b
+                                        class="enfasigood">valori biologici</b>, essendo digerite al <b
+                                        class="enfasigood">100%</b>, superiore a quello di qualsiasi tipo di <b
+                                        class="enfasigood">carne</b>.</p>
+
+                                <p>Le uova vantano anche un <b class="enfasigood">profilo aminoacidico</b> eccellente,
+                                    caratterizzato da un <b class="enfasigood">equilibrio ottimale</b> tra i vari <b
+                                        class="enfasigood">amminoacidi essenziali</b>. Inoltre, possono essere <b
+                                        class="enfasigood">disidratate</b> senza perdere le loro <b
+                                        class="enfasigood">proprietà nutrizionali</b>.</p>
+
+                                <p>La loro <b class="enfasigood">presenza</b> nei mangimi è da considerarsi un "<b
+                                        class="enfasigood">Plus</b>", a patto che siano presenti in <b
+                                        class="enfasigood">quantitativi significativi</b>.</p>
+                            </td>
+                        </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p05</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P05</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p05'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1954,8 +2084,45 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p05" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>L'<b class="enfasigood">indice glicemico</b> (IG) misura la <b
+                                        class="enfasigood">capacità</b> di un <b class="enfasigood">glucide</b>
+                                    (carboidrato) di alzare la <b class="enfasigood">glicemia</b> dopo il pasto rispetto
+                                    a uno <b class="enfasigood">standard di riferimento</b>, che è il glucosio puro.
+                                    Rappresenta la <b class="enfasigood">velocità</b> con cui aumenta la glicemia in
+                                    seguito all'assunzione di <b class="enfasigood">50 grammi</b> di carboidrati.</p>
+
+                                <p>La velocità è espressa in <b class="enfasigood">percentuali</b>, prendendo il
+                                    glucosio come punto di riferimento (<b class="enfasigood">100%</b>). Un <b
+                                        class="enfasigood">indice glicemico</b> pari a <b class="enfasigood">50</b>
+                                    indica che l'alimento innalza la glicemia con una velocità pari alla metà di quella
+                                    del glucosio.</p>
+
+                                <p>Un cibo con un <b class="enfasigood">alto IG</b> provoca un <b
+                                        class="enfasigood">grande picco</b> momentaneo di glucosio subito dopo il
+                                    consumo. Al contrario, un alimento con un <b class="enfasigood">basso indice
+                                        glicemico</b> causa un <b class="enfasigood">innalzamento</b> della glicemia <b
+                                        class="enfasigood">più lento</b> e <b class="enfasigood">sostenuto</b>.</p>
+
+                                <p>I <b class="enfasigood">mangimi</b> che contengono un solo carboidrato con un <b
+                                        class="enfasigood">alto IG</b> possono causare <b class="enfasigood">picchi di
+                                        energia</b> immediatamente dopo i pasti, seguiti da <b
+                                        class="enfasigood">carenze</b> lontano dai pasti. È preferibile scegliere <b
+                                        class="enfasigood">mangimi</b> composti da un <b class="enfasigood">mix di
+                                        carboidrati</b> con indici glicemici differenti, in grado di fornire la <b
+                                        class="enfasigood">giusta quantità di energia</b> durante tutta la giornata.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p06</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P06</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p06'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1965,8 +2132,55 @@
 
                         </tr>
 
+
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p06" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>È ormai <b class="enfasigood">riconosciuto</b> che alcuni tipi di <b
+                                        class="enfasigood">cereali</b> e di <b class="enfasigood">carboidrati</b>, nel
+                                    cane, siano una <b class="enfasigood">fonte</b> di <b
+                                        class="enfasigood">problemi</b>. In particolare, la <b
+                                        class="enfasigood">soia</b>, il <b class="enfasigood">frumento</b> e il <b
+                                        class="enfasigood">mais</b> sono da <b class="enfasigood">evitare</b>, poiché
+                                    risultano <b class="enfasigood">difficilmente digeribili</b> per i cani e
+                                    responsabili di <b class="enfasigood">allergie</b> e <b
+                                        class="enfasigood">obesità</b>.</p>
+
+                                <p>Questi alimenti rappresentano <b class="enfasigood">fonti proteiche</b> a <b
+                                        class="enfasigood">basso costo</b>, che saziano il cane senza apportare <b
+                                        class="enfasigood">benefici nutrizionali</b>. Inoltre, in molte <b
+                                        class="enfasigood">crocchette</b>, si trovano <b class="enfasigood">proteine
+                                        vegetali</b> aggiunte per aumentare il <b class="enfasigood">valore
+                                        proteico</b>, ma con <b class="enfasigood">scarso valore biologico</b>.</p>
+
+                                <p>Al contrario, è largamente <b class="enfasigood">riconosciuto</b> che, oltre alla <b
+                                        class="enfasigood">carne</b>, presente nei giusti quantitativi per fornire <b
+                                        class="enfasigood">proteine animali</b> di buona qualità, alcuni tipi di <b
+                                        class="enfasigood">cereali antichi</b> e <b class="enfasigood">ricchi di
+                                        fibre</b> come il <b class="enfasigood">riso integrale</b>, l'<b
+                                        class="enfasigood">avena</b>, l'<b class="enfasigood">orzo perlato</b>, il <b
+                                        class="enfasigood">sorgo</b>, il <b class="enfasigood">milo</b>, il <b
+                                        class="enfasigood">grano saraceno</b>, la <b class="enfasigood">quinoa</b>,
+                                    ecc., siano non solo più <b class="enfasigood">facilmente digeribili</b>, ma anche
+                                    una <b class="enfasigood">fonte</b> di importanti <b class="enfasigood">macro</b> e
+                                    <b class="enfasigood">micro elementi</b> e di <b class="enfasigood">fibre
+                                        nobili</b>.
+                                </p>
+
+                                <p>Sono quindi da <b class="enfasigood">preferire</b> e <b
+                                        class="enfasigood">premiare</b> quei <b class="enfasigood">mangimi</b> che
+                                    utilizzano questi tipi di <b class="enfasigood">cereali</b>.</p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p07</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P07</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p07'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1976,8 +2190,31 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p07" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>L’<b class="enfasigood">orzo</b> è uno dei <b class="enfasigood">cereali</b> più <b
+                                        class="enfasigood">antichi</b>. In particolare, l’<b class="enfasigood">orzo
+                                        perlato</b> (integrale e non decorticato) contiene un discreto quantitativo di
+                                    <b class="enfasigood">proteine</b> e apporta un buon quantitativo di <b
+                                        class="enfasigood">minerali</b>, tra cui <b class="enfasigood">fosforo</b>, <b
+                                        class="enfasigood">magnesio</b> e <b class="enfasigood">potassio</b>.
+                                </p>
+
+                                <p>Inoltre, l’orzo è ricco di <b class="enfasigood">vitamine</b> del complesso <b
+                                        class="enfasigood">B</b> e di <b class="enfasigood">vitamina E</b>. Apporta
+                                    anche un buon contenuto di <b class="enfasigood">fibra nobile</b>, parzialmente <b
+                                        class="enfasigood">fermentabile</b>.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p08</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P08</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p08'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1987,8 +2224,38 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p08" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>L’<b class="enfasigood">avena</b> è un <b class="enfasigood">prezioso cereale</b>,
+                                    molto adatto all’<b class="enfasigood">alimentazione animale</b>, grazie alla sua <b
+                                        class="enfasigood">facile digestione</b> e al suo contenuto di <b
+                                        class="enfasigood">carboidrati</b> a <b class="enfasigood">lenta digestione</b>.
+                                    Non provoca forti <b class="enfasigood">picchi insulinici</b> e fornisce <b
+                                        class="enfasigood">energia</b> a <b class="enfasigood">lungo termine</b>.</p>
+
+                                <p>Non contiene <b class="enfasigood">glutine</b> né altri <b class="enfasigood">agenti
+                                        allergenici</b>. È il <b class="enfasigood">cereale</b> più ricco di <b
+                                        class="enfasigood">proteine</b> e di <b class="enfasigood">acidi grassi
+                                        essenziali</b>, come l’<b class="enfasigood">acido linoleico</b>. Il suo
+                                    contenuto di <b class="enfasigood">fibre solubili</b> è rilevante e garantisce il <b
+                                        class="enfasigood">corretto funzionamento intestinale</b>.</p>
+
+                                <p>L’<b class="enfasigood">avena</b> ha inoltre un contenuto di <b
+                                        class="enfasigood">lisina</b> nettamente superiore rispetto agli altri <b
+                                        class="enfasigood">cereali</b> ed è una <b class="enfasigood">fonte</b> di
+                                    preziosi <b class="enfasigood">amminoacidi essenziali</b>.</p>
+
+                            </td>
+                        </tr>
+
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p09</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P09</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p09'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -1998,8 +2265,38 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p09" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Il <b class="enfasigood">grasso di pollo</b> è una delle <b class="enfasigood">fonti
+                                        di grassi animali</b> più <b class="enfasigood">complete</b> ed <b
+                                        class="enfasigood">equilibrate</b>. Rispetto ad altri <b
+                                        class="enfasigood">grassi animali</b>, contiene meno <b
+                                        class="enfasigood">colesterolo</b>, meno <b class="enfasigood">grassi saturi</b>
+                                    e più <b class="enfasigood">grassi mono</b> e <b class="enfasigood">poli
+                                        insaturi</b>.</p>
+
+                                <p>È quindi, insieme all’<b class="enfasigood">olio di pesce</b>, una delle migliori <b
+                                        class="enfasigood">fonti di lipidi</b> di <b class="enfasigood">origine
+                                        animale</b>. Essendo un <b class="enfasigood">grasso</b>, e non una <b
+                                        class="enfasigood">proteina</b>, può essere utilizzato tranquillamente anche in
+                                    caso di <b class="enfasigood">sospette allergie</b> al pollo, in <b
+                                        class="enfasigood">mangimi</b> che non contengono il pollo come <b
+                                        class="enfasigood">proteina</b>.</p>
+
+                                <p>Infatti, sono le <b class="enfasigood">proteine</b> ad essere <b
+                                        class="enfasigood">allergizzanti</b>, e in nessun caso un <b
+                                        class="enfasigood">lipide</b> può causare <b class="enfasigood">problemi di
+                                        allergia</b>.</p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p10</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P10</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p10'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2010,8 +2307,63 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p10" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>I <b class="enfasigood">probiotici</b> sono "organismi vivi" che, somministrati in
+                                    quantità adeguata, apportano un <b class="enfasigood">beneficio</b> alla <b
+                                        class="enfasigood">salute</b> dell'ospite. I <b class="enfasigood">batteri
+                                        lattici</b>, rappresentati dai <b class="enfasigood">lactobacilli</b>, e i <b
+                                        class="enfasigood">bifidobatteri</b> sono i più comuni tipi di microrganismi
+                                    probiotici. Alcuni <b class="enfasigood">lieviti</b> e <b
+                                        class="enfasigood">bacilli</b> possono essere utili anch'essi.</p>
+
+                                <p>I <b class="enfasigood">prebiotici</b> sono sostanze organiche non digeribili, capaci
+                                    di stimolare selettivamente la crescita e/o l'attività di batteri benefici presenti
+                                    nel <b class="enfasigood">colon</b>. Si definisce prebiotico ogni sostanza che,
+                                    presente nel cibo, non viene assorbita dall'organismo ma è utilizzata dalla <b
+                                        class="enfasigood">flora intestinale</b>.</p>
+
+                                <p>Sono nella grande maggioranza <b class="enfasigood">carboidrati</b>, in particolare
+                                    <b class="enfasigood">oligosaccaridi</b>. Tra questi, rivestono un ruolo importante
+                                    i <b class="enfasigood">Frutto-oligosaccaridi (FOS)</b> e, tra questi, l'<b
+                                        class="enfasigood">inulina</b> risulta il prebiotico di maggiore interesse.
+                                    Favoriscono la crescita e l'attività di <b class="enfasigood">Bifidobacterium</b> e
+                                    di <b class="enfasigood">lactobatteri</b>, specie batteriche importanti per la <b
+                                        class="enfasigood">salute digestiva</b> dell'organismo ospite.
+                                </p>
+
+                                <p>I <b class="enfasigood">FOS</b> fanno parte di un eterogeneo gruppo di molecole
+                                    biologiche chiamate <b class="enfasigood">prebiotici</b>, sostanze che consentono in
+                                    particolare lo sviluppo dei <b class="enfasigood">bifidobatterium</b> intestinali.
+                                    Le caratteristiche principali dei prebiotici sono la <b
+                                        class="enfasigood">resistenza</b> ai processi digestivi della parte superiore
+                                    del tratto gastrointestinale e la <b class="enfasigood">fermentazione selettiva</b>
+                                    per i microrganismi del microbioma intestinale, in particolare il microbioma del <b
+                                        class="enfasigood">colon</b>, garantendo un vantaggio proliferativo a questi
+                                    ceppi batterici e modificando di conseguenza la composizione quanti/qualitativa del
+                                    microbioma stesso. I FOS alimentari non vengono idrolizzati dagli enzimi intestinali
+                                    (glicosidasi), raggiungendo l'intestino cieco strutturalmente immutati.</p>
+
+                                <p>I <b class="enfasigood">mannanoligosaccaridi (MOS)</b> sono estratti dalle pareti
+                                    cellulari di <b class="enfasigood">lieviti</b>, soprattutto dal lievito di birra del
+                                    genere <b class="enfasigood">Saccharomyces cerevisiae</b>, ed hanno attività <b
+                                        class="enfasigood">prebiotica</b> ed <b class="enfasigood">immunostimolante</b>.
+                                    Alcune frazioni estratte dalle pareti cellulari di <b
+                                        class="enfasigood">Saccharomyces cerevisiae</b> svolgono lo stesso effetto di
+                                    regolazione della flora batterica intestinale degli <b
+                                        class="enfasigood">antibiotici</b>, eliminandone però gli effetti
+                                    indesiderabili.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p11</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P11</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p11'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2021,8 +2373,45 @@
 
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p11" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">Frutta</b>, <b class="enfasigood">verdure</b> ed <b
+                                        class="enfasigood">erbe officinali</b> sono spesso utilizzati negli alimenti per
+                                    animali domestici, sia per motivi <b class="enfasigood">organolettici</b> che per
+                                    motivi <b class="enfasigood">nutrizionali</b> e <b
+                                        class="enfasigood">fitoterapici</b>.</p>
+
+                                <p>Apportano <b class="enfasigood">fibre</b>, <b class="enfasigood">vitamine</b>, <b
+                                        class="enfasigood">minerali</b>, <b class="enfasigood">antiossidanti
+                                        naturali</b>, <b class="enfasigood">polifenoli</b> e <b
+                                        class="enfasigood">flavonoidi</b> e <b class="enfasigood">frutto-oligosaccaridi
+                                        (FOS)</b>, sono utilizzati in forma <b class="enfasigood">fresca</b>, <b
+                                        class="enfasigood">disidratata</b> e sotto forma di <b
+                                        class="enfasigood">estratti</b>, dove le componenti nutritive della pianta
+                                    possono essere separate e concentrate nell'estratto.</p>
+
+                                <p>La loro funzione, oltre che nutrizionale, è spesso <b
+                                        class="enfasigood">farmacologica</b>, in quanto apportano sostanze utili a
+                                    migliorare o correggere le caratteristiche nutrizionali dei mangimi.</p>
+
+                                <p>Spesso vengono indicati con voci generiche, come "frutta" o "verdura", ma nei mangimi
+                                    di buona e ottima qualità, solitamente vengono specificati i tipi di <b
+                                        class="enfasigood">frutta</b> e <b class="enfasigood">verdura</b> utilizzati, e
+                                    le <b class="enfasigood">essenze fitoterapiche</b> vengono elencate, una per una, in
+                                    modo dettagliato.</p>
+
+
+                            </td>
+                        </tr>
+
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p12</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P12</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p12'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2031,8 +2420,45 @@
                             <td valign="top">Contiene verdure (specificate).</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p12" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">Frutta</b>, <b class="enfasigood">verdure</b> ed <b
+                                        class="enfasigood">erbe officinali</b> sono spesso utilizzati negli alimenti per
+                                    animali domestici, sia per motivi <b class="enfasigood">organolettici</b> che per
+                                    motivi <b class="enfasigood">nutrizionali</b> e <b
+                                        class="enfasigood">fitoterapici</b>.</p>
+
+                                <p>Apportano <b class="enfasigood">fibre</b>, <b class="enfasigood">vitamine</b>, <b
+                                        class="enfasigood">minerali</b>, <b class="enfasigood">antiossidanti
+                                        naturali</b>, <b class="enfasigood">polifenoli</b> e <b
+                                        class="enfasigood">flavonoidi</b> e <b class="enfasigood">frutto-oligosaccaridi
+                                        (FOS)</b>, sono utilizzati in forma <b class="enfasigood">fresca</b>, <b
+                                        class="enfasigood">disidratata</b> e sotto forma di <b
+                                        class="enfasigood">estratti</b>, dove le componenti nutritive della pianta
+                                    possono essere separate e concentrate nell'estratto.</p>
+
+                                <p>La loro funzione, oltre che nutrizionale, è spesso <b
+                                        class="enfasigood">farmacologica</b>, in quanto apportano sostanze utili a
+                                    migliorare o correggere le caratteristiche nutrizionali dei mangimi.</p>
+
+                                <p>Spesso vengono indicati con voci generiche, come "frutta" o "verdura", ma nei mangimi
+                                    di buona e ottima qualità, solitamente vengono specificati i tipi di <b
+                                        class="enfasigood">frutta</b> e <b class="enfasigood">verdura</b> utilizzati, e
+                                    le <b class="enfasigood">essenze fitoterapiche</b> vengono elencate, una per una, in
+                                    modo dettagliato.</p>
+
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p13</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P13a</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p13a'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2042,8 +2468,89 @@
                                 grassi essenziali).</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p13a" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">L'olio di pesce</b> è la più generosa fonte alimentare di <b
+                                        class="enfasigood">omega-3</b>, in particolare di <b class="enfasigood">acido
+                                        eicosapentaenoico (EPA)</b> e di <b class="enfasigood">acido docosaesaenoico
+                                        (DHA)</b>.</p>
+
+                                <p>Gli acidi grassi <b class="enfasigood">EPA</b> e <b class="enfasigood">DHA</b>
+                                    vengono definiti anche "<b class="enfasigood">essenziali</b>", come alcune <b
+                                        class="enfasigood">vitamine</b> e <b class="enfasigood">amminoacidi</b>, perché
+                                    l'organismo non è in grado di sintetizzarli e devono quindi essere introdotti con
+                                    l’alimentazione.</p>
+
+                                <p>L'organismo umano è in grado di sintetizzarli a partire da un omega-3 precursore,
+                                    l'<b class="enfasigood">acido alfa linolenico (ALA)</b>.</p>
+
+                                <p>Questo acido grasso, anch'esso essenziale, è particolarmente abbondante nelle <b
+                                        class="enfasigood">noci</b>, nell'<b class="enfasigood">olio di canola</b>, di
+                                    <b class="enfasigood">soia</b> e di <b class="enfasigood">canapa</b>, nonché nei <b
+                                        class="enfasigood">semi di lino</b> e nel relativo olio.
+                                </p>
+
+                                <p>Anche i cani sono in grado di sintetizzare gli <b class="enfasigood">ALA</b> in <b
+                                        class="enfasigood">EPA</b> e <b class="enfasigood">DHA</b>, ma questo processo è
+                                    meno efficiente che negli umani.</p>
+
+                                <p>Anche i <b class="enfasigood">pesci</b> non sono in grado di sintetizzare
+                                    direttamente gli omega-3, ma li accumulano nei loro tessuti assorbendoli dalle <b
+                                        class="enfasigood">microalghe</b> o dagli <b class="enfasigood">animali</b> di
+                                    cui si nutrono.</p>
+
+                                <p><b class="enfasigood">Aringhe</b>, <b class="enfasigood">sardine</b> ed altri <b
+                                        class="enfasigood">pesci azzurri</b> di grande e piccola taglia, <b
+                                        class="enfasigood">merluzzi</b>, <b class="enfasigood">salmone</b> e <b
+                                        class="enfasigood">tonno</b> sono tra i pesci più ricchi di omega-3.</p>
+
+                                <p>Alcuni di questi, come certe specie di <b class="enfasigood">tonno</b>, lo <b
+                                        class="enfasigood">squalo</b> o <b class="enfasigood">verdesca</b> ed il <b
+                                        class="enfasigood">pesce spada</b>, essendo in cima alla catena alimentare,
+                                    accumulano nelle loro carni non solo omega-3, ma anche tossine come <b
+                                        class="enfasigood">policlorobifenili</b>, <b class="enfasigood">diossina</b>, <b
+                                        class="enfasigood">mercurio</b> e <b class="enfasigood">clordano</b>.</p>
+
+                                <p><b class="enfasigood">Gli Omega-3</b> sono quindi molto importanti nell'alimentazione
+                                    del cane, e contribuiscono ad ottenere degli importanti benefici, tra i quali:</p>
+
+                                <ul>
+                                    <li><b class="enfasigood">Mantenere in buona salute</b> l’apparato circolatorio e il
+                                        sistema cardiovascolare, contribuendo a ridurre i fattori di rischio
+                                        cardiovascolare.</li>
+                                    <li><b class="enfasigood">Mantenere una buona funzionalità delle articolazioni</b>,
+                                        riducendo la fragilità delle giunture e aiutando a preservare le cartilagini.
+                                    </li>
+                                    <li><b class="enfasigood">Migliorare la "salute mentale"</b> soprattutto nei cani
+                                        anziani, infatti influiscono direttamente sulla produzione e sul rilascio di
+                                        alcuni neurotrasmettitori, molecole indispensabili per la trasmissione
+                                        dell'impulso nervoso.</li>
+                                    <li><b class="enfasigood">Aiutare a mantenere il pelo e la cute in salute</b>, sono
+                                        componenti fondamentali delle membrane e del tessuto epiteliale, e partecipano
+                                        alla formazione del film idrolipidico prodotto a livello della cute.</li>
+                                    <li><b class="enfasigood">Migliorare lo sviluppo dei cuccioli</b> e la salute della
+                                        mamma durante la gravidanza, ed è provato che favoriscono nei feti migliori
+                                        capacità visive e cognitive.</li>
+                                    <li><b class="enfasigood">Rinforzare il sistema immunitario</b>, è infatti
+                                        dimostrata la loro capacità di modulare sia la risposta immunitaria sia
+                                        l'infiammazione.</li>
+                                    <li><b class="enfasigood">Migliorare il metabolismo dei grassi</b>, prevenendo
+                                        l'obesità, riducendo la formazione e le dimensioni delle cellule grasse.</li>
+                                </ul>
+
+
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p13b</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P13b</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p13b'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2053,8 +2560,19 @@
                                 (acidi grassi essenziali).</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p13b" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>Vedi approfondimento 13a</p>
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p14</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P14</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p14'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2065,8 +2583,38 @@
                                 polinsaturi.</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p14" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">Gli oli vegetali</b> che sono considerati "<b
+                                        class="enfasigood">migliori</b>" per l'alimentazione animale (e umana), sono
+                                    quelli ricchi di <b class="enfasigood">grassi polinsaturi</b>, e poveri di <b
+                                        class="enfasigood">grassi saturi</b>.</p>
+
+                                <p>Tra questi si distinguono:</p>
+
+                                <ul>
+                                    <li><b class="enfasigood">L'olio di semi di lino</b>, ricco di acidi grassi <b
+                                            class="enfasigood">Omega-3</b> (ALA).</li>
+                                    <li><b class="enfasigood">L'olio di enotera</b> e <b class="enfasigood">di
+                                            borragine</b>, ricchi di <b class="enfasigood">acido gamma-linolenico
+                                            (GLA)</b>.</li>
+                                    <li><b class="enfasigood">L'olio di canapa</b>, noto per il suo ottimale equilibrio
+                                        tra <b class="enfasigood">omega-sei</b> ed <b class="enfasigood">omega-tre</b>,
+                                        presenti rispettivamente in rapporto 3:1.</li>
+                                    <li>Altri <b class="enfasigood">oli di semi vegetali</b> ricchi di acidi
+                                        poli-insaturi.</li>
+                                </ul>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p15</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P15</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p15'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2076,8 +2624,30 @@
                                 ormoni.</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p15" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">Troppo spesso</b> nelle carni si trovano tracce di <b
+                                        class="enfasigood">antibiotici</b> e di <b class="enfasigood">ormoni</b>,
+                                    utilizzati negli allevamenti intensivi per massimizzare la resa e la produttività.
+                                </p>
+
+                                <p>Esattamente come per l'alimentazione umana, anche nell'alimentazione dei cani, la
+                                    loro presenza può alla lunga essere <b class="enfasigood">dannosa</b>.</p>
+
+                                <p>Sono perciò da premiare i produttori che certificano i loro prodotti come "<b
+                                        class="enfasigood">esenti da antibiotici ed ormoni</b>".</p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p16</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P16</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p16'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2086,9 +2656,29 @@
                             <td valign="top">Le fonti vegetali (verdure, cereali etc) sono state certificate esenti da
                                 pesticidi.</td>
                         </tr>
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p16" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">La presenza di pesticidi</b> negli ingredienti destinati
+                                    all'alimentazione umana, è purtroppo conosciuta, ma per fortuna regolamentata da
+                                    apposite leggi.</p>
 
+                                <p>Purtroppo nel settore mangimistico, questa tutela è in gran parte <b
+                                        class="enfasigood">mancante</b>, e spesso in questo settore vengono "riciclati"
+                                    ingredienti che non hanno passato i test necessari a venire destinati
+                                    all'alimentazione umana.</p>
+
+                                <p>Per questo motivo sono da premiare i produttori che certificano i loro prodotti come
+                                    "<b class="enfasigood">esenti da pesticidi</b>".</p>
+
+                            </td>
+                        </tr>
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p17</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P17</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p17'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2098,8 +2688,46 @@
                             </td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p17" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">La certificazione "biologia"</b> sta timidamente affacciandosi
+                                    anche al settore mangimistico.</p>
+
+                                <p>Non entriamo nel dettaglio, ma con "<b class="enfasigood">biologico</b>" ci si
+                                    riferisce ad un cibo o ad un ingrediente prodotto, fabbricato e manipolato
+                                    utilizzando mezzi organici definiti dagli organismi di certificazione.</p>
+
+                                <p>In particolare l'IFOAM (International Federation of Organic Agriculture Movement) lo
+                                    definisce così:</p>
+
+                                <blockquote>
+                                    <p><b class="enfasigood">"L'agricoltura biologica</b> comprende tutti i sistemi
+                                        agricoli che promuovono la produzione di alimenti in modo socialmente ed
+                                        economicamente sano; dal punto di vista ambientale essa riduce drasticamente
+                                        l'impiego di fertilizzanti, pesticidi e medicinali chimici di sintesi. Al
+                                        contrario, utilizza la forza delle leggi naturali per aumentare le rese e la
+                                        resistenza alle malattie."</p>
+                                </blockquote>
+
+                                <p>Occorre specificare che il nome "<b class="enfasigood">biologico</b>" viene usato
+                                    "impropriamente" solamente in Italia. Nel resto del mondo, però, lo si sostituisce
+                                    con "<b class="enfasigood">ORGANICO</b>".</p>
+
+                                <p>Pur avendo molti dubbi sulla possibilità di controllare se i mangimi certificati "<b
+                                        class="enfasigood">biologici</b>" (organic) contengano veramente prodotti con
+                                    tali caratteristiche, non possiamo non premiare i produttori che forniscono la
+                                    certificazione sulla provenienza biologica degli ingredienti utilizzati.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p18</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P18</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p18'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2108,19 +2736,146 @@
                             <td valign="top">E' integrato con "Minerali Chelati" o "Minerali Proteinati".</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p18" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">I minerali</b> sono sostanze inorganiche che svolgono funzioni
+                                    essenziali per la vita degli organismi viventi.</p>
+
+                                <p>Partecipano infatti ai processi cellulari come la formazione di denti e ossa, sono
+                                    coinvolti nella regolazione dell'equilibrio idrosalino, nell'attivazione di numerosi
+                                    cicli metabolici e costituiscono fattori determinanti per la crescita e lo sviluppo
+                                    di tessuti e organi.</p>
+
+                                <p>A differenza dei carboidrati, dei lipidi e delle proteine, i minerali non forniscono
+                                    direttamente energia, ma la loro presenza permette di realizzare proprio quelle
+                                    reazioni che liberano l'energia di cui l'organismo ha bisogno.</p>
+
+                                <p>In base al fabbisogno, i sali minerali possono essere suddivisi in:</p>
+                                <ul>
+                                    <li><b class="enfasigood">Macroelementi:</b> sono presenti nell'organismo in
+                                        quantità discrete. Il fabbisogno giornaliero è dell'ordine dei grammi o dei
+                                        decimi di grammo.</li>
+                                    <li><b class="enfasigood">Oligoelementi</b> o microelementi: sono presenti solo in
+                                        tracce nell'organismo e il fabbisogno giornaliero va da qualche microgrammo ad
+                                        alcuni milligrammi.</li>
+                                </ul>
+
+                                <p>Gli esseri viventi non sono in grado di sintetizzare autonomamente alcun minerale: i
+                                    sali minerali vengono assimilati attraverso l'acqua e gli alimenti, gli elementi in
+                                    forma metallica sono invece poco e per niente assorbiti "tal quali".</p>
+
+                                <p>La quantità di sali minerali introdotta nel nostro organismo spesso non coincide con
+                                    quella "<b class="enfasigood">biodisponibile</b>", e cioè con la quota che viene
+                                    effettivamente assorbita e metabolizzata.</p>
+
+                                <p>Diversamente dalle vitamine, i sali minerali non si alterano né si disperdono durante
+                                    la cottura o il riscaldamento degli alimenti, anche se in parte possono sciogliersi
+                                    nell'acqua eventualmente utilizzata per la cottura.</p>
+
+                                <p>La loro biodisponibilità è quindi fortemente influenzata dalla forma chimica e dalla
+                                    solubilità del minerale.</p>
+
+                                <p><b class="enfasigood">I minerali metallici</b> sono quelli nella loro forma
+                                    elementare pura o come sali, esempio: come il cloruro di sodio e solfato dello
+                                    zinco.</p>
+
+                                <p>I minerali per essere biodisponibili devono essere trasformati in forma assimilabile,
+                                    ed il miglior metodo per farlo è la "<b class="enfasigood">chelazione</b>".</p>
+
+                                <p><b class="enfasigood">Chelato</b> significa semplicemente "combinato", e si riferisce
+                                    alla combinazione che chimicamente associa un elemento inorganico (un minerale) con
+                                    un composto organico (l'agente chelante) per rendere il minerale biodisponibile.</p>
+
+                                <p>Con questo processo, il complesso "minerale-aminoacido" è assorbito molto bene e la
+                                    sua struttura lo protegge da interazioni non desiderabili.</p>
+
+                                <p>Per massimizzare la biodisponibilità, la forma più corretta è quella organica, nella
+                                    quale le molecole dei minerali sono legate a degli aminoacidi (o, in alcuni casi, ad
+                                    altre sostanze).</p>
+
+                                <p>Ovviamente i minerali "<b class="enfasigood">chelati</b>" hanno un costo molto più
+                                    elevato, e sono quindi indice di alta qualità del mangime.</p>
+
+                                <p>Sono perciò da premiare i produttori che utilizzano i minerali chelati.</p>
+
+                            </td>
+                        </tr>
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p19</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P19</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p19'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
                             <td width="20" valign="top">2</td>
-                            <td valign="top">Contiene "condroprotettori" (Glucosamina e/o Condroitin solfato e/o MSM).
+                            <td valign="top">Contiene "condroprotettori" (Glucosamina e/o Condroitin solfato e/o
+                                MSM).
+                            </td>
+                        </tr>
+
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p19" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p><b class="enfasigood">I Condroprotettori</b> sono sostanze annoverate nella stessa
+                                    classe delle vitamine. L'uso principale che se ne fa è quello di lenire e curare i
+                                    sintomi delle patologie articolari, sia negli uomini che negli animali. Se assunti
+                                    correttamente e per periodi prolungati, sono in grado di proteggere e migliorare il
+                                    metabolismo del tessuto cartilagineo (“<b class="enfasigood">condro</b>” significa
+                                    cartilagine), e sono in grado di ritardare la degenerazione di questo tessuto nelle
+                                    articolazioni. La cartilagine può indebolirsi per una serie di cause come incidenti
+                                    o piccoli sforzi ripetitivi e quando questo avviene c'è il rischio che si sviluppi
+                                    l'<b class="enfasigood">artrosi</b>, che a lungo andare può limitare il movimento ed
+                                    anche essere dolorosa. I condroprotettori quindi servono a "<b
+                                        class="enfasigood">proteggere</b>" le articolazioni, rigenerandole e
+                                    mantenendole lubrificate per far sì che non si crei attrito tra loro e non si
+                                    consumino.</p>
+
+                                <p>Fortunatamente ultimamente alcuni produttori di mangime si sono resi conto
+                                    dell'importanza dei condroprotettori, e sempre più spesso questi appaiono nella
+                                    formulazione dei mangimi. In alcuni casi vengono indicate le voci "<b
+                                        class="enfasigood">glucosamina</b>" e "<b class="enfasigood">condroitina</b>" (o
+                                    condroitin solfato), in altre vengono indicate voci come "estratto di perna
+                                    canaliculus" o "cartilagine di squalo" come fonti di glucosamina o condroitina. È
+                                    preferibile trovare le prime voci, rispetto alle seconde, non tanto per una diversa
+                                    qualità, quanto perché mentre la glucosamina e la condroitina sono già in forma
+                                    raffinata, la presenza di sole cartilagini o piccole quantità di altri elementi
+                                    contenenti condroprotettori, non ci dà garanzie sull'effettiva quantità di
+                                    condroprotettori presenti. Anche nei casi in cui sono presenti le voci "glucosamina"
+                                    e "condroitina", sarebbe auspicabile l'indicazione del quantitativo per kg, per
+                                    avere modo di capire se la quantità inclusa è sufficiente al fabbisogno del soggetto
+                                    che la assume, oppure se occorre integrarla ulteriormente.</p>
+
+                                <p>Il <b class="enfasigood">metilsulfonilmetano</b> o più semplicemente <b
+                                        class="enfasigood">MSM</b> è un composto organico contenente zolfo. Le proprietà
+                                    del MSM derivano dal suo contenuto in zolfo in forma biodisponibile, grazie alla
+                                    presenza di una componente organica che ne facilita l'assorbimento. Lo zolfo è un
+                                    componente essenziale delle cellule viventi e rappresenta il settimo od ottavo
+                                    elemento più abbondante nell'organismo in termini di peso. È presente in alcuni
+                                    polisaccaridi, come la condroitina solfato della cartilagine articolare. È utile
+                                    soprattutto per le sue proprietà antinfiammatorie e condroprotettive: grazie allo
+                                    stimolo sulla sintesi della cartilagine articolare si ritiene che l'integrazione di
+                                    metilsulfonilmetano possa contribuire a ridurre il dolore e l'infiammazione
+                                    articolare, aumentando la mobilità dell'articolazione artrosica ed inibendo
+                                    ulteriori danni cartilaginei. Ha anche molte altre proprietà benefiche, come
+                                    aumentare il trofismo di cute e pelo, favorire la cicatrizzazione delle ferite,
+                                    normalizzare le funzioni gastro-intestinali. Alcuni studi recenti, peraltro ancora
+                                    da confermare definitivamente, attribuiscono all'MSM anche un'attività antitumorale.
+                                </p>
+
                             </td>
                         </tr>
 
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p20</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P20</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p20'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2131,8 +2886,71 @@
                                 o liofilizzato.</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p20" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>La stragrande maggioranza degli alimenti secchi per cani sono realizzati con un
+                                    processo chiamato <b class="enfasigood">estrusione</b>. Il processo di estrusione
+                                    inizia con la miscelazione degli ingredienti macinati. L'impasto così formato viene
+                                    quindi spinto attraverso l'interno dell'<b class="enfasigood">estrusore</b>
+                                    (essenzialmente un lungo tubo metallico) dove continua ad essere mescolato mentre
+                                    viene riscaldato sotto pressione a temperature fino a 150 gradi, e talvolta anche
+                                    oltre. Alla fine dell'estrusore, la pasta viene spinta attraverso trafile di diverse
+                                    dimensioni, tagliata da un coltello rotante in modo da dare la forma voluta alla
+                                    crocchetta, esattamente come si fa per la pasta.</p>
+
+                                <p>L'estrusione è normalmente un processo molto veloce, spesso il processo impiega circa
+                                    <b class="enfasigood">5 minuti</b>. La fase finale è quello di far asciugare le
+                                    crocchette e renderle croccanti, il che viene solitamente ottenuto facendole passare
+                                    in un essiccatore a scuotimento, per un massimo di <b class="enfasigood">20
+                                        minuti</b> a temperature che possono arrivare a 200 gradi. Purtroppo le alte
+                                    temperature inattivano molti nutrienti, e a soffrirne sono soprattutto le <b
+                                        class="enfasigood">vitamine</b>.
+                                </p>
+
+                                <p>Per ovviare a questo problema, alcuni produttori di mangimi di alta qualità, hanno
+                                    trovato il modo di estrudere a temperature molto più basse (in genere circa <b
+                                        class="enfasigood">90 gradi</b>), spesso utilizzando degli estrusori detti "<b
+                                        class="enfasigood">a doppia vite</b>", che attivano un processo meccanico in
+                                    grado di garantire una migliore gelatinizzazione degli amidi, con una migliore
+                                    miscelazione e temperature di cottura inferiori. Questo metodo lascia la maggior
+                                    parte delle sostanze nutritive e delle vitamine intatte.</p>
+
+                                <p>Alcuni produttori, stanno tentando metodi di cottura alternativi: La cottura al forno
+                                    dovrebbe permettere alle crocchette di cuocere molto più lentamente a temperature
+                                    più basse e di subire minori pressioni di estrusione. Questo dovrebbe causare meno
+                                    danni ai nutrienti del cibo. Purtroppo, il <b class="enfasigood">glutine di
+                                        frumento</b> è una componente essenziale di prodotti da forno, ma non è adatto
+                                    all'alimentazione del cane. Per questo motivo questo metodo di cottura non è mai
+                                    decollato. Negli ultimi tempi alcuni produttori hanno affermato di essere riusciti a
+                                    realizzare crocchette per cani senza l'utilizzo di <b class="enfasigood">grano</b>.
+                                </p>
+
+                                <p>La "<b class="enfasigood">pressatura a freddo</b>" inizia in un modo simile a quello
+                                    dei prodotti estrusi, quindi prima si macinano e si miscelano gli ingredienti e si
+                                    realizza un impasto. Questo viene messo in degli stampi e in seguito viene applicata
+                                    alta pressione per rimuovere l'umidità e forzare il mix attraverso una filiera che
+                                    modella la pasta in forma di crocchette. Segue una fase del trattamento che comporta
+                                    la rapida applicazione di calore (di solito solo pochi minuti a <b
+                                        class="enfasigood">45 gradi</b>). Poiché le temperature utilizzate durante la
+                                    spremitura a freddo sono inferiori a quelli utilizzati nell'estrusione classica ad
+                                    alte temperature ed il calore viene applicato per meno tempo, le crocchette pressate
+                                    dovrebbero conservare maggiormente i nutrimenti e le vitamine. Il lato negativo di
+                                    questo processo è che i cereali devono essere ben cotti per renderli digeribili per
+                                    i cani, per questo motivo i cereali utilizzati nelle crocchette pressate a freddo
+                                    devono essere <b class="enfasigood">precotti</b> per risolvere il problema.</p>
+
+
+                            </td>
+                        </tr>
+
+
                         <tr>
-                            <td valign="top"><a style="color: lightgreen"><b>p21</b></a></td>
+                            <td>
+                                <b style="color: LIGHTGREEN;">P21</b>
+                                <a href="#" style="color: LIGHTGREEN; text-decoration: NONE;"
+                                    onclick="toggleInfo('info-p21'); toggleIcon(this); return false;">❓</a>
+                            </td>
                             <td width="0" valign="top"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
@@ -2143,27 +2961,59 @@
                                 (ad es AAFCO, USDA, FEDIAF, NRC o altre organizzazioni ufficiali)</td>
                         </tr>
 
+                        <!-- Approfondimento nascosto -->
+                        <tr id="info-p21" style="display: none;">
+                            <td colspan="4" style="background-color: #262626; padding: 10px;">
+                                <p>La <b class="enfasigood">legislazione</b> e gli <b class="enfasigood">organismi</b>
+                                    che controllano la produzione di cibi per cani (compresa la legislazione sulle <b
+                                        class="enfasigood">etichette</b>) cambiano a seconda di dove ci troviamo:</p>
+
+                                <ul>
+                                    <li>Negli <b class="enfasigood">Stati Uniti</b> il compito spetta alla <b
+                                            class="enfasigood">AAFCO</b> (Association of American Feed Control
+                                        Officials), alla <b class="enfasigood">FDA</b> (Food and Drug Administration) e
+                                        dalla <b class="enfasigood">USDA</b> (United States Department of Agriculture).
+                                    </li>
+                                    <li>In <b class="enfasigood">Europa</b> sono controllate da alcuni organismi
+                                        all’interno della <b class="enfasigood">CEE</b> e da organismi nazionali a loro
+                                        volta collegati al <b class="enfasigood">Ministero dell’Agricoltura</b>.</li>
+                                </ul>
+
+                                <p>Esiste anche una associazione, la <b class="enfasigood">FEDIAF</b> (Fédération
+                                    Européenne de l’Industrie des Aliments pur Animaux Familiers), che raccoglie le
+                                    industrie mangimistiche e gli operatori del settore. Tra i compiti della FEDIAF c’è
+                                    anche il compito di garantire che i mangimi abbiano formulazioni adeguate ad una
+                                    corretta alimentazione a seconda della specie a cui si riferiscono.</p>
+
+                                <p><b class="enfasigood">AAFCO</b>, <b class="enfasigood">USDA</b>, <b
+                                        class="enfasigood">FDA</b>, ma anche <b class="enfasigood">FEDIAF</b>, si
+                                    scambiano spesso informazioni e cercano di uniformarsi, ed infatti negli ultimi anni
+                                    le raccomandazioni sui quantitativi minimi (e massimi) dei <b
+                                        class="enfasigood">nutrienti</b> (proteine, lipidi, rapporti Ca/P, amminoacidi,
+                                    acidi grassi, micro e macroelementi, ecc.) che dovrebbero essere contenuti nei
+                                    mangimi sono molto simili, quando non uguali.</p>
+
+                                <p>Le <b class="enfasigood">raccomandazioni</b> non sono estremamente restrittive, ed i
+                                    produttori non sono tenuti, per legge, a seguire, né in parte né del tutto, le
+                                    raccomandazioni dettate da questi organismi. Sono perciò da premiare i produttori
+                                    che volontariamente le adottano e certificano che i loro prodotti rispettano queste
+                                    raccomandazioni.</p>
+
+
+                            </td>
+                        </tr>
+
                         <tr>
                             <td colspan="4" height="20"></td>
                         </tr>
                         <tr>
                             <td colspan="4">
                                 <p align="center"><b>
-                                        <font size="3">PARAMETRI QUANTITATIVI</font>
+                                        <font size="5">PARAMETRI QUANTITATIVI</font>
                                     </b></p>
                             </td>
 
                         </tr>
-                        <tr>
-                            <td>Par.</td>
-                            <td width="0">Check</td>
-                            <td width="20">Val.</td>
-                            <td>
-                                <p align="center">Descrizione</p>
-                            </td>
-
-                        </tr>
-
 
                         <tr>
                             <td rowspan="5">Proteine</td>
