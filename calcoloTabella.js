@@ -229,3 +229,12 @@ function toggleInfo(id) {
         info.style.display = "none";  // Nasconde il contenuto
     }
 }
+
+function toggleIcon(link) {
+    // Cambia il contenuto del link da "❓" a "➖"
+    if (link.innerHTML === "❓") {
+        link.innerHTML = "➖";
+    } else {
+        link.innerHTML = "❓";
+    }
+}

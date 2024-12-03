@@ -226,8 +226,8 @@
                         </tr>
 
                         <tr>
-                            <td valign="top"><a href="#" style="color: DARKRED; text-decoration: underline;"
-                                    onclick="toggleInfo('info-m01')"><b>m01</b></a></td>
+                            <td valign="top"> <b style="color: DARKRED;">M01</b>
+                                <a href="#" style="color: DARKRED; text-decoration: NONE;" onclick="toggleInfo('info-m01'); toggleIcon(this)">❓</a>
                             <td width="0" valign="top">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox">
@@ -242,7 +242,7 @@
                         <!-- Approfondimento nascosto -->
                         <tr id="info-m01" style="display: none;">
                             <td colspan="4" style="background-color: #262626; ">
-                                <strong>Approfondimento parametro malus "m01":</strong>
+                                <strong>Approfondimento parametro malus "M01":</strong>
                                 <p>I sottoprodotti di origine vegetale sono scarti o residui derivanti dalla lavorazione
                                     di vegetali, come paglie, foglie, bucce di frutta, e altri materiali simili.
                                     Nel settore del pet food, questi vengono utilizzati soprattutto come residui di
@@ -252,8 +252,7 @@
                                     solitamente si tratta di scarti di bassa qualità e con valore nutrizionale
                                     sconosciuto. Pertanto, questi ingredienti sono generalmente considerati non
                                     desiderabili e di bassa qualità.</p>
-                                <p style="color: DARKRED; text-decoration: underline;" onclick="toggleInfo('info-m01')">
-                                    <b>Chiudi</b></p>
+                                
                             </td>
                         </tr>
 
@@ -857,7 +856,7 @@
 
 
                         <tr>
-                            <td>proteineV1</td>
+                            <td rowspan="5">Proteine</td>
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -873,7 +872,7 @@
                         </tr>
 
                         <tr>
-                            <td>proteineV2</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -889,7 +888,7 @@
                         </tr>
 
                         <tr>
-                            <td>proteineV3</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -905,7 +904,7 @@
                         </tr>
 
                         <tr>
-                            <td>proteineV4</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -921,7 +920,7 @@
                         </tr>
 
                         <tr>
-                            <td>proteineV5</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="proteine">
@@ -943,7 +942,7 @@
                         </tr>
 
                         <tr>
-                            <td>grassiV1</td>
+                            <td rowspan="5">Grassi</td>
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -960,7 +959,7 @@
                         </tr>
 
                         <tr>
-                            <td>grassiV2</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -977,7 +976,7 @@
                         </tr>
 
                         <tr>
-                            <td>grassiV3</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -994,7 +993,7 @@
                         </tr>
 
                         <tr>
-                            <td>grassiV4</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1011,7 +1010,7 @@
                         </tr>
 
                         <tr>
-                            <td>grassiV5</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="grassi">
@@ -1034,7 +1033,7 @@
                         </tr>
 
                         <tr>
-                            <td>ceneriV1</td>
+                            <td rowspan="5">Ceneri</td>
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1049,7 +1048,7 @@
                         </tr>
 
                         <tr>
-                            <td>ceneriV2</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1064,7 +1063,7 @@
                         </tr>
 
                         <tr>
-                            <td>ceneriV3</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1079,7 +1078,7 @@
                         </tr>
 
                         <tr>
-                            <td>ceneriV4</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1094,7 +1093,7 @@
                         </tr>
 
                         <tr>
-                            <td>ceneriV5</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="ceneri">
@@ -1115,7 +1114,7 @@
                         </tr>
 
                         <tr>
-                            <td>fibreV1</td>
+                            <td rowspan="5">Fibre</td>
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1127,7 +1126,7 @@
                         </tr>
 
                         <tr>
-                            <td>fibreV2</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1139,7 +1138,7 @@
                         </tr>
 
                         <tr>
-                            <td>fibreV3</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1151,7 +1150,7 @@
                         </tr>
 
                         <tr>
-                            <td>fibreV4</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1163,7 +1162,7 @@
                         </tr>
 
                         <tr>
-                            <td>fibreV5</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="fibre">
@@ -1181,7 +1180,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV1</td>
+                            <td rowspan="6">CalcioFosforo</td>
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1193,7 +1192,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV2</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1205,7 +1204,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV3</td>
+                           
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1217,7 +1216,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV4</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1229,7 +1228,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV5</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1241,7 +1240,7 @@
                         </tr>
 
                         <tr>
-                            <td>calciofosforoV6</td>
+                            
                             <td width="0">
                                 <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="calciofosforo">
@@ -1259,7 +1258,7 @@
                         </tr>
 
                         <tr>
-                            <td>omegaV1</td>
+                            <td rowspan="7">Omega</td>
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1270,7 +1269,7 @@
 
 
                         <tr>
-                            <td>omegaV2</td>
+                           
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1281,7 +1280,7 @@
 
 
                         <tr>
-                            <td>omegaV3</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1292,7 +1291,7 @@
 
 
                         <tr>
-                            <td>omegaV4</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1303,7 +1302,7 @@
 
 
                         <tr>
-                            <td>omegaV5</td>
+                          
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1314,7 +1313,7 @@
 
 
                         <tr>
-                            <td>omegaV6</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1325,7 +1324,7 @@
 
 
                         <tr>
-                            <td>omegaV7</td>
+                           
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="omega">
                                     <div class="checkmark"></div>
@@ -1340,7 +1339,7 @@
                         </tr>
 
                         <tr>
-                            <td>mineraliV1</td>
+                            <td rowspan="5">Minerali</td>
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1351,7 +1350,7 @@
 
 
                         <tr>
-                            <td>mineraliV2</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1362,7 +1361,7 @@
 
 
                         <tr>
-                            <td>mineraliV3</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1373,7 +1372,7 @@
 
 
                         <tr>
-                            <td>mineraliV4</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1384,7 +1383,7 @@
 
 
                         <tr>
-                            <td>mineraliV5</td>
+                           
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="minerali">
                                     <div class="checkmark"></div>
@@ -1399,7 +1398,7 @@
                         </tr>
 
                         <tr>
-                            <td>vitamineV1</td>
+                            <td rowspan="5">Vitamine</td>
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1410,7 +1409,7 @@
 
 
                         <tr>
-                            <td>vitamineV2</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1421,7 +1420,7 @@
 
 
                         <tr>
-                            <td>vitamineV3</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1432,7 +1431,7 @@
 
 
                         <tr>
-                            <td>vitamineV4</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
@@ -1443,7 +1442,7 @@
 
 
                         <tr>
-                            <td>vitamineV5</td>
+                            
                             <td width="0"> <label class="forcheck">
                                     <input type="checkbox" class="score-checkbox" name="vitamine">
                                     <div class="checkmark"></div>
