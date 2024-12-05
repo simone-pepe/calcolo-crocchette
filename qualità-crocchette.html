@@ -8,9 +8,17 @@
     <meta name="author" content="Simone Pepe">
     <title>Info Crocchette</title>
     <link rel="stylesheet" href="stile.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="supabase.js" type="module"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <script src="supabase.js" type="module"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
 
+    <script>
+        const supabaseUrl = 'https://awtfgmsrjwkxewhzmwib.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM';
+        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+        // Now you can use the supabase client
+    </script>
 </head>
 
 <body>
@@ -82,7 +90,7 @@
                         <tr>
                             <tH colspan="4">
                                 <p align="center"><b>
-                                        <font size="5"style="color: black;">NON CI PIACE 🔴</font>
+                                        <font size="5" style="color: black;">NON CI PIACE 🔴</font>
                                     </b></p>
                             </tH>
                         </tr>
@@ -1751,7 +1759,7 @@
                         <tr>
                             <tH colspan="4">
                                 <p align="center"><b>
-                                        <font size="5"  style="color: black;">CI PIACE 🟢</font>
+                                        <font size="5" style="color: black;">CI PIACE 🟢</font>
                                     </b></p>
                             </tH>
 
@@ -3534,7 +3542,8 @@
                                 <ul>
                                     <li><b class="enfasigood">Consulta l'etichetta:</b> verifica se sono indicati
                                         minerali essenziali come <b>calcio</b>, <b>fosforo</b>, <b>magnesio</b>,
-                                        <b>zinco</b> e <b>selenio</b>.</li>
+                                        <b>zinco</b> e <b>selenio</b>.
+                                    </li>
                                     <li><b class="enfasigood">Quantità raccomandate:</b> confronta i valori riportati
                                         con le linee guida nutrizionali ufficiali, come quelle dell'AAFCO.</li>
                                     <li><b class="enfasigood">Test indipendenti:</b> cerca recensioni o analisi di
@@ -3706,9 +3715,9 @@
                     </table>
                 </div>
 
-                
+
                 <table id="risultati">
-                       
+
                 </table>
 
 
