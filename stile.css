@@ -142,7 +142,7 @@ p{
         height: 100vh; /* Occupa tutta l'altezza della finestra */
         justify-content: center;
         align-items: center;
-        gap: 6rem;
+        gap: 3rem;
         margin: 0;
         padding: unset;
         transform: translateY(-100%); /* Spinge il menu sopra la finestra */
@@ -172,7 +172,7 @@ p{
     }
 
     .scorrimentoZampa.active {
-        transform: translateY(110vh);
+        transform: translateY(95vh);
     }
     .hamburger {
         display: flex;
