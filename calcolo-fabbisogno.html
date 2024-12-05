@@ -40,7 +40,7 @@
                 
 				<h1>Calcolo Fabbisogno Crocchette per Cani<br>🩷🐶</h1>
 				<p style="text-align: center">
-					Per calcolare la dose iniziale da somministrare in base al peso, le condizioni fisiche e al mangime.
+					Per calcolare la dose iniziale da somministrare in base al peso, le condizioni fisiche e al mangime.🥕
 				</p>
 				<form id="foodCalculatorForm">
 					<!-- Informazioni sul cane -->
@@ -77,7 +77,7 @@
 					</div>
 					<!-- STATO -->
 					<div id="containerCampi">
-						<label for="sterilizzato">❤️ Condizione riproduttiva</label>
+						<label for="sterilizzato">❤️ Condizione</label>
 						<select
 							id="sterilizzato"
 							class="input"
@@ -97,7 +97,7 @@
 					</div>
 					<!-- CONDIZIONI MEDICHE -->
 					<div id="containerCampi">
-						<label for="condizioniMediche">⚕️ Condizioni mediche</label>
+						<label for="condizioniMediche">🩺 Condizioni mediche</label>
 						<select id="condizioniMediche" class="input">
 							<option value="none">Nessuna</option>
 							<option value="obesità">Obesità</option>
@@ -138,10 +138,10 @@
 					<div id="containerCampi">
 						<label for="razzaIncline">Condizione Razza</label>
 						<select id="razzaIncline" class="input" required>
-							<option value="0.9" selected>⬆️ Razza predisposta al sovrappeso</option>
+							<option value="0.9">⬆️ Razza predisposta al sovrappeso</option>
 							<option value="1.1">⬇️ Razza predisposta al dimagrimento</option>
 							<option value="0.8">❄️ Razza nordica</option>
-							<option value="1">Altra razza / Non so / Nessuna predisposizione</option>
+							<option value="1" selected>Nessuna predisposizione/ Altra razza / Non so</option>
 						</select>
 					</div>
 					<div
@@ -306,7 +306,7 @@
 						"
 						>
 						<div id="containerCampi" style="align-items: center; justify-content: center;">
-							<button type="submit" class="bn30" style="margin-bottom: 50px; margin-top: 15px;width: 180px;">🐾 Calcola 🐾</button>
+							<button type="submit" class="bn30" style="margin-bottom: 50px; margin-top: 15px;width: 220px;">🐾 Calcola 🐾</button>
 						</div>
 						
 					</div>
@@ -385,12 +385,12 @@
 						<br />
 						<br />
 						<br /> -->
-						I contenuti e gli strumenti su questo sito sono forniti esclusivamente
-						a scopo informativo e divulgativo, e riflettono unicamente le opinioni
-						degli autori. Gli strumenti qui presenti non sono in alcun modo
-						riferiti a specifici casi clinici. Si raccomanda di
-						consultare sempre il proprio veterinario di fiducia per qualsiasi
-						necessità o chiarimento ;)
+						I contenuti e gli strumenti su questo sito sono forniti
+						esclusivamente a scopo informativo e divulgativo, e riflettono
+						unicamente le opinioni degli autori. Gli strumenti qui presenti non
+						sono in alcun modo riferiti a specifici casi clinici. Si raccomanda
+						di consultare sempre il proprio veterinario di fiducia per qualsiasi
+						necessità o chiarimento!
 						<br />
 						<br />
 						È severamente vietata qualsiasi forma di copia, modifica, condivisione
@@ -420,7 +420,6 @@
 			const hamburger = document.querySelector('.hamburger');
 			const navLinks = document.querySelector('.nav-links');
 			const zampa = document.querySelector('.scorrimentoZampa');
-			const body = document.body; // Seleziona il body
 
 			hamburger.addEventListener('click', () => {
 				hamburger.classList.toggle('active');
