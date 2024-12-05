@@ -13,11 +13,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
 
     <script>
-        const supabaseUrl = 'https://awtfgmsrjwkxewhzmwib.supabase.co';
-        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM';
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-        // Now you can use the supabase client
+      const supabaseUrl = 'https://awtfgmsrjwkxewhzmwib.supabase.co';
+      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM';
+    
+      // Use the onload event of the script tag to ensure the library is loaded
+      const supabaseScript = document.createElement('script');
+      supabaseScript.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest";
+      supabaseScript.onload = () => {
+          const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+    
+          // Now you can use the supabase client
+          // Example:
+          supabase.from('MANGIMI').select('*')
+              .then(data => {
+                  console.log('Data:', data);
+              })
+              .catch(error => {
+                  console.error('Error:', error);
+              });
+      };
+      document.head.appendChild(supabaseScript);
     </script>
 </head>
 
