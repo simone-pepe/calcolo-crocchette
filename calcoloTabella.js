@@ -1,3 +1,19 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 let totalScore = 100; // Imposta il punteggio iniziale a 100
 
 // Seleziona tutte le checkbox
@@ -117,6 +133,35 @@ function toggleIcon(link) {
     link.innerHTML = "❓";
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Aggiungi gli event listener ai pulsanti
