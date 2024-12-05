@@ -7,36 +7,12 @@
     <meta name="description" content="Valutazione delle crocchette per cani">
     <meta name="author" content="Simone Pepe">
     <title>Info Crocchette</title>
-    <link rel="stylesheet" href="stile.css">
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script src="supabase.js" type="module"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>
-
-    <script>
-      const supabaseUrl = 'https://awtfgmsrjwkxewhzmwib.supabase.co';
-      const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM';
-    
-      // Use the onload event of the script tag to ensure the library is loaded
-      const supabaseScript = document.createElement('script');
-      supabaseScript.src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest";
-      supabaseScript.onload = () => {
-          const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-    
-          // Now you can use the supabase client
-          // Example:
-          supabase.from('MANGIMI').select('*')
-              .then(data => {
-                  console.log('Data:', data);
-              })
-              .catch(error => {
-                  console.error('Error:', error);
-              });
-      };
-      document.head.appendChild(supabaseScript);
-    </script>
+    <link rel="stylesheet" href="stile.css">    
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
+    <script>console.log(supabase)</script>
     <div class="container">
         <!-- Header -->
         <header>
