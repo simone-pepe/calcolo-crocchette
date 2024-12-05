@@ -4,170 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Informazioni sui parametri di valutazione delle crocchette per cani">
+    <meta name="description" content="Valutazione delle crocchette per cani">
     <meta name="author" content="Simone Pepe">
     <title>Info Crocchette</title>
     <link rel="stylesheet" href="stile.css">
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 50px 0;
-        }
-
-        table td:first-child {
-            font-weight: bold;
-        }
-
-        table td:last-child {
-            font-weight: normal;
-            font-size: 0.8rem;
-            text-align: left;
-        }
-
-
-        table th,
-        table td {
-            border: 1px solid #474747;
-            padding: 8px;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            align-content: center;
-        }
-
-        table th {
-            background-color: #b57fdb;
-            color: white;
-        }
-
-        .note-importanti p {
-            margin: 15px 0;
-        }
-
-        .parametri-valutazione h2,
-        .note-importanti h2 {
-            color: #b57fdb;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 768px) {
-
-            table th,
-            table td {
-                font-size: 14px;
-                padding: 6px;
-            }
-
-            .parametri-valutazione h2,
-            .note-importanti h2 {
-                font-size: 18px;
-            }
-        }
-
-
-        .forcheck input {
-            position: absolute;
-            opacity: 0;
-            cursor: pointer;
-            height: 0;
-            width: 0;
-        }
-
-        .forcheck {
-            display: block;
-            position: relative;
-            margin: auto;
-            cursor: pointer;
-            font-size: 1rem;
-            user-select: none;
-            justify-self: center;
-            justify-content: center;
-            align-self: center;
-            align-items: center;
-        }
-
-        /* Create a custom checkbox */
-        .checkmark {
-            --clr: #711e92;
-            position: relative;
-            top: 0;
-            left: 0;
-            height: 1.3em;
-            width: 1.3em;
-            background-color: #ccc;
-            border-radius: 50%;
-            transition: 300ms;
-        }
-
-        /* When the checkbox is checked, add a blue background */
-        .forcheck input:checked~.checkmark {
-            background-color: var(--clr);
-            border-radius: .5rem;
-            animation: pulse 500ms ease-in-out;
-        }
-
-        /* Create the checkmark/indicator (hidden when not checked) */
-        .checkmark:after {
-            content: "";
-            position: absolute;
-            display: none;
-        }
-
-        /* Show the checkmark when checked */
-        .forcheck input:checked~.checkmark:after {
-            display: block;
-        }
-
-        /* Style the checkmark/indicator */
-        .forcheck .checkmark:after {
-            left: 0.45em;
-            top: 0.25em;
-            width: 0.25em;
-            height: 0.5em;
-            border: solid #ffffff;
-            border-width: 0 0.15em 0.15em 0;
-            transform: rotate(45deg);
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 #570f9e90;
-                rotate: 20deg;
-            }
-
-            50% {
-                rotate: -20deg;
-            }
-
-            75% {
-                box-shadow: 0 0 0 10px #570f9e66;
-            }
-
-            100% {
-                box-shadow: 0 0 0 13px #570f9e37;
-                rotate: 0;
-            }
-        }
-
-        .enfasibad {
-            color: white;
-            text-decoration: underline;
-            text-decoration-color: DARKRED;
-        }
-
-        .enfasigood {
-            color: white;
-            text-decoration: underline;
-            text-decoration-color: lightgreen;
-        }
-
-        .enfasi {
-            color: white;
-            text-decoration: underline;
-            text-decoration-color: #b57fdb;
-        }
-    </style>
 </head>
 
 <body>
@@ -175,39 +15,51 @@
         <!-- Header -->
         <header>
             <nav class="navbar">
-                <div class="logo">
-                    <a href="index.html">🐾 </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
-                    <li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
-                    <li><a href="#footer">Contatti</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+              <div class="logo">
+                <a href="index.html">🐾 </a>
+              </div>
+              <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
+                <li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
+                <li><a href="#footer">Contatti</a></li>
+              </ul>
+              <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </nav>
-        </header>
+            <img src="./asset/zampa.webp" class="scorrimentoZampa">
+          </header>
 
         <!-- Main Content -->
         <main>
+            
+
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@2.0.8/dist/lottie-player.js"></script>
+
+          <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 40px;
+                width: 100%;
+                z-index: 1 !important;
+              ">
+            <lottie-player
+            src="https://lottie.host/18129ad7-4c0b-4a67-9eb1-c5976f029b21/zhVE3eqZsd.json" background="##ffffff" speed="1"
+            style="width: 200px; height: 200px" loop autoplay direction="1" mode="normal"></lottie-player>
+
+          </div>
             <h1>Valutazione Qualità Crocchette 🫘</h1>
-            <p>
-                Con la busta delle crocchette alla mano, puoi spuntare le checkbox per sommare il punteggio e ottenere a
-                fine tabella
-                una valutazione del mangime in base alle caratteristiche selezionate.<br>
-                Clicca "❓" per approfndire ogni parametro!
-
-            </p>
-
-            <p>
-                Si basa su una serie i parametri di valutazione qualitativa e quantitativa, che assegnano un punteggio
-                positivo <b class="enfasigood">CI PIACE!</b> o negativo <b class="enfasibad">NON CI PIACE!</b>,
-                e che sono l'espressione dell'opinione degli autori.<br><br>
-                Si parte con un punteggio iniziale pari a <b>100</b> punti.
+            <p> Con la busta delle crocchette alla mano, puoi selezionare le diverse opzioni attraverso le checkbox per sommare il
+                punteggio. Alla fine della tabella, troverai una valutazione complessiva del mangime in base ai parametri che hai
+                scelto. <br> Clicca sull'icona "❓" accanto a ciascun parametro per scoprire maggiori dettagli su ogni criterio! </p>
+            <p> La valutazione si basa su una serie di parametri qualitativi e quantitativi, che assegnano un punteggio positivo per i parametri <b
+                    class="enfasigood">"CI PIACE!"</b> e negativo per i parametri <b class="enfasibad">"NON CI PIACE!"</b>.
+                    <br><br> Ogni mangime parte con un punteggio iniziale di <b>100</b> punti. A ogni selezione, il
+                punteggio cambierà in base alla qualità del parametro che hai scelto, aiutandoti a fare una scelta più consapevole.
             </p>
 
 
@@ -1906,7 +1758,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">5</td>
+                            <td width="20" valign="top">+5</td>
                             <td valign="top">Il primo ingrediente in ordine di importanza è una proteina animale sotto
                                 forma di "farina di carne di xxx" o "carne disidratata di xxx".</td>
 
@@ -1975,7 +1827,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">3</td>
+                            <td width="20" valign="top">+3</td>
                             <td valign="top">Il mangime contiene almeno 3 fonti di proteine animali specifiche (ovvero
                                 diverse tra loro).</td>
 
@@ -2008,7 +1860,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">4</td>
+                            <td width="20" valign="top">+4</td>
                             <td valign="top">Il mangime contiene 5 o più fonti di proteine animali specifiche (diverse
                                 tra loro).</td>
 
@@ -2043,7 +1895,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">4</td>
+                            <td width="20" valign="top">+4</td>
                             <td valign="top">Contiene uova, anche in polvere o disidratate.</td>
 
                         </tr>
@@ -2078,7 +1930,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">5</td>
+                            <td width="20" valign="top">+5</td>
                             <td valign="top">Il mangime utilizza un mix bilanciato di carboidrati con diverso indice
                                 glicemico.</td>
 
@@ -2127,7 +1979,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">3</td>
+                            <td width="20" valign="top">+3</td>
                             <td valign="top">Contiene cereali ad elevato valore biologico.</td>
 
                         </tr>
@@ -2185,7 +2037,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">1</td>
+                            <td width="20" valign="top">+1</td>
                             <td valign="top">Contiene orzo.</td>
 
                         </tr>
@@ -2219,7 +2071,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">1</td>
+                            <td width="20" valign="top">+1</td>
                             <td valign="top">Contiene avena.</td>
 
                         </tr>
@@ -2260,7 +2112,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene "grasso di pollo" come fonte di grassi animali.</td>
 
                         </tr>
@@ -2301,7 +2153,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">3</td>
+                            <td width="20" valign="top">+3</td>
                             <td valign="top">Contiene prebiotici, probiotici, fruttoolisaccaridi (FOS) o
                                 mannanoligosaccaridi (MOS).</td>
 
@@ -2368,7 +2220,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene frutta (specificata).</td>
 
                         </tr>
@@ -2416,7 +2268,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene verdure (specificate).</td>
                         </tr>
 
@@ -2463,7 +2315,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene "Olio di pesce" (non meglio specificato) fonte di DHA e EPA (acidi
                                 grassi essenziali).</td>
                         </tr>
@@ -2555,7 +2407,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">4</td>
+                            <td width="20" valign="top">+4</td>
                             <td valign="top">Contiene "Olio di pesce" (identificato con la specie) fonte di DHA e EPA
                                 (acidi grassi essenziali).</td>
                         </tr>
@@ -2577,7 +2429,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene "semi di lino" o "olio di semi di lino" o "olio di enotera" o
                                 "olio di borragine" o "olio di canapa" o di altri oli vegetali ricchi di acidi
                                 polinsaturi.</td>
@@ -2619,7 +2471,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Le fonti di origine animale sono certificate e senza antibiotici e/o senza
                                 ormoni.</td>
                         </tr>
@@ -2652,7 +2504,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Le fonti vegetali (verdure, cereali etc) sono state certificate esenti da
                                 pesticidi.</td>
                         </tr>
@@ -2683,7 +2535,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">5</td>
+                            <td width="20" valign="top">+5</td>
                             <td valign="top">Contiene solo fonti di carne certificate "biologiche" (Natural Organic).
                             </td>
                         </tr>
@@ -2732,7 +2584,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">3</td>
+                            <td width="20" valign="top">+3</td>
                             <td valign="top">E' integrato con "Minerali Chelati" o "Minerali Proteinati".</td>
                         </tr>
 
@@ -2812,7 +2664,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Contiene "condroprotettori" (Glucosamina e/o Condroitin solfato e/o
                                 MSM).
                             </td>
@@ -2880,7 +2732,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Il mangime è realizzato a basse temperature, con estrusore a bassa
                                 temperatura ed alta pressione o a doppia vite, oppure cotto al forno, pressato a freddo
                                 o liofilizzato.</td>
@@ -2955,7 +2807,7 @@
                                     <input type="checkbox" class="score-checkbox">
                                     <div class="checkmark"></div>
                                 </label></td>
-                            <td width="20" valign="top">2</td>
+                            <td width="20" valign="top">+2</td>
                             <td valign="top">Il mangime è certificato come prodotto secondo le specifiche e le direttive
                                 di un organizzazione preposta o nutrizionista.<br>
                                 (ad es AAFCO, USDA, FEDIAF, NRC o altre organizzazioni ufficiali)</td>
@@ -3763,8 +3615,17 @@
     <!-- Script -->
     <script src="calcoloTabella.js"></script>
     <script>
-        document.querySelector('.hamburger').addEventListener('click', () => {
-            document.querySelector('.nav-links').classList.toggle('active');
+        document.addEventListener('DOMContentLoaded', () => {
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        const zampa = document.querySelector('.scorrimentoZampa');
+        const body = document.body; // Seleziona il body
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            zampa.classList.toggle('active');
+        });
         });
     </script>
 </body>

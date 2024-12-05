@@ -1,3 +1,4 @@
+
 function scrollToResult() {
     const resultDiv = document.getElementById("result");
     if (resultDiv) {
@@ -16,23 +17,13 @@ function scrollToResult() {
     }
   }
   
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-  
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navLinks.classList.toggle('active');
-    });
-  });
-  
   function toggleInputMethod() {
     const metodoInput = document.getElementById("metodoInput").value;
     const kcalInput = document.getElementById("kcalPerKg");
     const proteineInput = document.getElementById("proteine");
     const grassiInput = document.getElementById("grassi");
     const carboidratiInput = document.getElementById("carboidrati");
-  
+
     // Seleziona tutte le etichette per carboidrati
     const carboidratiLabels = document.querySelectorAll(
       'label[for="carboidrati"]'
@@ -40,19 +31,19 @@ function scrollToResult() {
     const proteineLabel = document.querySelector('label[for="proteine"]');
     const grassiLabel = document.querySelector('label[for="grassi"]');
     const kcalLabel = document.querySelector('label[for="kcalPerKg"]');
-  
+
     if (metodoInput === "kcal") {
       kcalInput.disabled = false;
       proteineInput.disabled = true;
       grassiInput.disabled = true;
       carboidratiInput.disabled = true;
-  
+
       // Mostra solo il campo per le kcal e nasconde gli altri
       kcalInput.style.display = "block"; // Assicurati che il campo kcal sia visibile
       proteineInput.style.display = "none"; // Nasconde il campo proteine
       grassiInput.style.display = "none"; // Nasconde il campo grassi
       carboidratiInput.style.display = "none"; // Nasconde il campo carboidrati
-  
+
       proteineLabel.style.display = "none"; // Nasconde l'etichetta proteine
       grassiLabel.style.display = "none"; // Nasconde l'etichetta grassi
       // Nascondi tutte le etichette di carboidrati
@@ -64,12 +55,12 @@ function scrollToResult() {
       proteineInput.disabled = false;
       grassiInput.disabled = false;
       carboidratiInput.disabled = false;
-  
+
       kcalInput.style.display = "none"; // Nasconde il campo kcal
       proteineInput.style.display = "block"; // Mostra il campo proteine
       grassiInput.style.display = "block"; // Mostra il campo grassi
       carboidratiInput.style.display = "block"; // Mostra il campo carboidrati
-  
+
       proteineLabel.style.display = "block"; // Mostra l'etichetta proteine
       grassiLabel.style.display = "block"; // Mostra l'etichetta grassi
       // Mostra tutte le etichette di carboidrati

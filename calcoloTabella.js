@@ -99,6 +99,26 @@ function updateEvaluation() {
   document.getElementById("evaluation").textContent = evaluation;
 }
 
+
+function toggleInfo(id) {
+  var info = document.getElementById(id);
+  if (info.style.display === "none" || info.style.display === "") {
+    info.style.display = "table-row"; // Mostra il contenuto
+  } else {
+    info.style.display = "none"; // Nasconde il contenuto
+  }
+}
+
+function toggleIcon(link) {
+  // Cambia il contenuto del link da "❓" a "➖"
+  if (link.innerHTML === "❓") {
+    link.innerHTML = "➖";
+  } else {
+    link.innerHTML = "❓";
+  }
+}
+
+
 // Aggiungi gli event listener ai pulsanti
 document
   .getElementById("calcolaBtn")
@@ -235,20 +255,3 @@ checkboxesVitamine.forEach((checkbox) => {
   });
 });
 
-function toggleInfo(id) {
-  var info = document.getElementById(id);
-  if (info.style.display === "none" || info.style.display === "") {
-    info.style.display = "table-row"; // Mostra il contenuto
-  } else {
-    info.style.display = "none"; // Nasconde il contenuto
-  }
-}
-
-function toggleIcon(link) {
-  // Cambia il contenuto del link da "❓" a "➖"
-  if (link.innerHTML === "❓") {
-    link.innerHTML = "➖";
-  } else {
-    link.innerHTML = "❓";
-  }
-}

@@ -12,23 +12,24 @@
 		
 		<div class="container">
 			<header>
-                <nav class="navbar">
-                    <div class="logo">
-                        <a href="index.html">🐾 </a>
-                    </div>
-                    <ul class="nav-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
-                        <li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
-                        <li><a href="#footer">Contatti</a></li>
-                    </ul>
-                    <div class="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </nav>
-            </header>
+				<nav class="navbar">
+				  <div class="logo">
+					<a href="index.html">🐾 </a>
+				  </div>
+				  <ul class="nav-links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
+					<li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
+					<li><a href="#footer">Contatti</a></li>
+				</ul>
+				  <div class="hamburger">
+					<span></span>
+					<span></span>
+					<span></span>
+				  </div>
+				</nav>
+				<img src="./asset/zampa.webp" class="scorrimentoZampa">
+			  </header>
 
 			<main>
 
@@ -408,5 +409,19 @@
 			</footer>
 		</div>
 		<script src="calcoloFabbisogno.js" defer></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+			const hamburger = document.querySelector('.hamburger');
+			const navLinks = document.querySelector('.nav-links');
+			const zampa = document.querySelector('.scorrimentoZampa');
+			const body = document.body; // Seleziona il body
+
+			hamburger.addEventListener('click', () => {
+				hamburger.classList.toggle('active');
+				navLinks.classList.toggle('active');
+				zampa.classList.toggle('active');
+			});
+		});
+		</script>
 	</body>
 </html>

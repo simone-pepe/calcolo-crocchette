@@ -5,8 +5,6 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    /* justify-content: center; */
-    /* align-items: center; */
     height: 100vh;
     overflow: hidden;
     transition: background-color 0.3s, color 0.3s;
@@ -20,14 +18,24 @@ body {
 
 
 header {
-    background-color: #1f1f1f;
-    /* Un giallo caldo per catturare l'attenzione */
+    background-color: #000000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
-    /* Fissa l'header nella parte superiore */
     z-index: 1000;
-    /* Assicura che l'header rimanga sopra agli altri elementi */
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('./font/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Montserrat-Bold';
+    src: url('./font/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
 .navbar {
@@ -55,6 +63,7 @@ header {
     display: flex;
     gap: 1.5rem;
     margin: 0;
+    overflow: hidden;
 }
 
 .nav-links a {
@@ -68,7 +77,10 @@ header {
 
 .nav-links a:hover {
     color: #833d91;
-    /* Colore più chiaro per l'hover */
+}
+
+p{
+    font-family: "Montserrat";
 }
 
 /* Stile Hamburger */
@@ -89,40 +101,79 @@ header {
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+/* Hamburger attivo (freccia verso il basso) */
 .hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+    transform: rotate(45deg) translate(5px, -8px); 
+    width: 18px;
+    background: #833d91;
 }
 
 .hamburger.active span:nth-child(2) {
-    opacity: 0;
+    transform: rotate(90deg);
+    background: #833d91; 
 }
 
 .hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: rotate(-45deg) translate(13px, -15px); /*translate(0, 7px);*/
+    width: 18px;
+    background: #833d91; 
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Evita qualsiasi scrolling verticale */
+}
+.scorrimentoZampa{
+    display: none;
+    position: fixed;
 }
 
 /* Responsivo */
 @media screen and (max-width: 768px) {
     .nav-links {
-        z-index: 999;
-        display: none;
+        z-index: 998;
+        display: flex; /* Mantieni flex per la disposizione degli item */
         flex-direction: column;
-        /* gap: 1rem; */
-        background-color: #1f1f1f;
-        position: absolute;
-        top: 60px;
-        right: 0;
+        background-color: #000000;
+        position: fixed; /* Usa fixed per mantenere il menu sopra la pagina */
+        top: 0;
+        left: 0;
         width: 100%;
-        padding: 1rem;
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        height: 100vh; /* Occupa tutta l'altezza della finestra */
         justify-content: center;
         align-items: center;
+        gap: 6rem;
+        margin: 0;
+        padding: unset;
+        transform: translateY(-100%); /* Spinge il menu sopra la finestra */
+        transition: transform 1s ease-in-out; /* Anima il movimento verticale */
     }
-
+    
     .nav-links.active {
-        display: flex;
+        transform: translateY(0); /* Porta il menu in vista */
+    }
+    
+    /* Link del menu */
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 6vw;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        z-index: 10;
+    }
+    .scorrimentoZampa{
+        z-index: 999;
+        display: block;
+        position: fixed;
+        top:-30%;
+        left:-5vh;
+        transition: transform 1s ease-in-out;
     }
 
+    .scorrimentoZampa.active {
+        transform: translateY(110vh);
+    }
     .hamburger {
         display: flex;
     }
@@ -135,6 +186,7 @@ main {
 
 a {
     color: #8d50b8;
+    font-family: "Montserrat-Bold";
 }
 
 .container {
@@ -147,7 +199,7 @@ a {
     overflow-x: hidden;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .container {
         max-width: 100%;
         max-height: 100dvh;
@@ -198,6 +250,7 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #b57fdb;
+    font-family: "Montserrat-Bold";
 }
 
 label {
@@ -217,6 +270,7 @@ label {
 input,
 label {
     width: 50%;
+    font-family: "Montserrat";
 }
 
 .input {
@@ -227,34 +281,26 @@ label {
     border-radius: 9999px;
     box-shadow: inset 2px 5px 10px rgba(78, 0, 127, 0.181);
     color: #ffffff;
-    /* Colore del testo */
     appearance: none;
-    /* Rimuove lo stile predefinito del browser */
     -webkit-appearance: none;
-    /* Per Safari */
     padding: 10px 20px;
-    /* Spaziatura interna */
+    font-family: "Montserrat";
 }
 
 .input option {
     background-color: #0c0c0c;
-    /* Sfondo delle opzioni */
     color: #ffffff;
-    /* Colore del testo delle opzioni */
     padding: 5px;
-    /* Spaziatura interna delle opzioni */
+    font-family: "Montserrat";
 }
 
 .input:hover {
     border-color: #b57fdb;
-    /* Cambia colore del bordo al passaggio del mouse */
 }
 
 .input:focus {
     border-color: #b57fdb;
-    /* Cambia colore del bordo quando selezionato */
     box-shadow: 0 0 5px rgba(181, 127, 219, 0.5);
-    /* Effetto luce attorno */
 }
 
 input,
@@ -273,23 +319,8 @@ button {
 input:focus,
 select:focus {
     border-color: #b57fdb;
-    /* Bordo viola/lilla */
     outline: none;
 }
-
-/* button {
-    background-color: #b57fdb;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    border: none;
-    transition: background-color 0.3s ease;
-    padding: 15px;
-}
-
-button:hover {
-    background-color: #9a67d9;
-} */
 
 .sources {
     margin-top: 20px;
@@ -300,7 +331,6 @@ button:hover {
 
 .sources a {
     color: #b57fdb;
-    /* Link viola/lilla per le fonti */
     text-decoration: none;
 }
 
@@ -315,7 +345,6 @@ button:hover {
     border: 1px solid violet;
     border-radius: 8px;
     color: #ffffff;
-    /* Colore di default */
     display: none;
     transition: all 0.3s ease;
 }
@@ -334,9 +363,7 @@ button:hover {
 .result {
     background-color: #1d1d1d;
     border: 1px solid violet;
-    /* Bordo viola/lilla per il risultato */
     color: #ffffff;
-    /* Testo viola/lilla per il risultato */
     font-size: 18px;
     font-weight: normal;
     text-align: center;
@@ -349,9 +376,7 @@ button:hover {
 .pasti {
     background-color: #1d1d1d;
     border: 1px solid violet;
-    /* Bordo viola/lilla per il risultato */
     color: #ffffff;
-    /* Testo viola/lilla per il risultato */
     font-size: 18px;
     font-weight: normal;
     text-align: center;
@@ -364,9 +389,7 @@ button:hover {
 .additionalInfo {
     background-color: #1d1d1d;
     border: 1px solid violet;
-    /* Bordo viola/lilla per il risultato */
     color: #ffffff;
-    /* Testo viola/lilla per il risultato */
     font-size: 18px;
     font-weight: normal;
     text-align: center;
@@ -383,42 +406,40 @@ button:hover {
 #container2 {
     display: flex;
     gap: 10px;
-    /* Spaziatura tra gli elementi */
     align-items: center;
 }
 
 #containerCampi {
     display: flex;
     align-items: center;
-    /* Allinea verticalmente gli elementi */
     justify-content: start;
-    /* Posiziona gli elementi all'inizio del contenitore */
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 #containerCampi label {
     font-size: 14px;
-    /* Puoi regolare la dimensione del testo della label se necessario */
     color: #ffffff;
-    /* Colore del testo della label */
     width: 50%;
 }
 
 #containerCampi input {
     font-size: 14px;
-    /* Puoi regolare la dimensione del testo della label se necessario */
     color: #ffffff;
-    /* Colore del testo della label */
     width: 45%;
 }
 
 #containerCampi select {
     font-size: 14px;
-    /* Puoi regolare la dimensione del testo della label se necessario */
     color: #ffffff;
-    /* Colore del testo della label */
     width: 45%;
 }
+
+/* #containerCampi button {
+    font-size: 14px;
+    color: #ffffff;
+    width: 45%;
+} */
 
 .bn30 {
     border: 5px;
@@ -434,6 +455,7 @@ button:hover {
     -webkit-transition: box-shadow 0.25s;
     transition: box-shadow 0.25s;
     color: white;
+    font-family: "Montserrat";
 }
 
 .bn30 .text {
@@ -501,4 +523,166 @@ button:hover {
         background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
         background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
+}
+
+
+/* QUALITà CROCCHETTE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 50px 0;
+    font-family: "Montserrat";
+}
+
+table td:first-child {
+    font-weight: bold;
+}
+
+table td:last-child {
+    font-weight: normal;
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+
+table th,
+table td {
+    border: 1px solid #474747;
+    padding: 8px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+table th {
+    background-color: #b57fdb;
+    color: white;
+}
+
+.note-importanti p {
+    margin: 15px 0;
+}
+
+.parametri-valutazione h2,
+.note-importanti h2 {
+    color: #b57fdb;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+
+    table th,
+    table td {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .parametri-valutazione h2,
+    .note-importanti h2 {
+        font-size: 18px;
+    }
+}
+
+
+.forcheck input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.forcheck {
+    display: block;
+    position: relative;
+    margin: auto;
+    cursor: pointer;
+    font-size: 1rem;
+    user-select: none;
+    justify-self: center;
+    justify-content: center;
+    align-self: center;
+    align-items: center;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    --clr: #711e92;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background-color: #ccc;
+    border-radius: 50%;
+    transition: 300ms;
+}
+
+/* When the checkbox is checked, add a blue background */
+.forcheck input:checked~.checkmark {
+    background-color: var(--clr);
+    border-radius: .5rem;
+    animation: pulse 500ms ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.forcheck input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.forcheck .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid #ffffff;
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 #570f9e90;
+        rotate: 20deg;
+    }
+
+    50% {
+        rotate: -20deg;
+    }
+
+    75% {
+        box-shadow: 0 0 0 10px #570f9e66;
+    }
+
+    100% {
+        box-shadow: 0 0 0 13px #570f9e37;
+        rotate: 0;
+    }
+}
+
+.enfasibad {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: DARKRED;
+}
+
+.enfasigood {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: lightgreen;
+}
+
+.enfasi {
+    color: white;
+    text-decoration: underline;
+    text-decoration-color: #b57fdb;
 }

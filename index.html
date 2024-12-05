@@ -29,6 +29,7 @@
           <span></span>
         </div>
       </nav>
+      <img src="./asset/zampa.webp" class="scorrimentoZampa" width="60%">
     </header>
 
     <main>
@@ -47,19 +48,28 @@
       </div>
 
       <h1>Benvenuto!<br />🩷🐶</h1>
-      <p style="text-align: center">
-        In questo piccolo progetto, voglio aiutarti a scegliere il miglior
-        mangime per il tuo cane, basato su parametri nutrizionali importanti.
-      </p>
-      <p style="text-align: center">
-        Oltre a una guida dettagliata sulla qualità delle crocchette, puoi
-        anche utilizzare il calcolatore per determinare le calorie e i grammi
-        giusti di croccantini necessari per il tuo amico a quattro zampe.
-      </p>
-      <p style="text-align: center">
-        La salute del tuo cane è importante, e con i nostri strumenti, sarai
-        in grado di fare scelte più consapevoli per il suo benessere!
-      </p>
+      <p style="text-align: center;"> Sono Simone, uno sviluppatore appassionato di tecnologia e, soprattutto, della
+        salute dei miei cani, Whisky e Lady. In questo progetto, il mio obiettivo è aiutare a fare scelte più
+        consapevoli per il benessere del cane, scegliendo il miglior mangime in base ai parametri nutrizionali più
+        importanti. </p>
+      <p style="text-align: center"> So quanto sia facile cadere nella tentazione di scegliere il mangime più economico, ma
+        tanti prodotti in commercio sono di scarsa qualità e non rispondono alle reali necessità nutrizionali del cane.
+        Per questo motivo, ho creato due strumenti utili che ti guideranno nella scelta più giusta: un calcolatore che ti
+        aiuta a determinare le giuste quantità di crocchette in base alle esigenze del tuo amico a quattro zampe e una guida
+        dettagliata per valutare la qualità delle crocchette, assegnando un punteggio a ciascun prodotto. </p>
+      <p style="text-align: center"> La salute del tuo cane è una priorità. Con gli strumenti qui disponibili, sarai in grado di
+        fare scelte più informate e consapevoli!</p>
+        <div id="containerCampi" style="justify-content: center;">
+          <a href="calcolo-fabbisogno.html">
+            <button class="bn30" style="width: 160px;"> Fabbisogno </button>
+          </a>
+          <a href="qualità-crocchette.html">
+            <button class="bn30" style="width: 160px;"> Qualità </button>
+          </a>
+        </div>
+        <p style="text-align: center"> Gli strumenti sono sviluppati e tarati su fonti affidabili per darti il
+          miglior supporto possibile, ma ricorda che ogni cane ha esigenze specifiche. Prima di apportare qualsiasi cambiamento
+          alla dieta del tuo amico peloso, ti consiglio sempre di consultare il veterinario per una guida personalizzata. </p>
     </main>
     <footer id="footer">
       <div style="
@@ -96,23 +106,13 @@
               padding-right: 20px;
               padding-bottom: 50px;
             ">
-          Questo strumento fornisce una stima iniziale della quantità di cibo
-          da somministrare al cane. Successivamente, sarà necessario
-          monitorare attentamente le sue condizioni, preferibilmente pesandolo
-          regolarmente, per osservare eventuali variazioni di peso.
-          <br />In base a queste osservazioni, si potrà regolare la quantità
-          di cibo, aumentando o diminuendo il dosaggio (che deve SEMPRE essere
-          pesato con precisione), fino a individuare il quantitativo ideale
-          che consenta di mantenere il cane al suo peso forma.
-          <br />
-          <br />
-          <br />
+         
           I contenuti e gli strumenti su questo sito sono forniti
           esclusivamente a scopo informativo e divulgativo, e riflettono
           unicamente le opinioni degli autori. Gli strumenti qui presenti non
           sono in alcun modo riferiti a specifici casi clinici. Si raccomanda
           di consultare sempre il proprio veterinario di fiducia per qualsiasi
-          necessità o chiarimento ;)
+          necessità o chiarimento!
           <br />
           <br />
           È severamente vietata qualsiasi forma di copia, modifica,
@@ -121,9 +121,8 @@
           <br />
           <br />
           Per segnalare eventuali errori o per comunicazioni:
-          <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a>.<br /><br /><br />
-
-          Developed with 💜 by Simone Pepe<br /><br /><br />
+          <a href="mailto:simonepepemail@gmail.com">simonepepemail@gmail.com</a>.<br /><br /><br />Developed with 💜 by Simone
+          Pepe<br /><br /><br />
         </p>
         <div>
           <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
@@ -132,7 +131,20 @@
       </div>
     </footer>
   </div>
-  <script src="core.js" defer></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks = document.querySelector('.nav-links');
+      const zampa = document.querySelector('.scorrimentoZampa');
+      const body = document.body; // Seleziona il body
+
+      hamburger.addEventListener('click', () => {
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+          zampa.classList.toggle('active');
+      });
+  });
+  </script>
 </body>
 
 </html>
