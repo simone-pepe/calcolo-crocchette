@@ -7,12 +7,30 @@
     <meta name="description" content="Valutazione delle crocchette per cani">
     <meta name="author" content="Simone Pepe">
     <title>Info Crocchette</title>
-    <link rel="stylesheet" href="stile.css">    
+    <link rel="stylesheet" href="stile.css">
 </head>
 
 <body>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
-    <script>console.log(supabase)</script>
+    <script>
+
+        const supabasePublicClient = supabase.createClient("https://awtfgmsrjwkxewhzmwib.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM", {
+            db: {
+                schema: "public"
+            }
+        });
+
+
+        (async () => {
+
+            const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*")
+
+            console.log(getRequestResponse)
+        })()
+
+
+    </script>
+    
     <div class="container">
         <!-- Header -->
         <header>
