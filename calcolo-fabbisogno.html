@@ -20,7 +20,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="./calcolo-fabbisogno.html">Calcolo Fabbisogno</a></li>
 					<li><a href="./qualità-crocchette.html">Qualità Crocchette</a></li>
-					<li><a href="#footer">Contatti</a></li>
+					<!-- <li><a href="#footer">Contatti</a></li> -->
 				</ul>
 				  <div class="hamburger">
 					<span></span>
@@ -28,7 +28,7 @@
 					<span></span>
 				  </div>
 				</nav>
-				<img src="./asset/zampa.webp" class="scorrimentoZampa">
+				<img src="./asset/zampa.webp" class="scorrimentoZampa" width="60%">
 			  </header>
 
 			<main>
@@ -151,12 +151,15 @@
 						align-content: center;
 						"
 						>
-						<button
+						<div id="containerCampi" style="align-items: center; justify-content: center;">
+							<button
 							type="button"
 							class="bn30"
 							onclick="toggleInfoSection()"
-							style="margin-bottom: 50px; margin-top: 15px"
+							style="margin-bottom: 50px; margin-top: 20px;width: 200px;"
 							>🐾 Info razze 🐾</button>
+						</div>
+						
 					</div>
 					<div class="info-section" id="infoSection" style="display: none">
 						<!-- Sovrappeso -->
@@ -302,7 +305,10 @@
 						align-content: center;
 						"
 						>
-						<button type="submit" class="bn30">🐾 Calcola 🐾</button>
+						<div id="containerCampi" style="align-items: center; justify-content: center;">
+							<button type="submit" class="bn30" style="margin-bottom: 50px; margin-top: 15px;width: 180px;">🐾 Calcola 🐾</button>
+						</div>
+						
 					</div>
 				</form>
 				<div class="result" id="result"></div>
