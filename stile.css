@@ -544,6 +544,7 @@ table {
     border-collapse: collapse;
     margin: 50px 0;
     font-family: "Montserrat";
+    border-radius: 15px;
 }
 
 table td:first-child {
@@ -553,14 +554,14 @@ table td:first-child {
 
 table td:last-child {
     font-weight: normal;
-    font-size: 0.8rem;
+    font-size: 1rem;
     text-align: left;
 }
 
 
 table th,
 table td {
-    border: 1px solid #474747;
+    border: 1px solid #47474769;
     padding: 8px;
     text-align: center;
     justify-content: center;
@@ -570,7 +571,7 @@ table td {
 
 table th {
     background-color: #b57fdb;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 
