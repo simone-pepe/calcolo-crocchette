@@ -548,6 +548,7 @@ table {
 
 table td:first-child {
     font-weight: bold;
+    font-size: 0.8rem;
 }
 
 table td:last-child {
@@ -571,6 +572,8 @@ table th {
     background-color: #b57fdb;
     color: white;
 }
+
+
 
 .note-importanti p {
     margin: 15px 0;
@@ -606,7 +609,7 @@ table th {
 }
 
 .forcheck {
-    display: block;
+    display: flex;
     position: relative;
     margin: auto;
     cursor: pointer;
@@ -616,6 +619,7 @@ table th {
     justify-content: center;
     align-self: center;
     align-items: center;
+    width: 100%;
 }
 
 /* Create a custom checkbox */
