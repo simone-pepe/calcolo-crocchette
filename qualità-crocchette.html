@@ -11,26 +11,7 @@
 </head>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
-    <script>
-
-        const supabasePublicClient = supabase.createClient("https://awtfgmsrjwkxewhzmwib.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM", {
-            db: {
-                schema: "public"
-            }
-        });
-
-
-        (async () => {
-
-            const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*")
-
-            console.log(getRequestResponse)
-        })()
-
-
-    </script>
-    
+   
     <div class="container">
         <!-- Header -->
         <header>
@@ -3686,49 +3667,106 @@
                         <tbody>
                             <tr>
                                 <td><span style="color: #FF0000;">&lt; 20</span></td>
-                                <td>💀🟥🟥🟥🟥🟥 <b>(Molto scarso)</b></td>
+                                <td>💀🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF4C4C;">20 - 39</span></td>
-                                <td>👎🏻🟥🟥🟥🟥 <b>(Scarso)</b></td>
+                                <td>👎🏻🟥🟥🟥🟥 <b>Scarso</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF7F3F;">40 - 54</span></td>
-                                <td>👎🏻🟥🟥🟥 <b>(Insufficiente)</b></td>
+                                <td>👎🏻🟥🟥🟥 <b>Insufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFA500;">56 - 69</span></td>
-                                <td>👎🏻🟥🟥 <b>(Mediocre)</b></td>
+                                <td>👎🏻🟥🟥 <b>Mediocre</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>👎🏻🟥 <b>(Sufficiente)</b></td>
+                                <td>👎🏻🟥 <b>Sufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF99;">85 - 99</span></td>
-                                <td>🫤🟧 <b>(Discreto)</b></td>
+                                <td>🫤🟧 <b>Discreto</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #D3FFBD;">100 - 114</span></td>
-                                <td>👍🏻🟩🟩 <b>(Buono)</b></td>
+                                <td>👍🏻🟩🟩 <b>Buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
-                                <td>👍🏻🟩🟩🟩 <b>(Molto buono)</b></td>
+                                <td>👍🏻🟩🟩🟩 <b>Molto buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>💯🟩🟩🟩🟩 <b>(Eccellente)</b></td>
+                                <td>💯🟩🟩🟩🟩 <b>Eccellente</b></td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table><br><br>
+
+                    
                 </div>
 
+                <h1>⚒️In Sviluppo⚒️</h1>
+                <p>Una nuova sezione è in sviluppo, per permettere sia di salvare che di leggere le marche inserite da altre persone!</p>
+                <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la composizione delle crocchette, anche dalle persone meno esperte!</p>
 
                 <table id="risultati">
-
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>Tipo</th>
+                            <th>Punteggio</th>
+                            <th>Inserito Da</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
                 </table>
 
+                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
+                <script>
+
+                    const supabasePublicClient = supabase.createClient("https://awtfgmsrjwkxewhzmwib.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM", {
+                        db: {
+                            schema: "public"
+                        }
+                    });
+            
+            
+                    (async () => {
+            
+                        const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
+            
+                        console.log(getRequestResponse.data);
+
+                        const data = getRequestResponse.data;
+            
+                        const tableBody = document.querySelector('#risultati tbody'); // Sostituisci con il tuo ID
+                    tableBody.innerHTML = ''; // Pulisce la tabella
+                    data.forEach(data => {
+                        const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                        const row = `
+                            <tr>
+                                <td>${data.MARCA}</td>
+                                <td>${data.TIPO}</td>
+                                <td>${data.PUNTEGGIO}</td>
+                                <td>${data.INSERITO_DA} ${formattedDate}</td>
+                            </tr>`;
+                        tableBody.innerHTML += row;})
+                    })()
+
+
+                    function formatDate(dateString) {
+                        const date = new Date(dateString);
+                        const day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
+                        const month = String(date.getMonth() + 1).padStart(2, '0'); // Ottieni il mese con padding
+                        const year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
+                        return `${day}/${month}/${year}`;
+                    }
+
+                    // https://www.youtube.com/watch?v=71BZvk0Z6jo
+                </script>
 
             </section>
 
@@ -3738,7 +3776,7 @@
                     Tutti i punteggi sono basati su standard nutrizionali veterinari
                     (<a href="https://europeanpetfood.org/_/news/fediaf-announces-updated-2024-nutritional-guidelines"
                         target="_blank">FEDIAF</a>)
-                    e devono essere interpretati come guida generale.
+                    <u>e devono essere interpretati solo come guida generale.</u>
                 </p>
                 <p align="center">
                     Consulta sempre il tuo veterinario di fiducia prima di apportare cambiamenti significativi alla
