@@ -3815,7 +3815,8 @@
                             <th data-column="TIPO" data-order="none">Nome <span class="sort-indicator">⬍</span></th>
                             <th data-column="PUNTEGGIO" data-order="none">🔢 <span class="sort-indicator">⬍</span></th>
                             <th>Valutazione</th>
-                            <th data-column="INSERITO_DA" data-order="none">👤 <span class="sort-indicator">⬍</span></th>
+                            <th data-column="INSERITO_DA" data-order="none">👤 <span class="sort-indicator">⬍</span>
+                            </th>
                             <th data-column="VERIFICATO" data-order="none">✔️ <span class="sort-indicator">⬍</span></th>
                         </tr>
                     </thead>
@@ -3852,7 +3853,7 @@
                             popolaTabella();
                         }, 1000); // 1000 millisecondi = 1 secondo
                         renderTable(currentData);
-                        makeTableSortable('risultati');
+                        // makeTableSortable('risultati');
                     });
 
 
@@ -3913,28 +3914,27 @@
                                         </tr>`;
                             tableBody.innerHTML += row;
                         });
+
+                        // makeTableSortable('risultati');
                     }
 
                     document.querySelectorAll('#risultati th[data-column]').forEach(header => {
                         header.addEventListener('click', function () {
-                            const column = header.dataset.column;
-                            const order = header.dataset.order;
+                            const column = this.dataset.column;  // Ottieni la colonna
+                            const order = this.dataset.order === 'asc' ? 'desc' : 'asc';  // Determina il nuovo ordine
+                            this.dataset.order = order;  // Salva il nuovo ordine nell'attributo data-order
+
+                            // Aggiorna l'indicatore di ordinamento
+                            document.querySelectorAll('.sort-indicator').forEach(indicator => {
+                                indicator.textContent = '⬍';  // Reset di tutti gli indicatori
+                            });
+                            this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
 
                             // Ordina i dati
-                            const sortedData = [...window.tabellaDati].sort((a, b) => {
-                                if (order === "asc") {
-                                    return (a[column] > b[column] ? 1 : -1);
-                                } else {
-                                    return (a[column] < b[column] ? 1 : -1);
-                                }
-                            });
+                            const sortedData = sortData(window.tabellaDati, column, order);
 
-                            // Aggiorna l'ordine per l'intestazione
-                            header.dataset.order = order === "asc" ? "desc" : "asc";
-
-                            // Renderizza nuovamente la tabella
+                            // Rendi di nuovo la tabella visibile con i dati ordinati
                             renderTable(sortedData);
-                            makeTableSortable('risultati');
                         });
                     });
 
@@ -3943,6 +3943,7 @@
                         const tableBody = document.querySelector('#risultati tbody');
                         tableBody.innerHTML = ''; // Pulisce la tabella
 
+                        // Crea una nuova riga per ogni elemento dei dati
                         data.forEach(row => {
                             const formattedDate = formatDate(row.INSERITO_IL);
                             const valutazione = getValutazione(row.PUNTEGGIO);
@@ -3950,59 +3951,55 @@
                             const rowClass = getRowClass(row.VERIFICATO, row.PUNTEGGIO); // Calcola la classe
 
                             const tr = `
-            <tr class="${rowClass}">
-                <td>${row.MARCA}</td>
-                <td>${row.TIPO}</td>
-                <td>${row.PUNTEGGIO}</td>
-                <td>${valutazione}</td>
-                <td>${row.INSERITO_DA} ${formattedDate}</td>
-                <td>${verificato}</td>
-            </tr>`;
+        <tr class="${rowClass}">
+          <td>${row.MARCA}</td>
+          <td>${row.TIPO}</td>
+          <td>${row.PUNTEGGIO}</td>
+          <td>${valutazione}</td>
+          <td>${row.INSERITO_DA} ${formattedDate}</td>
+          <td>${verificato}</td>
+        </tr>`;
                             tableBody.innerHTML += tr;
                         });
                     }
 
-                    document.addEventListener("DOMContentLoaded", function () {
-                        popolaTabella();
-                    });
+                    // function makeTableSortable(tableId) {
+                    //     const table = document.getElementById(tableId);
+                    //     const headers = table.querySelectorAll('th[data-column]');
 
-                    function makeTableSortable(tableId) {
-                        const table = document.getElementById(tableId);
-                        const headers = table.querySelectorAll('th[data-column]');
+                    //     headers.forEach(header => {
+                    //         // Assicurati che ogni colonna abbia un `data-order` iniziale
+                    //         if (!header.hasAttribute('data-order')) {
+                    //             header.setAttribute('data-order', 'none');
+                    //         }
 
-                        headers.forEach(header => {
-                            // Assicurati che ogni colonna abbia un `data-order` iniziale
-                            if (!header.hasAttribute('data-order')) {
-                                header.setAttribute('data-order', 'none');
-                            }
+                    //         header.addEventListener('click', function () {
+                    //             const column = this.getAttribute('data-column');
+                    //             let order = this.getAttribute('data-order');
 
-                            header.addEventListener('click', function () {
-                                const column = this.getAttribute('data-column');
-                                let order = this.getAttribute('data-order');
+                    //             // Determina il prossimo stato di ordinamento
+                    //             if (order === 'none' || order === 'desc') {
+                    //                 order = 'asc';
+                    //             } else {
+                    //                 order = 'desc';
+                    //             }
+                    //             this.setAttribute('data-order', order);
 
-                                // Determina il prossimo stato di ordinamento
-                                if (order === 'none' || order === 'desc') {
-                                    order = 'asc';
-                                } else {
-                                    order = 'desc';
-                                }
-                                this.setAttribute('data-order', order);
+                    //             // Aggiorna le icone di ordinamento
+                    //             headers.forEach(h => h.querySelector('.sort-indicator').textContent = '⬍'); // Reset delle icone
+                    //             this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
 
-                                // Aggiorna le icone di ordinamento
-                                headers.forEach(h => h.querySelector('.sort-indicator').textContent = '⬍'); // Reset delle icone
-                                this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
+                    //             // Ordina i dati
+                    //             const sortedData = sortData(window.tabellaDati, column, order);
 
-                                // Ordina i dati
-                                const sortedData = sortData(window.tabellaDati, column, order);
+                    //             // Renderizza nuovamente la tabella
+                    //             renderTable(sortedData);
 
-                                // Renderizza nuovamente la tabella
-                                renderTable(sortedData);
-
-                                // Salva il nuovo ordine nei dati globali
-                                window.tabellaDati = sortedData;
-                            });
-                        });
-                    }
+                    //             // Salva il nuovo ordine nei dati globali
+                    //             window.tabellaDati = sortedData;
+                    //         });
+                    //     });
+                    // }
 
 
                     // Funzione di ordinamento generica
@@ -4061,6 +4058,8 @@
                         }
                         return 'blank'; // Nessuna classe per righe bianche
                     }
+
+                    popolaTabella();
 
                 </script>
 
