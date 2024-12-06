@@ -3728,24 +3728,25 @@
                     <h3 align="center">Valutazione:<br> <span id="evaluation" style="font-size: 30px;"></span></h3>
                 </div>
 
-                <div id="saveContainer" style="display: none;align-items: center; justify-content: center;padding-top: 50px;">
+                <div id="saveContainer"
+                    style="display: none;align-items: center; justify-content: center;padding-top: 50px;">
                     <p style="text-align: center;">Vuoi salvare il risultato?</p>
-                        <div id="containerCampi" style="align-items: center; justify-content: center;">
-                            <label for="marca">Marca</label>
-                            <input type="text" id="marca" placeholder="Es. Virtus Dog" class="input">
-                        </div>
-                        <div id="containerCampi" style="align-items: center; justify-content: center;">
-                            <label for="nomePappa">Tipo</label>
-                            <input type="text" id="nomePappa" placeholder="Es. Adult Rustic" class="input">
-                        </div>
-                        <div id="containerCampi" style="align-items: center; justify-content: center;">
-                            <label for="inseritoDa">Il tuo nome</label>
-                            <input type="text" id="inseritoDa" placeholder="" class="input">
-                        </div>
-                        <div style="display: flex;align-items: center; justify-content: center;">
-                            <button id="salvaPappa" style="width: 150px;" class="bn30">Salva ☁️</button>
-                        </div>
-                    
+                    <div id="containerCampi" style="align-items: center; justify-content: center;">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" placeholder="Es. Virtus Dog" class="input">
+                    </div>
+                    <div id="containerCampi" style="align-items: center; justify-content: center;">
+                        <label for="nomePappa">Tipo</label>
+                        <input type="text" id="nomePappa" placeholder="Es. Adult Rustic" class="input">
+                    </div>
+                    <div id="containerCampi" style="align-items: center; justify-content: center;">
+                        <label for="inseritoDa">Il tuo nome</label>
+                        <input type="text" id="inseritoDa" placeholder="" class="input">
+                    </div>
+                    <div style="display: flex;align-items: center; justify-content: center;">
+                        <button id="salvaPappa" style="width: 150px;" class="bn30">Salva ☁️</button>
+                    </div>
+
 
                 </div>
 
@@ -3808,6 +3809,12 @@
                 <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
                     composizione delle crocchette, anche dalle persone meno esperte!</p>
 
+                <div id="containerCampi" style="align-items: center; justify-content: center;font-size: small;">
+                    <p>🟢 = Approvato</p>
+                    <p>🟡 = In Attesa</p>
+                    <p>🔴 = Non Approvato</p>
+                </div>
+
                 <table id="risultati">
                     <thead>
                         <tr>
@@ -3816,15 +3823,17 @@
                             <th>🔢</th>
                             <th>👍🏻/👎🏻</th>
                             <th>👤</th>
+                            <th>✔️</th>
                         </tr>
                     </thead>
                     <tbody>
                     </tbody>
                 </table>
 
-                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
+                <script
+                    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
                 <script>
-                     function getClassByScore(score) {
+                    function getClassByScore(score) {
                         if (score > 130) return 'eccellente';
                         if (score >= 115) return 'molto-buono';
                         if (score >= 100) return 'buono';
@@ -3849,6 +3858,13 @@
                         return '💀 Molto scarso';
                     }
 
+                    function getRowClass(verificato, score) {
+                        if (verificato === true) {
+                            return getClassByScore(score); // Usa le classi basate sul punteggio se il cibo è approvato
+                        }
+                        return 'blank'; // Nessuna classe per righe bianche
+                    }
+
 
                     // Crea il client di Supabase
                     const supabasePublicClient = supabase.createClient(
@@ -3859,7 +3875,7 @@
 
                     // Funzione per inserire i dati nella tabella MANGIMI
                     async function inserisciMangime(inserito_da, marca, punteggio, tipo) {
-                        const { data, error } = await supabasePublicClient.rpc('InserisciCrocchetta', {
+                        var { data, error } = await supabasePublicClient.rpc('InserisciCrocchetta', {
                             inserito_da,
                             marca,
                             punteggio,
@@ -3878,48 +3894,91 @@
                         e.preventDefault(); // Previene il comportamento di default (anche se non è un form)
 
                         // Raccogli i dati dai campi
-                        const marca = document.getElementById('marca').value;
-                        const tipo = document.getElementById('nomePappa').value;
-                        const punteggio = parseInt(document.getElementById('totalScore').innerText, 10); // Assicurati che l'input per "punteggio" esista
-                        const inseritoDa = document.getElementById('inseritoDa').value;
+                        var marca = document.getElementById('marca').value;
+                        var tipo = document.getElementById('nomePappa').value;
+                        var punteggio = parseInt(document.getElementById('totalScore').innerText, 10); // Assicurati che l'input per "punteggio" esista
+                        var inseritoDa = document.getElementById('inseritoDa').value;
+
 
                         // Esegui la funzione per inserire i dati
                         inserisciMangime(inseritoDa, marca, punteggio, tipo);
+                        setTimeout(() => {
+                            popolaTabella();
+                        }, 1000); // 1000 millisecondi = 1 secondo
                     });
 
                     // Funzione per formattare la data
                     function formatDate(dateString) {
-                        const date = new Date(dateString);
-                        const day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
-                        const month = String(date.getMonth() + 1).padStart(2, '0'); // Ottieni il mese con padding
-                        const year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
+                        var date = new Date(dateString);
+                        var day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
+                        var month = String(date.getMonth() + 1).padStart(2, '0'); // Ottieni il mese con padding
+                        var year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
                         return `${day}/${month}/${year}`;
                     }
 
-                    // Carica i dati da Supabase e popola la tabella
-                    (async () => {
-                        const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
+                    // // Carica i dati da Supabase e popola la tabella
+                    // (async () => {
+                    //     var getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
 
-                        const data = getRequestResponse.data;
-                        const tableBody = document.querySelector('#risultati tbody');
+                    //     var data = getRequestResponse.data;
+                    //     var tableBody = document.querySelector('#risultati tbody');
+                    //     tableBody.innerHTML = ''; // Pulisce la tabella
+
+                    //     data.forEach(data => {
+                    //         var formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                    //         var scoreClass = getClassByScore(data.PUNTEGGIO); // Ottieni la classe per il punteggio
+                    //         var valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
+                    //         var verificato = data.VERIFICATO == true ? "🟢" : data.VERIFICATO == false ? "🔴" : "🟡"
+                    //         var rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
+
+                    //         var row = `
+                    //             <tr class="${rowClass}">
+                    //                 <td>${data.MARCA}</td>
+                    //                 <td>${data.TIPO}</td>
+                    //                 <td>${data.PUNTEGGIO}</td>
+                    //                 <td>${valutazione}</td>
+                    //                 <td>${data.INSERITO_DA} ${formattedDate}</td>
+                    //                 <td>${verificato}</td>
+                    //             </tr>`;
+                    //         tableBody.innerHTML += row;
+                    //     });
+                    // })();
+
+                    // Funzione per popolare la tabella
+                    async function popolaTabella() {
+                        const supabasePublicClient = supabase.createClient(
+                            "https://awtfgmsrjwkxewhzmwib.supabase.co",
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
+                            { db: { schema: "public" } }
+                        );
+
+                        var getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
+                        var data = getRequestResponse.data;
+                        var tableBody = document.querySelector('#risultati tbody');
                         tableBody.innerHTML = ''; // Pulisce la tabella
 
                         data.forEach(data => {
-                            const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
-                            const scoreClass = getClassByScore(data.PUNTEGGIO); // Ottieni la classe per il punteggio
-                            const valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
+                            var formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                            var rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
+                            var valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
+                            var verificato = data.VERIFICATO == true ? "🟢" : data.VERIFICATO == false ? "🔴" : "🟡";
 
-                            const row = `
-                                <tr class="${scoreClass}">
+                            var row = `
+                                <tr class="${rowClass}">
                                     <td>${data.MARCA}</td>
                                     <td>${data.TIPO}</td>
                                     <td>${data.PUNTEGGIO}</td>
                                     <td>${valutazione}</td>
                                     <td>${data.INSERITO_DA} ${formattedDate}</td>
+                                    <td>${verificato}</td>
                                 </tr>`;
                             tableBody.innerHTML += row;
                         });
-                    })();
+                    }
+
+                    document.addEventListener("DOMContentLoaded", function () {
+                        popolaTabella();
+                    });
                 </script>
 
 
