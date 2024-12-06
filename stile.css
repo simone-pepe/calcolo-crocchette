@@ -737,3 +737,14 @@ table th {
 .risultati{
     font-size: 0.7rem;
 }
+
+th {
+    cursor: pointer;
+    position: relative;
+}
+
+.sort-indicator {
+    font-size: 0.8em;
+    margin-left: 5px;
+    color: #888;
+}

@@ -3705,7 +3705,7 @@
                         </tr>
 
 
-                      
+
                     </tbody>
                 </table>
                 <div id="containerCampi" style="align-items: center; justify-content: center;">
@@ -3799,8 +3799,8 @@
                     altre persone!</p>
                 <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
                     composizione delle crocchette, anche dalle persone meno esperte!</p>
-                    <p>Ogni mangime inserito verrà esaminato e di conseguenza valutato!</p>
-    
+                <p>Ogni mangime inserito verrà esaminato e di conseguenza valutato!</p>
+
 
                 <div id="containerCampi" style="align-items: center; justify-content: center;font-size: small;">
                     <p>🟢 = Approvato</p>
@@ -3811,21 +3811,225 @@
                 <table id="risultati">
                     <thead>
                         <tr>
-                            <th>Marca</th>
-                            <th>Nome</th>
-                            <th>🔢</th>
+                            <th data-column="MARCA" data-order="none">Marca <span class="sort-indicator">⬍</span></th>
+                            <th data-column="TIPO" data-order="none">Nome <span class="sort-indicator">⬍</span></th>
+                            <th data-column="PUNTEGGIO" data-order="none">🔢 <span class="sort-indicator">⬍</span></th>
                             <th>Valutazione</th>
-                            <th>👤</th>
-                            <th>✔️</th>
+                            <th data-column="INSERITO_DA" data-order="none">👤 <span class="sort-indicator">⬍</span></th>
+                            <th data-column="VERIFICATO" data-order="none">✔️ <span class="sort-indicator">⬍</span></th>
                         </tr>
                     </thead>
-                    <tbody>
-                    </tbody>
+                    <tbody></tbody>
                 </table>
 
                 <script
                     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
                 <script>
+
+                    // Crea il client di Supabase
+                    const supabasePublicClient = supabase.createClient(
+                        "https://awtfgmsrjwkxewhzmwib.supabase.co",
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
+                        { db: { schema: "public" } }
+                    );
+
+
+
+                    // Aggiungi l'evento click al pulsante Salva
+                    document.getElementById('salvaPappa').addEventListener('click', function (e) {
+                        e.preventDefault(); // Previene il comportamento di default (anche se non è un form)
+
+                        // Raccogli i dati dai campi
+                        var marca = document.getElementById('marca').value;
+                        var tipo = document.getElementById('nomePappa').value;
+                        var punteggio = parseInt(document.getElementById('totalScore').innerText, 10); // Assicurati che l'input per "punteggio" esista
+                        var inseritoDa = document.getElementById('inseritoDa').value;
+
+
+                        // Esegui la funzione per inserire i dati
+                        inserisciMangime(inseritoDa, marca, punteggio, tipo);
+                        setTimeout(() => {
+                            popolaTabella();
+                        }, 1000); // 1000 millisecondi = 1 secondo
+                        renderTable(currentData);
+                        makeTableSortable('risultati');
+                    });
+
+
+                    // Funzione per inserire i dati nella tabella MANGIMI
+                    async function inserisciMangime(inserito_da, marca, punteggio, tipo) {
+                        var { data, error } = await supabasePublicClient.rpc('InserisciCrocchetta', {
+                            inserito_da,
+                            marca,
+                            punteggio,
+                            tipo
+                        });
+
+                        if (error) {
+                            console.error('Errore durante l\'inserimento:', error);
+                        } else {
+                            console.log('Dati inseriti con successo:', data);
+                        }
+                    }
+
+                    // Funzione per popolare la tabella
+                    async function popolaTabella() {
+                        const supabasePublicClient = supabase.createClient(
+                            "https://awtfgmsrjwkxewhzmwib.supabase.co",
+                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
+                            { db: { schema: "public" } }
+                        );
+
+                        // Query ordinata
+                        const { data, error } = await supabasePublicClient
+                            .from("MANGIMI")
+                            .select("*")
+                            .order("VERIFICATO", { ascending: true }) // Prima quelli non verificati/nulli
+                            .order("PUNTEGGIO", { ascending: false }); // Poi per punteggio decrescente
+
+                        if (error) {
+                            console.error("Errore durante il recupero dei dati:", error);
+                            return;
+                        }
+
+                        const tableBody = document.querySelector('#risultati tbody');
+                        tableBody.innerHTML = ''; // Pulisce la tabella
+                        window.tabellaDati = data;
+                        // Itera sui dati per popolare la tabella
+                        data.forEach(data => {
+                            const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                            const rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
+                            const valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
+                            const verificato = data.VERIFICATO === true ? "🟢" : data.VERIFICATO === false ? "🔴" : "🟡";
+
+                            const row = `
+                                        <tr class="${rowClass}">
+                                            <td>${data.MARCA}</td>
+                                            <td>${data.TIPO}</td>
+                                            <td>${data.PUNTEGGIO}</td>
+                                            <td>${valutazione}</td>
+                                            <td>${data.INSERITO_DA} ${formattedDate}</td>
+                                            <td>${verificato}</td>
+                                        </tr>`;
+                            tableBody.innerHTML += row;
+                        });
+                    }
+
+                    document.querySelectorAll('#risultati th[data-column]').forEach(header => {
+                        header.addEventListener('click', function () {
+                            const column = header.dataset.column;
+                            const order = header.dataset.order;
+
+                            // Ordina i dati
+                            const sortedData = [...window.tabellaDati].sort((a, b) => {
+                                if (order === "asc") {
+                                    return (a[column] > b[column] ? 1 : -1);
+                                } else {
+                                    return (a[column] < b[column] ? 1 : -1);
+                                }
+                            });
+
+                            // Aggiorna l'ordine per l'intestazione
+                            header.dataset.order = order === "asc" ? "desc" : "asc";
+
+                            // Renderizza nuovamente la tabella
+                            renderTable(sortedData);
+                            makeTableSortable('risultati');
+                        });
+                    });
+
+
+                    function renderTable(data) {
+                        const tableBody = document.querySelector('#risultati tbody');
+                        tableBody.innerHTML = ''; // Pulisce la tabella
+
+                        data.forEach(row => {
+                            const formattedDate = formatDate(row.INSERITO_IL);
+                            const valutazione = getValutazione(row.PUNTEGGIO);
+                            const verificato = row.VERIFICATO === true ? "🟢" : row.VERIFICATO === false ? "🔴" : "🟡";
+                            const rowClass = getRowClass(row.VERIFICATO, row.PUNTEGGIO); // Calcola la classe
+
+                            const tr = `
+            <tr class="${rowClass}">
+                <td>${row.MARCA}</td>
+                <td>${row.TIPO}</td>
+                <td>${row.PUNTEGGIO}</td>
+                <td>${valutazione}</td>
+                <td>${row.INSERITO_DA} ${formattedDate}</td>
+                <td>${verificato}</td>
+            </tr>`;
+                            tableBody.innerHTML += tr;
+                        });
+                    }
+
+                    document.addEventListener("DOMContentLoaded", function () {
+                        popolaTabella();
+                    });
+
+                    function makeTableSortable(tableId) {
+                        const table = document.getElementById(tableId);
+                        const headers = table.querySelectorAll('th[data-column]');
+
+                        headers.forEach(header => {
+                            // Assicurati che ogni colonna abbia un `data-order` iniziale
+                            if (!header.hasAttribute('data-order')) {
+                                header.setAttribute('data-order', 'none');
+                            }
+
+                            header.addEventListener('click', function () {
+                                const column = this.getAttribute('data-column');
+                                let order = this.getAttribute('data-order');
+
+                                // Determina il prossimo stato di ordinamento
+                                if (order === 'none' || order === 'desc') {
+                                    order = 'asc';
+                                } else {
+                                    order = 'desc';
+                                }
+                                this.setAttribute('data-order', order);
+
+                                // Aggiorna le icone di ordinamento
+                                headers.forEach(h => h.querySelector('.sort-indicator').textContent = '⬍'); // Reset delle icone
+                                this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
+
+                                // Ordina i dati
+                                const sortedData = sortData(window.tabellaDati, column, order);
+
+                                // Renderizza nuovamente la tabella
+                                renderTable(sortedData);
+
+                                // Salva il nuovo ordine nei dati globali
+                                window.tabellaDati = sortedData;
+                            });
+                        });
+                    }
+
+
+                    // Funzione di ordinamento generica
+                    function sortData(data, column, order) {
+                        return [...data].sort((a, b) => {
+                            if (a[column] === null) return 1; // Tratta i valori nulli come inferiori
+                            if (b[column] === null) return -1;
+
+                            if (order === 'asc') {
+                                return a[column] > b[column] ? 1 : -1;
+                            } else {
+                                return a[column] < b[column] ? 1 : -1;
+                            }
+                        });
+                    }
+
+
+                    // Funzione per formattare la data
+                    function formatDate(dateString) {
+                        var date = new Date(dateString);
+                        var day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
+                        var month = String(date.getMonth() + 1).padStart(2, '0'); // Ottieni il mese con padding
+                        var year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
+                        return `${day}/${month}/${year}`;
+                    }
+
+
                     function getClassByScore(score) {
                         if (score > 130) return 'eccellente';
                         if (score >= 115) return 'molto-buono';
@@ -3858,92 +4062,6 @@
                         return 'blank'; // Nessuna classe per righe bianche
                     }
 
-
-                    // Crea il client di Supabase
-                    const supabasePublicClient = supabase.createClient(
-                        "https://awtfgmsrjwkxewhzmwib.supabase.co",
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
-                        { db: { schema: "public" } }
-                    );
-
-                    // Funzione per inserire i dati nella tabella MANGIMI
-                    async function inserisciMangime(inserito_da, marca, punteggio, tipo) {
-                        var { data, error } = await supabasePublicClient.rpc('InserisciCrocchetta', {
-                            inserito_da,
-                            marca,
-                            punteggio,
-                            tipo
-                        });
-
-                        if (error) {
-                            console.error('Errore durante l\'inserimento:', error);
-                        } else {
-                            console.log('Dati inseriti con successo:', data);
-                        }
-                    }
-
-                    // Aggiungi l'evento click al pulsante Salva
-                    document.getElementById('salvaPappa').addEventListener('click', function (e) {
-                        e.preventDefault(); // Previene il comportamento di default (anche se non è un form)
-
-                        // Raccogli i dati dai campi
-                        var marca = document.getElementById('marca').value;
-                        var tipo = document.getElementById('nomePappa').value;
-                        var punteggio = parseInt(document.getElementById('totalScore').innerText, 10); // Assicurati che l'input per "punteggio" esista
-                        var inseritoDa = document.getElementById('inseritoDa').value;
-
-
-                        // Esegui la funzione per inserire i dati
-                        inserisciMangime(inseritoDa, marca, punteggio, tipo);
-                        setTimeout(() => {
-                            popolaTabella();
-                        }, 1000); // 1000 millisecondi = 1 secondo
-                    });
-
-                    // Funzione per formattare la data
-                    function formatDate(dateString) {
-                        var date = new Date(dateString);
-                        var day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
-                        var month = String(date.getMonth() + 1).padStart(2, '0'); // Ottieni il mese con padding
-                        var year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
-                        return `${day}/${month}/${year}`;
-                    }
-
-                    // Funzione per popolare la tabella
-                    async function popolaTabella() {
-                        const supabasePublicClient = supabase.createClient(
-                            "https://awtfgmsrjwkxewhzmwib.supabase.co",
-                            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
-                            { db: { schema: "public" } }
-                        );
-
-                        var getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
-                        var data = getRequestResponse.data;
-                        var tableBody = document.querySelector('#risultati tbody');
-                        tableBody.innerHTML = ''; // Pulisce la tabella
-
-                        data.forEach(data => {
-                            var formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
-                            var rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
-                            var valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
-                            var verificato = data.VERIFICATO == true ? "🟢" : data.VERIFICATO == false ? "🔴" : "🟡";
-
-                            var row = `
-                                <tr class="${rowClass}">
-                                    <td>${data.MARCA}</td>
-                                    <td>${data.TIPO}</td>
-                                    <td>${data.PUNTEGGIO}</td>
-                                    <td>${valutazione}</td>
-                                    <td>${data.INSERITO_DA} ${formattedDate}</td>
-                                    <td>${verificato}</td>
-                                </tr>`;
-                            tableBody.innerHTML += row;
-                        });
-                    }
-
-                    document.addEventListener("DOMContentLoaded", function () {
-                        popolaTabella();
-                    });
                 </script>
 
 
