@@ -591,8 +591,13 @@ table th {
 
     table th,
     table td {
-        font-size: 1rem;
+        font-size: 0.85rem;
         padding: 6px;
+    }
+
+    #risultati th,
+    #risultati td {
+        font-size: 0.7rem;
     }
 
     .parametri-valutazione h2,
@@ -717,3 +722,7 @@ table th {
 .scarso { background-color: #FF4C4C; color: white; }
 .molto-scarso { background-color: #FF0000; color: white; }
 .blank { background-color: #ffffff; color: black; }
+
+.risultati{
+    font-size: 0.7rem;
+}

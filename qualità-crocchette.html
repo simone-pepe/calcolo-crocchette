@@ -3762,11 +3762,11 @@
                         <tbody>
                             <tr>
                                 <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>💯🟩🟩🟩🟩 <b>Eccellente</b></td>
+                                <td>⭐ <b>Eccellente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
-                                <td>👍🏻🟩🟩🟩 <b>Molto buono</b></td>
+                                <td>💯 <b>Molto buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #D3FFBD;">100 - 114</span></td>
@@ -3778,7 +3778,7 @@
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>👎🏻🟥 <b>Sufficiente</b></td>
+                                <td>👎🏻🟥🟥🟥🟥 <b>Sufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFA500;">56 - 69</span></td>
@@ -3808,6 +3808,8 @@
                     altre persone!</p>
                 <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
                     composizione delle crocchette, anche dalle persone meno esperte!</p>
+                    <p>Ogni mangime inserito verrà esaminato e di conseguenza valutato!</p>
+    
 
                 <div id="containerCampi" style="align-items: center; justify-content: center;font-size: small;">
                     <p>🟢 = Approvato</p>
@@ -3847,15 +3849,15 @@
 
                     // Funzione per ottenere la valutazione in base al punteggio
                     function getValutazione(score) {
-                        if (score > 130) return '💯 Eccellente';
-                        if (score >= 115) return '👍🏻 Molto buono';
-                        if (score >= 100) return '👍🏻 Buono';
-                        if (score >= 85) return '🫤 Discreto';
-                        if (score >= 70) return '👎🏻 Sufficiente';
-                        if (score >= 56) return '👎🏻 Mediocre';
-                        if (score >= 40) return '👎🏻 Insufficiente';
-                        if (score >= 20) return '👎🏻 Scarso';
-                        return '💀 Molto scarso';
+                        if (score > 130) return '⭐';
+                        if (score >= 115) return '💯';
+                        if (score >= 100) return '👍🏻🟩🟩';
+                        if (score >= 85) return '🫤🟧';
+                        if (score >= 70) return '👎🏻🟥';
+                        if (score >= 56) return '👎🏻🟥🟥';
+                        if (score >= 40) return '👎🏻🟥🟥🟥';
+                        if (score >= 20) return '👎🏻🟥🟥🟥🟥';
+                        return '💀🟥🟥🟥🟥🟥';
                     }
 
                     function getRowClass(verificato, score) {
