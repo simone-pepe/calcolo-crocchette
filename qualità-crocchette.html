@@ -3762,39 +3762,39 @@
                         <tbody>
                             <tr>
                                 <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>👍🏻🟩🟩🟩🟩<b>Eccellente</b></td>
+                                <td>🟩🟩🟩🟩<b>Eccellente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
-                                <td>👍🏻🟩🟩🟩<b>Molto buono</b></td>
+                                <td>🟩🟩🟩<b>Molto buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #D3FFBD;">100 - 114</span></td>
-                                <td>👍🏻🟩🟩 <b>Buono</b></td>
+                                <td>🟩🟩 <b>Buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF99;">85 - 99</span></td>
-                                <td>🫤🟧 <b>Discreto</b></td>
+                                <td>🟧 <b>Discreto</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>👎🏻🟥 <b>Sufficiente</b></td>
+                                <td>🟥 <b>Sufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFA500;">56 - 69</span></td>
-                                <td>👎🏻🟥🟥 <b>Mediocre</b></td>
+                                <td>🟥🟥 <b>Mediocre</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF7F3F;">40 - 54</span></td>
-                                <td>👎🏻🟥🟥🟥 <b>Insufficiente</b></td>
+                                <td>🟥🟥🟥 <b>Insufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF4C4C;">20 - 39</span></td>
-                                <td>👎🏻🟥🟥🟥🟥 <b>Scarso</b></td>
+                                <td>🟥🟥🟥🟥 <b>Scarso</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF0000;">&lt; 20</span></td>
-                                <td>💀🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
+                                <td>🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
                             </tr>
                         </tbody>
                     </table>
@@ -3849,15 +3849,15 @@
 
                     // Funzione per ottenere la valutazione in base al punteggio
                     function getValutazione(score) {
-                        if (score > 130) return '👍🏻🟩🟩🟩🟩';
-                        if (score >= 115) return '👍🏻🟩🟩🟩';
-                        if (score >= 100) return '👍🏻🟩🟩';
-                        if (score >= 85) return '🫤🟧';
-                        if (score >= 70) return '👎🏻🟥';
-                        if (score >= 56) return '👎🏻🟥🟥';
-                        if (score >= 40) return '👎🏻🟥🟥🟥';
-                        if (score >= 20) return '👎🏻🟥🟥🟥🟥';
-                        return '💀🟥🟥🟥🟥🟥';
+                        if (score > 130) return '🟩🟩🟩🟩';
+                        if (score >= 115) return '🟩🟩🟩';
+                        if (score >= 100) return '🟩🟩';
+                        if (score >= 85) return '🟧';
+                        if (score >= 70) return '🟥';
+                        if (score >= 56) return '🟥🟥';
+                        if (score >= 40) return '🟥🟥🟥';
+                        if (score >= 20) return '🟥🟥🟥🟥';
+                        return '🟥🟥🟥🟥🟥';
                     }
 
                     function getRowClass(verificato, score) {
