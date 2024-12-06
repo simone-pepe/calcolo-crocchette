@@ -597,7 +597,11 @@ table th {
 
     #risultati th,
     #risultati td {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+    }
+
+    #risultati td:nth-child(4) {
+        font-size: 0.4rem;
     }
 
     .parametri-valutazione h2,
