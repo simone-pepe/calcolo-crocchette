@@ -544,8 +544,9 @@ table {
     border-collapse: collapse;
     margin: 50px 0;
     font-family: "Montserrat";
-    border-radius: 15px;
+    border-radius: 12px;
     /* font-size: 1rem; */
+    overflow: hidden;
 }
 
 table td:first-child {
@@ -575,7 +576,9 @@ table th {
     color: rgb(0, 0, 0);
 }
 
-
+#risultati td:last-child {
+    text-align: center;
+}
 
 .note-importanti p {
     margin: 15px 0;
@@ -602,6 +605,10 @@ table th {
 
     #risultati td:nth-child(4) {
         font-size: 0.4rem;
+    }
+
+    #risultati td:last-child {
+        text-align: center;
     }
 
     .parametri-valutazione h2,

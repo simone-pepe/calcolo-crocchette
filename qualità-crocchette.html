@@ -3512,15 +3512,8 @@
                                             // Verifica se i valori sono numeri validi e se Omega 6 non è zero
                                             if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
                                                 let risultato;
-
-                                                // Se Omega 3 è maggiore di Omega 6, inverte il calcolo
-                                                if (num1 > num2) {
-                                                    risultato = (num2 / num1).toFixed(2); // Rapporto Omega 6/Omega 3
-                                                    document.getElementById('resO3O6').textContent = `${risultato}:1`;
-                                                } else {
-                                                    risultato = (num1 / num2).toFixed(2); // Rapporto Omega 6/Omega 3
-                                                    document.getElementById('resO3O6').textContent = `${risultato}:1`;
-                                                }
+                                                risultato = (num1 / num2).toFixed(0); // Rapporto Omega 6/Omega 3
+                                                document.getElementById('resO3O6').textContent = `${risultato}:1`;
 
                                             } else if (num2 === 0) {
                                                 document.getElementById('resO3O6').textContent = "Errore: Omega 6 non può essere zero";
@@ -3712,9 +3705,7 @@
                         </tr>
 
 
-                        <tr>
-                            <td colspan="4" height="20"></td>
-                        </tr>
+                      
                     </tbody>
                 </table>
                 <div id="containerCampi" style="align-items: center; justify-content: center;">
@@ -3762,27 +3753,27 @@
                         <tbody>
                             <tr>
                                 <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>🟩🟩🟩🟩<b>Eccellente</b></td>
+                                <td>🟩🟩🟩🟩🟩<b>Eccellente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
-                                <td>🟩🟩🟩<b>Molto buono</b></td>
+                                <td>🟩🟩🟩🟩<b>Molto buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #D3FFBD;">100 - 114</span></td>
-                                <td>🟩🟩 <b>Buono</b></td>
+                                <td>🟩🟩🟩 <b>Buono</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF99;">85 - 99</span></td>
-                                <td>🟧 <b>Discreto</b></td>
+                                <td>🟨🟨<b>Discreto</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>🟥 <b>Sufficiente</b></td>
+                                <td>🟨<b>Sufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFA500;">56 - 69</span></td>
-                                <td>🟥🟥 <b>Mediocre</b></td>
+                                <td>🟧🟧 <b>Mediocre</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF7F3F;">40 - 54</span></td>
@@ -3849,12 +3840,12 @@
 
                     // Funzione per ottenere la valutazione in base al punteggio
                     function getValutazione(score) {
-                        if (score > 130) return '🟩🟩🟩🟩';
-                        if (score >= 115) return '🟩🟩🟩';
-                        if (score >= 100) return '🟩🟩';
-                        if (score >= 85) return '🟧';
-                        if (score >= 70) return '🟥';
-                        if (score >= 56) return '🟥🟥';
+                        if (score > 130) return '🟩🟩🟩🟩🟩';
+                        if (score >= 115) return '🟩🟩🟩🟩';
+                        if (score >= 100) return '🟩🟩🟩';
+                        if (score >= 85) return '🟨🟨';
+                        if (score >= 70) return '🟨';
+                        if (score >= 56) return '🟧🟧';
                         if (score >= 40) return '🟥🟥🟥';
                         if (score >= 20) return '🟥🟥🟥🟥';
                         return '🟥🟥🟥🟥🟥';
@@ -3917,34 +3908,6 @@
                         var year = String(date.getFullYear()).slice(-2); // Ottieni solo gli ultimi due cifre dell'anno
                         return `${day}/${month}/${year}`;
                     }
-
-                    // // Carica i dati da Supabase e popola la tabella
-                    // (async () => {
-                    //     var getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
-
-                    //     var data = getRequestResponse.data;
-                    //     var tableBody = document.querySelector('#risultati tbody');
-                    //     tableBody.innerHTML = ''; // Pulisce la tabella
-
-                    //     data.forEach(data => {
-                    //         var formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
-                    //         var scoreClass = getClassByScore(data.PUNTEGGIO); // Ottieni la classe per il punteggio
-                    //         var valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
-                    //         var verificato = data.VERIFICATO == true ? "🟢" : data.VERIFICATO == false ? "🔴" : "🟡"
-                    //         var rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
-
-                    //         var row = `
-                    //             <tr class="${rowClass}">
-                    //                 <td>${data.MARCA}</td>
-                    //                 <td>${data.TIPO}</td>
-                    //                 <td>${data.PUNTEGGIO}</td>
-                    //                 <td>${valutazione}</td>
-                    //                 <td>${data.INSERITO_DA} ${formattedDate}</td>
-                    //                 <td>${verificato}</td>
-                    //             </tr>`;
-                    //         tableBody.innerHTML += row;
-                    //     });
-                    // })();
 
                     // Funzione per popolare la tabella
                     async function popolaTabella() {
