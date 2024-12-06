@@ -3811,13 +3811,21 @@
                 <table id="risultati">
                     <thead>
                         <tr>
-                            <th data-column="MARCA" data-order="none">Marca <span class="sort-indicator">⬍</span></th>
-                            <th data-column="TIPO" data-order="none">Nome <span class="sort-indicator">⬍</span></th>
-                            <th data-column="PUNTEGGIO" data-order="none">🔢 <span class="sort-indicator">⬍</span></th>
+                            <th data-column="MARCA" data-order="none">Marca</th>
+                            <th data-column="TIPO" data-order="none">Nome</th>
+                            <th data-column="PUNTEGGIO" data-order="none">🔢</th>
                             <th>Valutazione</th>
-                            <th data-column="INSERITO_DA" data-order="none">👤 <span class="sort-indicator">⬍</span>
+                            <th data-column="INSERITO_DA" data-order="none">👤</th>
+                            <th data-column="VERIFICATO" data-order="none">✔️</th>
+                        </tr>
+                        <tr>
+                            <th data-column="MARCA" data-order="none"><span class="sort-indicator">⬍</span></th>
+                            <th data-column="TIPO" data-order="none"><span class="sort-indicator">⬍</span></th>
+                            <th data-column="PUNTEGGIO" data-order="none"><span class="sort-indicator">⬍</span></th>
+                            <th></th>
+                            <th data-column="INSERITO_DA" data-order="none"><span class="sort-indicator">⬍</span>
                             </th>
-                            <th data-column="VERIFICATO" data-order="none">✔️ <span class="sort-indicator">⬍</span></th>
+                            <th data-column="VERIFICATO" data-order="none"><span class="sort-indicator">⬍</span></th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -3926,7 +3934,7 @@
 
                             // Aggiorna l'indicatore di ordinamento
                             document.querySelectorAll('.sort-indicator').forEach(indicator => {
-                                indicator.textContent = '⬍';  // Reset di tutti gli indicatori
+                                indicator.textContent = '↕️';  // Reset di tutti gli indicatori
                             });
                             this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
 
