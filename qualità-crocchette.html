@@ -3372,11 +3372,11 @@
                                             // Ottieni i valori dai campi input
                                             let num1 = document.getElementById('inputCalcio').value;
                                             let num2 = document.getElementById('inputFosforo').value;
-                                    
+
                                             // Convertili in numeri (se non lo sono già)
                                             num1 = parseFloat(num1);
                                             num2 = parseFloat(num2);
-                                    
+
                                             // Verifica se i valori sono numeri validi
                                             if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
                                                 let risultato = num1 / num2;
@@ -3504,15 +3504,15 @@
                                             // Ottieni i valori dai campi input
                                             let num1 = document.getElementById('inputO6').value; // Omega 6
                                             let num2 = document.getElementById('inputO3').value; // Omega 3
-                                    
+
                                             // Convertili in numeri (se non lo sono già)
                                             num1 = parseFloat(num1);
                                             num2 = parseFloat(num2);
-                                    
+
                                             // Verifica se i valori sono numeri validi e se Omega 6 non è zero
                                             if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
                                                 let risultato;
-                                                
+
                                                 // Se Omega 3 è maggiore di Omega 6, inverte il calcolo
                                                 if (num1 > num2) {
                                                     risultato = (num2 / num1).toFixed(2); // Rapporto Omega 6/Omega 3
@@ -3521,7 +3521,7 @@
                                                     risultato = (num1 / num2).toFixed(2); // Rapporto Omega 6/Omega 3
                                                     document.getElementById('resO3O6').textContent = `${risultato}:1`;
                                                 }
-                                    
+
                                             } else if (num2 === 0) {
                                                 document.getElementById('resO3O6').textContent = "Errore: Omega 6 non può essere zero";
                                             } else {
@@ -3529,7 +3529,7 @@
                                             }
                                         }
                                     </script>
-                                    
+
                                 </div>
                             </td>
                         </tr>
@@ -3728,6 +3728,27 @@
                     <h3 align="center">Valutazione:<br> <span id="evaluation" style="font-size: 30px;"></span></h3>
                 </div>
 
+                <div id="saveContainer" style="display: none;align-items: center; justify-content: center;padding-top: 50px;">
+                    <p style="text-align: center;">Vuoi salvare il risultato?</p>
+                        <div id="containerCampi" style="align-items: center; justify-content: center;">
+                            <label for="marca">Marca</label>
+                            <input type="text" id="marca" placeholder="Es. Virtus Dog" class="input">
+                        </div>
+                        <div id="containerCampi" style="align-items: center; justify-content: center;">
+                            <label for="nomePappa">Tipo</label>
+                            <input type="text" id="nomePappa" placeholder="Es. Adult Rustic" class="input">
+                        </div>
+                        <div id="containerCampi" style="align-items: center; justify-content: center;">
+                            <label for="inseritoDa">Il tuo nome</label>
+                            <input type="text" id="inseritoDa" placeholder="" class="input">
+                        </div>
+                        <div style="display: flex;align-items: center; justify-content: center;">
+                            <button id="salvaPappa" style="width: 150px;" class="bn30">Salva ☁️</button>
+                        </div>
+                    
+
+                </div>
+
                 <br><br>
                 <div style="justify-content: center;align-items: center;display: flex;">
                     <table border="1" style="max-width: 500px;">
@@ -3739,43 +3760,44 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span style="color: #FF0000;">&lt; 20</span></td>
-                                <td>💀🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #FF4C4C;">20 - 39</span></td>
-                                <td>👎🏻🟥🟥🟥🟥 <b>Scarso</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #FF7F3F;">40 - 54</span></td>
-                                <td>👎🏻🟥🟥🟥 <b>Insufficiente</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #FFA500;">56 - 69</span></td>
-                                <td>👎🏻🟥🟥 <b>Mediocre</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>👎🏻🟥 <b>Sufficiente</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #FFFF99;">85 - 99</span></td>
-                                <td>🫤🟧 <b>Discreto</b></td>
-                            </tr>
-                            <tr>
-                                <td><span style="color: #D3FFBD;">100 - 114</span></td>
-                                <td>👍🏻🟩🟩 <b>Buono</b></td>
+                                <td><span style="color: #008000;">&gt; 130</span></td>
+                                <td>💯🟩🟩🟩🟩 <b>Eccellente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
                                 <td>👍🏻🟩🟩🟩 <b>Molto buono</b></td>
                             </tr>
                             <tr>
-                                <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>💯🟩🟩🟩🟩 <b>Eccellente</b></td>
+                                <td><span style="color: #D3FFBD;">100 - 114</span></td>
+                                <td>👍🏻🟩🟩 <b>Buono</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FFFF99;">85 - 99</span></td>
+                                <td>🫤🟧 <b>Discreto</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FFFF00;">70 - 84</span></td>
+                                <td>👎🏻🟥 <b>Sufficiente</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FFA500;">56 - 69</span></td>
+                                <td>👎🏻🟥🟥 <b>Mediocre</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FF7F3F;">40 - 54</span></td>
+                                <td>👎🏻🟥🟥🟥 <b>Insufficiente</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FF4C4C;">20 - 39</span></td>
+                                <td>👎🏻🟥🟥🟥🟥 <b>Scarso</b></td>
+                            </tr>
+                            <tr>
+                                <td><span style="color: #FF0000;">&lt; 20</span></td>
+                                <td>💀🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
                             </tr>
                         </tbody>
-                    </table><br><br>
+                    </table>
+                    <br><br>
 
 
                 </div>
@@ -3799,41 +3821,46 @@
                     </tbody>
                 </table>
 
-                <script
-                    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
                 <script>
+                    // Crea il client di Supabase
+                    const supabasePublicClient = supabase.createClient(
+                        "https://awtfgmsrjwkxewhzmwib.supabase.co",
+                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM",
+                        { db: { schema: "public" } }
+                    );
 
-                    const supabasePublicClient = supabase.createClient("https://awtfgmsrjwkxewhzmwib.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM", {
-                        db: {
-                            schema: "public"
+                    // Funzione per inserire i dati nella tabella MANGIMI
+                    async function inserisciMangime(inserito_da, marca, punteggio, tipo) {
+                        const { data, error } = await supabasePublicClient.rpc('InserisciCrocchetta', {
+                            inserito_da,
+                            marca,
+                            punteggio,
+                            tipo
+                        });
+
+                        if (error) {
+                            console.error('Errore durante l\'inserimento:', error);
+                        } else {
+                            console.log('Dati inseriti con successo:', data);
                         }
+                    }
+
+                    // Aggiungi l'evento click al pulsante Salva
+                    document.getElementById('salvaPappa').addEventListener('click', function (e) {
+                        e.preventDefault(); // Previene il comportamento di default (anche se non è un form)
+
+                        // Raccogli i dati dai campi
+                        const marca = document.getElementById('marca').value;
+                        const tipo = document.getElementById('nomePappa').value;
+                        const punteggio = parseInt(document.getElementById('totalScore').innerText, 10); // Assicurati che l'input per "punteggio" esista
+                        const inseritoDa = document.getElementById('inseritoDa').value;
+
+                        // Esegui la funzione per inserire i dati
+                        inserisciMangime(inseritoDa, marca, punteggio, tipo);
                     });
 
-
-                    (async () => {
-
-                        const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
-
-                        console.log(getRequestResponse.data);
-
-                        const data = getRequestResponse.data;
-
-                        const tableBody = document.querySelector('#risultati tbody'); // Sostituisci con il tuo ID
-                        tableBody.innerHTML = ''; // Pulisce la tabella
-                        data.forEach(data => {
-                            const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
-                            const row = `
-                            <tr>
-                                <td>${data.MARCA}</td>
-                                <td>${data.TIPO}</td>
-                                <td>${data.PUNTEGGIO}</td>
-                                <td>${data.INSERITO_DA} ${formattedDate}</td>
-                            </tr>`;
-                            tableBody.innerHTML += row;
-                        })
-                    })()
-
-
+                    // Funzione per formattare la data
                     function formatDate(dateString) {
                         const date = new Date(dateString);
                         const day = String(date.getDate()).padStart(2, '0'); // Ottieni il giorno con padding
@@ -3842,8 +3869,28 @@
                         return `${day}/${month}/${year}`;
                     }
 
-                    // https://www.youtube.com/watch?v=71BZvk0Z6jo
+                    // Carica i dati da Supabase e popola la tabella
+                    (async () => {
+                        const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
+
+                        const data = getRequestResponse.data;
+                        const tableBody = document.querySelector('#risultati tbody');
+                        tableBody.innerHTML = ''; // Pulisce la tabella
+
+                        data.forEach(data => {
+                            const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                            const row = `
+                                <tr>
+                                    <td>${data.MARCA}</td>
+                                    <td>${data.TIPO}</td>
+                                    <td>${data.PUNTEGGIO}</td>
+                                    <td>${data.INSERITO_DA} ${formattedDate}</td>
+                                </tr>`;
+                            tableBody.innerHTML += row;
+                        });
+                    })();
                 </script>
+
 
             </section>
 

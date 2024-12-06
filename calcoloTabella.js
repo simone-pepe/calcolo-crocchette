@@ -48,6 +48,7 @@ function updateTotalScore() {
   // Mostra il punteggio totale
   document.getElementById("totalScore").textContent = totalScore;
   document.getElementById("totalScoreContainer").style.display = "block"; // Mostra il punteggio
+  document.getElementById("saveContainer").style.display = "block";
 
   // Rende visibile il pulsante "Azzera"
   document.getElementById("azzeraBtn").style.display = "inline-block";
@@ -64,6 +65,7 @@ function resetTotalScore() {
 
   // Nasconde il punteggio e il pulsante "Azzera"
   document.getElementById("totalScoreContainer").style.display = "none";
+  document.getElementById("saveContainer").style.display = "none";
   document.getElementById("azzeraBtn").style.display = "none";
 
   // Deseleziona tutte le checkbox
