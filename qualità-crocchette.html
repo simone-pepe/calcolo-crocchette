@@ -3709,7 +3709,7 @@
                     </tbody>
                 </table>
                 <div id="containerCampi" style="align-items: center; justify-content: center;">
-                    <button id="calcolaBtn" class="bn30" style="width: 150px;">Calcola 💭</button>
+                    <button id="calcolaBtn" class="bn30" style="width: 150px;">Verifica 🔎</button>
                     <button id="azzeraBtn" style="display: none;width: 150px;" class="bn30">Azzera 🔄️</button>
                 </div>
 
@@ -3794,20 +3794,6 @@
 
                 </div>
 
-                <h1>⚒️In Sviluppo⚒️</h1>
-                <p>Una nuova sezione è in sviluppo, per permettere sia di salvare che di leggere le marche inserite da
-                    altre persone!</p>
-                <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
-                    composizione delle crocchette, anche dalle persone meno esperte!</p>
-                <p>Ogni mangime inserito verrà esaminato e di conseguenza valutato!</p>
-
-
-                <div id="containerCampi" style="align-items: center; justify-content: center;font-size: small;">
-                    <p>🟢 = Approvato</p>
-                    <p>🟡 = In Attesa</p>
-                    <p>🔴 = Non Approvato</p>
-                </div>
-
                 <table id="risultati">
                     <thead>
                         <tr>
@@ -3830,6 +3816,19 @@
                     </thead>
                     <tbody></tbody>
                 </table>
+
+                <div id="containerCampi" style="align-items: center; justify-content: center;font-size: small;">
+                    <p>🟢 = Approvato</p>
+                    <p>🟡 = In Attesa</p>
+                    <p>🕒 = Revisione</p>
+                </div>
+
+                <h1>⚒️In Sviluppo⚒️</h1>
+                <p>Questa sezione è in sviluppo, per permettere sia di salvare che di leggere le marche inserite da
+                    altre persone!</p>
+                <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
+                    composizione delle crocchette, anche dalle persone meno esperte!</p>
+                <p>Ogni mangime inserito verrà esaminato e di conseguenza valutato</p>
 
                 <script
                     src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
@@ -3859,9 +3858,9 @@
                         inserisciMangime(inseritoDa, marca, punteggio, tipo);
                         setTimeout(() => {
                             popolaTabella();
-                        }, 1000); // 1000 millisecondi = 1 secondo
+                        }, 1000); 
                         renderTable(currentData);
-                        // makeTableSortable('risultati');
+                      
                     });
 
 
@@ -3889,7 +3888,6 @@
                             { db: { schema: "public" } }
                         );
 
-                        // Query ordinata
                         const { data, error } = await supabasePublicClient
                             .from("MANGIMI")
                             .select("*")
@@ -3922,8 +3920,6 @@
                                         </tr>`;
                             tableBody.innerHTML += row;
                         });
-
-                        // makeTableSortable('risultati');
                     }
 
                     document.querySelectorAll('#risultati th[data-column]').forEach(header => {
@@ -3958,57 +3954,17 @@
                             const verificato = row.VERIFICATO === true ? "🟢" : row.VERIFICATO === false ? "🔴" : "🟡";
                             const rowClass = getRowClass(row.VERIFICATO, row.PUNTEGGIO); // Calcola la classe
 
-                            const tr = `
-        <tr class="${rowClass}">
-          <td>${row.MARCA}</td>
-          <td>${row.TIPO}</td>
-          <td>${row.PUNTEGGIO}</td>
-          <td>${valutazione}</td>
-          <td>${row.INSERITO_DA} ${formattedDate}</td>
-          <td>${verificato}</td>
-        </tr>`;
+                            const tr = `<tr class="${rowClass}">
+                                            <td>${row.MARCA}</td>
+                                            <td>${row.TIPO}</td>
+                                            <td>${row.PUNTEGGIO}</td>
+                                            <td>${valutazione}</td>
+                                            <td>${row.INSERITO_DA} ${formattedDate}</td>
+                                            <td>${verificato}</td>
+                                        </tr>`;
                             tableBody.innerHTML += tr;
                         });
                     }
-
-                    // function makeTableSortable(tableId) {
-                    //     const table = document.getElementById(tableId);
-                    //     const headers = table.querySelectorAll('th[data-column]');
-
-                    //     headers.forEach(header => {
-                    //         // Assicurati che ogni colonna abbia un `data-order` iniziale
-                    //         if (!header.hasAttribute('data-order')) {
-                    //             header.setAttribute('data-order', 'none');
-                    //         }
-
-                    //         header.addEventListener('click', function () {
-                    //             const column = this.getAttribute('data-column');
-                    //             let order = this.getAttribute('data-order');
-
-                    //             // Determina il prossimo stato di ordinamento
-                    //             if (order === 'none' || order === 'desc') {
-                    //                 order = 'asc';
-                    //             } else {
-                    //                 order = 'desc';
-                    //             }
-                    //             this.setAttribute('data-order', order);
-
-                    //             // Aggiorna le icone di ordinamento
-                    //             headers.forEach(h => h.querySelector('.sort-indicator').textContent = '⬍'); // Reset delle icone
-                    //             this.querySelector('.sort-indicator').textContent = order === 'asc' ? '⬆️' : '⬇️';
-
-                    //             // Ordina i dati
-                    //             const sortedData = sortData(window.tabellaDati, column, order);
-
-                    //             // Renderizza nuovamente la tabella
-                    //             renderTable(sortedData);
-
-                    //             // Salva il nuovo ordine nei dati globali
-                    //             window.tabellaDati = sortedData;
-                    //         });
-                    //     });
-                    // }
-
 
                     // Funzione di ordinamento generica
                     function sortData(data, column, order) {
@@ -4023,7 +3979,6 @@
                             }
                         });
                     }
-
 
                     // Funzione per formattare la data
                     function formatDate(dateString) {
@@ -4067,7 +4022,9 @@
                         return 'blank'; // Nessuna classe per righe bianche
                     }
 
-                    popolaTabella();
+                    document.addEventListener('DOMContentLoaded', function () {
+                        popolaTabella(); // Chiamata alla funzione che popola la tabella
+                    });
 
                 </script>
 

@@ -1,19 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 let totalScore = 100; // Imposta il punteggio iniziale a 100
 
 // Seleziona tutte le checkbox
