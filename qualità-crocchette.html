@@ -11,7 +11,7 @@
 </head>
 
 <body>
-   
+
     <div class="container">
         <!-- Header -->
         <header>
@@ -3166,7 +3166,7 @@
                         </tr>
 
                         <!-- Approfondimento nascosto -->
-                        <tr id="info-grassi" style="display: none;">
+                        <tr id="info-ceneri" style="display: none;">
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
                                 <p>La busta di croccantini deve riportare la percentuale di ceneri presenti nel mangime.
                                 </p>
@@ -3267,7 +3267,6 @@
                             <th colspan="4" height="20">
                                 <p align="center"><b>
                                         <font size="3"> Rapporto Calcio ÷ Fosforo</font><br>
-                                        <font size="0.8"> (Calcio diviso Fosforo)</font>
                                     </b></p>
                             </th>
                         </tr>
@@ -3358,14 +3357,45 @@
 
 
                         <tr>
-                            <td colspan="4" height="20"></td>
+                            <td colspan="4" height="20">
+                                <div id="containerCampi" style="align-items: center; justify-content: start;">
+                                    <input type="number" id="inputCalcio" placeholder="Calcio" class="input"
+                                        style="width: 120px;">
+                                    /
+                                    <input type="number" id="inputFosforo" placeholder="Fosforo" class="input"
+                                        style="width: 120px;">
+                                    <button type="button" class="bn30" onclick="calcolaDivisioneCalcioFosforo()"
+                                        style="width: 50px;text-align: center;">=</button>
+                                    <p id="risultatoCalcioFosforo"></p>
+                                    <script>
+                                        function calcolaDivisioneCalcioFosforo() {
+                                            // Ottieni i valori dai campi input
+                                            let num1 = document.getElementById('inputCalcio').value;
+                                            let num2 = document.getElementById('inputFosforo').value;
+                                    
+                                            // Convertili in numeri (se non lo sono già)
+                                            num1 = parseFloat(num1);
+                                            num2 = parseFloat(num2);
+                                    
+                                            // Verifica se i valori sono numeri validi
+                                            if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
+                                                let risultato = num1 / num2;
+                                                // Mostra il risultato con due decimali
+                                                document.getElementById('risultatoCalcioFosforo').textContent = risultato.toFixed(2);
+                                            } else {
+                                                // Lascia vuoto il risultato in caso di errore
+                                                document.getElementById('risultatoCalcioFosforo').textContent = "";
+                                            }
+                                        }
+                                    </script>
+                                </div>
+                            </td>
                         </tr>
 
                         <tr>
                             <th colspan="4" height="20">
                                 <p align="center"><b>
                                         <font size="3"> Rapporto Omega 6 ÷ Omega 3</font><br>
-                                        <font size="0.8"> (Omega 6 diviso Omega 3)</font>
                                     </b></p>
                             </th>
                         </tr>
@@ -3453,12 +3483,55 @@
                             <td colspan="4" style="background-color: #262626; padding: 10px;">
                                 <p>Calcola il rapporto tra la % di Omega 6 e % di Omega 3, facendo semplicemente Omega 6
                                     ÷ Omega 3</p>
+
                             </td>
                         </tr>
 
 
                         <tr>
-                            <td colspan="4" height="20"></td>
+                            <td colspan="4" height="20">
+                                <div id="containerCampi" style="align-items: center; justify-content: start;">
+                                    <input type="number" id="inputO6" placeholder="Omega6" class="input"
+                                        style="width: 120px;">
+                                    /
+                                    <input type="number" id="inputO3" placeholder="Omega3" class="input"
+                                        style="width: 120px;">
+                                    <button type="button" class="bn30" onclick="calcO3O6()"
+                                        style="width: 50px;text-align: center;">=</button>
+                                    <p id="resO3O6"></p>
+                                    <script>
+                                        function calcO3O6() {
+                                            // Ottieni i valori dai campi input
+                                            let num1 = document.getElementById('inputO6').value; // Omega 6
+                                            let num2 = document.getElementById('inputO3').value; // Omega 3
+                                    
+                                            // Convertili in numeri (se non lo sono già)
+                                            num1 = parseFloat(num1);
+                                            num2 = parseFloat(num2);
+                                    
+                                            // Verifica se i valori sono numeri validi e se Omega 6 non è zero
+                                            if (!isNaN(num1) && !isNaN(num2) && num2 !== 0) {
+                                                let risultato;
+                                                
+                                                // Se Omega 3 è maggiore di Omega 6, inverte il calcolo
+                                                if (num1 > num2) {
+                                                    risultato = (num2 / num1).toFixed(2); // Rapporto Omega 6/Omega 3
+                                                    document.getElementById('resO3O6').textContent = `${risultato}:1`;
+                                                } else {
+                                                    risultato = (num1 / num2).toFixed(2); // Rapporto Omega 6/Omega 3
+                                                    document.getElementById('resO3O6').textContent = `${risultato}:1`;
+                                                }
+                                    
+                                            } else if (num2 === 0) {
+                                                document.getElementById('resO3O6').textContent = "Errore: Omega 6 non può essere zero";
+                                            } else {
+                                                document.getElementById('resO3O6').textContent = "";
+                                            }
+                                        }
+                                    </script>
+                                    
+                                </div>
+                            </td>
                         </tr>
 
                         <tr>
@@ -3704,12 +3777,14 @@
                         </tbody>
                     </table><br><br>
 
-                    
+
                 </div>
 
                 <h1>⚒️In Sviluppo⚒️</h1>
-                <p>Una nuova sezione è in sviluppo, per permettere sia di salvare che di leggere le marche inserite da altre persone!</p>
-                <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la composizione delle crocchette, anche dalle persone meno esperte!</p>
+                <p>Una nuova sezione è in sviluppo, per permettere sia di salvare che di leggere le marche inserite da
+                    altre persone!</p>
+                <p>Lo scopo è quello di costruire una tabella consultabile da tutti per riuscire a comprendere meglio la
+                    composizione delle crocchette, anche dalle persone meno esperte!</p>
 
                 <table id="risultati">
                     <thead>
@@ -3724,7 +3799,8 @@
                     </tbody>
                 </table>
 
-                <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
+                <script
+                    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
                 <script>
 
                     const supabasePublicClient = supabase.createClient("https://awtfgmsrjwkxewhzmwib.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF3dGZnbXNyandreGV3aHptd2liIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzM0Mzg3MjMsImV4cCI6MjA0OTAxNDcyM30.6MKqUUTA8OJa_uBtia_x12dVQs6ILz6CaBl63XrLkWM", {
@@ -3732,28 +3808,29 @@
                             schema: "public"
                         }
                     });
-            
-            
+
+
                     (async () => {
-            
+
                         const getRequestResponse = await supabasePublicClient.from("MANGIMI").select("*");
-            
+
                         console.log(getRequestResponse.data);
 
                         const data = getRequestResponse.data;
-            
+
                         const tableBody = document.querySelector('#risultati tbody'); // Sostituisci con il tuo ID
-                    tableBody.innerHTML = ''; // Pulisce la tabella
-                    data.forEach(data => {
-                        const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
-                        const row = `
+                        tableBody.innerHTML = ''; // Pulisce la tabella
+                        data.forEach(data => {
+                            const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                            const row = `
                             <tr>
                                 <td>${data.MARCA}</td>
                                 <td>${data.TIPO}</td>
                                 <td>${data.PUNTEGGIO}</td>
                                 <td>${data.INSERITO_DA} ${formattedDate}</td>
                             </tr>`;
-                        tableBody.innerHTML += row;})
+                            tableBody.innerHTML += row;
+                        })
                     })()
 
 
