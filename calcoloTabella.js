@@ -67,40 +67,48 @@ function updateEvaluation() {
   let color = "";
 
   if (totalScore < 20) {
-    evaluation = "Molto Scarso<br> 💀🟥🟥🟥🟥🟥";
-    color = "#FF0000"; // Rosso intenso
+    evaluation = "Inadatto<br> ⬛⬛⬛⬛⬛";
+    color = "black"; // Rosso intenso
   } else if (totalScore >= 20 && totalScore <= 39) {
-    evaluation = "Scarso<br>👎🏻🟥🟥🟥🟥";
+    evaluation = "Molto povero<br>🟥🟥🟥🟥";
     color = "#FF4C4C"; // Rosso
   } else if (totalScore >= 40 && totalScore <= 54) {
-    evaluation = "Insufficiente<br>👎🏻🟥🟥🟥";
+    evaluation = "Povero<br>🟥🟥🟥";
     color = "#FF7F3F"; // Arancione scuro
   } else if (totalScore >= 56 && totalScore <= 69) {
-    evaluation = "Mediocre<br>👎🏻🟥🟥";
+    evaluation = "Nella media<br>🟧🟧";
     color = "#FFA500"; // Arancione
   } else if (totalScore >= 70 && totalScore <= 84) {
-    evaluation = "Sufficiente<br>👎🏻🟥";
+    evaluation = "Sufficiente<br>🟨";
     color = "#FFFF00"; // Giallo
   } else if (totalScore >= 85 && totalScore <= 99) {
-    evaluation = "Discreto<br>🫤🟧";
+    evaluation = "Discreto<br>🟨🟨";
     color = "#FFFF99"; // Giallo chiaro
   } else if (totalScore >= 100 && totalScore <= 114) {
-    evaluation = "Buono<br>👍🏻🟩🟩";
+    evaluation = "Buono<br>🟩🟩🟩";
     color = "#D3FFBD"; // Verde molto chiaro
   } else if (totalScore >= 115 && totalScore <= 129) {
-    evaluation = "Molto Buono!<br>👍🏻🟩🟩🟩";
+    evaluation = "Ottimo<br>🟩🟩🟩🟩";
     color = "#90EE90"; // Verde chiaro
   } else if (totalScore >= 130) {
-    evaluation = "Eccellente!<br>💯🟩🟩🟩🟩";
-    color = "#008000"; // Verde
+    evaluation = "Qualità Top<br>🟪🟪🟪🟪🟪";
+    color = "#64249b"; // Verde
   }
 
-  // Imposta il colore del testo in base alla valutazione
-  document.getElementById("totalScore").style.color = color;
+  if (color == 'black'){
+    document.getElementById("totalScore").style.color = color;
   document.getElementById("evaluation").style.color = color;
-  document.getElementById("evaluation").innerHTML  = evaluation;
-}
 
+  document.getElementById("evaluation").style.textShadow = '0 0 1px white, 0 0 2px white, 0 0 3px white';
+  document.getElementById("totalScore").style.textShadow = '0 0 1px white, 0 0 2px white, 0 0 3px white';
+  }else{
+    document.getElementById("totalScore").style.color = color;
+  document.getElementById("evaluation").style.color = color;
+  }
+  // Imposta il colore del testo in base alla valutazione
+  
+  document.getElementById("evaluation").innerHTML = evaluation;
+}
 
 function toggleInfo(id) {
   var info = document.getElementById(id);
@@ -119,36 +127,6 @@ function toggleIcon(link) {
     link.innerHTML = "❓";
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Aggiungi gli event listener ai pulsanti
 document
@@ -285,4 +263,3 @@ checkboxesVitamine.forEach((checkbox) => {
     }
   });
 });
-

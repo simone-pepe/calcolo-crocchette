@@ -3714,7 +3714,7 @@
                 </div>
 
 
-                <div id="totalScoreContainer" style="display: none; align-items: center; justify-content: center;">
+                <div id="totalScoreContainer" style="display: none; align-items: center; justify-content: center;font-family: Montserrat;">
                     <h3 align="center">Totale Punteggio:<br> <span id="totalScore" style="font-size: 30px;"></span></h3>
                     <h3 align="center">Valutazione:<br> <span id="evaluation" style="font-size: 30px;"></span></h3>
                 </div>
@@ -3752,12 +3752,12 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td><span style="color: #008000;">&gt; 130</span></td>
-                                <td>🟩🟩🟩🟩🟩<b>Eccellente</b></td>
+                                <td><span style="color: #64249b;">&gt; 130</span></td>
+                                <td>🟪🟪🟪🟪🟪 <b>Qualità Top</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #90EE90;">115 - 129</span></td>
-                                <td>🟩🟩🟩🟩<b>Molto buono</b></td>
+                                <td>🟩🟩🟩🟩 <b>Ottimo</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #D3FFBD;">100 - 114</span></td>
@@ -3765,27 +3765,27 @@
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF99;">85 - 99</span></td>
-                                <td>🟨🟨<b>Discreto</b></td>
+                                <td>🟨🟨 <b>Discreto</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFFF00;">70 - 84</span></td>
-                                <td>🟨<b>Sufficiente</b></td>
+                                <td>🟨 <b>Sufficiente</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FFA500;">56 - 69</span></td>
-                                <td>🟧🟧 <b>Mediocre</b></td>
+                                <td>🟧🟧 <b>Nella media</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF7F3F;">40 - 54</span></td>
-                                <td>🟥🟥🟥 <b>Insufficiente</b></td>
+                                <td>🟥🟥🟥 <b>Povero</b></td>
                             </tr>
                             <tr>
                                 <td><span style="color: #FF4C4C;">20 - 39</span></td>
-                                <td>🟥🟥🟥🟥 <b>Scarso</b></td>
+                                <td>🟥🟥🟥🟥 <b>Molto povero</b></td>
                             </tr>
                             <tr>
-                                <td><span style="color: #FF0000;">&lt; 20</span></td>
-                                <td>🟥🟥🟥🟥🟥 <b>Molto scarso</b></td>
+                                <td><span style="color: black; text-shadow: 0 0 1px white, 0 0 2px white, 0 0 3px white;">&lt; 20</span></td>
+                                <td>⬛⬛⬛⬛⬛ <b>Inadatto</b></td>
                             </tr>
                         </tbody>
                     </table>
@@ -4004,7 +4004,7 @@
 
                     // Funzione per ottenere la valutazione in base al punteggio
                     function getValutazione(score) {
-                        if (score > 130) return '🟩🟩🟩🟩🟩';
+                        if (score > 130) return '🟪🟪🟪🟪🟪';
                         if (score >= 115) return '🟩🟩🟩🟩';
                         if (score >= 100) return '🟩🟩🟩';
                         if (score >= 85) return '🟨🟨';
@@ -4012,7 +4012,7 @@
                         if (score >= 56) return '🟧🟧';
                         if (score >= 40) return '🟥🟥🟥';
                         if (score >= 20) return '🟥🟥🟥🟥';
-                        return '🟥🟥🟥🟥🟥';
+                        return '⬛⬛⬛⬛⬛';
                     }
 
                     function getRowClass(verificato, score) {
