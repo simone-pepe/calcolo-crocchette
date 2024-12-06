@@ -3814,6 +3814,7 @@
                             <th>Marca</th>
                             <th>Nome</th>
                             <th>🔢</th>
+                            <th>Valutazione</th>
                             <th>👤</th>
                         </tr>
                     </thead>
@@ -3823,6 +3824,32 @@
 
                 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.47.1/dist/umd/supabase.min.js"></script>
                 <script>
+                     function getClassByScore(score) {
+                        if (score > 130) return 'eccellente';
+                        if (score >= 115) return 'molto-buono';
+                        if (score >= 100) return 'buono';
+                        if (score >= 85) return 'discreto';
+                        if (score >= 70) return 'sufficiente';
+                        if (score >= 56) return 'mediocre';
+                        if (score >= 40) return 'insufficiente';
+                        if (score >= 20) return 'scarso';
+                        return 'molto-scarso';
+                    }
+
+                    // Funzione per ottenere la valutazione in base al punteggio
+                    function getValutazione(score) {
+                        if (score > 130) return '💯 Eccellente';
+                        if (score >= 115) return '👍🏻 Molto buono';
+                        if (score >= 100) return '👍🏻 Buono';
+                        if (score >= 85) return '🫤 Discreto';
+                        if (score >= 70) return '👎🏻 Sufficiente';
+                        if (score >= 56) return '👎🏻 Mediocre';
+                        if (score >= 40) return '👎🏻 Insufficiente';
+                        if (score >= 20) return '👎🏻 Scarso';
+                        return '💀 Molto scarso';
+                    }
+
+
                     // Crea il client di Supabase
                     const supabasePublicClient = supabase.createClient(
                         "https://awtfgmsrjwkxewhzmwib.supabase.co",
@@ -3879,11 +3906,15 @@
 
                         data.forEach(data => {
                             const formattedDate = formatDate(data.INSERITO_IL); // Formatta la data
+                            const scoreClass = getClassByScore(data.PUNTEGGIO); // Ottieni la classe per il punteggio
+                            const valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
+
                             const row = `
-                                <tr>
+                                <tr class="${scoreClass}">
                                     <td>${data.MARCA}</td>
                                     <td>${data.TIPO}</td>
                                     <td>${data.PUNTEGGIO}</td>
+                                    <td>${valutazione}</td>
                                     <td>${data.INSERITO_DA} ${formattedDate}</td>
                                 </tr>`;
                             tableBody.innerHTML += row;

@@ -704,3 +704,15 @@ table th {
     text-decoration: underline;
     text-decoration-color: #b57fdb;
 }
+
+
+
+.eccellente { background-color: #008000; color: white; }
+.molto-buono { background-color: #90EE90; color: black; }
+.buono { background-color: #D3FFBD; color: black; }
+.discreto { background-color: #FFFF99; color: black; }
+.sufficiente { background-color: #FFFF00; color: black; }
+.mediocre { background-color: #FFA500; color: black; }
+.insufficiente { background-color: #FF7F3F; color: black; }
+.scarso { background-color: #FF4C4C; color: white; }
+.molto-scarso { background-color: #FF0000; color: white; }
