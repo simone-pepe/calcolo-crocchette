@@ -567,13 +567,15 @@ function renderTable(data) {
       row.VERIFICATO === true ? "🟢" : row.VERIFICATO === false ? "🔴" : "🟡";
     const rowClass = getRowClass(row.VERIFICATO, row.PUNTEGGIO); // Calcola la classe
 
-    const tr = `<tr class="${rowClass}">
-                      <td>${row.MARCA}</td>
-                      <td>${row.TIPO}</td>
-                      <td colspan="2">${row.PUNTEGGIO} <p style="font-size: 0.5rem;">${valutazione}</p></td>
-                      <td><p style="font-size: 0.65rem!important;">${data.INSERITO_DA}</p><p style="font-size: 0.5rem;">${formattedDate}</p></td>
-                      <td>${verificato}</td>
-                  </tr>`;
+    const tr = `
+                  <tr class="${rowClass}" id="row-${row.ID}">
+                <td>${row.MARCA}</td>
+                <td>${row.TIPO}</td>
+                <td colspan="2">${row.PUNTEGGIO} <br><p style="font-size: 0.5rem;">${valutazione}</p></td>
+                <td><p style="font-size: 0.65rem!important;">${row.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
+                <td>${verificato}</td>
+                <td onclick="mostraDettagli(${row.ID})" style="cursor: pointer;">🔍</td>
+            </tr>`;
     tableBody.innerHTML += tr;
   });
 }
