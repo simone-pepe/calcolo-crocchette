@@ -748,3 +748,28 @@ th {
     /* margin-left: 5px; */
     color: #000000;
 }
+
+/* Stile generale per i dettagli */
+#risultati tr[id^="details-row-"] {
+    background-color: #f8f9fa;
+    color: #000; /* Testo nero */
+    font-size: 0.9em;
+}
+
+/* Colore verde per valori positivi */
+#risultati .positivo {
+    color: green;
+    font-weight: bold;
+}
+
+/* Colore rosso per valori negativi */
+#risultati .negativo {
+    color: red;
+    font-weight: bold;
+}
+
+/* Parametro in grassetto */
+#risultati ul li b {
+    color: #000;
+    font-weight: bold;
+}
