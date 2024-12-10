@@ -12,7 +12,7 @@ function updateTotalScore() {
   checkboxes.forEach((checkbox) => {
     if (checkbox.checked) {
       // Ottieni il valore della terza cella della riga corrente
-      debugger;
+ 
       if (checkbox.closest("tr").cells.length == 3) {
         var score = parseInt(
           checkbox.closest("tr").children[1].textContent,
