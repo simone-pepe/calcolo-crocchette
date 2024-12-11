@@ -477,11 +477,7 @@ async function mostraDettagli(mangimeId) {
         <td colspan="7" style="background-color: #f8f9fa; padding: 10px;">
           <table style="width: 100%; border-collapse: collapse;" class="dettagliMangime">
             <thead>
-              <tr>
-                <th style="text-align: left; width: 5%;">Parametro</th>
-                <th style="text-align: left; width: 5%;">Valore</th>
-                <th style="text-align: left;">Descrizione</th>
-              </tr>
+              
             </thead>
             <tbody>
               <!-- Mostra la sezione "Non ci piace" solo se ci sono parametri malus -->
@@ -594,7 +590,7 @@ async function mostraInformazioniAggiuntive(mangimeId) {
         `dettagli-${mangimeId}`
       );
       let infoHtml = `
-              <h3>Informazioni Aggiuntive</h3>
+              <h3>Composizione Mangime</h3>
               <table class="info-table">
                   <tr>
                       <th>Ingredienti</th>
