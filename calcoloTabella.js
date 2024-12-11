@@ -362,7 +362,7 @@ async function popolaTabella() {
     return;
   }
 
-  const tableBody = document.querySelector("#risultati tbody");
+  const tableBody = document.querySelector("#MangimiAnalizzati tbody");
   tableBody.innerHTML = ""; // Pulisce la tabella
   window.tabellaDati = data;
   // Itera sui dati per popolare la tabella
@@ -371,13 +371,14 @@ async function popolaTabella() {
     const rowClass = getRowClass(data.VERIFICATO, data.PUNTEGGIO); // Ottieni la classe per la riga
     const valutazione = getValutazione(data.PUNTEGGIO); // Ottieni la valutazione
     const verificato =
-      data.VERIFICATO === true ? "🟢" : data.VERIFICATO === false ? "🔴" : "🟡";
+      data.VERIFICATO === true ? "✅" : data.VERIFICATO === false ? "🔴" : "🕒";
 
     const row = `
                   <tr class="${rowClass}" id="row-${data.ID}">
                 <td>${data.MARCA}</td>
                 <td>${data.TIPO}</td>
-                <td colspan="2">${data.PUNTEGGIO} <br><p style="font-size: 0.5rem;">${valutazione}</p></td>
+                <td><b>${data.PUNTEGGIO}</b></td>
+                <td><p style="font-size: 0.5rem;">${valutazione}</p></td>
                 <td><p style="font-size: 0.65rem!important;">${data.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${data.ID})" style="cursor: pointer;">🔍</td>
@@ -386,10 +387,14 @@ async function popolaTabella() {
   });
 }
 
-
 async function mostraDettagli(mangimeId) {
   const existingRow = document.getElementById(`details-row-${mangimeId}`);
+  const existingInfo = document.getElementById(`dettagli-${mangimeId}`);
   const toggleIcon = document.querySelector(`#row-${mangimeId} td:last-child`);
+
+  if (existingInfo) {
+    existingInfo.remove();
+  }
 
   if (existingRow) {
     // Se la riga esiste, la rimuoviamo e cambiamo l'icona
@@ -397,8 +402,10 @@ async function mostraDettagli(mangimeId) {
     toggleIcon.innerHTML = "🔍";
   } else {
     // Se la riga non esiste, aggiungiamo i dettagli
-    const { data, error } = await supabasePublicClient
-      .rpc("get_dettagli_parametri", { mangime_id: mangimeId });
+    const { data, error } = await supabasePublicClient.rpc(
+      "get_dettagli_parametri",
+      { mangime_id: mangimeId }
+    );
 
     if (error) {
       console.error("Errore durante il recupero dei dettagli:", error);
@@ -412,26 +419,26 @@ async function mostraDettagli(mangimeId) {
 
       // Se il parametro inizia con 'm' o 'p' e ha un suffisso numerico
       if (regexMalusBonus.test(parametro)) {
-        if (parametro.startsWith('m')) {
-          return 'malus';  // Malus se inizia con 'm'
+        if (parametro.startsWith("m")) {
+          return "malus"; // Malus se inizia con 'm'
         }
-        if (parametro.startsWith('p')) {
-          return 'bonus';  // Bonus se inizia con 'p'
+        if (parametro.startsWith("p")) {
+          return "bonus"; // Bonus se inizia con 'p'
         }
       }
-      return 'quantitativo';  // Tutti gli altri sono parametri quantitativi
+      return "quantitativo"; // Tutti gli altri sono parametri quantitativi
     };
 
     // Applica la logica di raggruppamento ai dati
     const malus = [];
     const bonus = [];
     const quantitativi = [];
-    
-    data.forEach(parametro => {
+
+    data.forEach((parametro) => {
       const gruppo = determinaGruppo(parametro.parametro);
-      if (gruppo === 'malus') {
+      if (gruppo === "malus") {
         malus.push(parametro);
-      } else if (gruppo === 'bonus') {
+      } else if (gruppo === "bonus") {
         bonus.push(parametro);
       } else {
         quantitativi.push(parametro);
@@ -440,7 +447,7 @@ async function mostraDettagli(mangimeId) {
 
     // Ordina i parametri all'interno dei gruppi (per suffisso numerico)
     const ordinaPerSuffisso = (a, b) => {
-      const aSuffix = a.parametro.slice(1);  // Prende tutto dopo 'm' o 'p'
+      const aSuffix = a.parametro.slice(1); // Prende tutto dopo 'm' o 'p'
       const bSuffix = b.parametro.slice(1);
       return aSuffix.localeCompare(bSuffix); // Confronta i suffissi numericamente (o lessicograficamente)
     };
@@ -451,112 +458,220 @@ async function mostraDettagli(mangimeId) {
 
     // Funzione per colorare i valori quantitativi
     const colorValue = (value) => {
-      if (isNaN(value)) return ''; // Se non è un numero, non coloriamo
-      if (value > 0) return 'positivo'; // Verde se positivo
-      if (value < 0) return 'negativo'; // Rosso se negativo
-      return ''; // Altrimenti nessun colore
+      if (isNaN(value)) return ""; // Se non è un numero, non coloriamo
+      if (value > 0) return "positivo"; // Verde se positivo
+      if (value < 0) return "negativo"; // Rosso se negativo
+      return ""; // Altrimenti nessun colore
     };
 
     const formatQuantitativo = (parametro) => {
       // Rimuoviamo le ultime due lettere e mettiamo la prima in maiuscolo
-      return parametro.slice(0, -2).charAt(0).toUpperCase() + parametro.slice(1, -2);
+      return (
+        parametro.slice(0, -2).charAt(0).toUpperCase() + parametro.slice(1, -2)
+      );
     };
-
 
     // Genera la riga dei dettagli
     const dettagliRow = `
       <tr id="details-row-${mangimeId}">
         <td colspan="7" style="background-color: #f8f9fa; padding: 10px;">
-          <table style="width: 100%; border-collapse: collapse;">
+          <table style="width: 100%; border-collapse: collapse;" class="dettagliMangime">
             <thead>
               <tr>
-                <th style="text-align: left; width: 10%;">Parametro</th>
-                <th style="text-align: left; width: 10%;">Valore</th>
+                <th style="text-align: left; width: 5%;">Parametro</th>
+                <th style="text-align: left; width: 5%;">Valore</th>
                 <th style="text-align: left;">Descrizione</th>
               </tr>
             </thead>
             <tbody>
               <!-- Mostra la sezione "Non ci piace" solo se ci sono parametri malus -->
-              ${malus.length > 0 ? `
+              ${
+                malus.length > 0
+                  ? `
                 <tr>
                   <td colspan="3"><b>NON CI PIACE 🔴</b></td>
                 </tr>
-                ${malus.map(parametro => `
+                ${malus
+                  .map(
+                    (parametro) => `
                   <tr>
-                    <td style="text-align: left;"><b>${parametro.parametro}</b></td>
-                    <td class="${colorValue(parametro.valore)}">${parametro.valore}</td>
+                    <td style="text-align: right;"><b>${
+                      parametro.parametro
+                    }</b></td>
+                    <td class="${colorValue(parametro.valore)}">${
+                      parametro.valore
+                    }</td>
                     <td style="text-align: left;">${parametro.descrizione}</td>
                   </tr>
-                `).join('')}
-              ` : ''}
+                `
+                  )
+                  .join("")}
+              `
+                  : ""
+              }
               
               <!-- Mostra la sezione "Ci piace" solo se ci sono parametri bonus -->
-              ${bonus.length > 0 ? `
+              ${
+                bonus.length > 0
+                  ? `
                 <tr>
                   <td colspan="3"><b>CI PIACE 🟢</b></td>
                 </tr>
-                ${bonus.map(parametro => `
+                ${bonus
+                  .map(
+                    (parametro) => `
                   <tr>
-                    <td style="text-align: left;"><b>${parametro.parametro}</b></td>
-                    <td class="${colorValue(parametro.valore)}">${parametro.valore}</td>
+                    <td style="text-align: right;"><b>${
+                      parametro.parametro
+                    }</b></td>
+                    <td class="${colorValue(parametro.valore)}">${
+                      parametro.valore
+                    }</td>
                     <td style="text-align: left;">${parametro.descrizione}</td>
                   </tr>
-                `).join('')}
-              ` : ''}
+                `
+                  )
+                  .join("")}
+              `
+                  : ""
+              }
               
               <!-- Mostra sempre i parametri quantitativi -->
               <tr>
                 <td colspan="3"><b>Parametri Quantitativi</b></td>
               </tr>
-              ${quantitativi.map(parametro => `
+              ${quantitativi
+                .map(
+                  (parametro) => `
                 <tr>
-                  <td style="text-align: left;"><b>${formatQuantitativo(parametro.parametro)}</b></td>
-                  <td class="${colorValue(parametro.valore)}">${parametro.valore}</td>
-                  <td style="text-align: left!important;">${parametro.descrizione}</td>
+                  <td style="text-align: right;"><b>${formatQuantitativo(
+                    parametro.parametro
+                  )}</b></td>
+                  <td class="${colorValue(parametro.valore)}">${
+                    parametro.valore
+                  }</td>
+                  <td style="text-align: left!important;">${
+                    parametro.descrizione
+                  }</td>
                 </tr>
-              `).join('')}
+              `
+                )
+                .join("")}
             </tbody>
           </table>
+              <div id="dettagli-${mangimeId}" class="dettagli-container">
+              </div>
         </td>
       </tr>
+
     `;
 
     // Aggiungiamo la nuova riga subito dopo quella principale
     const mainRow = document.getElementById(`row-${mangimeId}`);
-    mainRow.insertAdjacentHTML('afterend', dettagliRow);
+    mainRow.insertAdjacentHTML("afterend", dettagliRow);
 
     // Cambiamo l'icona a ➖
     toggleIcon.innerHTML = "➖";
+
+    await mostraInformazioniAggiuntive(mangimeId);
   }
 }
 
-
-
-
-
-document.querySelectorAll("#risultati th[data-column]").forEach((header) => {
-  header.addEventListener("click", function () {
-    const column = this.dataset.column; // Ottieni la colonna
-    const order = this.dataset.order === "asc" ? "desc" : "asc"; // Determina il nuovo ordine
-    this.dataset.order = order; // Salva il nuovo ordine nell'attributo data-order
-
-    // Aggiorna l'indicatore di ordinamento
-    document.querySelectorAll(".sort-indicator").forEach((indicator) => {
-      indicator.textContent = "↕️"; // Reset di tutti gli indicatori
+async function mostraInformazioniAggiuntive(mangimeId) {
+  try {
+    const { data, error } = await supabasePublicClient.rpc("get_info_mangime", {
+      mangime_id: mangimeId,
     });
-    this.querySelector(".sort-indicator").textContent =
-      order === "asc" ? "⬆️" : "⬇️";
 
-    // Ordina i dati
-    const sortedData = sortData(window.tabellaDati, column, order);
+    if (error) {
+      console.error("Errore nel recupero delle informazioni:", error.message);
+      return;
+    }
 
-    // Rendi di nuovo la tabella visibile con i dati ordinati
-    renderTable(sortedData);
+    if (data) {
+      // Trova la sezione dei dettagli
+      const dettagliContainer = document.getElementById(
+        `dettagli-${mangimeId}`
+      );
+      let infoHtml = `
+              <h3>Informazioni Aggiuntive</h3>
+              <table class="info-table">
+                  <tr>
+                      <th>Ingredienti</th>
+                      <td style="text-align: left!important;">${
+                        data[0]?.ingredienti || "..."
+                      }</td>
+                  </tr>
+                  <tr>
+                      <th>Tabella Analitica</th>
+                      <td style="text-align: left!important;">${
+                        data[0]?.tabella_analitica || "..."
+                      }</td>
+                  </tr>
+                  <tr>
+                      <th>Integrazioni</th>
+                      <td style="text-align: left!important;">${
+                        data[0]?.integrazioni || "..."
+                      }</td>
+                  </tr>
+                  <tr>
+                      <th>Note</th>
+                      <td style="text-align: left!important;">${
+                        data[0]?.note || "..."
+                      }</td>
+                  </tr>
+                  <tr>
+                      <th>Energia Metabolizzante</th>
+                      <td style="text-align: left!important;">
+  ${
+    data[0]?.energia_metabolizzante
+      ? `${data[0].energia_metabolizzante} kcal/kg`
+      : "..."
+  }
+</td>
+                  </tr>
+                  <tr>
+                      <th>Fonte</th>
+                      <td style="text-align: left!important;">${
+                        data[0]?.fonte || "..."
+                      }</td>
+                  </tr>
+              </table>
+          `;
+
+      // Aggiungi le informazioni sotto la tabella dei dettagli
+      dettagliContainer.insertAdjacentHTML("beforeend", infoHtml);
+    }
+  } catch (error) {
+    console.error("Errore nella visualizzazione delle informazioni:", error);
+  }
+}
+
+document
+  .querySelectorAll("#MangimiAnalizzati th[data-column]")
+  .forEach((header) => {
+    header.addEventListener("click", function () {
+      const column = this.dataset.column; // Ottieni la colonna
+      const order = this.dataset.order === "asc" ? "desc" : "asc"; // Determina il nuovo ordine
+      this.dataset.order = order; // Salva il nuovo ordine nell'attributo data-order
+
+      // Aggiorna l'indicatore di ordinamento
+      document.querySelectorAll(".sort-indicator").forEach((indicator) => {
+        indicator.textContent = "↕️"; // Reset di tutti gli indicatori
+      });
+      this.querySelector(".sort-indicator").textContent =
+        order === "asc" ? "⬆️" : "⬇️";
+
+      // Ordina i dati
+      const sortedData = sortData(window.tabellaDati, column, order);
+
+      // Rendi di nuovo la tabella visibile con i dati ordinati
+      renderTable(sortedData);
+    });
   });
-});
 
 function renderTable(data) {
-  const tableBody = document.querySelector("#risultati tbody");
+  const tableBody = document.querySelector("#MangimiAnalizzati tbody");
   tableBody.innerHTML = ""; // Pulisce la tabella
 
   // Crea una nuova riga per ogni elemento dei dati
@@ -564,14 +679,15 @@ function renderTable(data) {
     const formattedDate = formatDate(row.INSERITO_IL);
     const valutazione = getValutazione(row.PUNTEGGIO);
     const verificato =
-      row.VERIFICATO === true ? "🟢" : row.VERIFICATO === false ? "🔴" : "🟡";
+      row.VERIFICATO === true ? "✅" : row.VERIFICATO === false ? "🔴" : "🕒";
     const rowClass = getRowClass(row.VERIFICATO, row.PUNTEGGIO); // Calcola la classe
 
     const tr = `
                   <tr class="${rowClass}" id="row-${row.ID}">
                 <td>${row.MARCA}</td>
                 <td>${row.TIPO}</td>
-                <td colspan="2">${row.PUNTEGGIO} <br><p style="font-size: 0.5rem;">${valutazione}</p></td>
+                <td><b>${row.PUNTEGGIO}</b></td>
+                <td><p style="font-size: 0.5rem;">${valutazione}</p></td>
                 <td><p style="font-size: 0.65rem!important;">${row.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${row.ID})" style="cursor: pointer;">🔍</td>

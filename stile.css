@@ -424,27 +424,28 @@ select:focus {
 #containerCampi {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-#containerCampi label {
+#containerCampi > label {
     /* font-size: 14px; */
     color: #ffffff;
-    width: 50%;
+    width: 45%;
+    text-align: end;
 }
 
 #containerCampi input {
     font-size: 14px;
     color: #ffffff;
-    width: 45%;
+    width: 50%;
 }
 
 #containerCampi select {
     font-size: 14px;
     color: #ffffff;
-    width: 45%;
+    width: 50%;
 }
 
 /* #containerCampi button {
@@ -571,12 +572,19 @@ table td {
     align-content: center;
 }
 
+/* table td:nth-child(1){
+    border-right:1px solid #121212 !important;
+} */
+.dettagliMangime td, th{
+    border:1px solid #f8f9fa;
+}
+
 table th {
     background-color: #b57fdb;
     color: rgb(0, 0, 0);
 }
 
-#risultati td:last-child {
+#MangimiAnalizzati td:last-child {
     text-align: center;
 }
 
@@ -598,16 +606,16 @@ table th {
         padding: 6px;
     }
 
-    #risultati th,
-    #risultati td {
+    #MangimiAnalizzati th,
+    #MangimiAnalizzati td {
         font-size: 0.65rem;
     }
 
-    #risultati td:nth-child(4) {
+    #MangimiAnalizzati td:nth-child(4) {
         font-size: 0.4rem;
     }
 
-    #risultati td:last-child {
+    #MangimiAnalizzati td:last-child {
         text-align: center;
     }
 
@@ -750,26 +758,26 @@ th {
 }
 
 /* Stile generale per i dettagli */
-#risultati tr[id^="details-row-"] {
+#MangimiAnalizzati tr[id^="details-row-"] {
     background-color: #f8f9fa;
     color: #000; /* Testo nero */
     font-size: 0.9em;
 }
 
 /* Colore verde per valori positivi */
-#risultati .positivo {
+#MangimiAnalizzati .positivo {
     color: green;
     font-weight: bold;
 }
 
 /* Colore rosso per valori negativi */
-#risultati .negativo {
+#MangimiAnalizzati .negativo {
     color: red;
     font-weight: bold;
 }
 
 /* Parametro in grassetto */
-#risultati ul li b {
+#MangimiAnalizzati ul li b {
     color: #000;
     font-weight: bold;
 }
