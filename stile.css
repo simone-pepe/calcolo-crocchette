@@ -598,6 +598,7 @@ table th {
     margin-top: 30px;
 }
 
+
 @media (max-width: 768px) {
 
     table th,
@@ -612,7 +613,9 @@ table th {
     }
 
     #MangimiAnalizzati td:nth-child(4) {
-        font-size: 0.4rem;
+        font-size: 0.15rem;
+        white-space: nowrap; /* Evita il wrapping del contenuto */
+
     }
 
     #MangimiAnalizzati td:last-child {
@@ -623,6 +626,7 @@ table th {
     .note-importanti h2 {
         font-size: 18px;
     }
+
 }
 
 
