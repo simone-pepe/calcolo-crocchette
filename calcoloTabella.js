@@ -378,7 +378,7 @@ async function popolaTabella() {
                 <td>${data.MARCA}</td>
                 <td>${data.TIPO}</td>
                 <td><b>${data.PUNTEGGIO}</b></td>
-                <td><p style="font-size: 0.5rem;">${valutazione}</p></td>
+                <td><p style="font-size: 0.5rem;display:ruby-text;">${valutazione}</p></td>
                 <td><p style="font-size: 0.65rem!important;">${data.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${data.ID})" style="cursor: pointer;">🔍</td>
@@ -683,7 +683,7 @@ function renderTable(data) {
                 <td>${row.MARCA}</td>
                 <td>${row.TIPO}</td>
                 <td><b>${row.PUNTEGGIO}</b></td>
-                <td><p style="font-size: 0.5rem;">${valutazione}</p></td>
+                <td><p style="font-size: 0.5rem;display:ruby-text;">${valutazione}</p></td>
                 <td><p style="font-size: 0.65rem!important;">${row.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${row.ID})" style="cursor: pointer;">🔍</td>
