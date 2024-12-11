@@ -567,7 +567,7 @@ async function mostraDettagli(mangimeId) {
     mainRow.insertAdjacentHTML("afterend", dettagliRow);
 
     // Cambiamo l'icona a ➖
-    toggleIcon.innerHTML = "➖";
+    toggleIcon.innerHTML = "⬆️";
 
     await mostraInformazioniAggiuntive(mangimeId);
   }
