@@ -599,6 +599,11 @@ table th {
 }
 
 
+.valutazione {
+    font-size: 0.2rem;
+    white-space: nowrap; /* Evita il wrapping del contenuto */
+}
+
 @media (max-width: 768px) {
 
     table th,
@@ -612,11 +617,7 @@ table th {
         font-size: 0.65rem;
     }
 
-    #MangimiAnalizzati td:nth-child(4) {
-        font-size: 0.15rem;
-        white-space: nowrap; /* Evita il wrapping del contenuto */
 
-    }
 
     #MangimiAnalizzati td:last-child {
         text-align: center;

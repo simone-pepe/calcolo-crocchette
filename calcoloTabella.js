@@ -376,9 +376,9 @@ async function popolaTabella() {
     const row = `
                   <tr class="${rowClass}" id="row-${data.ID}">
                 <td>${data.MARCA}</td>
-                <td>${data.TIPO}</td>
-                <td><b>${data.PUNTEGGIO}</b></td>
-                <td>${valutazione}</td>
+                <td style="text-align:start;">${data.TIPO}</td>
+                <td><b>${data.PUNTEGGIO}</b><p class="valutazione">${valutazione}</p></td>
+
                 <td><p style="font-size: 0.65rem!important;">${data.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${data.ID})" style="cursor: pointer;">🔍</td>
@@ -593,31 +593,31 @@ async function mostraInformazioniAggiuntive(mangimeId) {
               <h3>Composizione Mangime</h3>
               <table class="info-table">
                   <tr>
-                      <th>Ingredienti</th>
+                      <th width="10%">Ingredienti</th>
                       <td style="text-align: left!important;">${
                         data[0]?.ingredienti || "..."
                       }</td>
                   </tr>
                   <tr>
-                      <th>Tabella Analitica</th>
+                      <th width="10%">Tabella Analitica</th>
                       <td style="text-align: left!important;">${
                         data[0]?.tabella_analitica || "..."
                       }</td>
                   </tr>
                   <tr>
-                      <th>Integrazioni</th>
+                      <th width="10%">Integrazioni</th>
                       <td style="text-align: left!important;">${
                         data[0]?.integrazioni || "..."
                       }</td>
                   </tr>
                   <tr>
-                      <th>Note</th>
+                      <th width="10%">Note</th>
                       <td style="text-align: left!important;">${
                         data[0]?.note || "..."
                       }</td>
                   </tr>
                   <tr>
-                      <th>Energia Metabolizzante</th>
+                      <th width="10%">ME</th>
                       <td style="text-align: left!important;">
   ${
     data[0]?.energia_metabolizzante
@@ -682,8 +682,8 @@ function renderTable(data) {
                   <tr class="${rowClass}" id="row-${row.ID}">
                 <td>${row.MARCA}</td>
                 <td>${row.TIPO}</td>
-                <td><b>${row.PUNTEGGIO}</b></td>
-                <td>${valutazione}</td>
+                <td><b>${data.PUNTEGGIO}</b><p class="valutazione">${valutazione}</p></td>
+
                 <td><p style="font-size: 0.65rem!important;">${row.INSERITO_DA}</p><p style="font-size: 0.65rem;">${formattedDate}</p></td>
                 <td>${verificato}</td>
                 <td onclick="mostraDettagli(${row.ID})" style="cursor: pointer;">🔍</td>
