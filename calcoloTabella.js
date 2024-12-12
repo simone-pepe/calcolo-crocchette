@@ -590,50 +590,62 @@ async function mostraInformazioniAggiuntive(mangimeId) {
         `dettagli-${mangimeId}`
       );
       let infoHtml = `
-              <h3>Composizione Mangime</h3>
-              <table class="info-table">
-                  <tr>
-                      <th width="10%">Ingredienti</th>
-                      <td style="text-align: left!important;">${
-                        data[0]?.ingredienti || "..."
-                      }</td>
-                  </tr>
-                  <tr>
-                      <th width="10%">Tabella Analitica</th>
-                      <td style="text-align: left!important;">${
-                        data[0]?.tabella_analitica || "..."
-                      }</td>
-                  </tr>
-                  <tr>
-                      <th width="10%">Integrazioni</th>
-                      <td style="text-align: left!important;">${
-                        data[0]?.integrazioni || "..."
-                      }</td>
-                  </tr>
-                  <tr>
-                      <th width="10%">Note</th>
-                      <td style="text-align: left!important;">${
-                        data[0]?.note || "..."
-                      }</td>
-                  </tr>
-                  <tr>
-                      <th width="10%">ME</th>
-                      <td style="text-align: left!important;">
-  ${
-    data[0]?.energia_metabolizzante
-      ? `${data[0].energia_metabolizzante} kcal/kg`
-      : "..."
-  }
-</td>
-                  </tr>
-                  <tr>
-                      <th>Fonte</th>
-                      <td style="text-align: left!important;">${
-                        data[0]?.fonte || "..."
-                      }</td>
-                  </tr>
-              </table>
-          `;
+      <h3>Composizione Mangime</h3>
+      <table class="info-table" style="width: 100%; border-collapse: collapse;">
+          <tr>
+              <td class="info-header">Ingredienti</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.ingredienti || "..."
+              }</td>
+          </tr>
+          <tr>
+              <td class="info-header">Tabella Analitica</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.tabella_analitica || "..."
+              }</td>
+          </tr>
+          <tr>
+              <td class="info-header">Integrazioni</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.integrazioni || "..."
+              }</td>
+          </tr>
+          <tr>
+              <td class="info-header">Note</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.note || "..."
+              }</td>
+          </tr>
+          <tr>
+              <td class="info-header">ME</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.energia_metabolizzante
+                  ? `${data[0].energia_metabolizzante} kcal/kg`
+                  : "..."
+              }</td>
+          </tr>
+          <tr>
+              <td class="info-header">Fonte</td>
+          </tr>
+          <tr>
+              <td style="text-align: left!important; padding: 5px;">${
+                data[0]?.fonte || "..."
+              }</td>
+          </tr>
+      </table>
+    `;
+    
+    
 
       // Aggiungi le informazioni sotto la tabella dei dettagli
       dettagliContainer.insertAdjacentHTML("beforeend", infoHtml);

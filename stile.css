@@ -415,6 +415,14 @@ select:focus {
     width: 100%;
 }
 
+.info-header {
+    text-align: left;
+    font-weight: bold;
+    background-color: #b57fdb;
+    color: white;
+    padding: 5px;
+}
+
 #container2 {
     display: flex;
     gap: 10px;
